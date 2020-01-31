@@ -1,0 +1,142 @@
+﻿<style>
+    @media only screen and (max-width: 1024px) {
+        .category-template {
+            display:none;
+        }
+    }
+
+    @media only screen and (min-width: 1025px) {
+        .cate-filter {
+            display: none;
+        }
+        .filter-template.tab-content .filters{
+            margin-left: 230px;
+        }
+    }
+
+    .category-template .cate-icon{
+        color:#999;
+        margin-right:5px;
+    }
+
+    .category-template {
+        width: 230px;
+    }
+    .side-bar-menu ul li.active {
+        color: #fff;
+    }
+        .category-template .active .cate-icon{
+            color: #fff;
+        }
+</style>
+<div ng-controller="templatesCtr" class="new-template-page">
+    <section layout="row" class="new-landipage">
+        <div class="category-template">
+            <menu class="side-bar-menu">
+                <ul>
+                    <li ng-repeat="item in cates" ng-click="cateChoose(item.id)" ng-class="{'active': item.id==query.cid }">
+                        <md-icon class="material-icons dp48 cate-icon">keyboard_arrow_right</md-icon><span ng-bind="item.name"></span>
+                    </li>
+                </ul>
+            </menu>
+        </div>
+        <div class="container" ng-init="getCates()">
+            <div class="row">
+                <div class="tab-content filter-template">
+                    <div class="filters">
+                        <md-input-container class="cate-filter">
+                            <md-select aria-label="cat" ng-model="query.cid" ng-change="cateChanged()">
+                                <md-option ng-repeat="item in cates" ng-value="item.id">
+                                    {{item.name}}
+                                </md-option>
+                            </md-select>
+                        </md-input-container>
+
+                        <label class="checkbox">
+                            <input name="chAll" type="checkbox" ng-model="group.all" ng-checked="group.all" ng-change="selectAllChange()">
+                            <i class="c-mark__icon c-mark__icon--checkbox material-icons">check</i>
+                            <span>Tất cả</span>
+                        </label>
+
+                        <label ng-repeat="item in group.options" class="checkbox">
+                            <input type="checkbox" checklist-model="group.selecteds" checklist-value="item.i">
+                            <i class="c-mark__icon c-mark__icon--checkbox material-icons">check</i>
+                            <span tooltips tooltip-template="{{item.d}}" tooltip-side="top" ng-bind="item.n"></span>
+                        </label>
+                        <!--<!--<label class="checkbox">
+                            <input name="chHasLead" type="checkbox" ng-model="query.is_free" ng-change="search()">
+                            <i class="c-mark__icon c-mark__icon--checkbox material-icons">check</i>
+                            <span>Miễn phí</span>
+                        </label>
+                        <label class="checkbox">
+                            <input name="chHasLead" type="checkbox" ng-model="query.is_community" ng-change="search()">
+                            <i class="c-mark__icon c-mark__icon--checkbox material-icons">check</i>
+                            <span>Cộng đồng</span>
+                        </label>-->
+                        <label class="checkbox">
+                            <input name="chHasLead" type="checkbox" ng-model="query.me" ng-change="search()">
+                            <i class="c-mark__icon c-mark__icon--checkbox material-icons">check</i>
+                            <span>Của tôi</span>
+                        </label>
+                        <label class="checkbox" ng-if="isEditor==true">
+                            <input name="chHasLead" type="checkbox" ng-model="query.is_section" ng-checked="(query.type===20)" ng-change="search(20)">
+                            <i class="c-mark__icon c-mark__icon--checkbox material-icons">check</i>
+                            <span>Section</span>
+                        </label>
+                        <label class="checkbox" ng-if="isEditor==true">
+                            <input name="chHasLead" type="checkbox" ng-model="query.is_popup" ng-checked="(query.type===30)" ng-change="search(30)">
+                            <i class="c-mark__icon c-mark__icon--checkbox material-icons">check</i>
+                            <span>Popup</span>
+                        </label>
+
+                        <label class="checkbox" ng-show="isEditor==true">
+                            <input name="isWaitingForApprove" type="checkbox" ng-model="isWaitingForApprove" ng-change="changeIsWaitingForApprove()">
+                            <i class="c-mark__icon c-mark__icon--checkbox material-icons">check</i>
+                            <span>Chờ duyệt</span>
+                        </label>
+                    </div>
+                </div>
+                <div class="tab-content-inner">
+                    <div class="content-inner clearfix">
+                        <div class="col-sm-4 col-md-4 col-xs-6" ng-if="query.status===2">
+                            <div class="box-inner clearfix">
+                                <div class="box-image">
+                                    <img src="images/noimage.png" alt="Trang trắng">
+                                    <div class="action-group clearfix">
+                                        <button class="btn btn-primary" ng-click="showCreatePageByTemplate(null)">Sử dụng trang trắng</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-sm-4 col-md-4 col-xs-6" ng-repeat="t in templates">
+                            <div class="box-inner clearfix">
+                                <div class="box-image">
+                                    <img lazy-src="{{t.thumbnail || 'images/noimage.png'}}" alt="{{t.name}}">
+                                    <div class="action-group clearfix">
+                                        <button ng-if="(t.status===2 || t.userId == profileId) && t.type==10" class="btn btn-primary" ng-click="showCreatePageByTemplate(t.id)">Sử dụng</button>
+                                        <a ng-if="t.status===2 && t.userId != profileId" class="btn btn-primary" ui-sref="preview-template({type:'p', id: t.id})" target="_blank">Xem trước</a>
+                                        <a ng-if="t.status!=2 && (isEditor==true || t.userId == profileId)" class="btn btn-primary" ui-sref="preview-template({type:'t', id: t.id})" target="_blank">Xem trước</a>
+                                        <a ng-if="isEditor==true || t.userId == profileId" class="btn btn-success" ui-sref="editor({type:'t',id: t.id})" target="_blank">Chỉnh sửa</a>
+                                        <button data-toggle="tooltip" data-placement="top" title="Thay đổi hình đại diện" class="btn btn-default" ng-if="isEditor==true || t.userId == profileId" ng-click="showUploadImg(t)"><i class="ion-ios-camera"></i> </button>
+                                        <button data-toggle="tooltip" data-placement="top" title="Thay đổi danh mục" class="btn btn-default" ng-if="isEditor==true || t.userId == profileId" ng-click="showEdit(t)"><i class="ion-edit"></i> </button>
+                                        <button data-toggle="tooltip" data-placement="top" title="Xóa" class="btn btn-danger" ng-if="isEditor==true || t.userId == profileId" ng-click="remove(t.id,$index)"><i class="ion-ios-trash-outline"></i> </button>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--<div class="title-landi"> {{t.name}} </div>-->
+                        </div>
+                    </div>
+                    <div class="pagination-bottom">
+                        <ul ng-show="totalItem > query.limit" uib-pagination total-items="totalItem" ng-model="query.page" class="pagination" ng-change="pageChanged()"></ul>
+                    </div>
+                </div>
+            </div>
+            <div class="dbPageLoading">
+                <div class="loading">
+                    <md-progress-circular md-mode="indeterminate"></md-progress-circular>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>

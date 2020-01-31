@@ -1,0 +1,20 @@
+﻿<md-dialog aria-label="{{title}}">
+    <md-toolbar>
+        <div class="md-toolbar-tools white">
+            <h2 ng-bind="title"></h2>
+            <span flex></span>
+            <md-button class="md-icon-button" ng-click="cancel()">
+                <i class="material-icons">close</i>
+            </md-button>
+        </div>
+    </md-toolbar>
+    <md-dialog-content>
+        <div class="md-dialog-content" style="min-width:260px;">
+            <div flex>
+                <div class="social-network clearfix">
+                    <div class="clearfix" pn-social-share data="page"></div>
+                </div>
+            </div>
+        </div>
+    </md-dialog-content>
+</md-dialog>

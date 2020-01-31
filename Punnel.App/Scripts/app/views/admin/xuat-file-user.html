@@ -1,0 +1,35 @@
+﻿<div id="content" class="container clearfix" ng-controller="xuatFileUserCtrl">
+    <div class="search-title">
+        <div class="group clearfix">
+            <div class="box-group"> <span>Từ ngày</span> <input type="datetime-local" min="2016-01-01" ng-model="dateFrom"> </div>
+            <div class="box-group"> <span>Đến ngày</span> <input type="datetime-local" min="2016-01-01" ng-model="dateTo"> </div>
+            <div class="box-group"> <span>Mã giới thiệu</span> <input type="text" ng-model="codeRef"> </div>
+            <div class="user-type"> <label>Type </label> <select name="typeTK" id="typeTK" ng-model="type" ng-change="settype()"> <option value="1">Ngày hết hạn</option> <option value="2">Ngày đăng ký</option> <option value="3">Ngày chỉnh cuối</option> </select> </div>
+            <div class="box-group"> <button ng-click="creatExcel()">Xuất file excel</button> </div>
+            <div class="box-group"> <a href="{{urlFileExcelDownload}}" target="_blank" ng-show="urlFileExcelDownload != \'\'">Tải về</a> </div>
+            <div class="box-group" style="width: 100%; height: 300px"> <span>Danh sách email</span> <textarea ng-keyup="getListEmail($event)" ng-mouseup="getListEmail($event)" style="width:100%; height: 100%">{{emailListItem}}</textarea> </div>
+            <div class="box-group"> <button ng-click="byEmail()">StatistiaclByEmails</button> </div>
+            <div class="box-group"> <a href="{{urlFileExcelDownloadByEmail}}" target="_blank" ng-show="urlFileExcelDownloadByEmail != \'\'">Tải về</a> </div>
+        </div>
+        <table style="display:none">
+            <tr>
+                <th>Số thứ tự</th>
+                <th>Họ tên</th>
+                <th>Email</th>
+                <th>SĐT</th>
+                <th>Tên gói</th>
+                <th>Ngày bắt đầu</th>
+                <th>Ngày hết hạn</th>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td>Nguyễn Thu Trang</td>
+                <td>trang123@gmail.com</td>
+                <td>Gói cơ bản</td>
+                <td>012456789</td>
+                <td>12-03-2017</td>
+                <td>12-03-2017</td>
+            </tr>
+        </table>
+    </div>
+</div>

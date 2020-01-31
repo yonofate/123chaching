@@ -1,0 +1,283 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+This file is used by the publish/package process of your Web project. You can customize the behavior of this process
+by editing this MSBuild file. In order to learn more about this please visit https://go.microsoft.com/fwlink/?LinkID=208121. 
+-->
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <TimeStampOfAssociatedLegacyPublishXmlFile />
+    <_PublishTargetUrl>C:\publish\hstatic.punnel.com</_PublishTargetUrl>
+  </PropertyGroup>
+  <ItemGroup>
+    <File Include="bin/Antlr3.Runtime.dll">
+      <publishTime>02/22/2013 08:43:40</publishTime>
+    </File>
+    <File Include="bin/Antlr3.Runtime.pdb">
+      <publishTime>02/22/2013 08:43:40</publishTime>
+    </File>
+    <File Include="bin/AWSSDK.Core.dll">
+      <publishTime>08/01/2019 14:34:18</publishTime>
+    </File>
+    <File Include="bin/AWSSDK.Core.pdb">
+      <publishTime>08/01/2019 14:34:18</publishTime>
+    </File>
+    <File Include="bin/AWSSDK.S3.dll">
+      <publishTime>08/01/2019 14:37:28</publishTime>
+    </File>
+    <File Include="bin/AWSSDK.S3.pdb">
+      <publishTime>08/01/2019 14:37:28</publishTime>
+    </File>
+    <File Include="bin/Google.Api.Gax.dll">
+      <publishTime>10/07/2019 15:39:58</publishTime>
+    </File>
+    <File Include="bin/Google.Api.Gax.pdb">
+      <publishTime>10/07/2019 15:39:58</publishTime>
+    </File>
+    <File Include="bin/Google.Api.Gax.Rest.dll">
+      <publishTime>10/07/2019 15:40:02</publishTime>
+    </File>
+    <File Include="bin/Google.Api.Gax.Rest.pdb">
+      <publishTime>10/07/2019 15:40:02</publishTime>
+    </File>
+    <File Include="bin/Google.Apis.Auth.dll">
+      <publishTime>11/05/2019 15:57:32</publishTime>
+    </File>
+    <File Include="bin/Google.Apis.Auth.pdb">
+      <publishTime>11/05/2019 15:57:32</publishTime>
+    </File>
+    <File Include="bin/Google.Apis.Auth.PlatformServices.dll">
+      <publishTime>11/05/2019 15:57:42</publishTime>
+    </File>
+    <File Include="bin/Google.Apis.Core.dll">
+      <publishTime>11/05/2019 15:57:30</publishTime>
+    </File>
+    <File Include="bin/Google.Apis.Core.pdb">
+      <publishTime>11/05/2019 15:57:30</publishTime>
+    </File>
+    <File Include="bin/Google.Apis.dll">
+      <publishTime>11/05/2019 15:57:30</publishTime>
+    </File>
+    <File Include="bin/Google.Apis.pdb">
+      <publishTime>11/05/2019 15:57:30</publishTime>
+    </File>
+    <File Include="bin/Google.Apis.PlatformServices.dll">
+      <publishTime>11/05/2019 15:57:30</publishTime>
+    </File>
+    <File Include="bin/Google.Apis.Storage.v1.dll">
+      <publishTime>11/05/2019 16:08:00</publishTime>
+    </File>
+    <File Include="bin/Google.Apis.Storage.v1.pdb">
+      <publishTime>11/05/2019 16:08:00</publishTime>
+    </File>
+    <File Include="bin/Google.Cloud.Storage.V1.dll">
+      <publishTime>12/10/2019 10:06:42</publishTime>
+    </File>
+    <File Include="bin/Google.Cloud.Storage.V1.pdb">
+      <publishTime>12/10/2019 10:06:42</publishTime>
+    </File>
+    <File Include="bin/ImageResizer.dll">
+      <publishTime>04/06/2018 17:59:28</publishTime>
+    </File>
+    <File Include="bin/ImageResizer.Plugins.DiskCache.dll">
+      <publishTime>04/06/2018 17:59:46</publishTime>
+    </File>
+    <File Include="bin/ImageResizer.Plugins.PrettyGifs.dll">
+      <publishTime>04/06/2018 18:00:08</publishTime>
+    </File>
+    <File Include="bin/ImageResizer.Plugins.S3Reader2.dll">
+      <publishTime>04/06/2018 18:00:20</publishTime>
+    </File>
+    <File Include="bin/ImageResizer.Plugins.TinyCache.dll">
+      <publishTime>04/06/2018 18:00:30</publishTime>
+    </File>
+    <File Include="bin/ImageResizer.Storage.dll">
+      <publishTime>04/06/2018 18:00:44</publishTime>
+    </File>
+    <File Include="bin/ImageResizer.Storage.pdb">
+      <publishTime>04/06/2018 18:00:44</publishTime>
+    </File>
+    <File Include="bin/log4net.dll">
+      <publishTime>03/08/2017 19:26:22</publishTime>
+    </File>
+    <File Include="bin/Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll">
+      <publishTime>06/15/2015 02:06:24</publishTime>
+    </File>
+    <File Include="bin/Microsoft.Web.Infrastructure.dll">
+      <publishTime>07/25/2012 11:48:56</publishTime>
+    </File>
+    <File Include="bin/Newtonsoft.Json.dll">
+      <publishTime>03/24/2018 17:44:14</publishTime>
+    </File>
+    <File Include="bin/Punnel.Static.dll">
+      <publishTime>12/23/2019 02:24:08</publishTime>
+    </File>
+    <File Include="bin/Punnel.Static.pdb">
+      <publishTime>12/23/2019 02:24:08</publishTime>
+    </File>
+    <File Include="bin/roslyn/csc.exe">
+      <publishTime>06/18/2015 20:19:46</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.Build.Tasks.CodeAnalysis.dll">
+      <publishTime>06/18/2015 20:19:46</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.CodeAnalysis.CSharp.dll">
+      <publishTime>06/18/2015 20:19:46</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.CodeAnalysis.dll">
+      <publishTime>06/18/2015 20:19:44</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.CodeAnalysis.VisualBasic.dll">
+      <publishTime>06/18/2015 20:19:46</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.CSharp.Core.targets">
+      <publishTime>06/18/2015 20:19:46</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.VisualBasic.Core.targets">
+      <publishTime>06/18/2015 20:19:46</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.Collections.Immutable.dll">
+      <publishTime>06/18/2015 20:19:46</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.Reflection.Metadata.dll">
+      <publishTime>06/18/2015 20:19:46</publishTime>
+    </File>
+    <File Include="bin/roslyn/vbc.exe">
+      <publishTime>06/18/2015 20:19:46</publishTime>
+    </File>
+    <File Include="bin/roslyn/VBCSCompiler.exe">
+      <publishTime>06/18/2015 20:19:46</publishTime>
+    </File>
+    <File Include="bin/roslyn/VBCSCompiler.exe.config">
+      <publishTime>06/18/2015 20:19:46</publishTime>
+    </File>
+    <File Include="bin/System.Interactive.Async.dll">
+      <publishTime>07/11/2018 13:48:42</publishTime>
+    </File>
+    <File Include="bin/System.Net.Http.Extensions.dll">
+      <publishTime>02/19/2015 20:10:46</publishTime>
+    </File>
+    <File Include="bin/System.Net.Http.Primitives.dll">
+      <publishTime>02/19/2015 20:10:46</publishTime>
+    </File>
+    <File Include="bin/System.Web.Helpers.dll">
+      <publishTime>01/28/2015 04:04:30</publishTime>
+    </File>
+    <File Include="bin/System.Web.Mvc.dll">
+      <publishTime>01/28/2015 04:02:18</publishTime>
+    </File>
+    <File Include="bin/System.Web.Optimization.dll">
+      <publishTime>02/11/2014 15:26:04</publishTime>
+    </File>
+    <File Include="bin/System.Web.Razor.dll">
+      <publishTime>01/28/2015 04:02:32</publishTime>
+    </File>
+    <File Include="bin/System.Web.WebPages.Deployment.dll">
+      <publishTime>01/28/2015 04:04:30</publishTime>
+    </File>
+    <File Include="bin/System.Web.WebPages.dll">
+      <publishTime>01/28/2015 04:04:30</publishTime>
+    </File>
+    <File Include="bin/System.Web.WebPages.Razor.dll">
+      <publishTime>01/28/2015 04:04:30</publishTime>
+    </File>
+    <File Include="bin/WebGrease.dll">
+      <publishTime>07/17/2013 17:03:52</publishTime>
+    </File>
+    <File Include="Content/bootstrap.css">
+      <publishTime>01/23/2019 17:58:15</publishTime>
+    </File>
+    <File Include="Content/bootstrap.min.css">
+      <publishTime>01/23/2019 17:58:15</publishTime>
+    </File>
+    <File Include="Content/Site.css">
+      <publishTime>01/23/2019 17:58:15</publishTime>
+    </File>
+    <File Include="favicon.ico">
+      <publishTime>01/23/2019 17:58:15</publishTime>
+    </File>
+    <File Include="fonts/glyphicons-halflings-regular.eot">
+      <publishTime>01/23/2019 17:58:15</publishTime>
+    </File>
+    <File Include="fonts/glyphicons-halflings-regular.svg">
+      <publishTime>01/23/2019 17:58:15</publishTime>
+    </File>
+    <File Include="fonts/glyphicons-halflings-regular.ttf">
+      <publishTime>01/23/2019 17:58:15</publishTime>
+    </File>
+    <File Include="fonts/glyphicons-halflings-regular.woff">
+      <publishTime>01/23/2019 17:58:15</publishTime>
+    </File>
+    <File Include="Global.asax">
+      <publishTime>01/23/2019 17:58:15</publishTime>
+    </File>
+    <File Include="google-cloud-credential.json">
+      <publishTime>12/19/2019 13:49:20</publishTime>
+    </File>
+    <File Include="packages.config">
+      <publishTime>12/19/2019 12:23:38</publishTime>
+    </File>
+    <File Include="Scripts/bootstrap.js">
+      <publishTime>01/23/2019 17:58:15</publishTime>
+    </File>
+    <File Include="Scripts/bootstrap.min.js">
+      <publishTime>01/23/2019 17:58:15</publishTime>
+    </File>
+    <File Include="Scripts/jquery-1.10.2.js">
+      <publishTime>01/23/2019 17:58:15</publishTime>
+    </File>
+    <File Include="Scripts/jquery-1.10.2.min.js">
+      <publishTime>01/23/2019 17:58:15</publishTime>
+    </File>
+    <File Include="Scripts/jquery-1.10.2.min.map">
+      <publishTime>01/23/2019 17:58:15</publishTime>
+    </File>
+    <File Include="Scripts/jquery.validate.js">
+      <publishTime>01/23/2019 17:58:15</publishTime>
+    </File>
+    <File Include="Scripts/jquery.validate.min.js">
+      <publishTime>01/23/2019 17:58:15</publishTime>
+    </File>
+    <File Include="Scripts/jquery.validate.unobtrusive.js">
+      <publishTime>01/23/2019 17:58:15</publishTime>
+    </File>
+    <File Include="Scripts/jquery.validate.unobtrusive.min.js">
+      <publishTime>01/23/2019 17:58:15</publishTime>
+    </File>
+    <File Include="Scripts/modernizr-2.6.2.js">
+      <publishTime>01/23/2019 17:58:15</publishTime>
+    </File>
+    <File Include="Scripts/respond.js">
+      <publishTime>01/23/2019 17:58:15</publishTime>
+    </File>
+    <File Include="Scripts/respond.min.js">
+      <publishTime>01/23/2019 17:58:15</publishTime>
+    </File>
+    <File Include="Scripts/_references.js">
+      <publishTime>01/23/2019 17:58:15</publishTime>
+    </File>
+    <File Include="Views/Home/About.cshtml">
+      <publishTime>01/23/2019 17:58:15</publishTime>
+    </File>
+    <File Include="Views/Home/Contact.cshtml">
+      <publishTime>01/23/2019 17:58:15</publishTime>
+    </File>
+    <File Include="Views/Home/Index.cshtml">
+      <publishTime>01/23/2019 17:58:15</publishTime>
+    </File>
+    <File Include="Views/Shared/Error.cshtml">
+      <publishTime>01/23/2019 17:58:15</publishTime>
+    </File>
+    <File Include="Views/Shared/_Layout.cshtml">
+      <publishTime>01/23/2019 17:58:15</publishTime>
+    </File>
+    <File Include="Views/Web.config">
+      <publishTime>01/23/2019 17:58:15</publishTime>
+    </File>
+    <File Include="Views/_ViewStart.cshtml">
+      <publishTime>01/23/2019 17:58:15</publishTime>
+    </File>
+    <File Include="Web.config">
+      <publishTime>12/23/2019 02:24:08</publishTime>
+    </File>
+  </ItemGroup>
+</Project>

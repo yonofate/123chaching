@@ -1,0 +1,1599 @@
+{
+  "version": 3,
+  "targets": {
+    ".NETFramework,Version=v4.7.2": {
+      "CommonServiceLocator/1.3.0": {
+        "type": "package",
+        "compile": {
+          "lib/portable-net4+sl5+netcore45+wpa81+wp8/Microsoft.Practices.ServiceLocation.dll": {}
+        },
+        "runtime": {
+          "lib/portable-net4+sl5+netcore45+wpa81+wp8/Microsoft.Practices.ServiceLocation.dll": {}
+        }
+      },
+      "EntityFramework/6.0.0": {
+        "type": "package",
+        "frameworkAssemblies": [
+          "System.ComponentModel.DataAnnotations"
+        ],
+        "compile": {
+          "lib/net45/EntityFramework.SqlServer.dll": {},
+          "lib/net45/EntityFramework.dll": {}
+        },
+        "runtime": {
+          "lib/net45/EntityFramework.SqlServer.dll": {},
+          "lib/net45/EntityFramework.dll": {}
+        }
+      },
+      "HtmlAgilityPack/1.6.10": {
+        "type": "package",
+        "compile": {
+          "lib/Net45/HtmlAgilityPack.dll": {}
+        },
+        "runtime": {
+          "lib/Net45/HtmlAgilityPack.dll": {}
+        }
+      },
+      "log4net/2.0.5": {
+        "type": "package",
+        "compile": {
+          "lib/net45-full/log4net.dll": {}
+        },
+        "runtime": {
+          "lib/net45-full/log4net.dll": {}
+        }
+      },
+      "log4net.ElasticSearch/2.3.7": {
+        "type": "package",
+        "dependencies": {
+          "log4net": "2.0.5"
+        },
+        "compile": {
+          "lib/net45/log4net.ElasticSearch.dll": {}
+        },
+        "runtime": {
+          "lib/net45/log4net.ElasticSearch.dll": {}
+        }
+      },
+      "Newtonsoft.Json/10.0.1": {
+        "type": "package",
+        "compile": {
+          "lib/net45/Newtonsoft.Json.dll": {}
+        },
+        "runtime": {
+          "lib/net45/Newtonsoft.Json.dll": {}
+        }
+      },
+      "RestSharp/106.2.1": {
+        "type": "package",
+        "dependencies": {
+          "System.ValueTuple": "4.4.0"
+        },
+        "frameworkAssemblies": [
+          "System.Web"
+        ],
+        "compile": {
+          "lib/net452/RestSharp.dll": {}
+        },
+        "runtime": {
+          "lib/net452/RestSharp.dll": {}
+        }
+      },
+      "StructureMap/4.5.0": {
+        "type": "package",
+        "dependencies": {
+          "System.Reflection.Emit.Lightweight": "4.3.0"
+        },
+        "compile": {
+          "lib/net45/StructureMap.dll": {}
+        },
+        "runtime": {
+          "lib/net45/StructureMap.dll": {}
+        }
+      },
+      "System.Reflection.Emit.Lightweight/4.3.0": {
+        "type": "package",
+        "compile": {
+          "ref/net45/_._": {}
+        },
+        "runtime": {
+          "lib/net45/_._": {}
+        }
+      },
+      "System.ValueTuple/4.4.0": {
+        "type": "package",
+        "frameworkAssemblies": [
+          "mscorlib"
+        ],
+        "compile": {
+          "ref/net47/System.ValueTuple.dll": {}
+        },
+        "runtime": {
+          "lib/net47/System.ValueTuple.dll": {}
+        }
+      },
+      "HaravanAPIAdapterLibrary/1.0.0": {
+        "type": "project",
+        "compile": {
+          "bin/placeholder/HaravanAPIAdapterLibrary.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/HaravanAPIAdapterLibrary.dll": {}
+        }
+      },
+      "Punnel.Core.BLL/1.0.0": {
+        "type": "project",
+        "dependencies": {
+          "Punnel.Core.Entities": "1.0.0",
+          "Punnel.Core.IIS": "1.0.0",
+          "Punnel.Core.Model": "1.0.0",
+          "Punnel.Core.Utils": "1.0.0",
+          "Punnel.CrawlData": "1.0.0",
+          "Punnel.EmailServices": "1.0.0",
+          "Punnel.FileServiceProxy": "1.0.0",
+          "Punnel.HaravanService": "1.0.0",
+          "Punnel.IntegrationServices": "1.0.0",
+          "Punnel.SapoService": "1.0.0",
+          "Punnel.ShopifyService": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/Punnel.Core.BLL.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Punnel.Core.BLL.dll": {}
+        }
+      },
+      "Punnel.Core.Entities/1.0.0": {
+        "type": "project",
+        "dependencies": {
+          "Punnel.Core.Utils": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/Punnel.Core.Entities.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Punnel.Core.Entities.dll": {}
+        }
+      },
+      "Punnel.Core.IIS/1.0.0": {
+        "type": "project",
+        "dependencies": {
+          "Punnel.Core.Entities": "1.0.0",
+          "Punnel.Core.Utils": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/Punnel.Core.IIS.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Punnel.Core.IIS.dll": {}
+        }
+      },
+      "Punnel.Core.Model/1.0.0": {
+        "type": "project",
+        "dependencies": {
+          "Punnel.Core.Entities": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/Punnel.Core.Model.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Punnel.Core.Model.dll": {}
+        }
+      },
+      "Punnel.Core.Utils/1.0.0": {
+        "type": "project",
+        "compile": {
+          "bin/placeholder/Punnel.Core.Utils.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Punnel.Core.Utils.dll": {}
+        }
+      },
+      "Punnel.CrawlData/1.0.0": {
+        "type": "project",
+        "dependencies": {
+          "Punnel.Core.Entities": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/Punnel.CrawlData.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Punnel.CrawlData.dll": {}
+        }
+      },
+      "Punnel.EmailServices/1.0.0": {
+        "type": "project",
+        "dependencies": {
+          "Punnel.Core.Entities": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/Punnel.EmailServices.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Punnel.EmailServices.dll": {}
+        }
+      },
+      "Punnel.FileServiceProxy/1.0.0": {
+        "type": "project",
+        "dependencies": {
+          "Punnel.Core.Entities": "1.0.0",
+          "Punnel.Core.Utils": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/Punnel.FileServiceProxy.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Punnel.FileServiceProxy.dll": {}
+        }
+      },
+      "Punnel.HaravanService/1.0.0": {
+        "type": "project",
+        "dependencies": {
+          "HaravanAPIAdapterLibrary": "1.0.0",
+          "Punnel.Core.Entities": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/Punnel.HaravanService.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Punnel.HaravanService.dll": {}
+        }
+      },
+      "Punnel.IntegrationServices/1.0.0": {
+        "type": "project",
+        "dependencies": {
+          "Punnel.Core.Entities": "1.0.0",
+          "Punnel.Core.Utils": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/Punnel.IntegrationServices.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Punnel.IntegrationServices.dll": {}
+        }
+      },
+      "Punnel.SapoService/1.0.0": {
+        "type": "project",
+        "dependencies": {
+          "Punnel.Core.Entities": "1.0.0",
+          "SapoAPIAdapterLibrary": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/Punnel.SapoService.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Punnel.SapoService.dll": {}
+        }
+      },
+      "Punnel.ShopifyService/1.0.0": {
+        "type": "project",
+        "dependencies": {
+          "Punnel.Core.Entities": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/Punnel.ShopifyService.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Punnel.ShopifyService.dll": {}
+        }
+      },
+      "SapoAPIAdapterLibrary/1.0.0": {
+        "type": "project",
+        "compile": {
+          "bin/placeholder/SapoAPIAdapterLibrary.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/SapoAPIAdapterLibrary.dll": {}
+        }
+      }
+    },
+    ".NETFramework,Version=v4.7.2/win": {
+      "CommonServiceLocator/1.3.0": {
+        "type": "package",
+        "compile": {
+          "lib/portable-net4+sl5+netcore45+wpa81+wp8/Microsoft.Practices.ServiceLocation.dll": {}
+        },
+        "runtime": {
+          "lib/portable-net4+sl5+netcore45+wpa81+wp8/Microsoft.Practices.ServiceLocation.dll": {}
+        }
+      },
+      "EntityFramework/6.0.0": {
+        "type": "package",
+        "frameworkAssemblies": [
+          "System.ComponentModel.DataAnnotations"
+        ],
+        "compile": {
+          "lib/net45/EntityFramework.SqlServer.dll": {},
+          "lib/net45/EntityFramework.dll": {}
+        },
+        "runtime": {
+          "lib/net45/EntityFramework.SqlServer.dll": {},
+          "lib/net45/EntityFramework.dll": {}
+        }
+      },
+      "HtmlAgilityPack/1.6.10": {
+        "type": "package",
+        "compile": {
+          "lib/Net45/HtmlAgilityPack.dll": {}
+        },
+        "runtime": {
+          "lib/Net45/HtmlAgilityPack.dll": {}
+        }
+      },
+      "log4net/2.0.5": {
+        "type": "package",
+        "compile": {
+          "lib/net45-full/log4net.dll": {}
+        },
+        "runtime": {
+          "lib/net45-full/log4net.dll": {}
+        }
+      },
+      "log4net.ElasticSearch/2.3.7": {
+        "type": "package",
+        "dependencies": {
+          "log4net": "2.0.5"
+        },
+        "compile": {
+          "lib/net45/log4net.ElasticSearch.dll": {}
+        },
+        "runtime": {
+          "lib/net45/log4net.ElasticSearch.dll": {}
+        }
+      },
+      "Newtonsoft.Json/10.0.1": {
+        "type": "package",
+        "compile": {
+          "lib/net45/Newtonsoft.Json.dll": {}
+        },
+        "runtime": {
+          "lib/net45/Newtonsoft.Json.dll": {}
+        }
+      },
+      "RestSharp/106.2.1": {
+        "type": "package",
+        "dependencies": {
+          "System.ValueTuple": "4.4.0"
+        },
+        "frameworkAssemblies": [
+          "System.Web"
+        ],
+        "compile": {
+          "lib/net452/RestSharp.dll": {}
+        },
+        "runtime": {
+          "lib/net452/RestSharp.dll": {}
+        }
+      },
+      "StructureMap/4.5.0": {
+        "type": "package",
+        "dependencies": {
+          "System.Reflection.Emit.Lightweight": "4.3.0"
+        },
+        "compile": {
+          "lib/net45/StructureMap.dll": {}
+        },
+        "runtime": {
+          "lib/net45/StructureMap.dll": {}
+        }
+      },
+      "System.Reflection.Emit.Lightweight/4.3.0": {
+        "type": "package",
+        "compile": {
+          "ref/net45/_._": {}
+        },
+        "runtime": {
+          "lib/net45/_._": {}
+        }
+      },
+      "System.ValueTuple/4.4.0": {
+        "type": "package",
+        "frameworkAssemblies": [
+          "mscorlib"
+        ],
+        "compile": {
+          "ref/net47/System.ValueTuple.dll": {}
+        },
+        "runtime": {
+          "lib/net47/System.ValueTuple.dll": {}
+        }
+      },
+      "HaravanAPIAdapterLibrary/1.0.0": {
+        "type": "project",
+        "compile": {
+          "bin/placeholder/HaravanAPIAdapterLibrary.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/HaravanAPIAdapterLibrary.dll": {}
+        }
+      },
+      "Punnel.Core.BLL/1.0.0": {
+        "type": "project",
+        "dependencies": {
+          "Punnel.Core.Entities": "1.0.0",
+          "Punnel.Core.IIS": "1.0.0",
+          "Punnel.Core.Model": "1.0.0",
+          "Punnel.Core.Utils": "1.0.0",
+          "Punnel.CrawlData": "1.0.0",
+          "Punnel.EmailServices": "1.0.0",
+          "Punnel.FileServiceProxy": "1.0.0",
+          "Punnel.HaravanService": "1.0.0",
+          "Punnel.IntegrationServices": "1.0.0",
+          "Punnel.SapoService": "1.0.0",
+          "Punnel.ShopifyService": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/Punnel.Core.BLL.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Punnel.Core.BLL.dll": {}
+        }
+      },
+      "Punnel.Core.Entities/1.0.0": {
+        "type": "project",
+        "dependencies": {
+          "Punnel.Core.Utils": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/Punnel.Core.Entities.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Punnel.Core.Entities.dll": {}
+        }
+      },
+      "Punnel.Core.IIS/1.0.0": {
+        "type": "project",
+        "dependencies": {
+          "Punnel.Core.Entities": "1.0.0",
+          "Punnel.Core.Utils": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/Punnel.Core.IIS.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Punnel.Core.IIS.dll": {}
+        }
+      },
+      "Punnel.Core.Model/1.0.0": {
+        "type": "project",
+        "dependencies": {
+          "Punnel.Core.Entities": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/Punnel.Core.Model.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Punnel.Core.Model.dll": {}
+        }
+      },
+      "Punnel.Core.Utils/1.0.0": {
+        "type": "project",
+        "compile": {
+          "bin/placeholder/Punnel.Core.Utils.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Punnel.Core.Utils.dll": {}
+        }
+      },
+      "Punnel.CrawlData/1.0.0": {
+        "type": "project",
+        "dependencies": {
+          "Punnel.Core.Entities": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/Punnel.CrawlData.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Punnel.CrawlData.dll": {}
+        }
+      },
+      "Punnel.EmailServices/1.0.0": {
+        "type": "project",
+        "dependencies": {
+          "Punnel.Core.Entities": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/Punnel.EmailServices.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Punnel.EmailServices.dll": {}
+        }
+      },
+      "Punnel.FileServiceProxy/1.0.0": {
+        "type": "project",
+        "dependencies": {
+          "Punnel.Core.Entities": "1.0.0",
+          "Punnel.Core.Utils": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/Punnel.FileServiceProxy.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Punnel.FileServiceProxy.dll": {}
+        }
+      },
+      "Punnel.HaravanService/1.0.0": {
+        "type": "project",
+        "dependencies": {
+          "HaravanAPIAdapterLibrary": "1.0.0",
+          "Punnel.Core.Entities": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/Punnel.HaravanService.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Punnel.HaravanService.dll": {}
+        }
+      },
+      "Punnel.IntegrationServices/1.0.0": {
+        "type": "project",
+        "dependencies": {
+          "Punnel.Core.Entities": "1.0.0",
+          "Punnel.Core.Utils": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/Punnel.IntegrationServices.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Punnel.IntegrationServices.dll": {}
+        }
+      },
+      "Punnel.SapoService/1.0.0": {
+        "type": "project",
+        "dependencies": {
+          "Punnel.Core.Entities": "1.0.0",
+          "SapoAPIAdapterLibrary": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/Punnel.SapoService.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Punnel.SapoService.dll": {}
+        }
+      },
+      "Punnel.ShopifyService/1.0.0": {
+        "type": "project",
+        "dependencies": {
+          "Punnel.Core.Entities": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/Punnel.ShopifyService.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Punnel.ShopifyService.dll": {}
+        }
+      },
+      "SapoAPIAdapterLibrary/1.0.0": {
+        "type": "project",
+        "compile": {
+          "bin/placeholder/SapoAPIAdapterLibrary.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/SapoAPIAdapterLibrary.dll": {}
+        }
+      }
+    },
+    ".NETFramework,Version=v4.7.2/win-x64": {
+      "CommonServiceLocator/1.3.0": {
+        "type": "package",
+        "compile": {
+          "lib/portable-net4+sl5+netcore45+wpa81+wp8/Microsoft.Practices.ServiceLocation.dll": {}
+        },
+        "runtime": {
+          "lib/portable-net4+sl5+netcore45+wpa81+wp8/Microsoft.Practices.ServiceLocation.dll": {}
+        }
+      },
+      "EntityFramework/6.0.0": {
+        "type": "package",
+        "frameworkAssemblies": [
+          "System.ComponentModel.DataAnnotations"
+        ],
+        "compile": {
+          "lib/net45/EntityFramework.SqlServer.dll": {},
+          "lib/net45/EntityFramework.dll": {}
+        },
+        "runtime": {
+          "lib/net45/EntityFramework.SqlServer.dll": {},
+          "lib/net45/EntityFramework.dll": {}
+        }
+      },
+      "HtmlAgilityPack/1.6.10": {
+        "type": "package",
+        "compile": {
+          "lib/Net45/HtmlAgilityPack.dll": {}
+        },
+        "runtime": {
+          "lib/Net45/HtmlAgilityPack.dll": {}
+        }
+      },
+      "log4net/2.0.5": {
+        "type": "package",
+        "compile": {
+          "lib/net45-full/log4net.dll": {}
+        },
+        "runtime": {
+          "lib/net45-full/log4net.dll": {}
+        }
+      },
+      "log4net.ElasticSearch/2.3.7": {
+        "type": "package",
+        "dependencies": {
+          "log4net": "2.0.5"
+        },
+        "compile": {
+          "lib/net45/log4net.ElasticSearch.dll": {}
+        },
+        "runtime": {
+          "lib/net45/log4net.ElasticSearch.dll": {}
+        }
+      },
+      "Newtonsoft.Json/10.0.1": {
+        "type": "package",
+        "compile": {
+          "lib/net45/Newtonsoft.Json.dll": {}
+        },
+        "runtime": {
+          "lib/net45/Newtonsoft.Json.dll": {}
+        }
+      },
+      "RestSharp/106.2.1": {
+        "type": "package",
+        "dependencies": {
+          "System.ValueTuple": "4.4.0"
+        },
+        "frameworkAssemblies": [
+          "System.Web"
+        ],
+        "compile": {
+          "lib/net452/RestSharp.dll": {}
+        },
+        "runtime": {
+          "lib/net452/RestSharp.dll": {}
+        }
+      },
+      "StructureMap/4.5.0": {
+        "type": "package",
+        "dependencies": {
+          "System.Reflection.Emit.Lightweight": "4.3.0"
+        },
+        "compile": {
+          "lib/net45/StructureMap.dll": {}
+        },
+        "runtime": {
+          "lib/net45/StructureMap.dll": {}
+        }
+      },
+      "System.Reflection.Emit.Lightweight/4.3.0": {
+        "type": "package",
+        "compile": {
+          "ref/net45/_._": {}
+        },
+        "runtime": {
+          "lib/net45/_._": {}
+        }
+      },
+      "System.ValueTuple/4.4.0": {
+        "type": "package",
+        "frameworkAssemblies": [
+          "mscorlib"
+        ],
+        "compile": {
+          "ref/net47/System.ValueTuple.dll": {}
+        },
+        "runtime": {
+          "lib/net47/System.ValueTuple.dll": {}
+        }
+      },
+      "HaravanAPIAdapterLibrary/1.0.0": {
+        "type": "project",
+        "compile": {
+          "bin/placeholder/HaravanAPIAdapterLibrary.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/HaravanAPIAdapterLibrary.dll": {}
+        }
+      },
+      "Punnel.Core.BLL/1.0.0": {
+        "type": "project",
+        "dependencies": {
+          "Punnel.Core.Entities": "1.0.0",
+          "Punnel.Core.IIS": "1.0.0",
+          "Punnel.Core.Model": "1.0.0",
+          "Punnel.Core.Utils": "1.0.0",
+          "Punnel.CrawlData": "1.0.0",
+          "Punnel.EmailServices": "1.0.0",
+          "Punnel.FileServiceProxy": "1.0.0",
+          "Punnel.HaravanService": "1.0.0",
+          "Punnel.IntegrationServices": "1.0.0",
+          "Punnel.SapoService": "1.0.0",
+          "Punnel.ShopifyService": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/Punnel.Core.BLL.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Punnel.Core.BLL.dll": {}
+        }
+      },
+      "Punnel.Core.Entities/1.0.0": {
+        "type": "project",
+        "dependencies": {
+          "Punnel.Core.Utils": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/Punnel.Core.Entities.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Punnel.Core.Entities.dll": {}
+        }
+      },
+      "Punnel.Core.IIS/1.0.0": {
+        "type": "project",
+        "dependencies": {
+          "Punnel.Core.Entities": "1.0.0",
+          "Punnel.Core.Utils": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/Punnel.Core.IIS.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Punnel.Core.IIS.dll": {}
+        }
+      },
+      "Punnel.Core.Model/1.0.0": {
+        "type": "project",
+        "dependencies": {
+          "Punnel.Core.Entities": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/Punnel.Core.Model.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Punnel.Core.Model.dll": {}
+        }
+      },
+      "Punnel.Core.Utils/1.0.0": {
+        "type": "project",
+        "compile": {
+          "bin/placeholder/Punnel.Core.Utils.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Punnel.Core.Utils.dll": {}
+        }
+      },
+      "Punnel.CrawlData/1.0.0": {
+        "type": "project",
+        "dependencies": {
+          "Punnel.Core.Entities": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/Punnel.CrawlData.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Punnel.CrawlData.dll": {}
+        }
+      },
+      "Punnel.EmailServices/1.0.0": {
+        "type": "project",
+        "dependencies": {
+          "Punnel.Core.Entities": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/Punnel.EmailServices.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Punnel.EmailServices.dll": {}
+        }
+      },
+      "Punnel.FileServiceProxy/1.0.0": {
+        "type": "project",
+        "dependencies": {
+          "Punnel.Core.Entities": "1.0.0",
+          "Punnel.Core.Utils": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/Punnel.FileServiceProxy.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Punnel.FileServiceProxy.dll": {}
+        }
+      },
+      "Punnel.HaravanService/1.0.0": {
+        "type": "project",
+        "dependencies": {
+          "HaravanAPIAdapterLibrary": "1.0.0",
+          "Punnel.Core.Entities": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/Punnel.HaravanService.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Punnel.HaravanService.dll": {}
+        }
+      },
+      "Punnel.IntegrationServices/1.0.0": {
+        "type": "project",
+        "dependencies": {
+          "Punnel.Core.Entities": "1.0.0",
+          "Punnel.Core.Utils": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/Punnel.IntegrationServices.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Punnel.IntegrationServices.dll": {}
+        }
+      },
+      "Punnel.SapoService/1.0.0": {
+        "type": "project",
+        "dependencies": {
+          "Punnel.Core.Entities": "1.0.0",
+          "SapoAPIAdapterLibrary": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/Punnel.SapoService.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Punnel.SapoService.dll": {}
+        }
+      },
+      "Punnel.ShopifyService/1.0.0": {
+        "type": "project",
+        "dependencies": {
+          "Punnel.Core.Entities": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/Punnel.ShopifyService.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Punnel.ShopifyService.dll": {}
+        }
+      },
+      "SapoAPIAdapterLibrary/1.0.0": {
+        "type": "project",
+        "compile": {
+          "bin/placeholder/SapoAPIAdapterLibrary.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/SapoAPIAdapterLibrary.dll": {}
+        }
+      }
+    },
+    ".NETFramework,Version=v4.7.2/win-x86": {
+      "CommonServiceLocator/1.3.0": {
+        "type": "package",
+        "compile": {
+          "lib/portable-net4+sl5+netcore45+wpa81+wp8/Microsoft.Practices.ServiceLocation.dll": {}
+        },
+        "runtime": {
+          "lib/portable-net4+sl5+netcore45+wpa81+wp8/Microsoft.Practices.ServiceLocation.dll": {}
+        }
+      },
+      "EntityFramework/6.0.0": {
+        "type": "package",
+        "frameworkAssemblies": [
+          "System.ComponentModel.DataAnnotations"
+        ],
+        "compile": {
+          "lib/net45/EntityFramework.SqlServer.dll": {},
+          "lib/net45/EntityFramework.dll": {}
+        },
+        "runtime": {
+          "lib/net45/EntityFramework.SqlServer.dll": {},
+          "lib/net45/EntityFramework.dll": {}
+        }
+      },
+      "HtmlAgilityPack/1.6.10": {
+        "type": "package",
+        "compile": {
+          "lib/Net45/HtmlAgilityPack.dll": {}
+        },
+        "runtime": {
+          "lib/Net45/HtmlAgilityPack.dll": {}
+        }
+      },
+      "log4net/2.0.5": {
+        "type": "package",
+        "compile": {
+          "lib/net45-full/log4net.dll": {}
+        },
+        "runtime": {
+          "lib/net45-full/log4net.dll": {}
+        }
+      },
+      "log4net.ElasticSearch/2.3.7": {
+        "type": "package",
+        "dependencies": {
+          "log4net": "2.0.5"
+        },
+        "compile": {
+          "lib/net45/log4net.ElasticSearch.dll": {}
+        },
+        "runtime": {
+          "lib/net45/log4net.ElasticSearch.dll": {}
+        }
+      },
+      "Newtonsoft.Json/10.0.1": {
+        "type": "package",
+        "compile": {
+          "lib/net45/Newtonsoft.Json.dll": {}
+        },
+        "runtime": {
+          "lib/net45/Newtonsoft.Json.dll": {}
+        }
+      },
+      "RestSharp/106.2.1": {
+        "type": "package",
+        "dependencies": {
+          "System.ValueTuple": "4.4.0"
+        },
+        "frameworkAssemblies": [
+          "System.Web"
+        ],
+        "compile": {
+          "lib/net452/RestSharp.dll": {}
+        },
+        "runtime": {
+          "lib/net452/RestSharp.dll": {}
+        }
+      },
+      "StructureMap/4.5.0": {
+        "type": "package",
+        "dependencies": {
+          "System.Reflection.Emit.Lightweight": "4.3.0"
+        },
+        "compile": {
+          "lib/net45/StructureMap.dll": {}
+        },
+        "runtime": {
+          "lib/net45/StructureMap.dll": {}
+        }
+      },
+      "System.Reflection.Emit.Lightweight/4.3.0": {
+        "type": "package",
+        "compile": {
+          "ref/net45/_._": {}
+        },
+        "runtime": {
+          "lib/net45/_._": {}
+        }
+      },
+      "System.ValueTuple/4.4.0": {
+        "type": "package",
+        "frameworkAssemblies": [
+          "mscorlib"
+        ],
+        "compile": {
+          "ref/net47/System.ValueTuple.dll": {}
+        },
+        "runtime": {
+          "lib/net47/System.ValueTuple.dll": {}
+        }
+      },
+      "HaravanAPIAdapterLibrary/1.0.0": {
+        "type": "project",
+        "compile": {
+          "bin/placeholder/HaravanAPIAdapterLibrary.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/HaravanAPIAdapterLibrary.dll": {}
+        }
+      },
+      "Punnel.Core.BLL/1.0.0": {
+        "type": "project",
+        "dependencies": {
+          "Punnel.Core.Entities": "1.0.0",
+          "Punnel.Core.IIS": "1.0.0",
+          "Punnel.Core.Model": "1.0.0",
+          "Punnel.Core.Utils": "1.0.0",
+          "Punnel.CrawlData": "1.0.0",
+          "Punnel.EmailServices": "1.0.0",
+          "Punnel.FileServiceProxy": "1.0.0",
+          "Punnel.HaravanService": "1.0.0",
+          "Punnel.IntegrationServices": "1.0.0",
+          "Punnel.SapoService": "1.0.0",
+          "Punnel.ShopifyService": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/Punnel.Core.BLL.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Punnel.Core.BLL.dll": {}
+        }
+      },
+      "Punnel.Core.Entities/1.0.0": {
+        "type": "project",
+        "dependencies": {
+          "Punnel.Core.Utils": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/Punnel.Core.Entities.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Punnel.Core.Entities.dll": {}
+        }
+      },
+      "Punnel.Core.IIS/1.0.0": {
+        "type": "project",
+        "dependencies": {
+          "Punnel.Core.Entities": "1.0.0",
+          "Punnel.Core.Utils": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/Punnel.Core.IIS.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Punnel.Core.IIS.dll": {}
+        }
+      },
+      "Punnel.Core.Model/1.0.0": {
+        "type": "project",
+        "dependencies": {
+          "Punnel.Core.Entities": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/Punnel.Core.Model.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Punnel.Core.Model.dll": {}
+        }
+      },
+      "Punnel.Core.Utils/1.0.0": {
+        "type": "project",
+        "compile": {
+          "bin/placeholder/Punnel.Core.Utils.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Punnel.Core.Utils.dll": {}
+        }
+      },
+      "Punnel.CrawlData/1.0.0": {
+        "type": "project",
+        "dependencies": {
+          "Punnel.Core.Entities": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/Punnel.CrawlData.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Punnel.CrawlData.dll": {}
+        }
+      },
+      "Punnel.EmailServices/1.0.0": {
+        "type": "project",
+        "dependencies": {
+          "Punnel.Core.Entities": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/Punnel.EmailServices.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Punnel.EmailServices.dll": {}
+        }
+      },
+      "Punnel.FileServiceProxy/1.0.0": {
+        "type": "project",
+        "dependencies": {
+          "Punnel.Core.Entities": "1.0.0",
+          "Punnel.Core.Utils": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/Punnel.FileServiceProxy.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Punnel.FileServiceProxy.dll": {}
+        }
+      },
+      "Punnel.HaravanService/1.0.0": {
+        "type": "project",
+        "dependencies": {
+          "HaravanAPIAdapterLibrary": "1.0.0",
+          "Punnel.Core.Entities": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/Punnel.HaravanService.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Punnel.HaravanService.dll": {}
+        }
+      },
+      "Punnel.IntegrationServices/1.0.0": {
+        "type": "project",
+        "dependencies": {
+          "Punnel.Core.Entities": "1.0.0",
+          "Punnel.Core.Utils": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/Punnel.IntegrationServices.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Punnel.IntegrationServices.dll": {}
+        }
+      },
+      "Punnel.SapoService/1.0.0": {
+        "type": "project",
+        "dependencies": {
+          "Punnel.Core.Entities": "1.0.0",
+          "SapoAPIAdapterLibrary": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/Punnel.SapoService.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Punnel.SapoService.dll": {}
+        }
+      },
+      "Punnel.ShopifyService/1.0.0": {
+        "type": "project",
+        "dependencies": {
+          "Punnel.Core.Entities": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/Punnel.ShopifyService.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Punnel.ShopifyService.dll": {}
+        }
+      },
+      "SapoAPIAdapterLibrary/1.0.0": {
+        "type": "project",
+        "compile": {
+          "bin/placeholder/SapoAPIAdapterLibrary.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/SapoAPIAdapterLibrary.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "CommonServiceLocator/1.3.0": {
+      "sha512": "fbjO0SNwbOFPdwVfyqv+B7gIJ2CVBOFPKqn1mDDECK7KER8jFaOdcvroFYoAHa0ktPbxi5s+15qOLnA96f8GSA==",
+      "type": "package",
+      "path": "commonservicelocator/1.3.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "commonservicelocator.1.3.0.nupkg.sha512",
+        "commonservicelocator.nuspec",
+        "lib/portable-net4+sl5+netcore45+wpa81+wp8/Microsoft.Practices.ServiceLocation.XML",
+        "lib/portable-net4+sl5+netcore45+wpa81+wp8/Microsoft.Practices.ServiceLocation.dll",
+        "lib/portable-net4+sl5+netcore45+wpa81+wp8/Microsoft.Practices.ServiceLocation.pdb"
+      ]
+    },
+    "EntityFramework/6.0.0": {
+      "sha512": "y6lX/VMghGBV6TvgQS4Q2WK6kAcOoyD+TQxObN9utd0JsMMdMxyqARxKbvgi7KEIbQ8osZ4ZvImaly7l3NDFDw==",
+      "type": "package",
+      "path": "entityframework/6.0.0",
+      "hasTools": true,
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Content/App.config.transform",
+        "Content/Web.config.transform",
+        "entityframework.6.0.0.nupkg.sha512",
+        "entityframework.nuspec",
+        "lib/net40/EntityFramework.SqlServer.dll",
+        "lib/net40/EntityFramework.SqlServer.xml",
+        "lib/net40/EntityFramework.dll",
+        "lib/net40/EntityFramework.xml",
+        "lib/net45/EntityFramework.SqlServer.dll",
+        "lib/net45/EntityFramework.SqlServer.xml",
+        "lib/net45/EntityFramework.dll",
+        "lib/net45/EntityFramework.xml",
+        "tools/EntityFramework.PowerShell.Utility.dll",
+        "tools/EntityFramework.PowerShell.dll",
+        "tools/EntityFramework.psd1",
+        "tools/EntityFramework.psm1",
+        "tools/about_EntityFramework.help.txt",
+        "tools/init.ps1",
+        "tools/install.ps1",
+        "tools/migrate.exe"
+      ]
+    },
+    "HtmlAgilityPack/1.6.10": {
+      "sha512": "3sUWrt5vq592Oyj8Bsmm/zpJ6yi0ImomIK/9VQqUQCHt3VLsrIT+UPC5NZhIIiXWPGxkBWs/c58muPSh/qRyYg==",
+      "type": "package",
+      "path": "htmlagilitypack/1.6.10",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "htmlagilitypack.1.6.10.nupkg.sha512",
+        "htmlagilitypack.nuspec",
+        "lib/Net20/HtmlAgilityPack.dll",
+        "lib/Net20/HtmlAgilityPack.pdb",
+        "lib/Net20/HtmlAgilityPack.xml",
+        "lib/Net40-client/HtmlAgilityPack.dll",
+        "lib/Net40-client/HtmlAgilityPack.pdb",
+        "lib/Net40-client/HtmlAgilityPack.xml",
+        "lib/Net40/HtmlAgilityPack.XML",
+        "lib/Net40/HtmlAgilityPack.dll",
+        "lib/Net40/HtmlAgilityPack.pdb",
+        "lib/Net45/HtmlAgilityPack.XML",
+        "lib/Net45/HtmlAgilityPack.dll",
+        "lib/Net45/HtmlAgilityPack.pdb",
+        "lib/NetCore45/HtmlAgilityPack.XML",
+        "lib/NetCore45/HtmlAgilityPack.dll",
+        "lib/NetCore45/HtmlAgilityPack.pdb",
+        "lib/netstandard1.3/HtmlAgilityPack.deps.json",
+        "lib/netstandard1.3/HtmlAgilityPack.dll",
+        "lib/netstandard1.3/HtmlAgilityPack.pdb",
+        "lib/netstandard1.3/HtmlAgilityPack.xml",
+        "lib/netstandard1.6/HtmlAgilityPack.deps.json",
+        "lib/netstandard1.6/HtmlAgilityPack.dll",
+        "lib/netstandard1.6/HtmlAgilityPack.pdb",
+        "lib/netstandard1.6/HtmlAgilityPack.xml",
+        "lib/netstandard2.0/HtmlAgilityPack.deps.json",
+        "lib/netstandard2.0/HtmlAgilityPack.dll",
+        "lib/netstandard2.0/HtmlAgilityPack.pdb",
+        "lib/netstandard2.0/HtmlAgilityPack.xml",
+        "lib/portable-net45+netcore45+wp8+MonoAndroid+MonoTouch/HtmlAgilityPack.XML",
+        "lib/portable-net45+netcore45+wp8+MonoAndroid+MonoTouch/HtmlAgilityPack.dll",
+        "lib/portable-net45+netcore45+wp8+MonoAndroid+MonoTouch/HtmlAgilityPack.pdb",
+        "lib/portable-net45+netcore45+wpa81+wp8+MonoAndroid+MonoTouch/HtmlAgilityPack.XML",
+        "lib/portable-net45+netcore45+wpa81+wp8+MonoAndroid+MonoTouch/HtmlAgilityPack.dll",
+        "lib/portable-net45+netcore45+wpa81+wp8+MonoAndroid+MonoTouch/HtmlAgilityPack.pdb",
+        "lib/uap10.0/HtmlAgilityPack.XML",
+        "lib/uap10.0/HtmlAgilityPack.dll",
+        "lib/uap10.0/HtmlAgilityPack.pdb",
+        "lib/uap10.0/HtmlAgilityPack.pri"
+      ]
+    },
+    "log4net/2.0.5": {
+      "sha512": "AEqPZz+v+OikfnR2SqRVdQPnSaLq5y9Iz1CfRQZ9kTKPYCXHG6zYmDHb7wJotICpDLMr/JqokyjiqKAjUKp0ng==",
+      "type": "package",
+      "path": "log4net/2.0.5",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/net10-full/log4net.dll",
+        "lib/net10-full/log4net.xml",
+        "lib/net11-full/log4net.dll",
+        "lib/net11-full/log4net.xml",
+        "lib/net20-full/log4net.dll",
+        "lib/net20-full/log4net.xml",
+        "lib/net35-client/log4net.dll",
+        "lib/net35-client/log4net.xml",
+        "lib/net35-full/log4net.dll",
+        "lib/net35-full/log4net.xml",
+        "lib/net40-client/log4net.dll",
+        "lib/net40-client/log4net.xml",
+        "lib/net40-full/log4net.dll",
+        "lib/net40-full/log4net.xml",
+        "lib/net45-full/log4net.dll",
+        "lib/net45-full/log4net.xml",
+        "log4net.2.0.5.nupkg.sha512",
+        "log4net.nuspec"
+      ]
+    },
+    "log4net.ElasticSearch/2.3.7": {
+      "sha512": "1EOEzasS3N8bt9T3Kljzpux1oxfruuHThaBIbU5GIpRcwKLnlaW0U+sKniqS0kcbUR6PSWpOOk2r4JcNih48Bg==",
+      "type": "package",
+      "path": "log4net.elasticsearch/2.3.7",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/net40/log4net.ElasticSearch.Net40.dll",
+        "lib/net40/log4net.ElasticSearch.Net40.pdb",
+        "lib/net45/log4net.ElasticSearch.dll",
+        "lib/net45/log4net.ElasticSearch.pdb",
+        "log4net.elasticsearch.2.3.7.nupkg.sha512",
+        "log4net.elasticsearch.nuspec",
+        "readme.txt"
+      ]
+    },
+    "Newtonsoft.Json/10.0.1": {
+      "sha512": "ebWzW9j2nwxQeBo59As2TYn7nYr9BHicqqCwHOD1Vdo+50HBtLPuqdiCYJcLdTRknpYis/DSEOQz5KmZxwrIAg==",
+      "type": "package",
+      "path": "newtonsoft.json/10.0.1",
+      "hasTools": true,
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/net20/Newtonsoft.Json.dll",
+        "lib/net20/Newtonsoft.Json.xml",
+        "lib/net35/Newtonsoft.Json.dll",
+        "lib/net35/Newtonsoft.Json.xml",
+        "lib/net40/Newtonsoft.Json.dll",
+        "lib/net40/Newtonsoft.Json.xml",
+        "lib/net45/Newtonsoft.Json.dll",
+        "lib/net45/Newtonsoft.Json.xml",
+        "lib/netstandard1.0/Newtonsoft.Json.dll",
+        "lib/netstandard1.0/Newtonsoft.Json.xml",
+        "lib/netstandard1.3/Newtonsoft.Json.dll",
+        "lib/netstandard1.3/Newtonsoft.Json.xml",
+        "lib/portable-net45+win8+wpa81+wp8/Newtonsoft.Json.dll",
+        "lib/portable-net45+win8+wpa81+wp8/Newtonsoft.Json.xml",
+        "newtonsoft.json.10.0.1.nupkg.sha512",
+        "newtonsoft.json.nuspec",
+        "tools/install.ps1"
+      ]
+    },
+    "RestSharp/106.2.1": {
+      "sha512": "YlL7/d6N0loTeI7BatX38snkSI/UhKSMPIWZ+rAxMMFM05QOKPySb43bNm/AUHmVca/FaNceOpgtZzY7Em8vNw==",
+      "type": "package",
+      "path": "restsharp/106.2.1",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/net452/RestSharp.dll",
+        "lib/netstandard2.0/RestSharp.dll",
+        "restsharp.106.2.1.nupkg.sha512",
+        "restsharp.nuspec"
+      ]
+    },
+    "StructureMap/4.5.0": {
+      "sha512": "P7Xsq8IcxUcrXdGusACcyaIIN/PAlo6XvnPOJHzth4tcNlXAd+tqckytKLJcFaLSnwc5rcTtBk95R71xvu6aaA==",
+      "type": "package",
+      "path": "structuremap/4.5.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/net45/StructureMap.dll",
+        "lib/net45/StructureMap.xml",
+        "lib/netstandard1.3/StructureMap.dll",
+        "lib/netstandard1.3/StructureMap.xml",
+        "lib/netstandard1.5/StructureMap.dll",
+        "lib/netstandard1.5/StructureMap.xml",
+        "structuremap.4.5.0.nupkg.sha512",
+        "structuremap.nuspec"
+      ]
+    },
+    "System.Reflection.Emit.Lightweight/4.3.0": {
+      "sha512": "oadVHGSMsTmZsAF864QYN1t1QzZjIcuKU3l2S9cZOwDdDueNTrqq1yRj7koFfIGEnKpt6NjpL3rOzRhs4ryOgA==",
+      "type": "package",
+      "path": "system.reflection.emit.lightweight/4.3.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "ThirdPartyNotices.txt",
+        "dotnet_library_license.txt",
+        "lib/MonoAndroid10/_._",
+        "lib/MonoTouch10/_._",
+        "lib/net45/_._",
+        "lib/netcore50/System.Reflection.Emit.Lightweight.dll",
+        "lib/netstandard1.3/System.Reflection.Emit.Lightweight.dll",
+        "lib/portable-net45+wp8/_._",
+        "lib/wp80/_._",
+        "lib/xamarinios10/_._",
+        "lib/xamarinmac20/_._",
+        "lib/xamarintvos10/_._",
+        "lib/xamarinwatchos10/_._",
+        "ref/MonoAndroid10/_._",
+        "ref/MonoTouch10/_._",
+        "ref/net45/_._",
+        "ref/netstandard1.0/System.Reflection.Emit.Lightweight.dll",
+        "ref/netstandard1.0/System.Reflection.Emit.Lightweight.xml",
+        "ref/netstandard1.0/de/System.Reflection.Emit.Lightweight.xml",
+        "ref/netstandard1.0/es/System.Reflection.Emit.Lightweight.xml",
+        "ref/netstandard1.0/fr/System.Reflection.Emit.Lightweight.xml",
+        "ref/netstandard1.0/it/System.Reflection.Emit.Lightweight.xml",
+        "ref/netstandard1.0/ja/System.Reflection.Emit.Lightweight.xml",
+        "ref/netstandard1.0/ko/System.Reflection.Emit.Lightweight.xml",
+        "ref/netstandard1.0/ru/System.Reflection.Emit.Lightweight.xml",
+        "ref/netstandard1.0/zh-hans/System.Reflection.Emit.Lightweight.xml",
+        "ref/netstandard1.0/zh-hant/System.Reflection.Emit.Lightweight.xml",
+        "ref/portable-net45+wp8/_._",
+        "ref/wp80/_._",
+        "ref/xamarinios10/_._",
+        "ref/xamarinmac20/_._",
+        "ref/xamarintvos10/_._",
+        "ref/xamarinwatchos10/_._",
+        "runtimes/aot/lib/netcore50/_._",
+        "system.reflection.emit.lightweight.4.3.0.nupkg.sha512",
+        "system.reflection.emit.lightweight.nuspec"
+      ]
+    },
+    "System.ValueTuple/4.4.0": {
+      "sha512": "BahUww/+mdP4ARCAh2RQhQTg13wYLVrBb9SYVgW8ZlrwjraGCXHGjo0oIiUfZ34LUZkMMR+RAzR7dEY4S1HeQQ==",
+      "type": "package",
+      "path": "system.valuetuple/4.4.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "LICENSE.TXT",
+        "THIRD-PARTY-NOTICES.TXT",
+        "lib/MonoAndroid10/_._",
+        "lib/MonoTouch10/_._",
+        "lib/net461/System.ValueTuple.dll",
+        "lib/net461/System.ValueTuple.xml",
+        "lib/net47/System.ValueTuple.dll",
+        "lib/net47/System.ValueTuple.xml",
+        "lib/netcoreapp2.0/_._",
+        "lib/netstandard1.0/System.ValueTuple.dll",
+        "lib/netstandard1.0/System.ValueTuple.xml",
+        "lib/netstandard2.0/_._",
+        "lib/portable-net40+sl4+win8+wp8/System.ValueTuple.dll",
+        "lib/portable-net40+sl4+win8+wp8/System.ValueTuple.xml",
+        "lib/xamarinios10/_._",
+        "lib/xamarinmac20/_._",
+        "lib/xamarintvos10/_._",
+        "lib/xamarinwatchos10/_._",
+        "ref/MonoAndroid10/_._",
+        "ref/MonoTouch10/_._",
+        "ref/net461/System.ValueTuple.dll",
+        "ref/net461/System.ValueTuple.xml",
+        "ref/net47/System.ValueTuple.dll",
+        "ref/net47/System.ValueTuple.xml",
+        "ref/netcoreapp2.0/_._",
+        "ref/netstandard2.0/_._",
+        "ref/portable-net40+sl4+win8+wp8/System.ValueTuple.dll",
+        "ref/portable-net40+sl4+win8+wp8/System.ValueTuple.xml",
+        "ref/xamarinios10/_._",
+        "ref/xamarinmac20/_._",
+        "ref/xamarintvos10/_._",
+        "ref/xamarinwatchos10/_._",
+        "system.valuetuple.4.4.0.nupkg.sha512",
+        "system.valuetuple.nuspec",
+        "useSharedDesignerContext.txt",
+        "version.txt"
+      ]
+    },
+    "HaravanAPIAdapterLibrary/1.0.0": {
+      "type": "project",
+      "path": "../HaravanAPIAdapterLibrary/HaravanAPIAdapterLibrary.csproj",
+      "msbuildProject": "../HaravanAPIAdapterLibrary/HaravanAPIAdapterLibrary.csproj"
+    },
+    "Punnel.Core.BLL/1.0.0": {
+      "type": "project",
+      "path": "../Punnel.Core.BLL/Punnel.Core.BLL.csproj",
+      "msbuildProject": "../Punnel.Core.BLL/Punnel.Core.BLL.csproj"
+    },
+    "Punnel.Core.Entities/1.0.0": {
+      "type": "project",
+      "path": "../Punnel.Core.Entities/Punnel.Core.Entities.csproj",
+      "msbuildProject": "../Punnel.Core.Entities/Punnel.Core.Entities.csproj"
+    },
+    "Punnel.Core.IIS/1.0.0": {
+      "type": "project",
+      "path": "../Punnel.Core.IIS/Punnel.Core.IIS.csproj",
+      "msbuildProject": "../Punnel.Core.IIS/Punnel.Core.IIS.csproj"
+    },
+    "Punnel.Core.Model/1.0.0": {
+      "type": "project",
+      "path": "../Punnel.Core.Model/Punnel.Core.Model.csproj",
+      "msbuildProject": "../Punnel.Core.Model/Punnel.Core.Model.csproj"
+    },
+    "Punnel.Core.Utils/1.0.0": {
+      "type": "project",
+      "path": "../Punnel.Core.Utils/Punnel.Core.Utils.csproj",
+      "msbuildProject": "../Punnel.Core.Utils/Punnel.Core.Utils.csproj"
+    },
+    "Punnel.CrawlData/1.0.0": {
+      "type": "project",
+      "path": "../Punnel.CrawlData/Punnel.CrawlData.csproj",
+      "msbuildProject": "../Punnel.CrawlData/Punnel.CrawlData.csproj"
+    },
+    "Punnel.EmailServices/1.0.0": {
+      "type": "project",
+      "path": "../Punnel.EmailServices/Punnel.EmailServices.csproj",
+      "msbuildProject": "../Punnel.EmailServices/Punnel.EmailServices.csproj"
+    },
+    "Punnel.FileServiceProxy/1.0.0": {
+      "type": "project",
+      "path": "../Punnel.FileServiceProxy/Punnel.FileServiceProxy.csproj",
+      "msbuildProject": "../Punnel.FileServiceProxy/Punnel.FileServiceProxy.csproj"
+    },
+    "Punnel.HaravanService/1.0.0": {
+      "type": "project",
+      "path": "../Punnel.Haravan/Punnel.HaravanService.csproj",
+      "msbuildProject": "../Punnel.Haravan/Punnel.HaravanService.csproj"
+    },
+    "Punnel.IntegrationServices/1.0.0": {
+      "type": "project",
+      "path": "../Integration/Punnel.IntegrationServices.csproj",
+      "msbuildProject": "../Integration/Punnel.IntegrationServices.csproj"
+    },
+    "Punnel.SapoService/1.0.0": {
+      "type": "project",
+      "path": "../Punnel.SapoService/Punnel.SapoService.csproj",
+      "msbuildProject": "../Punnel.SapoService/Punnel.SapoService.csproj"
+    },
+    "Punnel.ShopifyService/1.0.0": {
+      "type": "project",
+      "path": "../Punnel.ShopifyService/Punnel.ShopifyService.csproj",
+      "msbuildProject": "../Punnel.ShopifyService/Punnel.ShopifyService.csproj"
+    },
+    "SapoAPIAdapterLibrary/1.0.0": {
+      "type": "project",
+      "path": "../SapoAPIAdapterLibrary/SapoAPIAdapterLibrary.csproj",
+      "msbuildProject": "../SapoAPIAdapterLibrary/SapoAPIAdapterLibrary.csproj"
+    }
+  },
+  "projectFileDependencyGroups": {
+    ".NETFramework,Version=v4.7.2": [
+      "CommonServiceLocator >= 1.3.0",
+      "EntityFramework >= 6.0.0",
+      "HtmlAgilityPack >= 1.6.10",
+      "Newtonsoft.Json >= 10.0.1",
+      "Punnel.Core.BLL >= 1.0.0",
+      "Punnel.Core.Entities >= 1.0.0",
+      "RestSharp >= 106.2.1",
+      "StructureMap >= 4.5.0",
+      "log4net.ElasticSearch >= 2.3.7"
+    ]
+  },
+  "packageFolders": {
+    "C:\\Users\\lam\\.nuget\\packages\\": {}
+  },
+  "project": {
+    "version": "1.0.0",
+    "restore": {
+      "projectUniqueName": "C:\\Source\\yonofate\\punnel\\src\\Punnel.MarketingService\\Punnel.MarketingService.csproj",
+      "projectName": "Punnel.MarketingService",
+      "projectPath": "C:\\Source\\yonofate\\punnel\\src\\Punnel.MarketingService\\Punnel.MarketingService.csproj",
+      "packagesPath": "C:\\Users\\lam\\.nuget\\packages\\",
+      "outputPath": "C:\\Source\\yonofate\\punnel\\src\\Punnel.MarketingService\\obj\\",
+      "projectStyle": "PackageReference",
+      "skipContentFileWrite": true,
+      "configFilePaths": [
+        "C:\\Users\\lam\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+      ],
+      "originalTargetFrameworks": [
+        "net472"
+      ],
+      "sources": {
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+        "https://api.nuget.org/v3/index.json": {}
+      },
+      "frameworks": {
+        "net472": {
+          "projectReferences": {
+            "C:\\Source\\yonofate\\punnel\\src\\Punnel.Core.BLL\\Punnel.Core.BLL.csproj": {
+              "projectPath": "C:\\Source\\yonofate\\punnel\\src\\Punnel.Core.BLL\\Punnel.Core.BLL.csproj"
+            },
+            "C:\\Source\\yonofate\\punnel\\src\\Punnel.Core.Entities\\Punnel.Core.Entities.csproj": {
+              "projectPath": "C:\\Source\\yonofate\\punnel\\src\\Punnel.Core.Entities\\Punnel.Core.Entities.csproj"
+            }
+          }
+        }
+      }
+    },
+    "frameworks": {
+      "net472": {
+        "dependencies": {
+          "CommonServiceLocator": {
+            "target": "Package",
+            "version": "[1.3.0, )"
+          },
+          "EntityFramework": {
+            "target": "Package",
+            "version": "[6.0.0, )"
+          },
+          "HtmlAgilityPack": {
+            "target": "Package",
+            "version": "[1.6.10, )"
+          },
+          "Newtonsoft.Json": {
+            "target": "Package",
+            "version": "[10.0.1, )"
+          },
+          "RestSharp": {
+            "target": "Package",
+            "version": "[106.2.1, )"
+          },
+          "StructureMap": {
+            "target": "Package",
+            "version": "[4.5.0, )"
+          },
+          "log4net.ElasticSearch": {
+            "target": "Package",
+            "version": "[2.3.7, )"
+          }
+        }
+      }
+    },
+    "runtimes": {
+      "win": {
+        "#import": []
+      },
+      "win-x64": {
+        "#import": []
+      },
+      "win-x86": {
+        "#import": []
+      }
+    }
+  }
+}

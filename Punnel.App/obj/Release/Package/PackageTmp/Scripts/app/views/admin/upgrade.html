@@ -1,0 +1,14 @@
+﻿<div class="upgrade-account text-center" ng-controller="adminUpgradeCtrl">
+    <div class="container">
+        <form class="activepart custom-form-admin text-center">
+            <div class="form-group clearfix"> <label>Email</label> <input class="email" type="email" required placeholder="Email" ng-model="email" style="width: 200px"> <input class="submit" type="submit" name="" value="Kiểm tra" placeholder="" ng-click="checkUserNhan()" style="width: 135px"> </div>
+            <div class="form-group clearfix"> <label>Số tháng</label> <input class="email error" type="number" min="1" required placeholder="Số tháng nâng cấp" ng-model="moths"> </div>
+            <div class="form-group clearfix"> <label>Số tháng cộng thêm</label> <input class="email error" type="number" min="0" required placeholder="Số tháng cộng thêm" ng-model="monthplus"> </div>
+            <div class="form-group clearfix"> <label>Loại tài khoản</label> <select name="" ng-model="type"> <option value="0">Miễn phí</option> <option value="1">Nâng cao</option> </select> </div>
+            <div class="form-group clearfix"> <label>Mã Affilate</label> <input class="email error" type="text" min="1" required placeholder="Nhập mã Affilate" ng-model="codeAff"> </div>
+            <div class="form-group clearfix"> <label>Tình trạng thanh toán</label> <select name="" ng-model="paid"> <option value="0">Chưa nhận</option> <option value="1">Đã nhận</option> </select> </div>
+            <div class="form-group clearfix"> <label>Sử dụng tiền hệ thống</label> <select name="" ng-model="paidSys"> <option value="0">Không sử dụng</option> <option value="1">Sử dụng</option> </select> </div>
+            <div class="form-group text-center clearfix" style="display:inline-block"> <input class="submit" type="submit" value="ADD" ng-click="admincreateUpgrade()"> </div>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,42 @@
+﻿<div class="container" id="managerFont">
+    <div class="modal-header">
+        <button type="button" class="close" ng-click="close()">&times;</button>
+        <h4 class="modal-title">Quản lý thư viện</h4>
+    </div>
+    <div class="modal-body clearfix">
+        <div class="tab-inner">
+            <ul class="nav nav-pills" role="tablist" id="myTabImage" class="myTab">
+                <div class="box">
+                    <div class="remove-image" ng-click="deleteImage()"> <input type="button" class="btn btn-primary grey" name="" value="Xóa"> </div> <input style="display: block!important" type="file" id="fileUpload" name="fileUpload" multiple ngf-select="uploadFiles($files)" ng-model="files" class="upload pull-right"> <label><i class="ion-ios-upload-outline"></i> &nbsp;<span>Chọn tệp&hellip;</span></label>
+                    <div class="form-search pull-right"> <input type="search" name="" value="" placeholder="Tìm kiếm" ng-model="fontSearch"> <button type="button" class="btn btn-primary btn-search" ng-click="searchNameFont()">Tìm kiếm</button> </div>
+                </div>
+                <li ng-class="{active: type=='2'}" role="presentation" ng-click="changeTabImage('2')"><a data-href="#image4" role="tab" data-toggle="tab">Fonts của tôi</a></li>
+            </ul>
+            <div class="tab-content">
+                <div role="tabpanel" class="tab-pane fade in active" ng-show="type=='2'">
+                    <div class="tab-fonts clearfix text-center">
+                        <div class="col-sm-12">
+                            <table ng-show="fonts">
+                                <tr>
+                                    <th class="number">STT</th>
+                                    <th>Đường dẫn fonts</th>
+                                    <th class="choose">Lựa chọn</th>
+                                </tr>
+                                <tr ng-repeat="item in fonts">
+                                    <td class="text-center">{{$index + 1}}</td>
+                                    <td>{{pathBase+item.path}}</td>
+                                    <td> <input class="item-font" pn-active="{{item.id}}" type="checkbox" ng-click="selectFont(item.id, $index, $event)"> </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="box">
+                <!--<input type="file" class="inputfile inputfile-1 upload" id="fileUpload" name="fileUpload" ngf-select="uploadFiles($files)" ng-model="files"/>-->
+                <!--<label for="file-1"><i class="ion-ios-upload-outline"></i>-->
+                <!--&nbsp;<span>Choose a file&hellip;</span></label>-->
+            </div>
+        </div>
+    </div>
+</div>

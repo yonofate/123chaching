@@ -1,0 +1,92 @@
+﻿@model Punnel.App.Models.ErrorModel
+@{
+    Layout = "~/Views/Shared/_Layout1.cshtml";
+    var statusCode = Model.StatusCode;
+    var statusmessage = "";
+    switch (statusCode)
+    {
+        case 400:
+            statusmessage = "Yêu cầu không hợp lệ";
+            break;
+        case 403:
+            statusmessage = "Không có quyền truy cập";
+            break;
+        case 404:
+            statusmessage = "Rất tiếc, trang bạn tìm kiếm không tồn tại";
+            break;
+        case 408:
+            statusmessage = "Hệ thống đang quá tải, xử lý phản hồi sẽ bị chậm";
+            break;
+        case 500:
+            statusmessage = "Rất tiếc, đã có lỗi xảy ra";
+            break;
+        default:
+            statusmessage = "Rất tiếc, đã có lỗi không mong muốn xảy ra!";
+            break;
+    }
+    ViewBag.Title = statusmessage;
+}
+
+<style>
+    .empty-block{
+    display: block;
+    overflow: hidden;
+    text-align: center;
+    font-size: 16px;
+    color: #333;
+    transform: translate(0,50%);
+    -webkit-transform: translate(0,50%);
+    -moz-transform: translate(0,50%);
+    -o-transform: translate(0,50%);
+    -ms-transform: translate(0,50%);
+    height: 300px;
+    }
+    .error-icon{
+        width: 70px;
+    height: 54px;
+    display: block;
+    margin: 10px auto;
+    font-size: 60px;
+    color: #f00;
+    }
+    .gohome{
+        display: block;
+    overflow: hidden;
+    background: #fff;
+    line-height: 40px;
+    text-align: center;
+    margin: 20px 30px;
+    font-size: 14px;
+    color: #288ad6;
+    font-weight: 600;
+    text-transform: uppercase;
+    border: 1px solid #288ad6;
+    border-radius: 4px;
+    }
+    .padding-t-15{
+        padding-top:15px;
+    }
+    .block-logo {
+        display:block;
+        margin:25px auto;
+        text-align: center;
+    }
+</style>
+<div class="container">
+    <div class="block-logo">
+        <img width="150" src="https://app.punnel.com/images/logo-full-color.png" alt="punnel.com" />
+    </div>
+    <div class="empty-block">
+        <i class="material-icons error-icon">link_off</i>
+        @statusmessage
+        <a href="/" class="gohome">Về trang chủ</a>
+        <div class="callship">
+            Nếu bạn cần hỗ trợ, vui lòng liên hệ
+            <div class="padding-t-15">
+                <a href="https://m.me/punnel.community" class="bcs-blue"><i class="glyphicon glyphicon-comment"></i> Chat qua Facebook</a>&nbsp;&nbsp;
+                <a href="mailto:hi@punnel.com" class="bcs-blue"><i class="glyphicon glyphicon-inbox"></i> hi@punnel.com</a>&nbsp;&nbsp;
+                <a href="tel:0968152579" class="bcs-blue"><i class="glyphicon glyphicon-phone"></i> 0968152579</a>
+            </div>
+        </div>
+    </div>
+</div>

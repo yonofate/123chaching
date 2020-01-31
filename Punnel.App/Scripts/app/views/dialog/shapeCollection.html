@@ -1,0 +1,28 @@
+﻿<md-dialog aria-label="Cài đặt trang">
+    <md-toolbar>
+        <div class="md-toolbar-tools white">
+            <h2>Chọn biểu tượng</h2>
+            <span flex></span>
+            <md-button class="md-icon-button" ng-click="cancel()">
+                <i class="material-icons">close</i>
+            </md-button>
+        </div>
+    </md-toolbar>
+    <md-dialog-content style="min-width:750px; max-width:800px;max-height:810px;">
+        <md-tabs class="md-primary" md-dynamic-height md-border-bottom>
+            <md-tab label="col.value" ng-repeat="col in groupSharp" ng-change="loadByGroup(col.value)">
+                <md-content class="md-padding">
+                    <div class="item" ng-repeat="item in sharps" pn-add-active="{{$index}}" ng-click="addActive($index)" ng-dblclick="selectShape()" pn-name-search="{{itemSh.name}}">
+                        <div class="item-child" ng-bind-html="itemSh.html"></div>
+                    </div>
+                </md-content>
+            </md-tab>
+        </md-tabs>
+    </md-dialog-content>
+    <md-dialog-actions layout="row">
+        <span flex></span>
+        <md-button class="md-raised md-primary" ng-click="applly()">
+            Sử dụng
+        </md-button>
+    </md-dialog-actions>
+</md-dialog>

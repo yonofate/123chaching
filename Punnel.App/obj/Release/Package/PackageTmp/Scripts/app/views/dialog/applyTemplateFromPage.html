@@ -1,0 +1,62 @@
+﻿<md-dialog aria-label="Chuyển nhóm">
+    <md-toolbar>
+        <div class="md-toolbar-tools white">
+            <h2 ng-bind="title">Gửi duyệt mẫu</h2>
+            <span flex></span>
+            <md-button class="md-icon-button" ng-click="cancel()">
+                <i class="material-icons">close</i>
+            </md-button>
+        </div>
+    </md-toolbar>
+    <form name="myForm" ng-submit="submit()">
+        <md-dialog-content style="min-width:400px;">
+            <div class="md-dialog-content">
+                <div flex>
+                    <md-input-container flex="100" style="width:100%;">
+                        <label ng-bind="label">Tên template</label>
+                        <input ng-model="temp.name" autocomplete="off" md-autofocus required>
+                    </md-input-container>
+                    <md-input-container flex="100" style="width:100%;">
+                        <label>Chọn nhóm ngành & đặc điểm</label>
+                        <md-select flex ng-model="temp.templateCateId" ng-init="initCates()">
+                            <md-option ng-repeat="item in cates" ng-value="item.id">
+                                {{item.name}}
+                            </md-option>
+                        </md-select>
+                    </md-input-container>
+                    <fieldset class="standard filter-template">
+                        <div class="filters" layout-wrap flex style="width:400px;">
+                            <label ng-repeat="item in group.options" class="checkbox" style="width:200px;">
+                                <input type="checkbox" checklist-model="group.selecteds" checklist-value="item.i">
+                                <i class="c-mark__icon c-mark__icon--checkbox material-icons" style="margin-right:5px;">check</i>
+                                <span ng-bind="item.n"></span>
+                            </label>
+                        </div>
+                    </fieldset>
+                    <md-switch class="md-primary" ng-model="temp.isStore" aria-label="Sell">
+                        Bán trên kho giao diện Punnel
+                    </md-switch>
+                    <md-input-container ng-show="temp.isStore" flex="100" style="width:100%;">
+                        <label>Giá bán/lượt sử dụng(đ)</label>
+                        <input type="number" ng-model="temp.price" autocomplete="off" min="0" max="500000">
+                        <div ng-messages="myForm.price.$error" multiple md-auto-hide="false">
+                            <div ng-message="min">
+                                Giá tối thiểu 0đ (Miễn phí)
+                            </div>
+                            <div ng-message="max">
+                                Giá tối đa 500.000đ/lượt sử dụng
+                            </div>
+                        </div>
+                    </md-input-container>
+                </div>
+            </div>
+
+        </md-dialog-content>
+        <md-dialog-actions layout="row">
+            <span flex></span>
+            <md-button id="btn-sm" ng-disabled="myForm.$valid==false" type="submit" class="md-raised md-primary">
+                Cập nhật
+            </md-button>
+        </md-dialog-actions>
+    </form>
+</md-dialog>

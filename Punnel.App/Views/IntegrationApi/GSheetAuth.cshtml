@@ -1,0 +1,24 @@
+﻿<input type="hidden" name="email" id="email" value="@ViewBag.Email" />
+<input type="hidden" name="uid" id="uid" value="@ViewBag.uid" />
+<script>
+
+    window.common = (function () {
+        var common = {};
+        common.getFragment = function getFragment() {
+            var data = {};
+            data['email'] = document.getElementById("email").value;
+            data['uid'] = document.getElementById("uid").value;
+            return data;
+        };
+
+        return common;
+    })();
+
+    var fragment = common.getFragment();
+
+    window.location.hash = fragment.state || '';
+    window.opener.$windowScope.authCompletedGsheet(fragment);
+    window.close();
+
+</script>
+

@@ -1,0 +1,114 @@
+﻿<style>
+    .lead-detail md-input-container {
+        margin: 5px 0;
+    }
+</style>
+<md-dialog aria-label="lead">
+    <md-toolbar>
+        <div class="md-toolbar-tools white">
+            <h2>Thông tin đăng kí</h2>
+            <span flex></span>
+            <md-button class="md-icon-button" ng-click="cancel()">
+                <i class="material-icons">close</i>
+            </md-button>
+        </div>
+    </md-toolbar>
+    <form name="myForm" ng-submit="submit()">
+        <md-dialog-content ng-init="init()">
+            <div class="md-dialog-content lead-detail" style="min-width:500px;max-height:800px;">
+                <div layout="row">
+                    <md-input-container flex="100">
+                        <label>Nguồn đăng kí</label>
+                        <input aria-label="referer" name="referer" value="{{lead.referer || 'trực tiếp'}}" disabled>
+                        <!--<md-icon aria-label="Organic" title="Organic" class="material-icons" ng-if="leadSource.isFacebookAds==false && leadSource.isGoogleAds==false">money_off</md-icon>
+            <md-icon aria-label="Paid" title="Paid" class="material-icons" ng-if="leadSource.isFacebookAds==true || leadSource.isGoogleAds==true">attach_money</md-icon>-->
+                    </md-input-container>
+                </div>
+                <div layout="row">
+                    <md-input-container flex="100">
+                        <label>Trang đăng kí</label>
+                        <input aria-label="link" required name="link" ng-model="lead.link" disabled>
+                    </md-input-container>
+                </div>
+                <div layout="row">
+                    <md-input-container flex="40">
+                        <label>Họ</label>
+                        <input aria-label="firstName" name="firstName" ng-model="lead.firstName">
+                    </md-input-container>
+
+                    <md-input-container flex="60">
+                        <label>Tên</label>
+                        <input aria-label="lastName" name="lastName" ng-model="lead.lastName">
+                    </md-input-container>
+                </div>
+
+                <div layout="row">
+                    <md-input-container flex="60">
+                        <label>Email</label>
+                        <input aria-label="email" name="email" type="email" ng-model="lead.email">
+                    </md-input-container>
+                    <!--<div tooltips tooltip-template="Xác thực Email" flex="10">
+            <md-checkbox class="md-primary" ng-disabled="myForm.email.$valid==false || lead.email==null || lead.email.length==0" ng-checked="myForm.email.$valid==true && lead.isVerifyEmail && lead.email!=null && lead.email.length>0" ng-model="lead.isVerifyEmail">
+            </md-checkbox>
+        </div>-->
+                    <!--<div tooltips tooltip-template="Đã xác thực Email" flex="10">
+            <md-checkbox class="md-primary" ng-disabled="true" ng-checked="myForm.email.$valid==true && lead.isVerifyEmail && lead.email!=null && lead.email.length>0" ng-model="lead.isVerifyEmail">
+            </md-checkbox>
+        </div>-->
+
+                    <md-input-container flex="40">
+                        <label>Điện thoại</label>
+                        <input ng-pattern="/^(03|05|07|08|09)[0-9]{8}$/" aria-label="phone" name="phone" ng-model="lead.phone">
+                    </md-input-container>
+                    <!--<div tooltips tooltip-template="Đã xác thực SĐT" flex="10">
+            <md-checkbox class="md-primary" ng-disabled="myForm.phone.$valid==false || lead.phone==null || lead.phone.length==0" ng-checked="myForm.phone.$valid==true && lead.isVerifyMobile && lead.phone!=null && lead.phone.length>0" ng-model="lead.isVerifyMobile">
+            </md-checkbox>
+        </div>-->
+                </div>
+
+                <div layout="row" class="hidden">
+                    <md-input-container flex="50">
+                        <input aria-label="landingPageId" required name="landingPageId" ng-model="lead.landingPageId">
+                    </md-input-container>
+                </div>
+
+                <div layout="row">
+                    <md-input-container flex="100">
+                        <label>Ghi chú</label>
+                        <textarea aria-label="note" name="note" ng-model="lead.notes" rows="3"></textarea>
+                    </md-input-container>
+                </div>
+
+                <div layout="row">
+                    <md-input-container flex="50">
+                        <label>Mã Code</label>
+                        <input aria-label="privateCode" name="privateCode" ng-model="lead.privateCode" disabled>
+                    </md-input-container>
+                    <md-input-container flex="50">
+                        <label>Phân loại triển vọng</label>
+                        <md-select ng-change="condition.changed()" aria-label="loại" ng-model="lead.status">
+                            <md-option ng-repeat="item in statusOptions" ng-value="item.i">
+                                {{item.n}}
+                            </md-option>
+                        </md-select>
+                    </md-input-container>
+                </div>
+                <div class="lead-more-info" ng-show="moreData && moreData.length>0">
+                    <div layout="row" ng-repeat="item in moreData">
+                        <md-input-container flex="100">
+                            <label ng-bind="item.name"></label>
+                            <input aria-label="link" ng-model="item.value" disabled>
+                        </md-input-container>
+                    </div>
+                </div>
+            </div>
+        </md-dialog-content>
+
+        <md-dialog-actions layout="row">
+            <span flex></span>
+            <md-button id="btn-sm" type="submit" class="md-raised md-primary">
+                Cập nhật
+            </md-button>
+        </md-dialog-actions>
+        </form>
+</md-dialog>

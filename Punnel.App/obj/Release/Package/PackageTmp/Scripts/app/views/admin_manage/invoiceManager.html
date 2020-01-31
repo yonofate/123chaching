@@ -1,0 +1,119 @@
+﻿<style>
+    .drange .md-errors-spacer {
+        display: none;
+    }
+    .td-number{
+        text-align:right !important;
+    }
+    .ispaid {
+        color: #4177F6;
+    }
+</style>
+<div class="main-dashboard" id="lead-dashboard" ng-controller="invoiceManagerCtrl">
+    <div class="container">
+        <section class="dashboard-page" ng-init="search()">
+            <div class="select-status clearfix" ng-enter="search()">
+                <md-input-container style="width:120px;">
+                    <label>Gói thành viên</label>
+                    <md-select aria-label="pages" ng-model="query.serviceid" ng-change="search()">
+                        <md-option ng-repeat="item in serviceOptions" ng-value="item.i">
+                            {{item.n}}
+                        </md-option>
+                    </md-select>
+                </md-input-container>
+                <md-input-container style="min-width:100px;">
+                    <label>Loại ngày</label>
+                    <md-select aria-label="pages" ng-model="query.datetype" ng-change="search()">
+                        <md-option ng-repeat="item in dateTypeOptions" ng-value="item.i">
+                            {{item.n}}
+                        </md-option>
+                    </md-select>
+                </md-input-container>
+                <md-input-container style="min-width:200px;" class="drange">
+                    <label>Thời gian</label>
+                    <input date-range-picker options="options" class="date-picker" type="text" ng-model="wdate.dateRange" max="maxDate" />
+                </md-input-container>
+                <md-input-container class="txt-search" style="min-width:280px;">
+                    <label>Tìm kiếm</label>
+                    <input type="search" name="keyword" autocomplete="off" ng-model="query.keyword" placeholder="Tìm theo mã HĐ, email, điện thoại">
+                </md-input-container>
+                <button type="button" class="btn btn-primary btn-search" ng-click="search()"><i class="material-icons dp48">search</i></button>
+            </div>
+
+            <table class="table table-striped nohead user-manager">
+                <thead>
+                    <tr>
+                        <td>Họ tên</td>
+                        <td>Email</td>
+                        <td>Mã HĐ</td>
+                        <td>Gói</td>
+                        <td class="td-number">Tháng</td>
+                        <td class="td-number">Discount</td>
+                        <td class="td-number" style="min-width:80px;">Tổng tiền</td>
+                        <td class="td-number">Ngày</td>
+                        <td style="text-align:center;min-width:50px;">Ghi chú</td>
+                        <td style="width:120px;text-align:right;"></td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="item in invoices">
+                        <td>
+                            <md-icon ng-if="item.status==1" class="material-icons ispaid">attach_money</md-icon>
+                            <md-icon ng-if="item.status!=1" class="material-icons">money_off</md-icon>
+                            <span ng-bind="item.fullName || '---'"></span>
+                        </td>
+                        <td><a target="_blank" ui-sref="dashboard.usermanager({w: item.email})"><span ng-bind="item.email || '---'"></span></a></td>
+                        <td><span style="text-transform:uppercase;" ng-bind="item.code || '---'"></span></td>
+                        <td><span class="tag-primary color-{{item.serviceId}}" ng-bind="serviceDisplay(item.serviceId) || '---'"></span></td>
+                        <td class="td-number"><span ng-bind="item.quantity | number:0"></span></td>
+                        <td class="td-number"><span ng-bind="item.discount | number:0"></span></td>
+                        <td class="td-number"><span ng-bind="item.totalAmount | number:0"></span></td>
+                        <td class="td-number">
+                            <span ng-if="item.status!=1" am-time-ago="item.orderDate"></span>
+                            <span ng-if="item.status==1" am-time-ago="item.paymentDate"></span>
+                        </td>
+                        <td>
+                            <span class="highlight-note" ng-bind="item.notes"></span>
+                        </td>
+                        <!--<td style="text-align:center"><md-icon ng-if="item.isAffilateAgent==true" class="material-icons">check</md-icon></td>-->
+                        <td style="text-align:right;">
+                            <md-menu md-position-mode="target-right target">
+                                <md-button aria-label="Open group" class="md-icon-button" ng-click="$mdMenu.open($event)">
+                                    <md-icon class="material-icons">more_horiz</md-icon>
+                                </md-button>
+                                <md-menu-content width="3">
+                                    <md-menu-item>
+                                        <md-button ng-click="details(item)">
+                                            <div layout="row" flex>
+                                                <p flex>Chi tiết</p>
+                                                <md-icon class="material-icons">details</md-icon>
+                                            </div>
+                                        </md-button>
+                                    </md-menu-item>
+                                    <md-menu-item ng-if="item.status!=1">
+                                        <md-button ng-click="paid(item)">
+                                            <div layout="row" flex>
+                                                <p flex>Đã thanh toán</p>
+                                                <md-icon class="material-icons">attach_money</md-icon>
+                                            </div>
+                                        </md-button>
+                                    </md-menu-item>
+                                    <md-menu-item ng-show="is_owner==true">
+                                        <md-button ng-click="delete(item)">
+                                            <div layout="row" flex>
+                                                <p flex>Xóa</p>
+                                                <md-icon class="material-icons">delete</md-icon>
+                                            </div>
+                                        </md-button>
+                                    </md-menu-item>
+                                </md-menu-content>
+                            </md-menu>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <span ng-show="totalItem>0"><strong ng-bind="total"></strong> hóa đơn</span>
+            <ul style="margin-top:0px;float:right" ng-show="total>query.limit" uib-pagination total-items="total" ng-model="query.page" items-per-page="query.limit" class="pagination" ng-change="pageChanged()"></ul>
+        </section>      
+    </div>
+</div>

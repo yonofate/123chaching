@@ -1,0 +1,2 @@
+C:\Source\yonofate\punnel\src\Punnel.WebImage\obj\Debug\Punnel.WebImage.csprojAssemblyReference.cache
+C:\Source\yonofate\punnel\src\Punnel.WebImage\obj\Debug\Punnel.WebImage.csproj.CoreCompileInputs.cache

@@ -1,0 +1,27 @@
+﻿<md-dialog aria-label="Thông tin cá nhân" ng-init="loadProfile()">
+    <md-toolbar>
+        <div class="md-toolbar-tools white">
+            <h2>Sửa hình đại diện mẫu giao diện</h2>
+            <span flex></span>
+            <md-button class="md-icon-button" ng-click="cancel()">
+                <i class="material-icons">close</i>
+            </md-button>
+        </div>
+    </md-toolbar>
+    <form name="submitForm" ng-submit="apply()">
+        <md-dialog-content>
+            <div class="md-dialog-content">
+                <div layout="row" layout-xs="column">
+                    <div flex>
+                        <section layout="row" layout-sm="column" layout-align="center center" layout-wrap style="width:380px;">
+                            <i ng-show="data.thumbnail==null || data.thumbnail.length==0" style="font-size:180px;color:#aacafb" class="material-icons dp48">add_a_photo</i>
+                            <img ng-cloak ng-show="data.thumbnail!=null" style="width:360px;height:207px;box-shadow: 0 2px 5px 0 rgba(0,0,0,.26);" ng-src="{{data.thumbnail}}" />
+                            <div class="row" style="text-align:center;width: 100%;font-size: 90%;margin: 10px auto;color: #666;">360px x 210px</div>
+                            <md-button type="button" class="md-raised md-primary" layout-align="end center" type="file" id="fileUploadPage" name="fileUpload" ngf-select="uploadFiles($files)" ng-model="files" ngf-pattern="'.jpg,image/*,.jpeg,.png'" ngf-accept="'image/*'">Thay đổi</md-button>
+                        </section>
+                    </div>
+                </div>
+            </div>
+        </md-dialog-content>
+    </form>
+</md-dialog>

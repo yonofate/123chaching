@@ -1,0 +1,101 @@
+﻿<md-dialog aria-label="Form Config">
+        <md-toolbar>
+            <div class="md-toolbar-tools white">
+                <h2><img height="16" width="16" style="margin-right:5px;" src="//www.google.com/s2/favicons?domain={{site.domain}}">Tích hợp {{site.name}}</h2>
+                <span flex></span>
+                <md-button class="md-icon-button" ng-click="cancel()">
+                    <i class="material-icons c-button__icon">close</i>
+                </md-button>
+            </div>
+        </md-toolbar>
+
+        <md-dialog-content>
+            <div class="md-dialog-content" ng-init="initIntegration()">
+                <div style="min-width:600px;">
+                    <div ng-show="type == 'listAccount'">
+                        <div class="list-ac">
+                            <div ng-show="site.type==1 && site.siteId!=16 && (addAcc===1 || accounts.length===0)">
+                                <form name="submitForm" ng-submit="submitForm.$valid && connect()" novalidate>
+                                    <div layout-gt-sm="row" class="layout-gt-sm-row">
+                                        <md-input-container class="md-block" flex>
+                                            <label>{{site.name}} API Key</label>
+                                            <input md-autofocus name="apiKey" ng-model="apiKey" required md-no-asterisk autocomplete="off">
+                                            <div ng-messages="submitForm.apiKey.$error">
+                                                <div ng-message="required">Vui lòng nhập</div>
+                                            </div>
+                                        </md-input-container>
+
+                                        <md-input-container class="md-block" flex ng-show="site.siteId==5">
+                                            <label>Url</label>
+                                            <input md-autofocus name="apiUrl" ng-model="apiUrl" md-no-asterisk autocomplete="off">
+                                        </md-input-container>
+
+                                        <md-button layout-align="end center" ng-disabled="!submitForm.$valid" type="submit" md-no-ink class="md-primary">Kết nối</md-button>
+                                    </div>
+                                </form>
+                            </div>
+
+                            <div ng-show="accounts.length>0 && addAcc===0">
+                                <md-radio-group class="md-primary" ng-model="config.accId">
+                                    <md-radio-button ng-repeat="option in accounts track by $index"
+                                                     ng-value="option.accId">
+                                        {{option.email}}
+                                    </md-radio-button>
+                                </md-radio-group>
+                            </div>
+                        </div>
+                    </div>
+                    <div ng-show="type == 'listCampain'">
+                        <div class="list-ac-mail">
+                            <md-radio-group class="md-primary" ng-model="config.listId">
+                                <md-radio-button ng-repeat="option in campains track by $index"
+                                                 ng-value="option.id">
+                                    {{option.name}}
+                                </md-radio-button>
+                            </md-radio-group>
+                        </div>
+                    </div>
+                    <div ng-show="type == 'googleSheet'">
+                        <div layout="row">
+                            <md-input-container flex="60" class="md-block">
+                                <label>Spreadsheet ID</label>
+                                <input ng-model="spreadId" autocomplete="off" md-autofocus required>
+                            </md-input-container>
+                            <md-input-container ng-show="spreadTitle && spreadTitle.length>0" flex class="md-block">
+                                <!--<label>Spreadsheet ID</label>-->
+                                <input ng-model="spreadTitle" autocomplete="off" disabled required>
+                            </md-input-container>
+                            <md-button style="height:40px;" id="btn-find" ng-disabled="spreadId ==null || spreadId.length==0" type="button" class="md-raised md-primary" ng-click="findSpread()">
+                                Sử dụng
+                            </md-button>
+                        </div>
+                        <div layout="row">
+                            <md-input-container flex="60" class="md-block">
+                                <label>Hoặc tạo Spreadsheet mới</label>
+                                <input ng-model="spreadName" autocomplete="off" md-autofocus required>
+                            </md-input-container>
+                            <md-button style="height:40px;" id="btn-create" ng-disabled="spreadName == null || spreadName.length==0" type="button" class="md-raised md-primary" ng-click="createSpread()">
+                                Tạo
+                            </md-button>
+                        </div>
+                    </div>
+                </div>
+             </div>
+        </md-dialog-content>
+
+        <md-dialog-actions layout="row">
+            <!--<md-button ng-show="type == 'listAccount' && 1==0" class="md-primary" ng-click="showAdd()">
+                Thêm tài khoản
+            </md-button>-->
+            <!--<md-button ng-show="type == 'listCampain'" class="md-primary" ng-click="showAdd()">
+                Thêm danh sách
+            </md-button>-->
+            <span flex></span>
+            <md-button class="md-raised md-default" ng-click="prev()">
+                Quay lại
+            </md-button>
+            <md-button ng-show="type != 'googleSheet'" id="btn-sm" ng-disabled="(accounts.length==0 || configured.accId=='')" class="md-raised md-primary" ng-click="next()">
+                Tiếp tục
+            </md-button>
+        </md-dialog-actions>
+</md-dialog>

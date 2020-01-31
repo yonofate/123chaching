@@ -1,0 +1,75 @@
+﻿<div class="dialog with-footer modal account-setting action-page active fadeIn animated" ng-controller="accountCtr as account">
+    <div class="header">
+        <div class="text">Tài khoản</div> <i class="material-icons right-modal" ng-click="close()">close</i>
+    </div>
+    <div class="menu-tab">
+        <ul>
+            <li ng-click="setActive('account')" data-active="account" class="active">Thông tin</li>
+            <li ng-click="setActive('password')" data-active="password">Thay đổi mật khẩu</li>
+            <li ng-click="setActive('upgrate')" data-active="upgrate">Nâng cấp</li>
+            <!--li ng-click="setActive(\'payment\')" data-active="payment">Thanh toán</li-->
+        </ul>
+    </div>
+    <div class="content scrollbox">
+        <div class="content-child content-account" style="display: block">
+            <div class="option">
+                <img src="{{avatar}}" style="width: 50px; height: 50px; margin-top: -20px">
+                <div class="right floated more"> <input type="file" id="fileUpload" name="fileUpload" ngf-select="uploadFiles($files)" ng-model="files" class="upload" ngf-pattern="'.jpg,image/*,.jpeg,.png,.gif,.svg,.ico'" ngf-accept="'image/*'" ngf-max-size="'5MB'"> </div>
+            </div>
+            <div class="option">
+                <label>Email </label>
+                <div class="right floated more"> <input type="text" ng-model="email" placeholder="Email"> </div>
+            </div>
+            <div class="option">
+                <label>Số điện thoại </label>
+                <div class="right floated more"> <input type="number" ng-model="phone" placeholder="Số điện thoại"> </div>
+            </div>
+            <div class="option">
+                <div class="wrapper-button-publish"> <a class="publish-now" ng-click="changeProfile()">Thay đổi thông tin</a> </div>
+            </div>
+        </div>
+        <div class="content-child content-password" style="display: none">
+            <div class="option"> <label>Mật khẩu mới </label> <input type="text" ng-model="pass" placeholder="Mật khẩu mới"> </div>
+            <div class="option"> <label>Nhắc lại mật khẩu</label> <input type="text" ng-model="repass" placeholder="Nhắc lại mật khẩu"> </div>
+            <div class="option">
+                <div class="wrapper-button-publish"> <a class="publish-now" ng-click="changPass()">Thay đổi mật khẩu</a> </div>
+            </div>
+        </div>
+        <div class="content-child content-upgrate" style="display: none">
+            <div class="option">
+                <div class="row two columns no-margin">
+                    <div class="column">
+                        <div class="title">Hình thức thanh toán</div>
+                        <div class="group">
+                            <div class="row">
+                                <div class="ui inline input"> <input name="checkmethod" type="radio" ng-model="method" value="ND" ng-click="setMethod('ND')"> <label>Thanh toán bằng thẻ ATM</label> </div>
+                                <div class="ui inline input"> <img src="../../images/bankND.png"></div>
+                            </div>
+                            <div class="row">
+                                <div class="ui inline input"> <input name="checkmethod" type="radio" ng-model="method" value="QT" ng-click="setMethod('QT')"> <label>Thanh toán bằng thẻ tín dụng</label> </div>
+                                <div class="ui inline input"> <img src="../../images/bankQT.34ea18b2.png"></div>
+                            </div>
+                            <div class="row">
+                                <div class="ui inline input"> <input name="checkmethod" type="radio" ng-model="method" value="PAY" ng-click="setMethod('PAY')"> <label>Thanh toán bằng PayPal</label> </div>
+                                <div class="ui inline input"> <img src="../../images/bankpaypal.gif"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="column">
+                        <div class="title">Bạn đọc kỹ các điều khoản thanh toán sau:</div>
+                        <!-- Display only if want to change password -->
+                        <div class="group">
+                            <div class="row"> <iframe src="views/manager_punnel/dieu_khoan_thanh_toan.html" frameborder="0" style="width: 100%; height: 150px"></iframe> </div>
+                            <div class="row">
+                                <div class="ui inline input"> <input type="checkbox" name="checkdoc" ng-click="setCheckdk('check',$event)"> <label>Tôi đã đọc và đồng ý với các điều khoản trên</label> </div> <a class="ui button action" ng-click="thanhtoan()">Thanh toán</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        //    var scroll = new OptionWiget();\n    //    scroll.scrollBox();
+    </script>
+</div>

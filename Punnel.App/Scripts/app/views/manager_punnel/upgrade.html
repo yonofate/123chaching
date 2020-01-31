@@ -1,0 +1,32 @@
+﻿<div class="dialog with-footer alternative modal info upgrade-setting active fadeIn animated" ng-controller="upgradepackageCtr as upgradepackage">
+    <div class="header">
+        <div class="text">{{TOOLS.PAGE_SETTING|translate}}</div> <i class="material-icons right-modal" ng-click="close()">close</i>
+    </div>
+    <div class="content scrollbox">
+        <div class="row fourth columns">
+            <div class="one-fourth column">
+                <div class="title">Các gói nâng cấp!</div>
+            </div>
+            <div class="three-fourth column">
+                <div class="column">
+                    <div class="row" ng-repeat="itemPack in package"> <input name="checkPack" pn-name="{{itemPack.guid}}" type="radio" ng-click="selectPack($index)"> <label>{{itemPack.name}}</label> <span>{{itemPack.price | currency::0}} VND</span> </div>
+                    <div class="row"> <label>Nhập mã coupon (Nếu có)</label> <input type="text" placeholder="Mã khuyến mại" ng-model="coup"> <a class="ui button" ng-click="checkcoup()">Check</a> </div>
+                </div>
+            </div>
+        </div>
+        <!-------tổng tiền---------->
+        <div class="line"></div>
+        <div class="row fourth columns">
+            <div class="one-fourth column">
+                <div class="title">Tổng tiền</div>
+            </div>
+            <div class="three-fourth column">
+                <div class="row"> <label>{{totalPrice}} VND</label> </div>
+            </div>
+        </div>
+    </div>
+    <div class="footer">
+        <!--a class="ui grey button" ng-click="close()">Hủy thanh toán</a-->
+        <div class="right-modal"> <a class="ui button action" ng-click="update()">Thanh toán</a> </div>
+    </div>
+</div>

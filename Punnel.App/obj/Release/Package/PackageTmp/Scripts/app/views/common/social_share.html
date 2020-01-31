@@ -1,0 +1,27 @@
+﻿<div class="share-link-group">
+    <a class="share-link" socialshare socialshare-provider="facebook"
+       socialshare-display="popup"
+       socialshare-popup-height="400"
+       socialshare-popup-width="500"
+       socialshare-url="{{Url}}">
+        <img alt="facebook" src="https://hstatic.punnel.com/img/icon/circle-facebook.svg">
+    </a>
+
+    <a class="share-link" socialshare socialshare-provider="facebook"
+       socialshare-type="send"
+       socialshare-via="{{facebook_id}}"
+       socialshare-display="popup"
+       socialshare-popup-height="400"
+       socialshare-popup-width="600"
+       socialshare-redirect-uri="{{Url}}"
+       socialshare-url="{{Url}}">
+        <img alt="messenger" src="https://hstatic.punnel.com/img/icon/circle-messenger.svg">
+    </a>
+    <a class="share-link zalo-share-button" data-href="{{Url}}" data-oaid="{{zalo_id}}" data-layout="2" data-color="blue" data-customize="true">
+        <img alt="zalo" src="https://hstatic.punnel.com/img/icon/circle-zalo.svg">
+    </a>
+
+    <a class="share-link" ngclipboard data-clipboard-text="{{Url}}" ngclipboard-success="copied(e)">
+        <img tooltips tooltip-template="Copy link" tooltip-side="left" alt="copy" src="https://hstatic.punnel.com/img/icon/circle-copylink.svg">
+    </a>
+</div>

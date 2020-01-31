@@ -1,0 +1,69 @@
+﻿<style>
+    .lead-detail md-input-container {
+        margin: 5px 0;
+    }
+</style>
+<md-dialog aria-label="lead">
+    <md-toolbar>
+        <div class="md-toolbar-tools white">
+            <h2>Chiến dịch khuyến mãi</h2>
+            <span flex></span>
+            <md-button class="md-icon-button" ng-click="cancel()">
+                <i class="material-icons">close</i>
+            </md-button>
+        </div>
+    </md-toolbar>
+    <form name="myForm" ng-submit="submit()">
+        <md-dialog-content ng-init="init()">
+            <div class="md-dialog-content lead-detail" style="min-width:500px;max-height:800px;">
+                <div layout="row">
+                    <md-input-container flex="100">
+                        <label>Tên chiến dịch</label>
+                        <input aria-label="name" required name="name" ng-model="data.name">
+                    </md-input-container>
+                </div>
+                <div layout="row" style="margin-bottom:25px;">
+                    <md-input-container flex="100">
+                        <label>Gói thành viên</label>
+                        <md-select aria-label="pages" ng-model="data.serviceId">
+                            <md-option ng-repeat="item in serviceOptions" ng-value="item.i">
+                                {{item.n}}
+                            </md-option>
+                        </md-select>
+                    </md-input-container>
+                </div>
+
+                <div layout="row">
+                    <md-input-container flex="50">
+                        <label>Giá trị khuyến mãi</label>
+                        <input type="number" aria-label="discount" name="discount" ng-model="data.discount">
+                    </md-input-container>
+
+                    <md-input-container flex="50">
+                        <md-checkbox class="md-primary" ng-model="data.isDiscountPercent" aria-label="isDiscountPercent">
+                            Tính theo %
+                        </md-checkbox>
+                    </md-input-container>
+                </div>
+
+                <div layout="row">
+                    <div flex-gt-xs>
+                        <h4>Ngày bắt đầu</h4>
+                        <md-datepicker ng-model="data.activeDate" md-placeholder="Chọn ngày"></md-datepicker>
+                    </div>
+                    <div flex-gt-xs>
+                        <h4>Ngày kết thúc</h4>
+                        <md-datepicker ng-model="data.expiredDate" md-placeholder="Chọn ngày"></md-datepicker>
+                    </div>
+                </div>               
+            </div>
+        </md-dialog-content>
+
+        <md-dialog-actions layout="row">
+            <span flex></span>
+            <md-button id="btn-sm" type="submit" class="md-raised md-primary">
+                Cập nhật
+            </md-button>
+        </md-dialog-actions>
+        </form>
+</md-dialog>

@@ -1,0 +1,86 @@
+﻿<md-dialog aria-label="Cài đặt trang">
+    <md-dialog-content style="min-width:750px; max-width:800px;max-height:810px;">
+        <md-tabs class="md-primary" md-dynamic-height md-border-bottom>
+            <md-tab label="Cấu hình SEO" ng-init="init()">
+                <md-content class="md-padding">
+                    <md-input-container class="md-block">
+                        <label>Tiêu đề</label>
+                        <input md-maxlength="60" ng-model="pageInfo.title">
+                    </md-input-container>
+                    <md-input-container class="md-block">
+                        <label>Từ khóa</label>
+                        <input md-maxlength="120" ng-model="pageInfo.keyword">
+                    </md-input-container>
+                    <md-input-container class="md-block">
+                        <label>Mô tả</label>
+                        <textarea ng-model="pageInfo.desc" md-maxlength="160" rows="4" md-select-on-focus></textarea>
+                    </md-input-container>
+                    <div layout="row">
+                        <label style="width:70px;color: rgba(0,0,0,0.38);line-height:60px;font-size:90%;">Favicon</label>
+                        <div style="width:64px; height:64px;float:left;margin-right:15px;">
+                            <md-icon ng-show="{{pageInfo.imageFavicon.length==0}}" class="material-icons" style="font-size:64px;">camera</md-icon>
+                            <img ng-cloak ng-show="{{pageInfo.imageFavicon.length>0}}" ng-src="{{pageInfo.imageFavicon}}" alt="favicon" style="width:64px; height:64px;" />
+                        </div>
+                        <md-button class="md-raised md-default" ng-click="showImage('favicon')">
+                            Upload
+                        </md-button>
+                        <span flex></span>
+                    </div>
+                </md-content>
+            </md-tab>
+
+            <md-tab label=" Cấu hình Tracking">
+                <md-content class="md-padding">
+                    <md-input-container class="md-block">
+                        <label>Google Tag ID</label>
+                        <input ng-model="pageInfo.idgoogletag">
+                    </md-input-container>
+                    <md-input-container class="md-block">
+                        <label>Facebook Pixel ID</label>
+                        <input ng-model="pageInfo.idpixel">
+                    </md-input-container>
+                    <md-input-container class="md-block">
+                        <label>Google Analytics ID</label>
+                        <input ng-model="pageInfo.idanalytics">
+                    </md-input-container>
+
+
+                    <div layout="column" layout-align="center start">
+                        <md-input-container flex="100" style="width:100%;">
+                            <label>Chèn sự kiện mẫu vào thẻ HEADER</label>
+                            <md-select placeholder="Chọn sự kiện mẫu" ng-model="trackingValue" flex="100">
+                                <md-option ng-value="item.value" ng-repeat="item in trackingItems" ng-click="addTrackingItem($index)">{{item.name}}</md-option>
+                            </md-select>
+                        </md-input-container>
+                            <md-input-container id="editor-custom-header" class="md-block" flex>
+                                <textarea aria-label="html head" ng-model="pageInfo.head" md-maxlength="1000" rows="5" md-select-on-focus></textarea>
+                            </md-input-container>
+                    </div>
+                </md-content>
+            </md-tab>
+
+            <md-tab label="Facebook Messenger">
+                <md-content class="md-padding" ng-init="initFacebook()">
+                    <div layout="column" layout-align="start center">
+                        <md-input-container flex="100" style="width:100%;">
+                            <label>Chọn FanPage cấu hình messenger</label>
+                            <md-select placeholder="Chọn trang FanPage" ng-model="fanPageId" flex ng-change="chooseFanPage()">
+                                <md-option ng-value="item.access_token" ng-repeat="item in fanpages">{{item.name}}</md-option>
+                            </md-select>
+                        </md-input-container>
+                            <md-input-container id="editor-custom-body" class="md-block" flex="100">
+                                <textarea aria-label="body html" ng-disabled="true" ng-model="pageInfo.body" rows="5" md-select-on-focus></textarea>
+                            </md-input-container>
+                    </div>
+                </md-content>
+            </md-tab>
+
+        </md-tabs>
+    </md-dialog-content>
+    <md-dialog-actions layout="row">
+        <span flex></span>
+        <md-button id="btn-sm" class="md-raised md-primary" ng-click="updatePageInfo()">
+            OK
+        </md-button>
+    </md-dialog-actions>
+</md-dialog>

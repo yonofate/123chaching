@@ -1,0 +1,74 @@
+﻿<style>
+    .table.nohead tbody tr td{
+        line-height:24px;
+    }
+    .lead-history {
+        font-size: 90%;
+        min-width: 980px;
+    }
+    .td-notes{
+        min-width:120px;
+    }
+    @media only screen and (max-width: 1024px) {
+        .lead-history {
+            min-width: 980px;
+        }
+    }
+    @media only screen and (max-width: 1200px) {
+        .lead-history {
+            min-width: 1120px;
+        }
+    }
+    @media only screen and (max-width: 1440px) {
+        .lead-history {
+            min-width: 1280px;
+        }
+    }
+</style>
+<md-dialog aria-label="lead">
+    <md-toolbar>
+        <div class="md-toolbar-tools white">
+            <h2>Lịch sử đăng kí</h2>
+            <span flex></span>
+            <md-button class="md-icon-button" ng-click="cancel()">
+                <i class="material-icons">close</i>
+            </md-button>
+        </div>
+    </md-toolbar>
+    <md-dialog-content ng-init="init()">
+        <div class="md-dialog-content lead-history" style="">
+            <table class="table table-striped nohead">
+                <thead>
+                    <tr>
+                        <td>Ngày</td>
+                        <td>Họ tên</td>
+                        <td>Email/Sđt</td>
+                        <td>Khu vực</td>
+                        <td>Trang/nguồn</td>
+                        <td class="td-notes">Ghi chú</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="item in leads">
+                        <td>
+                            <md-icon ng-if="item.isMobile ==false" style="font-size:14px;line-height:22px;" class="material-icons">desktop_mac</md-icon>
+                            <md-icon ng-if="item.isMobile ==true" style="font-size:14px;line-height:22px;" class="material-icons">smartphone</md-icon>
+                            <span am-time-ago="item.submitDate"></span>
+                        </td>
+                        <td><span ng-bind="item.fullName || '---'"></span></td>
+                        <td>
+                            <span ng-bind="item.email || '---'"></span>
+                            <br /><span ng-bind="item.phone || '---'"></span>
+                        </td>
+                        <td><span ng-bind="item.regionName || '---'"></span></td>
+                        <td>
+                            <a target="_blank" href="{{item.link || '#'}}">{{item.systemNotes}}</a><br />
+                            Nguồn: <span ng-bind="item.referer || 'trực tiếp'"></span>
+                        </td>
+                        <td><span class="highlight-note" ng-bind="item.notes || item.tags"></span></td>                      
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </md-dialog-content>
+</md-dialog>

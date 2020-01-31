@@ -1,0 +1,121 @@
+﻿<div id="wrapper" class="wrapper signup-page" ng-controller="registerSocialCtrl">
+    <div id="content" class="container signup clearfix">
+        <div class="form-user clearfix">
+            <div class="modal-login modal-signup clearfix">
+                <div class="form-action">
+                    <div class="form-login form-signup">
+                        <div class="logo clearfix"> <img src="/images/logo-full-color.svg" alt="punnel.com"> </div>
+                        <div class="login-fb clearfix" ng-controller="loginSocialCtrl">
+                            <!--<md-button class="social-btn md-raised md-primary md-hue-2" ng-click="registerFacebook()">
+                                <md-icon md-svg-icon="../../../../Contents/img/btn_facebook_icon.svg" aria-label="facebook"></md-icon> Đăng kí với Facebook
+                            </md-button>-->
+                            <md-button class="social-btn md-raised" ng-click="registerGoogle()">
+                                <md-icon md-svg-icon="../../../../Contents/img/btn_google_icon.svg" aria-label="google"></md-icon> Đăng kí với Google
+                            </md-button>
+                            <!--<md-button class="social-btn md-raised md-primary md-hue-6" ng-click="registerZalo()">
+                                <md-icon md-svg-icon="../../../../Contents/img/btn_zalo_icon.svg" aria-label="zalo"></md-icon> Đăng kí với Zalo
+                            </md-button>-->
+                        </div>
+                            <div>
+                                <form class="floating-labels" name="frmSignup" ng-submit="register()" novalidate>
+                                    <div layout="row" style="margin-top:35px;">
+                                        <md-input-container flex="100">
+                                            <label>Họ tên</label>
+                                            <input required md-no-asterisk type="text" maxlength="50" minlength="6" name="fullName" ng-model="account.fullName" autocomplete="off">
+                                            <div ng-messages="frmSignup.fullName.$error">
+                                                <div ng-message="required">Vui lòng nhập họ tên</div>
+                                                <div ng-message-exp="['minlength', 'maxlength']">Họ tên có độ dài từ 6 đến 50 kí tự</div>
+                                            </div>
+                                        </md-input-container>
+                                    </div>
+
+                                    <div layout="row">
+                                        <md-input-container flex="100">
+                                            <label>Email</label>
+                                            <input type="email" required name="email" ng-model="account.email" autocomplete="off">
+                                            <div ng-messages="frmSignup.email.$error">
+                                                <div ng-message="required">Vui lòng nhập email</div>
+                                                <div ng-message="pattern">Vui lòng nhập email hợp lệ</div>
+                                            </div>
+                                        </md-input-container>
+                                    </div>
+                                    <div layout="row">
+                                        <md-input-container flex="100">
+                                            <label>Số điện thoại</label>
+                                            <input required type="text" ng-pattern="/^(03|05|07|08|09)[0-9]{8}$/" name="mobile" ng-model="account.mobile" autocomplete="off">
+                                            <div ng-messages="frmSignup.mobile.$error">
+                                                <div ng-message="required">Vui lòng nhập số điện thoại</div>
+                                                <div ng-message="pattern">Vui lòng nhập số điện thoại hợp lệ</div>
+                                            </div>
+                                        </md-input-container>
+                                    </div>
+                                    <div layout="row">
+                                        <md-input-container flex="100">
+                                            <label>Mật khẩu</label>
+                                            <input required type="password" maxlength="30" minlength="6" name="password" ng-model="account.password" autocomplete="new-password">
+                                            <div ng-messages="frmSignup.password.$error">
+                                                <div ng-message="required">Vui lòng nhập mật khẩu</div>
+                                                <div ng-message-exp="['minlength', 'maxlength']">Mật khẩu có độ dài từ 6 đến 30 kí tự</div>
+                                            </div>
+                                        </md-input-container>
+                                    </div>
+                                    <div layout="row">
+                                        <md-input-container class="md-block">
+                                            <md-checkbox class="md-primary" name="allowCallback" ng-model="account.allowCallback">
+                                                Gọi tư vấn cho tôi
+                                            </md-checkbox>
+                                        </md-input-container>
+                                    </div>
+                                        <div layout="row">
+                                            <md-button id="btn-sm" type="submit" flex="100" class="md-raised md-primary">Đăng kí</md-button>
+                                        </div>
+                                </form>
+                            </div>
+                    </div>
+                </div>
+            </div>
+            <div class="bottomlinks clearfix">
+                <div class="link">
+                    <p>Đã có tài khoản ? <md-button type="button" ng-click="goLogin()" class="btn-login md-primary">Đăng nhập!</md-button>
+<!--<p>Có tài khoản?<a ng-click="goLogin()" class="forgotPassword text-center"> Quay lại trang đăng nhập!</a></p>-->
+                    <p class="code-ref" ng-show="showReferral == true">Mã giới thiệu: {{user_referral}}</p>
+                    <p class="dieu-khoan"> Khi đăng ký tài khoản là bạn đã đồng ý với <a href="https://support.punnel.com/article/21-chinh-sach-bao-mat">Chính sách bảo mật</a> , <a href="https://support.punnel.com/article/20-dieu-khoan-su-dung-dich-vu">Điều khoản sử dụng</a> của Punnel</p>
+                    <p>
+                        <div class="fb-messenger-checkbox" origin="https://app.punnel.com" user_ref="{{user_referral}}"
+                         messenger_app_id="370027363509032"
+                         page_id="246456482736038"
+                        size="medium" skin="light" center_align="false">
+                        </div>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        window.fbAsyncInit = function() {
+    FB.init({
+      appId      : '370027363509032',
+      xfbml      : true,
+      version    : 'v2.6'
+    });
+
+    FB.Event.subscribe('messenger_checkbox', function(e) {
+      console.log("messenger_checkbox event");
+      console.log(e);
+      
+      if (e.event == 'rendered') {
+        console.log("Plugin was rendered");
+      } else if (e.event == 'checkbox') {
+        var checkboxState = e.state;
+        console.log("Checkbox state: " + checkboxState);
+      } else if (e.event == 'not_you') {
+        console.log("User clicked 'not you'");
+      } else if (e.event == 'hidden') {
+        console.log("Plugin was hidden");
+      }
+      
+    });
+  }; 
+    </script>
+</div>

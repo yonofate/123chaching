@@ -1,0 +1,53 @@
+﻿<style>
+    .lead-detail md-input-container {
+        margin: 5px 0;
+    }
+</style>
+<md-dialog aria-label="lead">
+    <md-toolbar>
+        <div class="md-toolbar-tools white">
+            <h2>Mã code khuyến mãi</h2>
+            <span flex></span>
+            <md-button class="md-icon-button" ng-click="cancel()">
+                <i class="material-icons">close</i>
+            </md-button>
+        </div>
+    </md-toolbar>
+    <form name="myForm" ng-submit="submit()">
+        <md-dialog-content>
+            <div class="md-dialog-content lead-detail" style="min-width:500px;max-height:800px;">
+                <div layout="row">
+                    <md-input-container flex="100">
+                        <label ng-if="data.code && data.code.length>0">Mã code</label>
+                        <input ng-if="data.code && data.code.length==0" aria-label="name" required name="name" ng-model="data.code">
+                        <input ng-if="data.code && data.code.length>0" aria-label="name" required name="name" ng-model="data.code" ng-disabled="true">
+                    </md-input-container>
+                </div>
+                <div layout="row" style="margin-bottom:25px;">
+                    <md-input-container flex="100">
+                        <label>Chiến dịch</label>
+                        <md-select aria-label="pages" ng-model="data.promotionId" ng-init="init()">
+                            <md-option ng-repeat="item in promotions" ng-value="item.id">
+                                {{item.name}}
+                            </md-option>
+                        </md-select>
+                    </md-input-container>
+                </div>
+
+                <div layout="row">
+                    <md-input-container flex="50">
+                        <label>Số lần sử dụng</label>
+                        <input type="number" aria-label="discount" name="discount" ng-model="data.total">
+                    </md-input-container>
+                </div>             
+            </div>
+        </md-dialog-content>
+
+        <md-dialog-actions layout="row">
+            <span flex></span>
+            <md-button id="btn-sm" type="submit" class="md-raised md-primary">
+                Cập nhật
+            </md-button>
+        </md-dialog-actions>
+        </form>
+</md-dialog>

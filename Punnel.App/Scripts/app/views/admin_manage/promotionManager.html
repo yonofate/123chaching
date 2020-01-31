@@ -1,0 +1,116 @@
+﻿<style>
+    .drange .md-errors-spacer {
+        display: none;
+    }
+    .td-number{
+        text-align:right !important;
+    }
+    .ispaid {
+        color: #4177F6;
+    }
+</style>
+<div class="main-dashboard" id="lead-dashboard" ng-controller="promotionManagerCtrl">
+    <div class="container">
+        <section class="dashboard-page" ng-init="search()">
+            <div class="row">
+                <div class="col-md-8">
+                </div>
+                <div class="col-md-4 col-right">
+                    <md-button style="float:right;" class="md-raised md-primary" ng-click="detail()">Thêm chiến dịch</md-button>
+                </div>
+            </div>
+            <div class="select-status clearfix" ng-enter="search()">
+                <md-input-container style="width:120px;">
+                    <label>Gói thành viên</label>
+                    <md-select aria-label="pages" ng-model="query.serviceid" ng-change="search()">
+                        <md-option ng-repeat="item in serviceOptions" ng-value="item.i">
+                            {{item.n}}
+                        </md-option>
+                    </md-select>
+                </md-input-container>
+                <md-input-container style="min-width:100px;">
+                    <label>Loại ngày</label>
+                    <md-select aria-label="pages" ng-model="query.datetype" ng-change="search()">
+                        <md-option ng-repeat="item in dateTypeOptions" ng-value="item.i">
+                            {{item.n}}
+                        </md-option>
+                    </md-select>
+                </md-input-container>
+                <md-input-container style="min-width:200px;" class="drange">
+                    <label>Thời gian</label>
+                    <input date-range-picker options="options" class="date-picker" type="text" ng-model="wdate.dateRange" max="maxDate" />
+                </md-input-container>
+                <md-input-container class="txt-search" style="min-width:280px;">
+                    <label>Tìm kiếm</label>
+                    <input type="search" name="keyword" autocomplete="off" ng-model="query.keyword" placeholder="Tìm theo mã code, tên chiến dịch">
+                </md-input-container>
+                <button type="button" class="btn btn-primary btn-search" ng-click="search()"><i class="material-icons dp48">search</i></button>
+            </div>
+
+            <table class="table table-striped nohead user-manager">
+                <thead>
+                    <tr>
+                        <td>Chiến dịch</td>
+                        <td>Khuyến mãi</td>
+                        <td>Gói</td>
+                        <td>Hiệu lực</td>
+                        <td>Hết hạn</td>
+                        <td class="td-number">Cập nhật bởi</td>
+                        <td class="td-number"></td>
+                        <td style="width:120px;text-align:right;"></td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="item in list">
+                        <td><span ng-bind="item.name || '---'"></span></td>
+                        <td>
+                            <span ng-if="item.isDiscountPercent==true"><span ng-bind="item.discount || '---'"></span>%</span>
+                            <span ng-if="item.isDiscountPercent==false"><span ng-bind="item.discount || '---'"></span>đ</span>
+                        </td>
+                        <td><span class="tag-primary color-{{item.serviceId}}" ng-bind="serviceDisplay(item.serviceId) || '---'"></span></td>
+                        <td>
+                            <span ng-bind="item.activeDate | date:'dd/MM/yyyy'"></span>
+                        </td>
+                        <td>
+                            <span ng-bind="item.expiredDate | date:'dd/MM/yyyy'"></span>
+                        </td>
+                        <td class="td-number">
+                            <span ng-bind="item.updatedBy"></span>
+                        </td>
+                        <td class="td-number">
+                            <a ui-sref="dashboard.promotioncodemanager({id: item.id})">Code</a>
+                        </td>
+                        <!--<td style="text-align:center"><md-icon ng-if="item.isAffilateAgent==true" class="material-icons">check</md-icon></td>-->
+                        <td style="text-align:right;">
+                            <md-menu md-position-mode="target-right target">
+                                <md-button aria-label="Open group" class="md-icon-button" ng-click="$mdMenu.open($event)">
+                                    <md-icon class="material-icons">more_horiz</md-icon>
+                                </md-button>
+                                <md-menu-content width="3">
+                                    <!--<md-menu-item>
+                                        <md-button ng-click="detail(item)">
+                                            <div layout="row" flex>
+                                                <p flex>Chi tiết</p>
+                                                <md-icon class="material-icons">details</md-icon>
+                                            </div>
+                                        </md-button>
+                                    </md-menu-item>-->
+                                    <md-menu-item>
+                                        <md-button ng-click="code(item.id)">
+                                            <div layout="row" flex>
+                                                <p flex>Quản lý Code</p>
+                                                <md-icon class="material-icons">details</md-icon>
+                                            </div>
+                                        </md-button>
+                                    </md-menu-item>
+                                </md-menu-content>
+                            </md-menu>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <span ng-show="totalItem>0"><strong ng-bind="total"></strong> khuyến mãi</span>
+            <ul style="margin-top:0px;float:right" ng-show="total>query.limit" uib-pagination total-items="total" ng-model="query.page" items-per-page="query.limit" class="pagination" ng-change="pageChanged()"></ul>
+        </section>      
+    </div>
+</div>

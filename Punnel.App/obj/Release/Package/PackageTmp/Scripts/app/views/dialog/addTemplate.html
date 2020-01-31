@@ -1,0 +1,45 @@
+﻿<md-dialog aria-label="Tạo LandingPage">
+    <md-toolbar>
+        <div class="md-toolbar-tools white">
+            <h2>Tạo giao diện mẫu</h2>
+            <span flex></span>
+            <md-button class="md-icon-button" ng-click="cancel()">
+                <i class="material-icons">close</i>
+            </md-button>
+        </div>
+    </md-toolbar>
+
+    <md-dialog-content>
+            <div layout="row" layout-xs="column">
+                <md-list>
+                    <md-list-item style="padding-bottom:5px;padding-top:5px;" ng-click="choose(10)">
+                        <md-button class="md-fab md-primary md-mini" aria-label="Tạo trang Landing Page mẫu">
+                            <md-icon class="material-icons">pages</md-icon>
+                        </md-button>
+                        <div class="md-list-item-text" layout="column">
+                            <span style="font-size:16px;">Tạo <b>trang</b> mẫu</span>
+                            <p style="line-height:20px;margin-top:-6px; font-size:12px">Tạo trang landing page mẫu mà bạn thường hay tái sử dụng</p>
+                        </div>
+                    </md-list-item>
+                    <md-list-item style="padding-bottom:5px;padding-top:5px;" ng-click="choose(20)">
+                        <md-button class="md-fab md-primary md-mini" aria-label="Tạo section mẫu">
+                            <md-icon class="material-icons">view_stream</md-icon>
+                        </md-button>
+                        <div class="md-list-item-text" layout="column">
+                            <span style="font-size:16px;">Tạo <b>section</b> mẫu</span>
+                            <p style="line-height:20px;margin-top:-6px; font-size:12px">Tạo section mẫu để sử dụng chèn vào Landing page. Ví dụ: Header, footer..</p>
+                        </div>
+                    </md-list-item>
+                    <md-list-item style="padding-bottom:5px;padding-top:5px;" ng-click="choose(30)">
+                        <md-button class="md-fab md-primary md-mini" aria-label="Tạo popup mẫu">
+                            <md-icon class="material-icons">open_in_new</md-icon>
+                        </md-button>
+                        <div class="md-list-item-text" layout="column">
+                            <span style="font-size:16px;">Tạo <b>popup</b> mẫu</span>
+                            <p style="line-height:20px;margin-top:-6px; font-size:12px">Tạo popup mẫu để sử dụng chèn vào Landing page. Ví dụ: popup cảm ơn..</p>
+                        </div>
+                    </md-list-item>
+                </md-list>
+            </div>
+    </md-dialog-content>
+</md-dialog>

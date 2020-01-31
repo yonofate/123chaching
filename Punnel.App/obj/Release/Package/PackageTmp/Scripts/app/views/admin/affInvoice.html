@@ -1,0 +1,64 @@
+﻿<div ng-controller="affInvoiceCtrl">
+    <div id="content" class="container clearfix">
+        <div class="search-title">
+            <div class="group clearfix">
+                <div class="box-group"> <button ng-click="moreAff()">Xem thêm</button> <button ng-click="moreAffExl()">Xuất file</button> <a ng-if="linkdown != \'\'" href="{{linkdown}}" target="_blank">Tải về</a> </div>
+            </div>
+            <table>
+                <tr>
+                    <th>Họ tên</th>
+                    <th>Email</th>
+                    <th>SĐT</th>
+                    <th>Price</th>
+                    <th>Mã Ref</th>
+                    <th>InvoidID</th>
+                </tr>
+                <tr ng-repeat="item in data">
+                    <td>{{item.name}}</td>
+                    <td>{{item.email}}</td>
+                    <td>{{item.phone}}</td>
+                    <td>{{item.price}}</td>
+                    <td>{{item.ref}}</td>
+                    <td><a ng-click="showpopup(item.invoice, $index)">{{item.invoice}}</a></td>
+                </tr>
+            </table>
+        </div>
+        <div class="modal fade container detail-bill" id="setting-FindPayCommiByAff" role="dialog">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-body">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h4 class="modal-title">Chi tiết đơn hàng</h4> <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="content">
+                                <table>
+                                    <tr>
+                                        <th>ID</th>
+                                        <th>Email</th>
+                                        <th>Giá trị đơn hàng</th>
+                                        <th>Tiền hoa hồng</th>
+                                        <th>Ngày tạo</th>
+                                    </tr>
+                                    <tr ng-repeat="itemL in listaffid">
+                                        <td>{{$index}}</td>
+                                        <td>{{itemL.email}}</td>
+                                        <td>{{itemL.priceOrder}}</td>
+                                        <td>{{itemL.price}}</td>
+                                        <td>{{itemL.date | date:"dd/MM/yyyy"}}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Tổng tiền</td>
+                                        <td>{{commission}}</td>
+                                    </tr>
+                                </table>
+                            </div>
+                            <div class="content-footer"> <button class="continue" ng-click="tattoan()">Tất Toán</button> </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--end  modal mới -->
+    </div>
+</div>')

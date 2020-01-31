@@ -1,0 +1,41 @@
+﻿<md-dialog aria-label="Thêm biểu tượng">
+    <md-toolbar>
+        <div class="md-toolbar-tools white">
+            <h2>Chèn biểu tượng</h2>
+            <span flex></span>
+            <md-button class="md-icon-button" ng-click="cancel()">
+                <i class="material-icons">close</i>
+            </md-button>
+        </div>
+    </md-toolbar>
+    <md-dialog-content>
+        <div class="md-dialog-content" style="min-width:900px;">
+            <div flex>
+                <div class="tab-inner">
+                    <ul class="nav nav-pills myTab" role="tablist" id="myTabShape">
+                        <li ng-repeat="itemgr in itemGroupShapeMore" ng-click="changeTypeLoad(itemgr.value)" role="presentation" pn-active="{{itemgr.value}}"><a role="tab" data-toggle="tab">{{itemgr.name}}</a> </li>
+                        <div class="form-search pull-right"> 
+                        <input type="search" name="" value="" placeholder="Tìm kiếm" ng-model="shape_search"> 
+                        <button type="button" class="btn btn-primary btn-search" ng-click="search_name_shape()">Tìm kiếm</button> 
+                        </div>
+                    </ul>
+                    <div class="tab-content">
+                        <div role="tabpanel" class="tab-pane fade in active">
+                            <div class="container-shape clearfix">
+                                <div class="item" ng-repeat="itemSh in items_shape" pn-add-active="{{$index}}" ng-click="addActive($index)" ng-dblclick="selectShape()" pn-name-search="{{itemSh.name}}">
+                                    <div class="item-child" ng-bind-html="itemSh.html"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </md-dialog-content>
+    <md-dialog-actions layout="row">
+        <span flex></span>
+        <md-button type="submit" class="md-raised md-primary" ng-click="selectShape()>
+            Sử dụng
+        </md-button>
+    </md-dialog-actions>
+</md-dialog>

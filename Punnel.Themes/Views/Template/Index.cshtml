@@ -1,0 +1,41 @@
+﻿<div id="preview_punnel">
+    <header>
+        <div class="container">
+            <div class="col-sm-12 user-setting user-view">
+                <ul class="list-menu" style="text-align:center;">
+                    <li id="desk_view" class="active"><a class="desktop-view"><i class="material-icons">desktop_mac</i></a></li>
+                    <li id="mobile_view" class=""><a class="mobile-view"><i class="material-icons">phone_iphone</i></a></li>
+                    <li><a target="_blank" href="//app.punnel.com/#!/auth/register/?tid=@ViewBag.Id" class="btn menu-regis hrv-btn-register">SỬ DỤNG THEME NÀY</a></li>
+                </ul>
+            </div>
+        </div>
+    </header>
+    <div id="preview_container">
+        <div id="punnel-editor">
+            <iframe src="https://templates.punnel.com/@ViewBag.Id/"></iframe>
+        </div>
+    </div>
+</div>
+@section scripts {
+    <script>
+        $('.desktop-view').on('click', function () {
+            $("#preview_container").css({
+                "width": "100%",
+                "margin": "0px auto"
+            });
+            $('.list-menu > li').removeClass();
+            $(this).parent().addClass('active');
+        });
+
+        $('.mobile-view').on('click', function () {
+            $("#preview_container").css({
+                "width": "385px",
+                "margin": "0px auto"
+            });
+            $('.list-menu > li').removeClass();
+            $(this).parent().addClass('active');
+        });
+    </script>
+}
+
+

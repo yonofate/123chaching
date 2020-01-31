@@ -1,0 +1,35 @@
+﻿<md-dialog aria-label="{{title}}">
+    <md-toolbar>
+        <div class="md-toolbar-tools white">
+            <h2>Xác thực tên miền(domain)</h2>
+            <span flex></span>
+            <md-button class="md-icon-button" ng-click="cancel()">
+                <i class="material-icons">close</i>
+            </md-button>
+        </div>
+    </md-toolbar>
+    <form name="myForm" ng-submit="submit()">
+        <md-dialog-content>
+            <div class="md-dialog-content" style="min-width:400px;">
+                <div flex style="padding:10px 20px 10px 20px;">
+                    <div class="row" style="margin-bottom:15px;">
+                        <b>Bước 1: </b><span>Đăng nhập quản lý tên miền của bạn. Trỏ loại bản ghi <strong>A</strong> của tên miền về địa chỉ: <strong>103.92.28.60</strong></span>
+                    </div>
+                    <div class="row">
+                        <b>Bước 2: </b><span>Chọn nút "Xác thực" bên dưới để hoàn thành</span>
+                    </div>
+                    <div class="row" style="margin-top:20px;">
+                        <i style="font-size:90%;"><b>Lưu ý:</b> Việc trỏ tên miền về IP ở bước 1 có thể mất vài phút. Nên nếu thực hiện bước 2 chưa thành công thì bạn có thể quay lại thực hiện sau vài phút</i>
+                    </div>
+                </div>
+            </div>
+        </md-dialog-content>
+        <md-dialog-actions layout="row">
+            <span flex></span>
+                <span style="text-align:right;" flex><strong>Tôi đã xong bước 1 =></strong></span>
+                <md-button id="btn-sm" ng-disabled="myForm.$valid==false" type="submit" class="md-raised md-primary">
+                    Xác thực
+                </md-button>
+        </md-dialog-actions>
+    </form>
+</md-dialog>

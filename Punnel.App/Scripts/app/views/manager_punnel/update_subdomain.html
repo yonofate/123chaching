@@ -1,0 +1,12 @@
+﻿<div class="dialog small modal info page-title-setting active fadeIn animated" ng-controller="updateSubdomainCtr as updateSubdomain">
+    <div class="header">
+        <div class="text">{{CUSTOM_SUBDOMAIN.TITLE_SETTING|translate}}</div> <i class="material-icons right-modal" ng-click="closeNew()">close</i>
+    </div>
+    <div class="content">
+        <p id="ngdialog3-aria-describedby">{{CUSTOM_SUBDOMAIN.INTRO|translate}}</p>
+        <div class="row">
+            <div class="select-style"> <select ng-model="selectDomainUser" ng-change="changeDomainUser(selectDomainUser)"> <option ng-repeat="item in itemsDomain" ng-selected="item.id == itemsDomain[0].id" value="{{item.id}}">{{item.name}}</option> </select> </div> <input type="text" name="page-title" placeholder="{{CUSTOM_SUBDOMAIN.PLACOHLDER|translate}}" ng-model="subdomain">
+        </div>
+    </div>
+    <div class="text-center"> <a class="ui button action" ng-click="updatesubfolder()">{{GENERAL_DIALOG_FORM.DONE|translate}}</a> </div>
+</div>

@@ -1,0 +1,92 @@
+﻿<div class="main-dashboard" ng-controller="chatbotCtrl" ng-init="init()">
+    <div class="container">
+        <div ng-if="crUser.connected!==1">
+            <div>
+                <button class="btn btn-primary" type="button" value="Đăng nhập Facebook" ng-click="login()">Kết nối tài khoản Facebook</button>
+            </div>
+        </div>
+
+        <div class="tab-content row" ng-if="crUser.connected===1">
+            <div class="col-md-4">
+                <div ng-show="pages.length>0">
+                    <select data-placeholder-text-single="'Chọn trang cấu hình'" chosen
+                            search-contains="true"
+                            ng-model="selectedPage.id"
+                            name="crPage"
+                            ng-model-options="{ getterSetter: true }"
+                            ng-required="true"
+                            ng-change="changePage()"
+                            no_results_text="'Chọn trang cấu hình'"
+                            ng-options="item.id as item.name for item in pages" style="width:250px;">
+                        <!--<option></option>-->
+                    </select>
+                </div>
+            </div>
+            <div class="col-md-8">
+                <div>
+                    <button type="button" class="btn btn-add pull-right" ng-click="showFBPage()"> <i class="material-icons dp48">add_circle_outline</i> Thêm FanPage</button>
+                </div>
+            </div>
+        </div>
+
+        <div id="configPage" ng-show="crPage!=null">
+            <div class="panel panel-primary">
+                <div class="panel-heading"><span ng-bind="crPage.name"></span></div>
+                <div class="panel-body">
+                    <div class="tab-content">
+                        <form name="frmConfig" ng-submit="updateConfig()">
+                            <div class="form-group">
+                                <label>Chào khi khách đã đăng nhập FB</label>
+                                <textarea name="greetingIn" ng-model="crPage.greetingIn" maxlength="80" placeholder="vd: Chào bạn! Bạn cần hỗ trợ gì? .."></textarea>
+                            </div>
+                            <div class="form-group">
+                                <label>Chào khi khách chưa đăng nhập FB</label>
+                                <textarea name="greetingOut" ng-model="crPage.greetingOut" maxlength="80" placeholder="vd: Chào bạn! Đăng nhập facebook để gửi yêu cầu hỗ trợ nhé? .."></textarea>
+                            </div>
+                            <div class="form-group">
+                                <label>Màu công cụ chat</label>
+                                <div id="cp2" class="input-group colorpicker-component" style="float:left;">
+                                    <input id="clp" type="text" value="#0084ff" class="form-control" />
+                                    <span class="input-group-addon"><i></i></span>
+                                </div>
+                            </div>
+                            <!--<div class="form-group">
+                <label>Xuất hiện sau thời gian(giây)</label>
+                <input name="delay" type="number" min="0" max="60" ng-model="crPage.delay" />
+            </div>-->
+                            <button style="margin-top:20px;" class="btn btn-primary pull-right" type="submit">Lưu</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade container Custom-modal" id="chooseFBPage" role="dialog">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Chọn trang cài đặt chatbot</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="tab-content">
+                        <ul>
+                            <li ng-repeat="page in fbpages">
+                                <img src="//graph.facebook.com/{{page.id}}/picture?width=40&amp;height=40" class="radius-cycle" style="max-height: 40px; max-width: 40px;">
+                                <span ng-bind="page.name"></span>
+                                <button type="button" value="Kết nối" ng-click="subscribePage(page)">Kết nối</button>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('#cp2').colorpicker();
+    });
+</script>

@@ -1,0 +1,23 @@
+﻿<div id="preview_punnel" ng-controller="previewCtrl" class="ng-scope">
+    <header>
+        <div class="close">
+            <a ui-sref="dashboard.landingpage"><md-icon class="material-icons">close</md-icon></a>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-4">
+                    <div class="logo"><a ui-sref="dashboard.landingpage"> <img src="images/logo-white-color.svg" alt="logo-punnel"></a> </div>
+                </div>
+                <div class="col-sm-8 user-setting user-view">
+                    <ul class="list-menu pull-right">
+                        <li ng-click="previewDesktop()"><a><i class="material-icons">desktop_mac</i> &nbsp; <span></span></a></li>
+                        <li ng-click="previewMobile()"><a><i class="material-icons">phone_iphone</i> &nbsp; <span></span></a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </header>
+    <div id="preview_container">
+        <div id="punnel-editor"> </div>
+    </div>
+</div>

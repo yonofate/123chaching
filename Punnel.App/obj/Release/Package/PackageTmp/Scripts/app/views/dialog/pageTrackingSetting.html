@@ -1,0 +1,50 @@
+﻿<md-dialog aria-label="popup config">
+    <md-toolbar>
+        <div class="md-toolbar-tools white">
+            <h2>Cấu hình Tracking</h2>
+            <span flex></span>
+            <md-button class="md-icon-button" ng-click="cancel()">
+                <i class="material-icons">close</i>
+            </md-button>
+        </div>
+    </md-toolbar>
+    <form name="myForm" ng-submit="submit()">
+        <md-dialog-content style="width:400px; max-height:810px;">
+            <md-content class="md-padding">
+                <md-input-container class="md-block">
+                    <label>Facebook Pixel ID</label>
+                    <input ng-model="pageInfo.idpixel">
+                </md-input-container>
+                <md-input-container class="md-block">
+                    <label>Google Analytics ID</label>
+                    <input ng-model="pageInfo.idanalytics">
+                </md-input-container>
+                <md-input-container class="md-block">
+                    <label>Google Ads ID</label>
+                    <input ng-model="pageInfo.idgoogleAds">
+                </md-input-container>
+                <md-input-container class="md-block">
+                    <label>Google Tag ID</label>
+                    <input ng-model="pageInfo.idgoogletag">
+                </md-input-container>
+
+                <!--<div layout="column" layout-align="center start">
+        <md-input-container flex="100" style="width:100%;">
+            <label>Chèn sự kiện mẫu vào thẻ HEADER</label>
+            <md-select placeholder="Chọn sự kiện mẫu" ng-model="trackingValue" flex="100">
+                <md-option ng-value="item.value" ng-repeat="item in trackingItems" ng-click="addTrackingItem($index)">{{item.name}}</md-option>
+            </md-select>
+        </md-input-container>
+        <md-input-container id="editor-custom-header" class="md-block" flex>
+            <textarea aria-label="html head" ng-model="pageInfo.head" md-maxlength="1000" rows="5" md-select-on-focus></textarea>
+        </md-input-container>
+    </div>-->
+            </md-content>
+        </md-dialog-content>
+        <md-dialog-actions layout="row">           
+            <md-button id="btn-sm" type="submit" class="md-raised md-primary">
+                Ok
+            </md-button>
+        </md-dialog-actions>
+    </form>
+</md-dialog>

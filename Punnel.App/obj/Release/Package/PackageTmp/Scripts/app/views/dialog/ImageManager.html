@@ -1,0 +1,176 @@
+﻿<style>
+    .list-imgs {
+        display: block;
+        float: left;
+        width: 100%;
+    }
+</style>
+<md-dialog aria-label="Quản lý thư viện ảnh">
+    <md-toolbar>
+        <div class="md-toolbar-tools white">
+            <h2>Quản lý thư viện ảnh</h2>
+            <span flex></span>
+            <md-button class="md-icon-button" ng-click="cancel()">
+                <i class="material-icons">close</i>
+            </md-button>
+        </div>
+    </md-toolbar>
+
+    <md-dialog-content>
+        <div id="managerImage" class="md-dialog-content managerImage" style="padding:0px;width:1135px;min-height:600px;" ng-init="initImages()">
+            <div class="tab-inner">
+                <md-tabs md-dynamic-height md-border-bottom>
+                    <md-tab label="Ảnh của tôi" ng-click="init_MyPic()">
+                        <div class="tab-content">
+                            <div class="list-image">
+                                <ul>
+                                    <li ng-class="{active: query.coid == null}"> <a ng-click="getImageInFolder(null)">Ảnh không thuộc nhóm</a> </li>
+                                    <li ng-repeat="item in listFolder" ng-class="{active: query.coid == item.id}" ng-click="getImageInFolder(item.id)">
+                                        <a>{{item.name}}</a>
+                                        <div class="comment-group clearfix">
+                                            <md-menu md-position-mode="target-right target">
+                                                <md-button aria-label="Open group" class="md-icon-button" ng-click="$mdMenu.open($event)">
+                                                    <md-icon class="material-icons">more_horiz</md-icon>
+                                                </md-button>
+                                                <md-menu-content width="3">
+                                                    <md-menu-item>
+                                                        <md-button ng-click="showAddFolder(item)">
+                                                            <div layout="row" flex>
+                                                                <p flex>Sửa tên</p>
+                                                                <md-icon class="material-icons">edit</md-icon>
+                                                            </div>
+                                                        </md-button>
+                                                    </md-menu-item>
+                                                    <md-menu-item>
+                                                        <md-button ng-click="removeFolder(item,$index)">
+                                                            <div layout="row" flex>
+                                                                <p flex>Xóa</p>
+                                                                <md-icon class="material-icons">delete</md-icon>
+                                                            </div>
+                                                        </md-button>
+                                                    </md-menu-item>
+                                                </md-menu-content>
+                                            </md-menu>
+                                        </div>
+                                    </li>
+                                    <li class="new-folder">
+                                        <a ng-click="showAddFolder()"> <i class="ion-ios-plus-outline"></i> <span>Tạo nhóm mới</span> </a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div role="tabpanel" class="tab-pane fade in active">
+                                <div class="container-image container-image-0 clearfix">
+                                    <md-progress-linear class="cloading" md-mode="indeterminate"></md-progress-linear>
+                                    <div class="group-null" ng-show="images.length == 0">
+                                        <div class="icon-page">
+                                            <svg id="empty-dashboard" xmlns="http://www.w3.org/2000/svg" width="80" height="100" viewbox="0 0 80 100">
+                                                <defs>
+                                                    <style>
+                                                        #empty-dashboard .cls-1 {
+                                                            \n fill: #f8fafb;
+                                                            \n;
+                                                        }
+
+                                                        \n\n #empty-dashboard .cls-1, #empty-dashboard .cls-2 {
+                                                            \n fill-rule: evenodd;
+                                                            \n;
+                                                        }
+
+                                                        \n\n #empty-dashboard .cls-2 {
+                                                            \n fill: #dde4ea;
+                                                            \n;
+                                                        }
+                                                    </style>
+                                                </defs>
+                                                <path id="Rectangle_656_copy" data-name="Rectangle 656 copy" class="cls-1" d="M2 10V2a1 1 0 0 1 1-1h75a1 1 0 0 1 1 1v8H2zm71 27H7V19h66v18zm-6 43H47v-5h20v5z"></path>
+                                                <path class="cls-2" d="M76 100H4a4.012 4.012 0 0 1-4-4V4a4.012 4.012 0 0 1 4-4h72a4.012 4.012 0 0 1 4 4v92a4.012 4.012 0 0 1-4 4zm2-96a2.006 2.006 0 0 0-2-2H4a2.006 2.006 0 0 0-2 2v5h76V4zm0 7H2v85a2.006 2.006 0 0 0 2 2h72a2.006 2.006 0 0 0 2-2V11zM40 47h34v42H40V47zm2 40h30V49H42v38zm23-6H49a4 4 0 0 1 0-8h16a4 4 0 0 1 0 8zm0-6H49a2 2 0 0 0 0 4h16a2 2 0 0 0 0-4zM45 62h24v8H45v-8zm2 6h20v-4H47v4zm-2-16h24v8H45v-8zm2 6h20v-4H47v4zM6 18h68v20H6V18zm2 18h64V20H8v16zm51-7H21a1 1 0 0 1 0-2h38a1 1 0 0 1 0 2zM7 47h27a1 1 0 0 1 0 2H7a1 1 0 0 1 0-2zm0 10h27a1 1 0 0 1 0 2H7a1 1 0 0 1 0-2zm-.29 10h27.58a1.06 1.06 0 0 1 0 2H6.71a1.06 1.06 0 0 1 0-2zM7 77h27a1 1 0 0 1 0 2H7a1 1 0 0 1 0-2zm0 10h17a1 1 0 0 1 0 2H7a1 1 0 0 1 0-2zm4.5-83A1.5 1.5 0 1 1 10 5.5 1.5 1.5 0 0 1 11.5 4zm5 0A1.5 1.5 0 1 1 15 5.5 1.5 1.5 0 0 1 16.5 4zm5 0A1.5 1.5 0 1 1 20 5.5 1.5 1.5 0 0 1 21.5 4z"></path>
+                                            </svg>
+                                        </div>
+                                        <h4>Chưa có hình ảnh nào trong mục này</h4>
+                                        <h5>Hãy tải ảnh của bạn lên để sử dụng</h5>
+                                    </div>
+                                    <div class="list-imgs">
+                                        <div class="item" ng-repeat="item in images track by $index" pn-active="{{item.id}}" ng-click="setActive(item.id, item.path)" ng-dblclick="applyImage(item)" ng-if="item.path !== '' && item.path !== 'undefined' && item.path !== NaN" data-toggle="tooltip" title="{{item.name}}">
+                                            <img ng-src="{{item.thumb}}" alt="item.name">
+                                            <!--<img ng-if="$index > 20" lazy-src="{{item.thumb}}" alt="item.name">-->
+                                            <md-button md-no-ink class="md-raised" style="" ng-click="applyImage(item)">sử dụng</md-button>
+                                        </div>
+                                    </div>
+                                    <div class="pagination-bottom">
+                                        <ul ng-show="totalItem > query.limit" uib-pagination total-items="totalItem" ng-model="query.page" items-per-page="40" class="pagination" ng-change="pageChanged()"></ul>
+                                    </div>
+                                </div>
+                                </div>
+                        </div>
+                        <div class="box">
+                        </div>
+                    </md-tab>
+                    <md-tab label="Kho ảnh" ng-click="init_Stock()">
+                        <div class="list-image">
+                            <ul>
+                                <li ng-repeat="item in listFolder_Stock" ng-class="{active: queryStock.coid == item.id}" ng-click="getImageInFolder_Stock(item.id)">
+                                    <a>{{item.name}}</a>
+                                </li> 
+                            </ul>
+                        </div>
+                        <div role="tabpanel" class="tab-pane fade in active">
+                            <div class="container-image container-image-1 clearfix">
+                                <md-progress-linear class="cloading" md-mode="indeterminate"></md-progress-linear>
+                                <div class="group-null" ng-show="images_Stock.length==0">
+                                    <div class="icon-page" style="min-height:250px;margin:0 auto;">
+                                    </div>
+                                </div>
+                                <div class="list-imgs">
+                                    <div class="item" ng-repeat="item in images_Stock track by $index" pn-active="{{item.id}}" ng-click="setActive(item.id, item.path)" ng-dblclick="applyImage(item)" ng-if="item.path !== '' && item.path !== 'undefined' && item.path !== NaN">
+                                        <img ng-src="{{item.thumb}}">
+                                        <!--<img ng-if="$index > 20" lazy-src="{{item.thumb}}">-->
+                                        <span ng-show="item.width>0 && item.height>0" class="size-desc">{{item.width}}x{{item.height}}</span>
+                                        <span ng-show="item.width==0 && item.height==0" class="size-desc">svg</span>
+                                        <md-button md-no-ink class="md-raised" style="" ng-click="applyImage_Stock(item)">sử dụng</md-button>
+                                    </div>
+                                </div>
+                                <div class="pagination-bottom">
+                                    <ul ng-show="totalStockItem > queryStock.limit" uib-pagination total-items="totalStockItem" ng-model="queryStock.page" class="pagination" ng-change="pageStockChanged()"></ul>
+                                </div>
+                            </div>
+                        </div>
+                    </md-tab>
+                </md-tabs>
+            </div>
+            </div>
+    </md-dialog-content>
+    <md-dialog-actions layout="row">
+        <span ng-if="image_from==0" flex class="note-img"><i>*Bạn có thể tìm tải ảnh về từ kho ảnh miễn phí:</i> <a target="_blank" rel="nofollow" href="https://unsplash.com">unsplash.com</a></span>
+        <md-button ng-show="(image_from==1 && isEditor==true) || image_from==0" layout-align="center center" aria-label="Upload hình" type="file" id="fileUpload" name="fileUpload" multiple ngf-select="uploadFiles($files)" ng-model="files" class="md-raised md-primary upload pull-right" ngf-pattern="'.jpg,image/*,.jpeg,.png,.gif,.svg,.ico'" ngf-accept="'image/*'" ngf-max-files="10" ngf-max-size="5MB">
+            Tải ảnh lên
+        </md-button>
+        <md-menu ng-show="image_from==0" md-position-mode="target-right target">
+            <md-button ng-disabled="imageSelect.length===0" class="md-raised md-primary" ng-click="$mdMenu.open($event)">Chuyển nhóm</md-button>
+            <md-menu-content width="3">
+                <md-menu-item ng-repeat="item in listFolder">
+                    <md-button aria-label="cgroup" ng-click="changeGroup(item.id)">
+                        <div layout="row" flex>
+                            <p flex><span ng-bind="item.name"></span></p>
+                        </div>
+                    </md-button>
+                </md-menu-item>
+            </md-menu-content>
+        </md-menu>
+        <md-menu ng-show="image_from==1 && isEditor==true" md-position-mode="target-right target">
+            <md-button ng-disabled="imageSelect.length===0" class="md-raised md-primary" ng-click="$mdMenu.open($event)">Chuyển nhóm</md-button>
+            <md-menu-content width="3">
+                <md-menu-item ng-repeat="item in listFolder_Stock">
+                    <md-button aria-label="btnCate" ng-click="changeCate(item.id)">
+                        <div layout="row" flex>
+                            <p flex><span ng-bind="item.name"></span></p>
+                        </div>
+                    </md-button>
+                </md-menu-item>
+            </md-menu-content>
+        </md-menu>
+        <md-button ng-show="(image_from==1 && isEditor==true) || image_from==0" ng-disabled="imageSelect.length===0" class="md-raised md-warn" ng-click="deleteImages()">Xóa</md-button>
+    </md-dialog-actions>
+</md-dialog>
+
+    
+

@@ -1,0 +1,88 @@
+﻿<style>
+    .drange .md-errors-spacer {
+        display: none;
+    }
+    ul.btnfilter li {
+        display: inline;
+        list-style-type: none;
+        padding-right: 20px;
+        float: left;
+    }
+</style>
+<div class="main-dashboard" id="lead-dashboard" ng-controller="ticketManagerCtrl">
+    <div class="container">
+        <section class="dashboard-page" ng-init="search()">
+            <div class="select-status clearfix">
+                <md-input-container style="width:110px;">
+                    <label>Trạng thái</label>
+                    <md-select aria-label="loại" ng-model="query.status" ng-change="search()">
+                        <md-option ng-repeat="item in statusOptions" ng-value="item.i">
+                            {{item.n}}
+                        </md-option>
+                    </md-select>
+                </md-input-container>
+                <md-input-container class="txt-search" style="min-width:230px;">
+                    <label>Email/sđt</label>
+                    <input type="search" name="keyword" autocomplete="off" ng-model="query.keyword" placeholder="Tìm theo email, điện thoại" ng-enter="search()">
+                </md-input-container>
+                <button type="button" class="btn btn-primary btn-search" ng-click="search()"><i class="material-icons dp48">search</i></button>
+            </div>
+
+            <table class="table table-striped nohead user-manager">
+                <thead>
+                    <tr>
+                        <td>Ngày</td>
+                        <td>Họ tên</td>
+                        <td>Email</td>
+                        <td>Điện thoại</td>
+
+                        <td>Thời gian</td>
+                        <td>Trạng thái</td>
+                        <td>Yêu cầu</td>
+                        <td style="text-align:center;min-width:120px;">Ghi chú</td>
+                        <td style="width:120px;text-align:right;"></td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="item in tickets">
+                        <td>
+                            <span am-time-ago="item.createdDate"></span>
+                        </td>
+                        <td>
+                            <span ng-bind="item.fullName"></span>
+                        </td>
+                        <td>
+                            <a target="_blank" ui-sref="dashboard.usermanager({w: item.email})"><span ng-bind="item.email || '---'"></span></a>
+                        </td>
+                        <td>
+                            <strong ng-bind="item.mobile"></strong>
+                        </td>
+
+                        <td>
+                            <span ng-bind="item.time"></span>
+                        </td>
+                        <td>
+                            <label ng-bind="item.statusDisplay"></label>
+                        </td>
+                        <td>
+                            <span ng-bind="item.subject"></span>
+                        </td>
+                        <td>
+                            <span class="highlight-note" ng-bind="item.note"></span>
+                        </td>
+                        <td style="text-align:right;">
+                            <md-button aria-label="Open group" class="btn-note md-icon-button" ng-click="showAddNote(item)">
+                                <md-icon class="material-icons">edit</md-icon>
+                            </md-button>
+                            <md-button aria-label="Open group" class="md-icon-button" ng-click="delete(item.id)">
+                                <md-icon class="material-icons">delete</md-icon>
+                            </md-button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <span ng-show="total>0"><strong ng-bind="total"></strong> ticket</span>
+            <ul style="margin-top:0px;float:right" ng-show="total>query.limit" uib-pagination total-items="total" ng-model="query.page" items-per-page="query.limit" class="pagination" ng-change="pageChanged()"></ul>
+        </section>      
+    </div>
+</div>

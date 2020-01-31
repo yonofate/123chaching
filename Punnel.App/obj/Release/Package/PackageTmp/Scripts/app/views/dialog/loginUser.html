@@ -1,0 +1,35 @@
+﻿<md-dialog aria-label="login">
+    <md-toolbar>
+        <div class="md-toolbar-tools white">
+            <h2>Đăng nhập</h2>
+            <span flex></span>
+            <md-button class="md-icon-button" ng-click="cancel()">
+                <i class="material-icons">close</i>
+            </md-button>
+        </div>
+    </md-toolbar>
+    <form name="myForm" ng-submit="submit()">
+        <md-dialog-content>
+            <div class="md-dialog-content" style="min-width:400px;">
+                <div flex>
+                    <md-input-container class="md-block">
+                        <label>Email</label>
+                        <input ng-model="account.userName" autocomplete="off" disabled required>
+                    </md-input-container>
+                </div>
+                <div flex>
+                    <md-input-container class="md-block">
+                        <label>Mật khẩu</label>
+                        <input type="password" ng-model="account.password" autocomplete="off" md-autofocus required>
+                    </md-input-container>
+                </div>
+            </div>
+        </md-dialog-content>
+        <md-dialog-actions layout="row">
+            <span flex></span>
+            <md-button id="btn-sm" ng-disabled="myForm.$valid==false" type="submit" class="md-raised md-primary">
+                OK
+            </md-button>
+        </md-dialog-actions>
+    </form>
+</md-dialog>

@@ -1,0 +1,48 @@
+﻿<md-dialog aria-label="Thêm Section" ng-init="init(20)">
+    <md-toolbar>
+        <div class="md-toolbar-tools white">
+            <h2>Thêm Section</h2>
+            <span flex></span>
+            <md-button class="md-icon-button" ng-click="cancel()">
+                <i class="material-icons">close</i>
+            </md-button>
+        </div>
+    </md-toolbar>
+
+    <md-dialog-content>
+        <div class="model md-dialog-content modal-section" style="width: 1032px;margin-top:-25px;">
+            <div>
+                <div class="tab-inner">
+                    <ul class="nav nav-pills" role="tablist" id="myTab">
+                        <li class="active" role="presentation" ng-click="getByCate(null)" ng-class="{active: query.cid == null && query.me ==false}"><a>Tất cả</a></li>
+                        <li role="presentation" ng-click="getByCate('me')" ng-class="{active: query.me ==true}"><a>Của tôi</a></li>
+                        <li class="" role="presentation" ng-repeat="item in templateCates | orderBy:'No'" ng-click="getByCate(item.id)" ng-class="{active: query.cid == item.id}"><a>{{item.name}}</a> </li>
+                    </ul>
+                    <div class="tab-content">
+                        <div role="tabpanel" class="tab-pane fade in active" id="intro">
+                            <div class="tab-inner clearfix">
+                                <div class="container-image clearfix">
+                                    <div class="item">
+                                        <img lazy-src="/images/noimage.png" alt="section trắng">
+                                        <div class="action-group clearfix"> <button class="btn btn-primary" ng-click="sectionTemplate.addBlank()">Sử dụng section trắng </button> </div>
+                                    </div>
+                                    <div class="item" ng-repeat="item in templates">
+                                        <img ng-if="item.thumbnail && item.thumbnail.length>0" lazy-src="{{item.thumbnail}}" alt="{{item.name}}">
+                                        <img ng-if="!item.thumbnail || item.thumbnail.length==0" src="https://hstatic.punnel.com/img/common/no-image.png" alt="{{item.name}}">
+                                        <div class="action-group clearfix">
+                                            <button class="btn btn-primary" ng-click="sectionTemplate.addSource(item.id)"> Sử dụng </button>
+                                        </div>
+                                        <p ng-show="query.me ==true" style="margin-top:6px;" ng-bind="item.name"></p>
+                                    </div>
+                                </div>
+                                <div class="pagination-bottom">
+                                    <ul ng-show="totalItems > query.limit" uib-pagination total-items="totalItems" ng-model="query.page" class="pagination" ng-change="pageChanged()"></ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </md-dialog-content>
+</md-dialog>

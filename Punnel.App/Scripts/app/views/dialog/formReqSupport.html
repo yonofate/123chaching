@@ -1,0 +1,58 @@
+﻿<md-dialog aria-label="Need Support">
+    <md-toolbar>
+        <div class="md-toolbar-tools white">
+            <h2>Gửi ticket tư vấn & hỗ trợ</h2>
+            <span flex></span>
+            <md-button class="md-icon-button" ng-click="cancel()">
+                <i class="material-icons">close</i>
+            </md-button>
+        </div>
+    </md-toolbar>
+    <form name="myForm" ng-submit="submit()">
+        <md-dialog-content>
+            <div class="md-dialog-content" style="min-width:500px;">
+                <div flex>
+                    <!--<md-input-container class="md-block">
+        <label>Số điện thoại liên hệ</label>
+        <input ng-model="info.mobile" autocomplete="off" md-autofocus required>
+    </md-input-container>-->
+
+                    <md-input-container class="md-block" style="margin-bottom:35px;">
+                        <label>Lĩnh vực liên quan</label>
+                        <md-select ng-model="ticket.industry" required>
+                            <md-option ng-repeat="t in industries" value="{{t.n}}">
+                                {{t.n}}
+                            </md-option>
+                        </md-select>
+                    </md-input-container>
+                    <md-input-container class="md-block" style="margin-bottom:35px;">
+                        <label>Vấn đề hỗ trợ</label>
+                        <md-select ng-model="ticket.subject">
+                            <md-option ng-repeat="t in subjects" value="{{t.n}}">
+                                {{t.n}}
+                            </md-option>
+                        </md-select>
+                    </md-input-container>
+                    <md-input-container class="md-block" style="margin-bottom:20px;">
+                        <label>Gọi cho tôi vào giờ</label>
+                        <md-select ng-model="ticket.time" required>
+                            <md-option ng-repeat="t in timeranges" value="{{t.n}}">
+                                {{t.n}}
+                            </md-option>
+                        </md-select>
+                    </md-input-container>
+                    <md-input-container class="md-block" >
+                        <label>Thông tin thêm</label>
+                        <textarea ng-model="ticket.note" md-maxlength="150" rows="3"></textarea>
+                    </md-input-container>
+                </div>
+            </div>
+        </md-dialog-content>
+        <md-dialog-actions layout="row">
+            <span flex></span>
+            <md-button id="btn-sm" ng-disabled="myForm.$valid==false" type="submit" class="md-raised md-primary">
+                Gửi
+            </md-button>
+        </md-dialog-actions>
+    </form>
+</md-dialog>

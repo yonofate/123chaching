@@ -1,0 +1,29 @@
+﻿<md-dialog aria-label="{{title}}">
+    <md-toolbar>
+        <div class="md-toolbar-tools white">
+            <h2 ng-bind="title"></h2>
+            <span flex></span>
+            <md-button class="md-icon-button" ng-click="cancel()">
+                <i class="material-icons">close</i>
+            </md-button>
+        </div>
+    </md-toolbar>
+    <form name="myForm" ng-submit="submit()">
+        <md-dialog-content>
+            <div class="md-dialog-content" style="min-width:400px;">
+                <div flex>
+                    <md-input-container class="md-block">
+                        <label ng-bind="label"></label>
+                        <textarea ng-model="note" autocomplete="off" md-maxlength="256" rows="2" md-select-on-focus></textarea>
+                    </md-input-container>
+                </div>
+            </div>
+        </md-dialog-content>
+        <md-dialog-actions layout="row">
+            <span flex></span>
+            <md-button id="btn-sm" ng-disabled="myForm.$valid==false" type="submit" class="md-raised md-primary">
+                Ok
+            </md-button>
+        </md-dialog-actions>
+    </form>
+</md-dialog>

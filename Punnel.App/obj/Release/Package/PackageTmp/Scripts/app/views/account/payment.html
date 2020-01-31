@@ -1,0 +1,78 @@
+﻿<div class="upgrade-page" ng-controller="paymentCtr" ng-init="init()">
+    <section>
+        <form name="myForm" ng-submit="submit()">
+            <div class="container checkout">
+                <div ng-if="1==1" class="col-md-6">
+                    <h4>Thanh toán bằng hình thức chuyển khoản online</h4>
+                    <div>
+                        <p><strong>Thông tin chuyển khoản:</strong> </p>
+                        <p>Ngân hàng <strong>Vietcombank chi nhánh Bến Chương Dương - Hồ Chí Minh</strong> </p>
+                        Chủ tài khoản: <strong>Nguyễn Hùng Lam</strong> <br />
+                        Số tài khoản: <strong>0071004841320</strong> <br />
+                        Số tiền: <strong ng-bind="data.totalAmountDisplay"></strong><br />
+                        Nội dung chuyển khoản: <strong ng-bind="data.code"></strong>
+                        <p></p>
+                        <p><i>Mọi thắc mắc, liên hệ Hotline: 0968 152 579</i></p>
+                    </div>
+                </div>
+
+                <div ng-if="1==2" class="col-md-6">
+                    <h4 ng-if="showQRCode==false">Chọn hình thức thanh toán</h4>
+                    <div ng-if="showQRCode==false">
+                        <md-radio-group ng-model="data.paymentType" ng-change="changePaymentType()" required>
+                            <md-radio-button value="1" class="md-primary"><md-icon class="material-icons">local_atm</md-icon> Thẻ ATM đăng kí Internet banking</md-radio-button>
+                            <md-radio-button value="2" class="md-primary"><md-icon class="material-icons">credit_card</md-icon> Thẻ thanh toán quốc tế Visa, MasterCard </md-radio-button>
+                            <md-radio-button value="3" class="md-primary"><md-icon class="material-icons">account_balance_wallet</md-icon> Thanh toán qua ví Zalo Pay</md-radio-button>
+                        </md-radio-group>
+                    </div>
+                    <div class="zalo-pay clearfix" ng-if="showQRCode==true">
+                        <div class="zalo-pay-app">
+                            <ul>
+                                <li><b>Bước 1</b>: Mở ứng dụng <a target="_blank" href="https://zalopay.vn/#tai-zalopay">ZaloPay</a> trên điện thoại</li>
+                                <li><b>Bước 2</b>: Chọn Thanh Toán và quét mã QR bên dưới</li>
+                            </ul>
+                        </div>
+                        <div class="zalo-pay-qr">
+                            <img ng-src="https://chart.googleapis.com/chart?chs=250x250&cht=qr&chl={{zptranstoken}}&chld=L|1&choe=UTF-8" />
+                        </div>
+                        <div>
+                            <md-button md-no-ink class="md-primary" ng-click="goBack()">Quay lại</md-button>
+                        </div>
+                    </div>
+                </div>
+                <div flex class="col-md-6 order-info">
+                    <h4>Thông tin thanh toán</h4>
+                    <md-input-container flex="100" class="row-input">
+                        <label>Gói dịch vụ</label>
+                        <input ng-model="data.serviceName" autocomplete="off" readonly>
+                    </md-input-container>
+                    <md-input-container flex="100" class="row-input">
+                        <label>Đơn giá</label>
+                        <input ng-model="data.unitPriceDisplay" autocomplete="off" readonly>
+                    </md-input-container>
+                    <md-input-container flex="100" class="row-input">
+                        <label>Thời gian</label>
+                        <input ng-model="data.quantity" autocomplete="off" readonly>
+                    </md-input-container>
+                    <md-input-container flex="100" class="row-input">
+                        <label>Thành tiền(vnđ)</label>
+                        <input ng-model="data.amountDisplay" readonly>
+                    </md-input-container>
+                    <md-input-container flex="100" class="row-input" ng-show="data.discount>0">
+                        <label>Giảm giá(vnđ)</label>
+                        <input ng-model="data.discountDisplay" readonly>
+                    </md-input-container>
+                    <md-input-container flex="100" class="row-input">
+                        <label>Tổng tiền(vnđ)</label>
+                        <input style="font-weight:700;font-size:16px;" ng-model="data.totalAmountDisplay" readonly>
+                    </md-input-container>
+                </div>
+                <div>
+                    <md-button style="float:right;" ng-if="data.paymentType==1 || data.paymentType==2" ng-disabled="myForm.$valid==false" type="submit" class="md-raised md-primary">
+                        Thanh toán
+                    </md-button>
+                </div>
+            </div>
+        </form>
+    </section>
+</div>

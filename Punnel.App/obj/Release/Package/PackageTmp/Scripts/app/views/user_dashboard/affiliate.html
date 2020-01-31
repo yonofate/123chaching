@@ -1,0 +1,192 @@
+﻿<div class="main-dashboard" id="affiliate-dashboard" ng-controller="affilateCtr">
+    <div class="container">
+        <section class="dashboard-page">
+            <div ng-if="isAgent==false" class="box-body empty-block" style="float:left;padding:20px 0px 10px 20px;">
+                <div class="col-md-6">
+                    <table style="width: 99%">
+                        <tbody>
+                            <tr>
+                                <td style="width: 86%; vertical-align: middle">
+                                    <h3>Chương trình đại lý tiếp thị liên kết (Affiliate)</h3>
+                                    <button ng-click="showSubcrible()" style="width: 250px;font-size: 16px; margin-top: 5px;" type="button" class="btn btn-warning obutton open-popup-link">
+                                        Đăng Kí
+                                    </button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <h3>Quy định về quyền lợi của đại lý</h3>
+                    <div style="padding:3px 20px;text-align:justify;">
+                        <ul style="list-style-type: disc;margin-left: -20px;margin-top:0px">
+                            <li>- Hoa hồng được thanh toán hàng tháng vào ngày 5 hàng tháng, tính cho tháng trước đó</li>
+                            <strong style="font-size:14px">Ví dụ: hoa hồng giới thiệu kiếm được của tháng 1/2018 sẽ được thanh toán vào ngày 5/2/2018</strong>
+                            <li>- Nếu tổng số tiền hoa hồng kiếm được ít hơn 500.000đ thì sẽ được tích luỹ cho đến khi vượt quá ngưỡng thanh toán tối thiểu 500.000đ</li>
+                            <li>- Hoa hồng được tính ngay khi thành viên được bạn giới thiệu mua gói dịch vụ hoặc gia hạn thành công</li>
+                            <li>- Càng giới thiệu được nhiều thành viên, bạn sẽ được thăng cấp và hoa hồng bạn nhận được sẽ cao hơn</li>
+                        </ul>
+                    </div>
+                    <h3>Hỗ trợ</h3>
+                    Nếu có bất kỳ câu hỏi nào xin liên hệ về email:
+                    <a href="mailto:hi@punnel.com.com?Subject=Support%20request%20from%20affiliate%20page" target="_top">hi@punnel.com</a>
+                    <br>
+                    hoặc <a target="_blank" href="https://m.me/punnel.community">chat qua facebook</a> để được hỗ trợ
+                    <br><br>
+                </div>
+                <div class="col-md-6">
+                    <table class="table table-bordered" style="text-align: center;border: 1px solid #9e9e9e;">
+                        <thead>
+                            <tr>
+                                <th style="text-align: center;border: 1px solid #9e9e9e;width:50%">Đại lý tiếp thị</th>
+                                <th style="text-align: center;border: 1px solid #9e9e9e;width:50%">Tổng số giới thiệu tối thiểu</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td style="border: 1px solid #9e9e9e;" colspan="2">
+                                    Điều kiện để xác định bạn là đại lý cấp nào phụ thuộc vào số lượng thành viên mà bạn đã giới thiệu thành công
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="border: 1px solid #9e9e9e;">Đại lý cấp 3</td>
+                                <td style="border: 1px solid #9e9e9e;">3</td>
+                            </tr>
+                            <tr>
+                                <td style="border: 1px solid #9e9e9e;">Đại lý cấp 2</td>
+                                <td style="border: 1px solid #9e9e9e;">15</td>
+                            </tr>
+                            <tr>
+                                <td style="border: 1px solid #9e9e9e;">Đại lý cấp 1</td>
+                                <td style="border: 1px solid #9e9e9e;">50</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <table class="table table-bordered" style="text-align: center;border: 1px solid #9e9e9e;">
+                        <thead>
+                            <tr>
+                                <th style="text-align: center;border: 1px solid #9e9e9e;width:50%">Đăng kí mới</th>
+                                <th style="text-align: center;border: 1px solid #9e9e9e;width:50%">Hoa hồng</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td style="border: 1px solid #9e9e9e;" colspan="2">
+                                    Hoa hồng cho mỗi giao dịch đăng kí mới
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="border: 1px solid #9e9e9e;">Đại lý cấp 3</td>
+                                <td style="border: 1px solid #9e9e9e;">20%</td>
+                            </tr>
+                            <tr>
+                                <td style="border: 1px solid #9e9e9e;">Đại lý cấp 2</td>
+                                <td style="border: 1px solid #9e9e9e;">30%</td>
+                            </tr>
+                            <tr>
+                                <td style="border: 1px solid #9e9e9e;">Đại lý cấp 1</td>
+                                <td style="border: 1px solid #9e9e9e;">40%</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <table class="table table-bordered" style="text-align: center;border: 1px solid #9e9e9e;">
+                        <thead>
+                            <tr>
+                                <th style="text-align: center;border: 1px solid #9e9e9e;width:50%">Gia hạn</th>
+                                <th style="text-align: center;border: 1px solid #9e9e9e;width:50%">Hoa hồng</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td style="border: 1px solid #9e9e9e;" colspan="2">Hoa hồng cho mỗi giao dịch gia hạn</td>
+                            </tr>
+                            <tr>
+                                <td style="border: 1px solid #9e9e9e;">Đại lý cấp 3</td>
+                                <td style="border: 1px solid #9e9e9e;">15%</td>
+                            </tr>
+                            <tr>
+                                <td style="border: 1px solid #9e9e9e;">Đại lý cấp 2</td>
+                                <td style="border: 1px solid #9e9e9e;">20%</td>
+                            </tr>
+                            <tr>
+                                <td style="border: 1px solid #9e9e9e;">Đại lý cấp 1</td>
+                                <td style="border: 1px solid #9e9e9e;">25%</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div ng-if="isAgent==true" layout="row" layout-align="center center" style="background-color:beige;">
+                <span style="padding:3px;margin-right:10px;font-weight:bold">Đường dẫn giới thiệu Punnel để nhận hoa hồng:</span>
+                <input select-on-click style="background:#000;color:#fff;width:300px;" type="text" ng-model="user.referralLink" readonly />
+                <!--<div style="border: dotted 1px #ff6a00;padding:3px;" ng-bind="user.referralLink"></div>-->
+            </div>
+            <div ng-if="isAgent==true" ng-init="getSummary()" class="box-body empty-block" style="float:left;padding:20px;width:100%">
+                <div class="col-md-8">                   
+                    <div layout="row" ng-show="monthlyIncome.length>0">
+                        <div flex="100">
+                            <h4>Thu nhập theo tháng</h4>
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th>Tháng</th>
+                                        <th>Số giao dịch mới</th>
+                                        <th>Số giao dịch gia hạn</th>
+                                        <th>Thu nhập</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr ng-repeat="item in monthlyIncome">
+                                        <td><span ng-bind="item.monthId"></span></td>
+                                        <td><span ng-bind="item.totalSubcrible"></span></td>
+                                        <td><span ng-bind="item.totalRenewal"></span></td>
+                                        <td><span ng-bind="item.income"></span></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div layout="row">
+                        <div flex="100">
+                            <h4>Thành viên đã giới thiệu</h4>
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th>Ngày</th>
+                                        <th>Họ tên</th>
+                                        <th>Email</th>
+                                        <th>Số điện thoại</th>
+                                        <th>Trả phí</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr ng-repeat="item in members">
+                                        <td><span am-time-ago="item.createdDate"></span></td>
+                                        <td style="text-align:left;"><span ng-bind="item.fullName"></span></td>
+                                        <td style="text-align:left;"><span ng-bind="item.email"></span></td>
+                                        <td><span ng-bind="item.mobile"></span></td>
+                                        <td><md-icon ng-if="item.userStatus==1" class="material-icons">check</md-icon></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div layout="row" layout-align="center center" style="margin-bottom:20px;">
+                        <div style="padding:10px 20px;text-align:center;background-color:aquamarine"><span>Thành viên trả phí</span><br /><span style="font-size:20px;" ng-bind="summary.totalSubcrible"></span></div>
+                        <div style="padding:10px 20px;text-align:center;background-color:blanchedalmond"><span>Tổng thu nhập</span><br /><span style="font-size:20px;" ng-bind="summary.income"></span></div>
+                    </div>
+                    <div style="padding-left:20px;width:100%;float:left;">
+                        <canvas tc-chartjs
+                                chart-type="line"
+                                chart-data="chart.affilateActionChart.Data"
+                                chart-options="chart.affilateActionChart.Options"></canvas>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <div class="clearfix" style="margin:0 auto;text-align:center;width:100%;font-weight:bold">
+            <a ng-click="showRules()" href="javascript:void(0);">Quy định & chính sách chương trình affiliate (tiếp thị liên kết)</a>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,50 @@
+﻿<div id="wrapper" class="wrapper signup-page" ng-controller="createProjectCtrl">
+    <div class="parLoading" style="display:block!important">
+        <div class="loading" style="display: block!important; position: absolute; top: 50%; left: 0; background: rgba(0,0,0,0); height: 50px"> <img src="images/loading-data.86a5c0c5.svg" alt="logo" class="logo"> </div>
+    </div>
+</div>
+<div class="modal fade container upgrade-ladi" id="inforupgrade" role="dialog">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-body">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Bảng giá và thông tin nâng cấp</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="content text-api tab-content">
+                        <div class="row">
+                            <div class="Expires">
+                                <h3 ng-if="dayExpired < 7 && dayExpired > 0">Tài khoản của bạn sắp hết hạn, vui lòng nâng cấp để tiếp tục sử dụng.</h3>
+                                <h3 ng-if="dayExpired <= 0">Tài khoản của bạn đã hết hạn, vui lòng nâng cấp để tiếp tục sử dụng.</h3>
+                            </div>
+                            <div class="col-sm-6 col-md-6">
+                                <div class="bang-gia">
+                                    <div class="title">BẢNG GIÁ </div>
+                                    <p class="price">2,400,000Đ/NĂM</p>
+                                    <p class="one-month">250,000Đ CHO THÁNG ĐẦU TIÊN TRẢI NGHIỆM</p>
+                                    <div class="line"> <img src="images/line-cheo.png" alt="icon"> </div>
+                                    <ul>
+                                        <li><img src="images/bullet.png" alt="icon"> &nbsp; Không giới hạn Landing Page</li>
+                                        <li><img src="images/bullet.png" alt="icon"> &nbsp; Không giới hạn tính năng</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="col-sm-6 col-md-6">
+                                <div class="thong-tin-ck">
+                                    <p class="title">Vui lòng chuyển khoản theo thông tin dưới đây và báo cho chúng tôi khi hoàn thành để được nâng cấp dịch vụ:</p>
+                                    <div class="line"></div>
+                                    <p>Ngân hàng Vietcombank</p>
+                                    <p><strong>Chủ tài khoản:</strong></p>
+                                    <p><strong>Số tài khoản:</strong></p>
+                                    <p><strong>Nội dung:</strong> Họ Tên + Email + SĐT</p>
+                                    <div class="arrow"> <img src="images/arrow-check.23cc6b7f.png" alt="icon" width="auto"> </div> <button ng-click="messageUpdate()">Tôi đã chuyển khoản</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

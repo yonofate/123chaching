@@ -1,0 +1,34 @@
+﻿<md-dialog aria-label="Gửi email">
+    <md-toolbar>
+        <div class="md-toolbar-tools white">
+            <h2>Gửi email</h2>
+            <span flex></span>
+            <md-button class="md-icon-button" ng-click="cancel()">
+                <i class="material-icons">close</i>
+            </md-button>
+        </div>
+    </md-toolbar>
+
+    <md-dialog-content style="min-width:400px;">
+        <div class="md-dialog-content" ng-init="init()">
+            <div ng-if="emails.length>0" layout="row" flex>
+                <md-input-container flex>
+                    <label>Chọn email mẫu</label>
+                    <md-select aria-label="loại" ng-model="mail.templateId" required md-auto-focus>
+                        <md-option ng-repeat="item in emails" ng-value="item.id">
+                            {{item.name}}
+                        </md-option>
+                    </md-select>
+                </md-input-container>
+                <md-input-container class="md-block">
+                    <md-button layout-align="end center" class="md-raised md-primary" ng-click="submit()">
+                        Ok
+                    </md-button>
+                </md-input-container>
+            </div>
+            <div ng-if="emails.length==0" layout="row" flex>
+                <md-button ui-sref="dashboard.emailTemplateDetail({id:0})" type="button" class="md-raised md-default">Tạo email mẫu để gửi</md-button>
+            </div>           
+        </div>
+</md-dialog-content>
+</md-dialog>

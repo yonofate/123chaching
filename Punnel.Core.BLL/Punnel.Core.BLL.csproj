@@ -1,0 +1,370 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{E31FD1B2-1ECD-4491-93E1-35DF4DC5338C}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Punnel.Core.BLL</RootNamespace>
+    <AssemblyName>Punnel.Core.BLL</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Dapper, Version=1.50.5.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Dapper.1.50.5\lib\net451\Dapper.dll</HintPath>
+    </Reference>
+    <Reference Include="DotNetZip, Version=1.10.1.0, Culture=neutral, PublicKeyToken=6583c7c814667745, processorArchitecture=MSIL">
+      <HintPath>..\packages\DotNetZip.1.10.1\lib\net20\DotNetZip.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Enyim.Caching">
+      <HintPath>..\libs\Enyim.Caching.dll</HintPath>
+    </Reference>
+    <Reference Include="Facebook, Version=6.0.10.0, Culture=neutral, PublicKeyToken=58cb4f2111d1e6de, processorArchitecture=MSIL">
+      <HintPath>..\packages\Facebook.7.0.6\lib\net45\Facebook.dll</HintPath>
+    </Reference>
+    <Reference Include="log4net, Version=1.2.15.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
+      <HintPath>..\packages\log4net.2.0.5\lib\net45-full\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="log4net.ElasticSearch, Version=2.3.7.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\log4net.ElasticSearch.2.3.7\lib\net45\log4net.ElasticSearch.dll</HintPath>
+    </Reference>
+    <Reference Include="MBN.Utils">
+      <HintPath>..\libs\MBN.Utils.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=10.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.10.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="RestSharp">
+      <HintPath>..\packages\RestSharp.106.2.1\lib\net452\RestSharp.dll</HintPath>
+    </Reference>
+    <Reference Include="StackExchange.Redis">
+      <HintPath>..\libs\StackExchange.Redis.dll</HintPath>
+    </Reference>
+    <Reference Include="StructureMap, Version=4.6.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\StructureMap.4.6.1\lib\net45\StructureMap.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="StructureMap.Web, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\structuremap.web.4.0.0.315\lib\net40\StructureMap.Web.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.IO.Compression" />
+    <Reference Include="System.Net.Http.Formatting, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.3\lib\net45\System.Net.Http.Formatting.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+    <Reference Include="vng.zalo.ZaloCSharpSDK, Version=1.0.12.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\vng.zalo.ZaloCSharpSDK.1.0.12\lib\net452\vng.zalo.ZaloCSharpSDK.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BusinessException.cs" />
+    <Compile Include="CacheRepositories\CacheServiceQuotaRepository.cs" />
+    <Compile Include="CacheRepositories\CacheImageStockRepository.cs" />
+    <Compile Include="CacheRepositories\CacheLandingPageRepository.cs" />
+    <Compile Include="CacheRepositories\CacheFileRepository.cs" />
+    <Compile Include="CacheRepositories\CacheCollectionRepository.cs" />
+    <Compile Include="CacheRepositories\CacheTemplateCategoryRepository.cs" />
+    <Compile Include="DependencyResolution\BLLRegistry.cs" />
+    <Compile Include="DependencyResolution\CachedBLLRegistry.cs" />
+    <Compile Include="FileServices\FileBuilder.cs" />
+    <Compile Include="FileServices\FileTemplateBuilder.cs" />
+    <Compile Include="Infrastructure\ConnectionFactory.cs" />
+    <Compile Include="Infrastructure\IConnectionFactory.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repositories\AffilateMonthlySummaryRepository.cs" />
+    <Compile Include="Repositories\AutomationRepository.cs" />
+    <Compile Include="Repositories\Integration\IntegrationAutopilotRepository.cs" />
+    <Compile Include="Repositories\Integration\IntegrationActiveCampainRepository.cs" />
+    <Compile Include="Repositories\Integration\IntegrationInfusionSoftRepository.cs" />
+    <Compile Include="Repositories\ITicketRepository.cs" />
+    <Compile Include="Repositories\TicketRepository.cs" />
+    <Compile Include="Repositories\IAutomationRepository.cs" />
+    <Compile Include="Repositories\IImageStockRepository.cs" />
+    <Compile Include="Repositories\ImageStockRepository.cs" />
+    <Compile Include="Repositories\Integration\IntegrationSmsRepository.cs" />
+    <Compile Include="Repositories\Integration\IntegrationFtpRepository.cs" />
+    <Compile Include="Repositories\IServiceQuotaRepository.cs" />
+    <Compile Include="Repositories\IStaffSupportRepository.cs">
+      <DependentUpon>StaffSupportRepository.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Repositories\ServiceQuotaRepository.cs" />
+    <Compile Include="Repositories\StaffSupportRepository.cs" />
+    <Compile Include="Repositories\Integration\IntegrationSapoRepository.cs" />
+    <Compile Include="Repositories\Integration\IntegrationHaravanRepository.cs" />
+    <Compile Include="Repositories\Integration\IntegrationWordPressRepository.cs" />
+    <Compile Include="Repositories\Integration\IntegrationShopifyRepository.cs" />
+    <Compile Include="Repositories\Integration\IntegrationGoogleSheetRepository.cs" />
+    <Compile Include="Repositories\Integration\IntegrationGmailRepository.cs" />
+    <Compile Include="Repositories\ITaskQueueRepository.cs">
+      <DependentUpon>TaskQueueRepository.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Repositories\TaskQueueRepository.cs" />
+    <Compile Include="Repositories\ILeadFilterRepository.cs">
+      <DependentUpon>LeadFilterRepository.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Repositories\ILeadTagRepository.cs">
+      <DependentUpon>LeadTagRepository.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Repositories\LeadTagRepository.cs" />
+    <Compile Include="Repositories\LeadFilterRepository.cs" />
+    <Compile Include="Repositories\IPublishPageRepository.cs">
+      <DependentUpon>PublishPageRepository.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Repositories\PublishPageRepository.cs" />
+    <Compile Include="Repositories\IMailToSendRepository.cs">
+      <DependentUpon>MailToSendRepository.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Repositories\IPunnelTrackingRepository.cs">
+      <DependentUpon>PunnelTrackingRepository.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Repositories\MailToSendRepository.cs" />
+    <Compile Include="Repositories\IEmailTemplateRepository.cs">
+      <DependentUpon>EmailTemplateRepository.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Repositories\IHistoryPageRepository.cs">
+      <DependentUpon>HistoryPageRepository.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Repositories\ISendMailTrackingRepository.cs">
+      <DependentUpon>SendMailTrackingRepository.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Repositories\SendMailTrackingRepository.cs" />
+    <Compile Include="Repositories\EmailTemplateRepository.cs" />
+    <Compile Include="Repositories\ITokenRepository.cs">
+      <DependentUpon>TokenRepository.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Repositories\PunnelTrackingRepository.cs" />
+    <Compile Include="Repositories\TokenRepository.cs" />
+    <Compile Include="Repositories\HistoryPageRepository.cs" />
+    <Compile Include="Repositories\INotificationRepository.cs">
+      <DependentUpon>NotificationRepository.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Repositories\NotificationRepository.cs" />
+    <Compile Include="Repositories\IAffilateActionRepository.cs">
+      <DependentUpon>AffilateActionRepository.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Repositories\IAffilateMonthlySummaryRepository.cs">
+      <DependentUpon>AffilateMonthlySummaryRepository.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Repositories\IDomainRepository.cs">
+      <DependentUpon>DomainRepository.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Repositories\IInvoiceRepository.cs">
+      <DependentUpon>InvoiceRepository.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Repositories\AffilateActionRepository.cs" />
+    <Compile Include="Repositories\IPromotionCodeRepository.cs">
+      <DependentUpon>PromotionCodeRepository.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Repositories\IPromotionRepository.cs">
+      <DependentUpon>PromotionRepository.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Repositories\IServiceRepository.cs">
+      <DependentUpon>ServiceRepository.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Repositories\IZaloPayTransactionRepository.cs">
+      <DependentUpon>ZaloPayTransactionRepository.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Repositories\PromotionCodeRepository.cs" />
+    <Compile Include="Repositories\DomainRepository.cs" />
+    <Compile Include="Repositories\ZaloPayTransactionRepository.cs" />
+    <Compile Include="Repositories\ServiceRepository.cs" />
+    <Compile Include="Repositories\PromotionRepository.cs" />
+    <Compile Include="Repositories\InvoiceRepository.cs" />
+    <Compile Include="Repositories\FBPageRepository.cs" />
+    <Compile Include="Repositories\IDownloadPageRepository.cs">
+      <DependentUpon>DownloadPageRepository.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Repositories\IFBPageRepository.cs">
+      <DependentUpon>FBPageRepository.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Repositories\Integration\IIntegrationLeadSendRepository.cs">
+      <DependentUpon>IntegrationLeadSendRepository.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Repositories\Integration\IntegrationGetResponseRepository.cs">
+      <DependentUpon>IntegrationRepository.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Repositories\Integration\IntegrationLeadSendRepository.cs" />
+    <Compile Include="Services\IISService.cs" />
+    <Compile Include="Services\LocationService.cs" />
+    <Compile Include="Services\NotificationService.cs" />
+    <Compile Include="Services\SmsService.cs" />
+    <Compile Include="Services\TokenService.cs" />
+    <Compile Include="Services\unsplashUtils.cs" />
+    <Compile Include="Services\ZalopayPaygateService.cs" />
+    <Compile Include="TaskQueues\BuildTemplate\ReplaceSourceTask.cs" />
+    <Compile Include="TaskQueues\BuildTemplate\CrawlLadiPageTask.cs" />
+    <Compile Include="TaskQueues\EmailMarketing\EmailMarketingTask.cs" />
+    <Compile Include="TaskQueues\LeadGetMoreInfoTask.cs" />
+    <Compile Include="TaskQueues\LeadSubcribleQueue.cs" />
+    <Compile Include="TaskQueues\CommonTask.cs" />
+    <Compile Include="TaskQueues\LeadSendMailAutoReplyTask.cs" />
+    <Compile Include="TaskQueues\CreateSysFileHostingTask.cs" />
+    <Compile Include="TaskQueues\SmsSendTask.cs" />
+    <Compile Include="TaskQueues\TrackIPInfoTask.cs" />
+    <Compile Include="TaskQueues\LeadSendTask.cs" />
+    <Compile Include="Repositories\Base\BaseRepository.cs" />
+    <Compile Include="Repositories\Base\IBaseRepository.cs">
+      <DependentUpon>BaseRepository.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Repositories\Base\IUow.cs">
+      <DependentUpon>Uow.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Repositories\Base\Uow.cs" />
+    <Compile Include="Repositories\DownloadPageRepository.cs" />
+    <Compile Include="Repositories\Integration\IIntegrationRepository.cs">
+      <DependentUpon>IntegrationRepository.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Repositories\Integration\IntegrationMailChimpRepository.cs">
+      <DependentUpon>IntegrationRepository.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Repositories\Integration\IntegrationRepository.cs" />
+    <Compile Include="Repositories\IFormConfigRepository.cs">
+      <DependentUpon>FormConfigRepository.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Repositories\ILeadRepository.cs">
+      <DependentUpon>LeadRepository.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Repositories\ITemplateCategoryRepository.cs">
+      <DependentUpon>TemplateCategoryRepository.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Repositories\ICollectionRepository.cs">
+      <DependentUpon>CollectionRepository.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Repositories\ILandingPageRepository.cs">
+      <DependentUpon>LandingPageRepository.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Repositories\ITemplateDefaultRepository.cs">
+      <DependentUpon>TemplateDefaultRepository.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Repositories\ITemplateRepository.cs">
+      <DependentUpon>TemplateRepository.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Repositories\LandingPageRepository.cs" />
+    <Compile Include="Repositories\FileRepository.cs" />
+    <Compile Include="Repositories\IFileRepository.cs">
+      <DependentUpon>FileRepository.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Repositories\IUserProfileRepository.cs">
+      <DependentUpon>UserProfileRepository.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Repositories\CollectionRepository.cs" />
+    <Compile Include="Repositories\FormConfigRepository.cs" />
+    <Compile Include="Repositories\LeadRepository.cs" />
+    <Compile Include="Repositories\TemplateCategoryRepository.cs" />
+    <Compile Include="Repositories\TemplateDefaultRepository.cs" />
+    <Compile Include="Repositories\TemplateRepository.cs" />
+    <Compile Include="Repositories\UserProfileRepository.cs" />
+    <Compile Include="Services\CrawlLadiPageService.cs" />
+    <Compile Include="Utils\CommonUtils.cs" />
+    <Compile Include="Utils\CoreExtension.cs" />
+    <Compile Include="Utils\DateTimeUtils.cs" />
+    <Compile Include="Utils\EmailUtils.cs" />
+    <Compile Include="Services\PushMessageService.cs" />
+    <Compile Include="Utils\ScreenShotUtils.cs" />
+    <Compile Include="Utils\SmsUtils.cs" />
+    <Compile Include="Utils\WordpressUtils.cs" />
+    <Compile Include="Utils\ZaloUtils.cs" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Integration\Punnel.IntegrationServices.csproj">
+      <Project>{b919d549-53f9-40ce-b44d-3d157d54891b}</Project>
+      <Name>Punnel.IntegrationServices</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Punnel.Core.Entities\Punnel.Core.Entities.csproj">
+      <Project>{9e1c2647-968c-45bb-9bed-d78cb0aa2545}</Project>
+      <Name>Punnel.Core.Entities</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Punnel.Core.IIS\Punnel.Core.IIS.csproj">
+      <Project>{d2195a52-bdb5-48d1-baa4-f9ad0ef91ef4}</Project>
+      <Name>Punnel.Core.IIS</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Punnel.Core.Model\Punnel.Core.Model.csproj">
+      <Project>{0fa47710-d8d7-4b03-ac6a-5acba9374651}</Project>
+      <Name>Punnel.Core.Model</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Punnel.Core.Utils\Punnel.Core.Utils.csproj">
+      <Project>{5d41c6c4-4da6-4ffc-b7d6-2a12865ca753}</Project>
+      <Name>Punnel.Core.Utils</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Punnel.CrawlData\Punnel.CrawlData.csproj">
+      <Project>{d90b04e4-62f8-42a2-90a2-3b84d8d3b207}</Project>
+      <Name>Punnel.CrawlData</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Punnel.EmailServices\Punnel.EmailServices.csproj">
+      <Project>{0b1222bb-a76d-441d-a8eb-fac24a17526a}</Project>
+      <Name>Punnel.EmailServices</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Punnel.FileServiceProxy\Punnel.FileServiceProxy.csproj">
+      <Project>{fe6e8b91-2857-4bd0-adc6-1432b295c9a2}</Project>
+      <Name>Punnel.FileServiceProxy</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Punnel.Haravan\Punnel.HaravanService.csproj">
+      <Project>{3658b97f-c73e-4bbd-a0b4-b1c708ebc796}</Project>
+      <Name>Punnel.HaravanService</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Punnel.SapoService\Punnel.SapoService.csproj">
+      <Project>{5f556ac7-b079-49c4-85d9-566b3e98affe}</Project>
+      <Name>Punnel.SapoService</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Punnel.ShopifyService\Punnel.ShopifyService.csproj">
+      <Project>{e27aa0b4-dbaa-4172-8983-9fc968489a38}</Project>
+      <Name>Punnel.ShopifyService</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

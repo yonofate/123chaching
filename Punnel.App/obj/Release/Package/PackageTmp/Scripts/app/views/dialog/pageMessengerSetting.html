@@ -1,0 +1,66 @@
+﻿<md-dialog aria-label="popup config">
+    <md-toolbar>
+        <div class="md-toolbar-tools white">
+            <h2>Tích hợp Facebook Messenger</h2>
+            <span flex></span>
+            <md-button class="md-icon-button" ng-click="cancel()">
+                <i class="material-icons">close</i>
+            </md-button>
+        </div>
+    </md-toolbar>
+        <md-dialog-content style="width:500px; max-height:810px;">
+            <md-content class="md-padding" ng-init="init()">
+                <div ng-show="step===0">
+                    <h4>Tích hợp Facebook Messenger Chat Plugin vào landing page</h4>
+                    <i>Punnel không tự làm bất kì thông tin gì trên fanpage của bạn, chỉ đơn giản giúp bạn tích hợp công cụ chat qua Facebook </i>
+                    <button class="loginBtn loginBtn--facebook" ng-click="login()">
+                        Login with Facebook
+                    </button>
+                </div>
+                <div ng-show="step===1">
+                    <p ng-show="pages.length==0">Bạn chưa có FanPage nào, vi lòng tạo FanPage trên Facebook trước để kết nối</p>                  
+                    <div style="margin-bottom:10px;" layout="row" ng-repeat="page in pages">
+                        <div flex="80" style="padding-top:10px;">
+                            <img src="//graph.facebook.com/{{page.id}}/picture?width=40&amp;height=40" class="radius-cycle" style="max-height: 40px; max-width: 40px;">
+                            <span ng-bind="page.name"></span>
+                        </div>
+                        <div flex="20" layout-align="center center" layout-wrap>
+                            <md-button ng-if="crPage!=page.id" class="md-primary md-raised" ng-click="subscribePage(page)">Kết nối</md-button>
+                            <md-button ng-if="crPage==page.id" class="md-warn md-raised" ng-click="unSubscribePage(page)">Hủy</md-button>
+                        </div>
+                    </div>
+                </div>
+                <div id="fb_step2">
+                    <div class="panel panel-primary fb-chat" ng-show="step===2">
+                        <div class="panel-heading"><span ng-bind="page.name"></span></div>
+                        <div class="panel-body">
+                            <md-input-container class="md-block">
+                                <label>Chào khi khách đã đăng nhập FB</label>
+                                <input md-maxlength="60" ng-model="page.greetingIn">
+                            </md-input-container>
+                            <md-input-container class="md-block">
+                                <label>Chào khi khách đã đăng nhập FB</label>
+                                <input md-maxlength="60" ng-model="page.greetingOut">
+                            </md-input-container>
+                            <div>
+                                <label>Màu công cụ chat</label>
+                                <div layout="row" layout-wrap layout-align="center center" style="display:block;">
+                                    <md-button aria-label="color" ng-repeat="color in colors" flex-gt-md="10" flex="12" ng-click="chooseColor(color)"
+                                               style="background-color:{{color}}" ng-class="{active: page.color===color}">
+                                    </md-button>
+                                </div>
+                            </div>
+                            <div layout="row" layout-wrap layout-align="center center" style="display:block;">
+                                <md-button md-no-ink class="md-primary" ng-click="goBack()">Chọn FanPage khác</md-button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </md-content>
+        </md-dialog-content>
+        <md-dialog-actions layout="row">           
+            <md-button id="btn-sm" ng-disabled="page.id.length===0" type="button" ng-click="apply()" class="md-raised md-primary">
+                Ok
+            </md-button>
+        </md-dialog-actions>
+</md-dialog>

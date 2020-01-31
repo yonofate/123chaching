@@ -1,0 +1,10 @@
+﻿<div id="content" class="container clearfix" ng-controller="ladiFillterCtrl">
+    <div class="aff-form clearfix">
+        <div class="aff-group clearfix">
+            <div class="title"></div>
+            <div class="form-group clearfix"> <label for="">Từ</label> <input type="date" placeholder="" ng-model="dateFrom"> </div>
+            <div class="form-group clearfix"> <label for="">Đến</label> <input type="date" placeholder="" ng-model="dateTo"> </div>
+            <div class="form-group clearfix"> <button ng-click="searchData()">Xuất file</button> <a ng-if="linkDown != \'\'" href="{{linkDown}}" target="_blank">Tải về</a> </div>
+        </div>
+    </div>
+</div>

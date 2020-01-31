@@ -1,0 +1,57 @@
+﻿<div id="wrapper" class="wrapper signup-page">
+    <div id="content" class="container signup forgot-password clearfix">
+        <div class="form-user clearfix" id="signin-popup">
+            <div class="modal-login modal-signup clearfix">
+                <div class="form-action">
+                    <div class="form-login form-signup">
+                        <div class="logo clearfix"> <img src="images/logo-full-color.png" alt="punnel.com"> </div>
+                        <div ng-controller="forgotPassCtrl">
+                            <form ng-if="step==1" class="floating-labels" name="frmForgotPassStep1" ng-submit="sendSmsCode()" novalidate>
+                                <div style="margin:20px;">
+                                    <p>Nhập số điện thoại của bạn đã đăng kí để lấy lại mật khẩu</p>
+                                </div>
+                                <div layout="row">
+                                    <md-input-container flex="100">
+                                        <label>Số điện thoại</label>
+                                        <input type="text" ng-pattern="/^(03|05|07|08|09)[0-9]{8}$/" required name="mobile" ng-model="sms.mobile" autocomplete="off">
+                                        <div ng-messages="frmForgotPassStep1.mobile.$error">
+                                            <div ng-message="required">Vui lòng nhập số điện thoại</div>
+                                            <div ng-message="pattern">Vui lòng nhập số điện thoại hợp lệ</div>
+                                        </div>
+                                    </md-input-container>
+                                </div>
+                                <div layout="row">
+                                    <md-button id="btn-sm" type="submit" flex="100" class="md-raised md-primary">Nhận mã qua SMS</md-button>
+                                </div>
+                            </form>
+
+                            <form ng-if="step==2" class="floating-labels" name="frmForgotPass_Step2" ng-submit="validateSmsCode()" novalidate>
+                                <div style="margin:20px;">
+                                    <p>Nhập mã code bạn nhận được qua số điện thoại <strong ng-bind="mobile"></strong></p>
+                                    <p><a href="void(0);" ng-click="goStep(1)">Số điện thoại khác</a></p>
+                                </div>
+                                <div layout="row">
+                                    <md-input-container flex="100">
+                                        <label>Mã code</label>
+                                        <input type="text" required name="code" ng-model="sms.code" autocomplete="off">
+                                        <div ng-messages="frmForgotPass_Step2.code.$error">
+                                            <div ng-message="required">Vui lòng nhập mã</div>
+                                            <div ng-message="pattern">Vui lòng nhập mã hợp lệ</div>
+                                        </div>
+                                    </md-input-container>
+                                </div>
+                                <div layout="row">
+                                    <md-button id="btn-sm" type="submit" flex="100" class="md-raised md-primary">Xác nhận</md-button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="bottomlinks clearfix">
+                <div class="link"> <span class="getStarted text-center"><a ui-sref="auth.forgotpass-email">hoặc nhận mã xác nhận qua email</a></span> </div>
+                <div class="link"> <span class="getStarted text-center"><a ui-sref="auth.login">Quay lại trang Đăng nhập</a></span> </div>
+            </div>
+        </div>
+    </div>
+</div>

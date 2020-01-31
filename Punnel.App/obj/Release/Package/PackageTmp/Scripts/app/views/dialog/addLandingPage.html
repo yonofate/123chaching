@@ -1,0 +1,36 @@
+﻿<md-dialog aria-label="Tạo LandingPage">
+    <md-toolbar>
+        <div class="md-toolbar-tools white">
+            <h2>Tạo Landing Page</h2>
+            <span flex></span>
+            <md-button class="md-icon-button" ng-click="cancel()">
+                <i class="material-icons">close</i>
+            </md-button>
+        </div>
+    </md-toolbar>
+
+    <md-dialog-content>
+            <div layout="row" layout-xs="column">
+                <md-list>
+                    <md-list-item style="padding-bottom:5px;padding-top:5px;" ng-click="goCreateNewLandingpage()">
+                        <md-button class="md-fab md-primary md-mini" aria-label="Sử dụng giao diện mẫu">
+                            <md-icon class="material-icons">pages</md-icon>
+                        </md-button>
+                        <div class="md-list-item-text" layout="column">
+                            <span style="font-size:16px;">Sử dụng <b>kho giao diện</b> mẫu miễn phí</span>
+                            <p style="line-height:20px;margin-top:-6px; font-size:12px">Hơn 500 mẫu giao diện miễn phí cho bạn lựa chọn để xây dựng page</p>
+                        </div>
+                    </md-list-item>
+                    <md-list-item style="padding-bottom:5px;padding-top:5px;"  ng-click="showCreatePageByCode()">
+                        <md-button class="md-fab md-primary md-mini" aria-label="Tạo từ Share Code">
+                            <md-icon class="material-icons">share</md-icon>
+                        </md-button>
+                        <div class="md-list-item-text" layout="column">
+                            <span style="font-size:16px;">Tạo từ mã <b>Share Code</b></span>
+                            <p style="line-height:20px;margin-top:-6px; font-size:12px">Nhân bản landing page từ mã share code bạn được chia sẻ</p>
+                        </div>
+                    </md-list-item>
+                </md-list>
+            </div>
+    </md-dialog-content>
+</md-dialog>

@@ -1,0 +1,42 @@
+﻿<div class="dialog with-footer alternative modal info page-setting active fadeIn animated" ng-controller="pageSettingCtr as pageSetting">
+    <div class="header">
+        <div class="text">{{TOOLS.PAGE_SETTING|translate}}</div> <i class="material-icons right-modal" ng-click="close()">close</i>
+    </div>
+    <div class="menu-tab">
+        <ul>
+            <li ng-click="setActive(seo-setting)" class="active" data-active="seo-setting">Cài đặt trang</li>
+            <li ng-click="setActive(css-setting)" data-active="css-setting">Thiết lập CSS</li>
+            <li ng-click="setActive(js-setting)" data-active="js-setting">Thiết lập JavaScript</li>
+        </ul>
+    </div>
+    <div class="content scrollbox">
+        <div class="content-child seo-setting">
+            <div class="option"> <label>Tiêu đề trang</label> <input type="text" name="page-title" ng-model="title" placeholder="Tiêu đề trang"> </div>
+            <div class="option"> <label>Mô tả trang</label> <textarea rows="3" name="page-description" placeholder="Mô tả trang" ng-model="pageDesc">{{pageDesc}}</textarea> </div>
+            <div class="option"> <label>Từ khóa về trang</label> <input type="text" name="page-keywords" ng-model="keyword" placeholder="Từ khóa về trang"> </div>
+            <div class="option">
+                <label>Hình ảnh khi chia sẻ</label>
+                <div class="right floated"> <img alt="" src="{{imagePage || images/noimage.png}}"> <a class="button" ng-click="showFileManager(imagePage)">{{GENERAL_DIALOG_FORM.CHANGE|translate}}</a> </div>
+            </div>
+            <div class="option">
+                <label>Hình ảnh favicon</label>
+                <div class="right floated"> <img alt="" src="{{imagefavicon || images/noimage.png}}"> <a class="button" ng-click="showFileManager(imagefavicon)">{{GENERAL_DIALOG_FORM.CHANGE|translate}}</a> </div>
+            </div>
+        </div>
+        <div class="content-child css-setting" style="display: none">
+            <div class="option"> <textarea style="height: 400px" class="scrollbox" rows="3" name="header-script" placeholder="Mã css" ng-model="head">{{head}}</textarea> </div>
+        </div>
+        <div class="content-child js-setting" style="display: none">
+            <div class="option"> <textarea style="height: 400px" class="scrollbox" rows="3" name="footer-script" placeholder="Mã Javascript" ng-model="body">{{body}}</textarea> </div>
+        </div>
+    </div>
+    <div class="footer">
+        <!--a class="ui grey button" ng-click="close()">{{GENERAL_DIALOG_FORM.CANCEL|translate}}</a-->
+        <div class="right-modal"> <a class="ui button action" ng-click="updatePage()">{{GENERAL_DIALOG_FORM.SAVE|translate}}</a> </div>
+        <div class="right-modal"> <a class="ui button action save-and-publish" ng-click="updatePagePublish()">Lưu và Xuất bản</a> </div>
+    </div>
+    <script>
+        var scroll = new OptionWiget();
+        scroll.scrollBox();
+    </script>
+</div>

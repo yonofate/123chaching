@@ -1,0 +1,18 @@
+﻿<div class="dialog small modal creating-resources active fadeIn animated" ng-controller="manageNewLadipageCtr as manageNewLadipage">
+    <div class="header">
+        <div class="text">{{MANAGE_NEW_LADIPAGE.INTRO|translate}}</div> <i class="material-icons right-modal" ng-click="close()">close</i>
+    </div>
+    <div class="content text-center">
+        <div class="big-list icon-30">
+            <div class="column" ng-click="showManageLadipage()">
+                <div class="box"> <a href=""> <i class="icon8 size-32 page" title="Page"></i> <div class="text">{{MANAGE_NEW_LADIPAGE.LABEL_MANAGE_LADIPAGE|translate}}</div> </a> </div>
+            </div>
+            <div class="column" ng-click="showManageTemplate()">
+                <div class="box"> <a href=""> <i class="icon8 size-32 template" title="Template"></i> <div class="text">{{MANAGE_NEW_LADIPAGE.LABEL_NEW_TEMPLATE|translate}}</div> </a> </div>
+            </div>
+            <div class="column" ng-click="showManageSection()">
+                <div class="box"> <a href=""> <i class="icon8 size-32 section" title="Section"></i> <div class="text">{{MANAGE_NEW_LADIPAGE.LABEL_NEW_SECTION|translate}}</div> </a> </div>
+            </div>
+        </div>
+    </div>
+</div>

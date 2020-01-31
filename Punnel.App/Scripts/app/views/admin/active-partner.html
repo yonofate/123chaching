@@ -1,0 +1,14 @@
+﻿<div class="active-partner text-center" ng-controller="activePartnerCtrl">
+    <div class="container">
+        <form class="activepart custom-form-admin text-center">
+            <div class="form-group clearfix"> <label>Email</label> <input class="email width50" type="email" placeholder="Email" ng-model="email"> <input class="submit width50" type="submit" name="" value="Kiểm tra" placeholder="" ng-click="checkAffEmail()"> </div>
+            <div class="form-group clearfix"> <label>Mã Affilate</label> <input class="email error width50" type="text" placeholder="Mã Affilate" ng-model="code"> <input class="submit width50" type="submit" name="" value="Kiểm tra" placeholder="" ng-click="checkAffRef()"> </div>
+            <div class="form-group clearfix"> <label>Level</label> <select name="" ng-model="level"> <option value="0">Level 0</option> <option value="1">Level 1</option> </select> </div>
+            <div class="form-group clearfix"> <label>Commission 1</label> <input class="Commission" type="number" required placeholder="" ng-model="comission1"> </div>
+            <div class="form-group clearfix"> <label>Commission 2</label> <input class="Commission" type="number" required placeholder="" min="0" max="50" ng-model="comission2"> </div>
+            <div class="form-group clearfix"> <label>Date Trial</label> <input class="date" type="number" min="0" required placeholder="" ng-model="dateTrial"> </div>
+            <div class="form-group clearfix"> <label>Tài khoản thanh toán</label> <textarea class="addpay">{{addpay}}</textarea> </div>
+            <div class="form-group text-center clearfix" style="display:inline-block"> <input class="submit" type="submit" name="" value="Cập nhật" placeholder="" ng-click="adminCreatePartner()"> </div>
+        </form>
+    </div>
+</div>

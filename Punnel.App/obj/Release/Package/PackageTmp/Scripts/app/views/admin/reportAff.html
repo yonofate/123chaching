@@ -1,0 +1,46 @@
+﻿<div ng-controller="reportAffCtrl">
+    <div id="content" class="container clearfix">
+        <div class="search-title">
+            <div class="group clearfix">
+                <div class="box-group"> <span>Từ ngày</span> <input type="datetime-local" min="2016-01-01" ng-model="dateFrom" ng-change="changeDate()"> </div>
+                <div class="box-group"> <span>Đến ngày</span> <input type="datetime-local" min="2016-01-01" ng-model="dateTo" ng-change="changeDate()"> </div>
+                <div class="box-group"> <button ng-click="search()">Tìm kiếm</button> </div>
+            </div>
+            <div class="group clearfix">
+                <div class="box-group"> <span>Mã thanh toán</span> <input type="text" ng-model="invoiSearch"> </div>
+                <div class="box-group"> <button ng-click="search()">Tìm kiếm</button> </div>
+                <div class="box-group"> <button ng-click="searchExl()">Xuất ra excel</button> <a ng-show="linkExel != ''">Tải về</a> </div>
+            </div>
+            <table>
+                <tr>
+                    <th>Số TT</th>
+                    <th>Email</th>
+                    <th>Giá trị đơn hàng</th>
+                    <th>% hoa hồng</th>
+                    <th>Thực nhận</th>
+                    <th>Ngày tạo</th>
+                    <th>Tình trạng</th>
+                </tr>
+                <tr ng-repeat="itemR in dataRepor">
+                    <td>{{$index}}</td>
+                    <td>{{itemR.email}}</td>
+                    <td>{{itemR.priceOrder | currency : " ": 0}} VND</td>
+                    <td>{{itemR.price * 100 / itemR.priceOrder }}</td>
+                    <td>{{itemR.price | currency : " ": 0}} VND</td>
+                    <td>{{itemR.date | date:"dd/MM/yyyy"}}</td>
+                    <td ng-if="itemR.status == 0">Chưa thanh toán</td>
+                    <td ng-if="itemR.status == 1">Đang thanh toán</td>
+                    <td ng-if="itemR.status == 2">Đã thanh toán</td>
+                </tr>
+                <tr ng-if="showCom == '1'">
+                    <td>Số tiền đang thanh toán</td>
+                    <td>{{commission}}</td>
+                </tr>
+                <tr ng-if="showCom == '1'">
+                    <td>Tổng tiền</td>
+                    <td>{{commissionNow}}</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>

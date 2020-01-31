@@ -1,0 +1,49 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head lang="en">
+    <meta charset="UTF-8">
+    <title class="title-site"></title>
+    <meta name="description" content="Free Web tutorials">
+    <meta name="keywords" content="HTML,CSS,JavaScript, HTML5, CSS3">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <link rel="stylesheet" href="../../styles/vendor/landingpage.font.css">
+    <link rel="stylesheet" href="../../styles/vendor/landingpage.css">
+    <style type="text/css" id="styleCustom">
+        .widget-element {
+             display: block !important;
+             top: 0px !important;
+             left: 0px !important;
+        }
+         .widget-element[pn-type="button"] {
+             display: table !important;
+        }
+         body {
+             background-color: rgba(255, 255, 255, 0) !important;
+        }
+    </style>
+    <script type="text/javascript">
+        var _onPaste_StripFormatting_IEPaste = false;
+        function OnPaste_StripFormatting(elem, e) {
+            if (e.originalEvent && e.originalEvent.clipboardData && e.originalEvent.clipboardData.getData) {
+               e.preventDefault();
+               var text = e.originalEvent.originalEvent.clipboardData.getData('text/plain');                
+               window.document.execCommand('insertText', false, text);}            
+            else if (e.clipboardData && e.clipboardData.getData) {
+                e.preventDefault();
+                var text = e.clipboardData.getData('text/plain');                
+                window.document.execCommand('insertText', false, text);
+            }            
+            else if (window.clipboardData && window.clipboardData.getData) {
+                if (!_onPaste_StripFormatting_IEPaste) {
+                    _onPaste_StripFormatting_IEPaste = true;
+                    e.preventDefault();
+                    window.document.execCommand('ms-pasteTextOnly', false, text);
+                } _onPaste_StripFormatting_IEPaste = false;
+            }
+        }
+    </script>
+</head>
+<body onpaste="OnPaste_StripFormatting(this,event)">
+</body>
+</html>

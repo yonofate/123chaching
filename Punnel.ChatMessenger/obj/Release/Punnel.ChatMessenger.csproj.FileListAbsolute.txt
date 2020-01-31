@@ -1,0 +1,12 @@
+C:\Source\yonofate\punnel\src\Punnel.ChatMessenger\bin\Release\Bot.Messenger.dll.config
+C:\Source\yonofate\punnel\src\Punnel.ChatMessenger\bin\Release\Bot.Messenger.dll
+C:\Source\yonofate\punnel\src\Punnel.ChatMessenger\bin\Release\Bot.Messenger.pdb
+C:\Source\yonofate\punnel\src\Punnel.ChatMessenger\bin\Release\Newtonsoft.Json.dll
+C:\Source\yonofate\punnel\src\Punnel.ChatMessenger\bin\Release\Newtonsoft.Json.xml
+C:\Source\yonofate\punnel\src\Punnel.ChatMessenger\obj\Release\Punnel.ChatMessenger.csprojAssemblyReference.cache
+C:\Source\yonofate\punnel\src\Punnel.ChatMessenger\obj\Release\Punnel.ChatMessenger.csproj.CoreCompileInputs.cache
+C:\Source\yonofate\punnel\src\Punnel.ChatMessenger\obj\Release\Punnel.ChatMessenger.csproj.CopyComplete
+C:\Source\yonofate\punnel\src\Punnel.ChatMessenger\obj\Release\Bot.Messenger.dll
+C:\Source\yonofate\punnel\src\Punnel.ChatMessenger\obj\Release\Bot.Messenger.pdb
+C:\Source\yonofate\punnel\src\Punnel.ChatMessenger\bin\Release\log4net.dll
+C:\Source\yonofate\punnel\src\Punnel.ChatMessenger\bin\Release\log4net.xml

@@ -1,0 +1,10 @@
+C:\Source\yonofate\punnel\src\Punnel.Landing\bin\Punnel.Tracking.dll.config
+C:\Source\yonofate\punnel\src\Punnel.Landing\bin\Punnel.Tracking.dll
+C:\Source\yonofate\punnel\src\Punnel.Landing\bin\Punnel.Tracking.pdb
+C:\Source\yonofate\punnel\src\Punnel.Landing\bin\Newtonsoft.Json.dll
+C:\Source\yonofate\punnel\src\Punnel.Landing\bin\Newtonsoft.Json.xml
+C:\Source\yonofate\punnel\src\Punnel.Landing\obj\Debug\Punnel.Tracking.csprojAssemblyReference.cache
+C:\Source\yonofate\punnel\src\Punnel.Landing\obj\Debug\Punnel.Tracking.csproj.CoreCompileInputs.cache
+C:\Source\yonofate\punnel\src\Punnel.Landing\obj\Debug\Punnel.Tracking.csproj.CopyComplete
+C:\Source\yonofate\punnel\src\Punnel.Landing\obj\Debug\Punnel.Tracking.dll
+C:\Source\yonofate\punnel\src\Punnel.Landing\obj\Debug\Punnel.Tracking.pdb

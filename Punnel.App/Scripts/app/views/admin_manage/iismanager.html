@@ -1,0 +1,24 @@
+﻿<div class="main-dashboard" id="lead-dashboard" ng-controller="serverManagerCtr">
+    <div class="container" ng-init="initSites()">
+        <table class="table table-striped nohead">
+            <thead>
+                <tr>
+                    <td>Domain</td>
+                    <td>Path</td>
+                    <td style="text-align:center">AutoStart</td>
+                    <td></td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="item in sites">
+                    <td><a target="_blank" href="http://{{item.name}}"><span ng-bind="item.name || '---'"></span></a></td>
+                    <td><span ng-bind="item.path || '---'"></span></td>
+                    <td style="text-align:center"><md-icon ng-if="item.autoStart==true" class="material-icons">check</md-icon></td>
+                    <td class="action">
+                        <md-button class="md-primary" ng-click="remove(item.name)">Xóa</md-button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

@@ -1,0 +1,56 @@
+﻿<div class="saving">
+    <!--div class="spinner">\n        <div class="rect1"></div>\n        <div class="rect2"></div>\n        <div class="rect3"></div>\n        <div class="rect4"></div>\n        <div class="rect5"></div>\n        <img src="images/logo.png">\n    </div--><img src="../../images/loading-data.86a5c0c5.svg" alt="">
+</div>
+<!--right mouse-->
+<div id="RIGHT_MOUSE">
+    <div class="right-mouse box_right_mouse">
+        <ul>
+            <li class="moveTop" pn-optionmr="moveTop">Lên trên cùng</li>
+            <li class="moveBot" pn-optionmr="moveBot">Xuống dưới cùng</li>
+            <li class="clone" pn-optionmr="clone">Nhân bản <span class="shortcut">Ctr + D</span></li>
+            <li class="copy" pn-optionmr="copy">Sao chép <span class="shortcut">Ctrl + C</span></li>
+            <li class="paste" pn-optionmr="paste">Dán <span class="shortcut">Ctrl + V</span></li>
+            <li class="delete" pn-optionmr="delete">Xóa <span class="shortcut">Del</span></li>
+            <li class="group" pn-optionmr="group">Tạo Group <span class="shortcut">Ctrl + G</span></li>
+            <li class="cancelgroup" pn-optionmr="cancelgroup">Hủy Group<span class="shortcut">Ctrl + Shift + G</span></li>
+        </ul>
+    </div>
+</div>
+<!--editor text-->
+<div id="ID_BOX_EDITOR" class="boxEditor"> <iframe class="contentEditor" src="views/common/lp_frame_editor_text.html" frameborder="0" style="width:100%; height:100%"></iframe> </div>
+<!--box Resize-->
+<div id="ID_BOX_RESIZE" class="boxResize" ng-dblclick="dbClickElement()">
+    <div class="content-resize"></div>
+    <!--div class="ui-rotatable-handle">\n        <i class="material-icons">rotate_right</i>\n    </div-->
+</div>
+<div id="ID_CONTRO_SETTING_PLUGIN">
+    <div class="control-edit" ng-controller="controlSettingPluginCtr as controlSettingPlugin">
+        <i class="text-icon" ng-click="showEditAdvance($event)" pn-control-setting="editAdvancetext">Sửa chữ</i> <i class="text-icon" ng-click="showEditSymbolAdvance($event)" pn-control-setting="editAdvancetextsymbol">Biểu tượng</i> <i class="text-icon" ng-click="showEditAdvance($event)" pn-control-setting="editAdvanceImage">Thay ảnh</i>
+        <!--i class="material-icons tooltip-top" ng-mousedown="showEdit(\'setting\')" ng-click="showEdit(\'setting\')" data-tooltip="Cài đặt" pn-control-setting="advance">settings</i-->
+        <!--i class="material-icons tooltip-top" ng-mousedown="showEdit(\'edit\')" ng-click="showEdit(\'edit\')" data-tooltip="Thiết kế" pn-control-setting="advance">brush</i--><i class="material-icons tooltip-top" ng-click="showEditItemForm()" data-tooltip="Chỉnh sửa" pn-control-setting="editItemForm">settings</i>
+        <!--i class="material-icons tooltip-top" ng-click="showTemplate()" data-tooltip="Template" pn-control-setting="template">style</i--><i class="material-icons tooltip-top" ng-click="showItemForm()" data-tooltip="Thêm mục form" pn-control-setting="items-form">add</i> <i class="material-icons tooltip-top" ng-click="showRedirectForm()" data-tooltip="Lưu trữ form" pn-control-setting="redirect-form">save</i> <i class="material-icons tooltip-top" ng-click="showItemMenu()" data-tooltip="Thêm sửa menu" pn-control-setting="items-menu">list</i>
+        <!--i class="material-icons tooltip-top" ng-click="showAnimate()" data-tooltip="Hiệu ứng động" pn-control-setting="animate">\n            <svg class="svg-icons" preserveAspectRatio="xMidYMid" width="18" height="18" viewBox="0 0 39 27"><path d="M34.531,15.295 C34.531,15.295 27.333,22.493 27.333,22.493 C26.339,23.487 24.727,23.487 23.734,22.493 C23.734,22.493 16.536,15.295 16.536,15.295 C15.542,14.301 15.542,12.690 16.536,11.696 C16.536,11.696 23.734,4.498 23.734,4.498 C24.727,3.504 26.339,3.504 27.333,4.498 C27.333,4.498 34.531,11.696 34.531,11.696 C35.525,12.690 35.525,14.301 34.531,15.295 ZM12.795,14.256 C12.795,14.256 17.623,20.340 17.623,20.340 C17.623,20.340 15.629,21.921 15.629,21.921 C15.629,21.921 10.778,15.807 10.778,15.807 C9.754,14.433 9.754,12.558 10.754,11.215 C10.754,11.215 15.629,5.069 15.629,5.069 C15.629,5.069 17.623,6.651 17.623,6.651 C17.623,6.651 12.771,12.767 12.771,12.767 C12.462,13.183 12.462,13.808 12.795,14.256 ZM9.993,18.238 C9.993,18.238 7.989,19.807 7.989,19.807 C7.989,19.807 4.079,14.793 4.079,14.793 C3.606,13.993 3.605,12.999 4.079,12.199 C4.079,12.199 7.960,6.824 7.960,6.824 C7.960,6.824 10.022,8.316 10.022,8.316 C10.022,8.316 6.279,13.491 6.279,13.491 C6.279,13.491 9.993,18.238 9.993,18.238 Z"></path></svg>\n        </i-->
+        <!--i class="material-icons" ng-click="convertElementToBackground()" data-tooltip="set background" pn-control-setting="setBackground">zoom_out_map</i-->
+        <!--i class="material-icons" ng-click="convertBackgroundToElement()" data-tooltip="set element" pn-control-setting="setElement">fullscreen_exit</i--><i class="material-icons" ng-click="showCustomLink()" data-tooltip="Liên kết" pn-control-setting="link">link</i> <i class="material-icons" ng-click="showCustomhtml()" data-tooltip="edit html" pn-control-setting="custom-customhtml">brush</i> <i class="material-icons" ng-click="showCustomclick()" data-tooltip="hide/show element" pn-control-setting="click">flash_on</i> <i class="material-icons" ng-click="showCustomFontSizeMobile()" data-tooltip="font size mobile" pn-control-setting="font-size-mobile">format_size</i> <i class="text-icon" ng-click="cancelgroupElement()" pn-control-setting="cancelgroup">Hủy nhóm</i> <i class="text-icon" ng-click="creategroupElement()" pn-control-setting="creategroup">Tạo nhóm</i> <i class="material-icons" ng-click="prevItemSlide()" data-tooltip="Slide trước" pn-control-setting="prevSlide">keyboard_arrow_left</i> <i class="material-icons" ng-click="nextItemSlide()" data-tooltip="Slide sau" pn-control-setting="nextSlide">keyboard_arrow_right</i> <i class="text-icon" ng-click="exitSelectBackground()" pn-control-setting="exitSelectBackground">Bỏ chọn</i> <i class="material-icons tooltip-top" data-tooltip="nhân bản" ng-click="cloneGroup()" pn-control-setting="clone">layers</i>
+        <!--i class="material-icons" ng-click="showComment()" data-tooltip="Ghi chú" pn-control-setting="comment">chat</i>\n        <i class="material-icons tooltip-top" ng-click="showEditGroup()" data-tooltip="Cài đặt" pn-control-setting="group-element-setting">settings</i-->
+        <!--delete element--><i class="material-icons tooltip-top" data-tooltip="Xóa" pn-control-setting="delete-element" ng-click="deleteElement()">highlight_off</i>
+    </div>
+</div>
+<!--resize section-->
+<div id="ID_BOX_RESIZE_SECTION" class="boxResizeSection" ng-dblclick="dbClickElement()">
+    <div class="move-up"></div>
+    <div class="edit-section">
+        <!--i class="material-icons tooltip-top" ng-click="showEditSec()" data-tooltip="Cài đặt" pn-control-setting="advance">settings</i--><i class="material-icons tooltip-right" ng-click="showEditSection()" data-tooltip="Thiết kế">brush</i> <i class="material-icons tooltip-right" ng-click="showAnimateSection()" data-tooltip="Hiệu ứng động"> <svg class="svg-icons" preserveaspectratio="xMidYMid" width="18" height="18" viewbox="0 0 39 27"><path d="M34.531,15.295 C34.531,15.295 27.333,22.493 27.333,22.493 C26.339,23.487 24.727,23.487 23.734,22.493 C23.734,22.493 16.536,15.295 16.536,15.295 C15.542,14.301 15.542,12.690 16.536,11.696 C16.536,11.696 23.734,4.498 23.734,4.498 C24.727,3.504 26.339,3.504 27.333,4.498 C27.333,4.498 34.531,11.696 34.531,11.696 C35.525,12.690 35.525,14.301 34.531,15.295 ZM12.795,14.256 C12.795,14.256 17.623,20.340 17.623,20.340 C17.623,20.340 15.629,21.921 15.629,21.921 C15.629,21.921 10.778,15.807 10.778,15.807 C9.754,14.433 9.754,12.558 10.754,11.215 C10.754,11.215 15.629,5.069 15.629,5.069 C15.629,5.069 17.623,6.651 17.623,6.651 C17.623,6.651 12.771,12.767 12.771,12.767 C12.462,13.183 12.462,13.808 12.795,14.256 ZM9.993,18.238 C9.993,18.238 7.989,19.807 7.989,19.807 C7.989,19.807 4.079,14.793 4.079,14.793 C3.606,13.993 3.605,12.999 4.079,12.199 C4.079,12.199 7.960,6.824 7.960,6.824 C7.960,6.824 10.022,8.316 10.022,8.316 C10.022,8.316 6.279,13.491 6.279,13.491 C6.279,13.491 9.993,18.238 9.993,18.238 Z"></path></svg> </i> <i class="material-icons tooltip-right" ng-click="moveSecTop()" data-tooltip="Lên trên" pn-control-setting="advance">expand_less</i> <i class="material-icons tooltip-right" ng-click="moveSecBottom()" data-tooltip="Xuống dưới" pn-control-setting="advance">expand_more</i> <i class="material-icons tooltip-right" data-tooltip="Xóa" pn-control-setting="delete-element" ng-click="deleteElementSection()">highlight_off</i>
+    </div>
+    <div class="changeHeight"> <i class="material-icons">vertical_align_bottom</i> </div>
+    <div class="move-bottom"></div>
+</div>
+<div id="ID_PARENT_BOX_RESIZE_POPUP" style="display:none">
+    <div id="ID_BOX_RESIZE_POPUP" class="boxResizeSection">
+        <div class="edit-section"> <i class="text-icon" ng-click="exitPopup()">Thoát</i> <i class="material-icons tooltip-top" ng-click="showEditSec()" data-tooltip="Cài đặt" pn-control-setting="advance">settings</i> <i class="material-icons tooltip-right" ng-click="showEditSection()" data-tooltip="Thiết kế">brush</i> <i class="material-icons tooltip-right" ng-click="showAnimateSection()" data-tooltip="Hiệu ứng động"> <svg class="svg-icons" preserveaspectratio="xMidYMid" width="18" height="18" viewbox="0 0 39 27"><path d="M34.531,15.295 C34.531,15.295 27.333,22.493 27.333,22.493 C26.339,23.487 24.727,23.487 23.734,22.493 C23.734,22.493 16.536,15.295 16.536,15.295 C15.542,14.301 15.542,12.690 16.536,11.696 C16.536,11.696 23.734,4.498 23.734,4.498 C24.727,3.504 26.339,3.504 27.333,4.498 C27.333,4.498 34.531,11.696 34.531,11.696 C35.525,12.690 35.525,14.301 34.531,15.295 ZM12.795,14.256 C12.795,14.256 17.623,20.340 17.623,20.340 C17.623,20.340 15.629,21.921 15.629,21.921 C15.629,21.921 10.778,15.807 10.778,15.807 C9.754,14.433 9.754,12.558 10.754,11.215 C10.754,11.215 15.629,5.069 15.629,5.069 C15.629,5.069 17.623,6.651 17.623,6.651 C17.623,6.651 12.771,12.767 12.771,12.767 C12.462,13.183 12.462,13.808 12.795,14.256 ZM9.993,18.238 C9.993,18.238 7.989,19.807 7.989,19.807 C7.989,19.807 4.079,14.793 4.079,14.793 C3.606,13.993 3.605,12.999 4.079,12.199 C4.079,12.199 7.960,6.824 7.960,6.824 C7.960,6.824 10.022,8.316 10.022,8.316 C10.022,8.316 6.279,13.491 6.279,13.491 C6.279,13.491 9.993,18.238 9.993,18.238 Z"></path></svg> </i> </div>
+    </div>
+</div>
+<div class="dialog_lp_error">
+    <h3>{{'CUSTOM_NOTICE.TT_NOTICE'|translate}}</h3>
+    <p></p>
+</div>

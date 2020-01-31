@@ -1,0 +1,40 @@
+﻿<div class="modal fade container" id="managerHistory" role="dialog" ng-controller="managerHistoryCtr">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" ng-click="hideModal()">&times;</button>
+                <h4 class="modal-title">Lịch sử chỉnh sửa Landing Page</h4>
+                <h5 style="font-style:  italic;\n                        font-size: 12px">* Lịch sử sẽ được tạo khi bạn ấn "LƯU" và cách lịch sử cuối tối thiểu 10 phút.</h5>
+            </div>
+            <div class="modal-body clearfix">
+                <div class="tab-inner">
+                    <div class="tab-content">
+                        <div role="tabpanel" class="tab-pane fade in active">
+                            <div class="tab-fonts clearfix text-center">
+                                <div class="col-sm-12">
+                                    <table>
+                                        <tr>
+                                            <th class="number">STT</th>
+                                            <th>Thời gian chỉnh sửa</th>
+                                            <th class="choose">Lựa chọn</th>
+                                        </tr>
+                                        <tr ng-repeat="itemHis in listHistory">
+                                            <td class="text-center">{{$index + 1}}</td>
+                                            <td><a href="#/preview-history/?id={{idLadi}}&name={{itemHis.Name}}" target="_blank">{{itemHis.Time}}</a></td>
+                                            <td> <button class="btn btn-primary" ng-click="restoreLadipage(itemHis.Name)">Khôi phục</button> </td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="box">
+                        <!--<input type="file" class="inputfile inputfile-1 upload" id="fileUpload" name="fileUpload" ngf-select="uploadFiles($files)" ng-model="files"/>-->
+                        <!--<label for="file-1"><i class="ion-ios-upload-outline"></i>-->
+                        <!--&nbsp;<span>Choose a file&hellip;</span></label>-->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

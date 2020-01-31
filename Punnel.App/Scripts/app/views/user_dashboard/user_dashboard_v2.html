@@ -1,0 +1,147 @@
+﻿
+<div class="dashboard">
+    <div id="wrapper" class="wrapper" ng-controller="menuCtr">
+        <!--<div ng-include="'scripts/app/views/common/header.html'"></div>-->
+
+        <div class="col-md-3 left_col">
+            <div class="left_col scroll-view">
+                <div class="navbar nav_title" style="border: 0;">
+                    <a href="/" class="site_title"><i class="fa fa-users"></i> <span>Cộng Tác Viên</span></a>
+                </div>
+                <div class="clearfix"></div>
+                <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
+                    <div class="menu_section">
+                        <ul class="nav side-menu">
+                            <li>
+                                <a href="/home/dashboard"><i class="fa fa-bar-chart-o"></i> Dashboard</a>
+                            </li>
+                            @*
+                            <li>
+                                <a href="/Home/Album"><i class="fa fa-image"></i> Album ảnh</a>
+                            </li>*@
+                            <li>
+                                <a href="/Home/product"><i class="fa fa-cart-plus"></i> Sản phẩm</a>
+                            </li>
+                            <li>
+                                <a href="/Home/createorder"><i class="fa fa-cart-plus"></i> Giỏ hàng</a>
+                            </li>
+                            <li>
+                                <a href="/Home/CartOrder"><i class="fa fa-shopping-cart"></i> Đơn hàng chờ xác nhận</a>
+                            </li>
+                            <li>
+                                <a href="/Home/SalesOrder"><i class="fa fa-desktop"></i> Theo dõi đơn hàng</a>
+                            </li>
+                            <li>
+                                <a href="/Home/AffiliateChecking"><i class="fa fa-money"></i> Đối soát chuyển tiền</a>
+                            </li>
+
+                            <li>
+                                <a href="/Home/privacy"><i class="fa fa-lock"></i> Điều khoản - Chính sách</a>
+                            </li>
+                            <li>
+                                <a href="/Home/Help"><i class="fa fa-question-circle-o"></i> Trợ giúp</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- top navigation -->
+        <div class="top_nav">
+            <div class="nav_menu">
+                <nav>
+                    <div class="nav toggle">
+                        <a id="menu_toggle"><i class="fa fa-bars"></i></a>
+                    </div>
+                    <ul class="nav navbar-nav navbar-right">
+                        <li class="">
+                            <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                                <img src="images/img.jpg" alt="" />
+                                Xin chào <b>Lam</b>&nbsp;
+                                <span class=" fa fa-angle-down"></span>
+                            </a>
+                            <ul class="dropdown-menu dropdown-usermenu pull-right">
+                                <li><a href="home/profile"> Tài khoản</a></li>
+                                <li><a href="home/help">Trợ giúp</a></li>
+                                <li><a href="/Account/LogOut"><i class="fa fa-sign-out pull-right"></i> Đăng xuất</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a id="gl_cart" href="/home/createorder" class="info-number" aria-expanded="false">
+                                <i class="fa fa-shopping-cart"></i>
+                                <span class="badge bg-red" v-text="count"></span>
+                            </a>
+                        </li>
+                        <li id="gl_notification" role="presentation" class="dropdown" v-on:click="loadMessage">
+                            <a href="javascript:;" class="dropdown-toggle info-number" data-toggle="dropdown" aria-expanded="false">
+                                <i class="fa fa-envelope-o"></i>
+                                <span class="badge bg-green" v-text="count"></span>
+                            </a>
+                            <ul id="menu1" class="dropdown-menu list-unstyled msg_list" role="menu">
+                                <li v-for="msg in messages">
+                                    <a v-bind:href="msg.url">
+                                        <span>
+                                            <span>{{msg.title}}</span>
+                                            <span class="time">{{msg.modifiedDate}}</span>
+                                        </span>
+                                        <span class="message">
+                                            {{msg.message}}
+                                        </span>
+                                    </a>
+                                </li>
+                                @*
+                                <li>
+                                    <div class="text-center">
+                                        <a>
+                                            <strong>See All Alerts</strong>
+                                            <i class="fa fa-angle-right"></i>
+                                        </a>
+                                    </div>
+                                </li>*@
+                            </ul>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+        <!-- /top navigation -->
+        <!-- page content -->
+        <div class="right_col" role="main">
+                <div class="row">
+                    <div class="col-md-12 col-sm-12 col-xs-12">
+                        <div class="x_panel">
+                            <div class="x_content">
+                                <ui-view>
+                                </ui-view>
+                                <div class="dbPageLoading">
+                                    <div class="loading">
+                                        <md-progress-circular md-mode="indeterminate"></md-progress-circular>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        </div>
+    </div>
+</div>
+
+
+<script>
+    $(document).click(function (ev) {
+        $('.dropdown .submenu').hide();
+        $('.dropdown-input .submenu').hide();
+        if ($(ev.target).hasClass('modal-backdrop')) {
+            $('.modal').modal('hide');
+        }
+    });
+    $('.dropdown').unbind('click').click(function (ev) {
+        ev.stopPropagation();
+        if ($(this).find('.submenu').eq(0).css('display') != 'none') {
+            $('.dropdown .submenu').hide();
+        } else {
+            $('.dropdown .submenu').hide();
+            $(this).find('.submenu').eq(0).css({'display': 'block'});
+        }
+    });
+</script>

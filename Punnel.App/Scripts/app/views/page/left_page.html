@@ -1,0 +1,42 @@
+﻿<aside class="aside-left clearfix" ng-controller="leftPageCtr as leftPage">
+    <ul class="list-menu list-choose">
+        <li class="clearfix" data-type="element" ng-repeat="itemHL in thumbHighlights" language="{{itemHL.name}}">
+            <a href="">
+                <div ng-bind-html="itemHL.html"></div> <span>{{itemHL.title}}</span>
+            </a>
+        </li>
+        <li class="dropdown" data-type="group-element" ng-repeat="itemGroup in thumbGroup" language="{{itemGroup.name}}">
+            <a href="" data-toggle="dropdown">
+                <div ng-bind-html="itemGroup.html"></div> <span>{{itemGroup.title}}</span>
+            </a>
+        </li>
+    </ul>
+    <div class="setting-box submenu-inner">
+        <ul> </ul>
+    </div>
+    <div class="setting-utilities submenu-inner">
+        <ul class="">
+            <li> <a href=""> <i class="material-icons">code</i> <span>Mã html</span> </a> </li>
+            <li> <a href=""> <i class="material-icons">contact_mail</i> <span>Biểu mẫu</span> </a> </li>
+            <li> <a href=""> <i class="material-icons">play_circle_filled</i> <span>Youtube</span> </a> </li>
+            <!--<li> <a href=""> <i class="material-icons">room</i> <span>google địa điểm</span> </a> </li>-->
+            <li> <a href=""> <i class="material-icons">alarm</i> <span>Đồng hồ đếm ngược</span> </a> </li>
+            <li> <a href=""> <i class="material-icons">alarm</i> <span>Đồng hồ đếm ngược</span> </a> </li>
+            <li> <a href=""> <i class="material-icons">forum</i> <span>Facebook comment</span> </a> </li>
+            <li> <a href=""> <i class="material-icons">mode_comment</i> <span>Facebook messages</span> </a> </li>
+        </ul>
+    </div>
+    <div class="setting-image submenu-inner">
+        <ul class="">
+            <li> <select name=""> <option value="">All</option> <option value="">Thư viện hình ảnh</option> <option value="">Tải về</option> <option value="">Khách hàng đánh giá</option> <option value="">Menu</option> <option value=""> Form liên hệ</option> <option value="">Bảng giá</option> <option value="">Logo đối tác</option> <option value="">Call top action</option> <option value="">Form</option> <option value="">Nội dung chi tiết</option> <option value="">Sản phẩm/ dịch vụ</option> </select> </li>
+            <li> <a href=""> <img src="images/img-1.png" alt="img-1"> </a> </li>
+            <li> <a href=""> <img src="images/img-2.png" alt="img-2"> </a> </li>
+            <li> <a href=""> <img src="images/img-3.png" alt="img-3"> </a> </li>
+            <li> <a href=""> <img src="images/img-4.png" alt="img-4"> </a> </li>
+            <li> <a href=""> <img src="images/img-5.png" alt="img-5"> </a> </li>
+            <li> <a href=""> <img src="images/img-6.png" alt="img-6"> </a> </li>
+            <li> <a href=""> <img src="images/img-7.png" alt="img-7"> </a> </li>
+        </ul>
+    </div>
+    <div class="setting"> <a href="#myModal2" data-toggle="modal" data-target="#myModal2"> <i class="material-icons">settings</i> Cài đặt</a> </div>
+</aside>

@@ -1,0 +1,107 @@
+﻿<div class="main-dashboard" id="analytic-dashboard" ng-controller="analyticCtrl">
+    <div class="container" ng-init="initData()">
+        <section class="dashboard-page" ng-if="pages.length>0">
+            <div class="select-status clearfix" style="margin-bottom:-10px;">
+                <md-input-container style="min-width:200px;">
+                    <label>Chọn trang</label>
+                    <md-select aria-label="loại" ng-model="query.pageId" ng-change="pageChanged()">
+                        <md-option ng-repeat="item in pages" ng-value="item.id">
+                            {{item.name}}
+                        </md-option>
+                    </md-select>
+                </md-input-container>
+
+                <div style="display:inline-block;float:right;">
+                    <md-input-container style="min-width:200px;">
+                        <label>Thời gian</label>
+                        <md-icon class="material-icons">date_range</md-icon>
+                        <input date-range-picker options="options" class="date-picker" type="text" ng-model="wdate.dateRange" max="maxDate"/>
+                    </md-input-container>
+                </div>
+            </div>
+
+
+            <div class="btn-group" role="group" aria-label="btn view">
+                <button type="button" class="btn btn-secondary" ng-class="{'btn-primary': query.isMobile==null}" ng-click="setView(null)">Tất cả</button>
+                <button type="button" class="btn btn-secondary" ng-class="{'btn-primary': query.isMobile==false}" ng-click="setView(false)">Desktop</button>
+                <button type="button" class="btn btn-secondary" ng-class="{'btn-primary': query.isMobile==true}" ng-click="setView(true)">Mobile</button>
+            </div>
+
+            <div class="page-summary table-punner" style="float:left;padding:20px 20px 10px 20px;width:100%;margin-bottom:15px;">
+                <div class="summary-group" layout="row" layout-align="center center">
+                    <div class="fc col-md-3">
+                        <label class="summary-title">Lượt xem</label>
+                        <span class="summary-value" ng-bind="pageSummary.viewCount | number:0"></span>
+                    </div>
+                    <div class="col-md-3">
+                        <label class="summary-title">Người xem</label>
+                        <span class="summary-value" ng-bind="pageSummary.userCount | number:0"></span>
+                    </div>
+                    <div class="col-md-3">
+                        <label class="summary-title">Đăng kí</label>
+                        <span class="summary-value" ng-bind="pageSummary.leadCount | number:0"></span>
+                    </div>
+                    <div class="col-md-3">
+                        <label class="summary-title"> Tỷ lệ chuyển đổi</label>
+                        <span class="summary-value"><span ng-bind="pageSummary.conversionRate | number:1"></span><span style="color:#666;font-weight:500;">%</span></span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="page-summary table-punner" style="float:left;width:100%;margin-top:20px;padding:10px 5px 20px 5px;">
+                <div class="col-md-8">
+                    <canvas height="280" tc-chartjs
+                            chart-type="line"
+                            chart-data="chart.dailyChart.Data"
+                            chart-options="chart.dailyChart.Options"></canvas>
+                </div>
+                <div class="col-md-4">
+                    <canvas tc-chartjs
+                            chart-type="pie"
+                            chart-data="chart.regionChart.Data"
+                            chart-options="chart.regionChart.Options"></canvas>
+                </div>
+            </div>
+
+            <div class="page-summary table-punner" style="float:left;width:100%;padding:10px 5px 20px 5px;">
+                <div class="col-md-6">
+                    <table class="table table-striped nohead">
+                        <thead>
+                            <tr style="font-size: 12px;font-weight: 600;">
+                                <td>Nguồn lưu lượng</td>
+                                <td style="text-align:right;">Lượt xem</td>
+                                <td style="text-align:right;">Đăng kí</td>
+                                <td style="text-align:right;">Chuyển đổi(%)</td>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr ng-repeat="item in chart.refererChart.Data">
+                                <td style="padding-left:10px;"><span ng-bind="item.title || 'trực tiếp'"></span></td>
+                                <td style="text-align:right;padding-right:10px;"><span ng-bind="item.totalView | number:0"></span></td>
+                                <td style="text-align:right;padding-right:10px;"><span ng-bind="item.totalLead | number:0"></span></td>
+                                <td style="text-align:right;padding-right:10px;"><span ng-bind="item.totalLead/item.totalView * 100 | number:0"></span>%</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="col-md-6">
+                    <canvas height="220" tc-chartjs
+                            chart-type="horizontalBar"
+                            chart-data="chart.trafficChannelChart.Data"
+                            chart-options="chart.trafficChannelChart.Options"></canvas>
+                </div>
+            </div>
+        </section>
+
+
+        <div class="empty-block" ng-show="pages.length == 0">
+                <div class="u-text">
+                    <div class="u-icon">
+                        <svg xmlns:xlink="http://www.w3.org/1999/xlink" height="101" viewBox="0 0 103 101" width="103" xmlns="http://www.w3.org/2000/svg"><defs><rect height="97" id="folder-a" rx="1" width="78" x="12" y="2"></rect><mask height="101" id="folder-c" width="82" x="-2" y="-2"><path d="M10 0h82v101H10z" fill="#fff"></path><use xlink:href="#folder-a"></use></mask><path d="M2 17.99c0-1.1.89-1.99 1.996-1.99H34.69l9.355 7h54.96c1.102 0 1.995.9 1.995 1.993v58.014c0 1.1-.886 1.993-2 1.993H4c-1.105 0-2-.898-2-1.99V17.99z" id="folder-b"></path><mask height="73" id="folder-d" width="103" x="-2" y="-2"><path d="M0 14h103v73H0z" fill="#fff"></path><use xlink:href="#folder-b"></use></mask></defs><g fill="none" fill-rule="evenodd"><use xlink:href="#folder-a" fill="#F8FAFB"></use><use xlink:href="#folder-a" mask="url(#folder-c)" stroke="#DDE4EA" stroke-width="4"></use><use xlink:href="#folder-b" fill="#FFF"></use><use xlink:href="#folder-b" mask="url(#folder-d)" stroke="#DDE4EA" stroke-width="4"></use><path d="M2 27h99v2H2z" fill="#DDE4EA"></path></g></svg>
+                    </div>
+                    <h4>Chưa có dữ liệu hiển thị!</h4>
+                </div>
+            </div>
+
+    </div>
+</div>

@@ -1,0 +1,50 @@
+﻿<md-dialog aria-label="afffrm">
+    <md-toolbar>
+        <div class="md-toolbar-tools white">
+            <h2>Đăng kí đại lý tiếp thị liên kết</h2>
+            <span flex></span>
+            <md-button class="md-icon-button" ng-click="cancel()">
+                <i class="material-icons">close</i>
+            </md-button>
+        </div>
+    </md-toolbar>
+    <form name="myForm" ng-submit="submit()">
+        <md-dialog-content>
+            <div class="md-dialog-content" style="min-width:420px;max-height:800px;">
+                <div layout="row" style="margin-bottom:10px;">
+                    <label>Thông tin ngân hàng của bạn để nhận hoa hồng</label>
+                    </div>
+                    <div layout="row">
+                        <md-input-container flex="100">
+                            <label>Ngân hàng</label>
+                            <md-select required aria-label="bankId" ng-model="data.bankCode" md-autofocus>
+                                <md-option ng-repeat="item in bankOption" ng-value="item.i">
+                                    {{item.n}}
+                                </md-option>
+                            </md-select>
+                        </md-input-container>
+                    </div>
+
+                    <div layout="row">
+                        <md-input-container flex="100">
+                            <label>Số tài khoản</label>
+                            <input aria-label="link" required name="bankAccount" ng-model="data.bankAccount" md-maxlength="20" md-minlength="10">
+                        </md-input-container>
+                    </div>
+
+                    <div layout="row">
+                        <md-checkbox class="md-primary" ng-model="agree" aria-label="agree">
+                            Bạn đồng ý với các Quy định về quyền lợi của đại lý
+                        </md-checkbox>
+                    </div>
+                </div>
+        </md-dialog-content>
+
+        <md-dialog-actions layout="row">
+            <span flex></span>
+            <md-button id="btn-sm" type="submit" class="md-raised md-primary">
+                Đăng kí
+            </md-button>
+        </md-dialog-actions>
+        </form>
+</md-dialog>

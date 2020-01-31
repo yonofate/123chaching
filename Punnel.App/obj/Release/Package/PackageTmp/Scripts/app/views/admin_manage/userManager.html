@@ -1,0 +1,200 @@
+﻿<style>
+    .drange .md-errors-spacer {
+        display: none;
+    }
+    ul.btnfilter li {
+        display: inline;
+        list-style-type: none;
+        padding-right: 20px;
+        float: left;
+    }
+</style>
+<div class="main-dashboard" id="lead-dashboard" ng-controller="userManagerCtrl">
+    <div class="container">
+        <div layout="row">
+            <ul class="btnfilter">
+                <li ng-repeat="item in btnFilters">
+                    <a ng-click="filter(item.i)"><span ng-bind="item.n"></span></a>
+                </li>
+            </ul>
+        </div>
+        <section class="dashboard-page" ng-init="search()">
+            <div class="select-status clearfix">
+                <md-input-container style="min-width:120px;">
+                    <label>Vai trò</label>
+                    <md-select aria-label="pages" ng-model="query.role" ng-change="search()">
+                        <md-option ng-repeat="item in roleOptions" ng-value="item.i">
+                            {{item.n}}
+                        </md-option>
+                    </md-select>
+                </md-input-container>
+                <md-input-container style="width:120px;">
+                    <label>Gói thành viên</label>
+                    <md-select aria-label="pages" ng-model="query.level" ng-change="search()">
+                        <md-option ng-repeat="item in levelOptions" ng-value="item.i">
+                            {{item.n}}
+                        </md-option>
+                    </md-select>
+                </md-input-container>
+                <md-input-container style="width:110px;">
+                    <label>Triển vọng</label>
+                    <md-select aria-label="loại" ng-model="query.systemStatus" ng-change="search()">
+                        <md-option ng-repeat="item in statusOptions" ng-value="item.i">
+                            {{item.n}}
+                        </md-option>
+                    </md-select>
+                </md-input-container>
+                <md-input-container style="width:140px;" ng-if="isAdmin==true">
+                    <label>Nv chăm sóc</label>
+                    <md-select aria-label="pages" ng-model="query.staffId" ng-change="search()">
+                        <md-option ng-repeat="item in staffs" ng-value="item.id">
+                            {{item.fullName}}
+                        </md-option>
+                    </md-select>
+                </md-input-container>
+                <md-input-container style="min-width:100px;">
+                    <label>Loại ngày</label>
+                    <md-select aria-label="pages" ng-model="query.datetype" ng-change="search()">
+                        <md-option ng-repeat="item in dateTypeOptions" ng-value="item.i">
+                            {{item.n}}
+                        </md-option>
+                    </md-select>
+                </md-input-container>
+                <md-input-container style="min-width:200px;" class="drange">
+                    <label>Thời gian</label>
+                    <input date-range-picker options="options" class="date-picker" type="text" ng-model="wdate.dateRange" />
+                </md-input-container>
+                <md-input-container class="txt-search" style="min-width:230px;">
+                    <label>Tìm kiếm</label>
+                    <input type="search" name="keyword" autocomplete="off" ng-model="query.keyword" placeholder="Tìm theo email, điện thoại" ng-enter="search()">
+                </md-input-container>
+                <button type="button" class="btn btn-primary btn-search" ng-click="search()"><i class="material-icons dp48">search</i></button>
+            </div>
+
+            <table class="table table-striped nohead user-manager">
+                <thead>
+                    <tr>
+                        <td>Họ tên</td>
+                        <td>Email</td>
+                        <td>Điện thoại</td>
+                        <td>Vai trò</td>
+                        <td>Gói</td>
+                        <td>Ngày hết hạn</td>
+                        <td>Ngày tạo</td>
+                        <td style="text-align:center;min-width:120px;">Ghi chú</td>
+                        <td style="width:120px;text-align:right;"></td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="item in members">
+                        <td>
+                            <md-menu md-position-mode="target-right target">
+                                <i class="material-icons icon-status-{{item.systemStatus}} icon-publish" ng-click="$mdMenu.open($event)">brightness_1</i>
+                                <md-menu-content width="3">
+                                    <md-menu-item>
+                                        <md-button ng-click="changeStatus(item,0)" ng-class="{'md-raised md-primary': item.status==0}">
+                                            <div layout="row" flex>
+                                                <p flex><i class="material-icons icon-status-0 icon-publish">brightness_1</i> New</p>
+                                            </div>
+                                        </md-button>
+                                    </md-menu-item>
+                                    <md-menu-item>
+                                        <md-button ng-click="changeStatus(item,1)" ng-class="{'md-raised md-primary': item.status==1}">
+                                            <div layout="row" flex>
+                                                <p flex><i class="material-icons icon-status-1 icon-publish">brightness_1</i> Hot</p>
+                                            </div>
+                                        </md-button>
+                                    </md-menu-item>
+                                    <md-menu-item>
+                                        <md-button ng-click="changeStatus(item,2)" ng-class="{'md-raised md-primary': item.status==2}">
+                                            <div layout="row" flex>
+                                                <p flex><i class="material-icons icon-status-2 icon-publish">brightness_1</i> Warm</p>
+                                            </div>
+                                        </md-button>
+                                    </md-menu-item>
+                                    <md-menu-item>
+                                        <md-button ng-click="changeStatus(item,3)" ng-class="{'md-raised md-primary': item.status==3}">
+                                            <div layout="row" flex>
+                                                <p flex><i class="material-icons icon-status-3 icon-publish">brightness_1</i> Cold</p>
+                                            </div>
+                                        </md-button>
+                                    </md-menu-item>
+                                </md-menu-content>
+                            </md-menu>
+
+                            <span ng-bind="item.fullName || '---'"></span>
+                        </td>
+                        <td><span ng-bind="item.email || '---'"></span> <i ng-show="item.isVerifyEmail" class="material-icons icon-publish icon-status-0">check_circle_outline</i></td>
+                        <td><span ng-bind="item.mobile || '---'"></span> <i ng-show="item.isVerifyMobile" class="material-icons icon-publish icon-status-0">check_circle_outline</i></td>
+                        <td><span class="tag-role color-{{item.role}}" ng-bind="item.role || '---'"></span></td>
+                        <td><span class="tag-primary color-{{item.level}}" ng-bind="levelDisplay(item.level)"></span></td>
+                        <td>
+                            <span am-time-ago="item.expiredDate"></span>
+                        </td>
+                        <td>
+                            <span am-time-ago="item.activeDate"></span>
+                        </td>
+                        <td>
+                            <span class="highlight-note" ng-bind="item.systemNote"></span>
+                        </td>
+                        <!--<td style="text-align:center"><md-icon ng-if="item.isAffilateAgent==true" class="material-icons">check</md-icon></td>-->
+                        <td style="text-align:right;">
+                            <md-menu md-position-mode="target-right target">
+                                <md-button aria-label="Open group" class="md-icon-button" ng-click="$mdMenu.open($event)">
+                                    <md-icon class="material-icons">more_horiz</md-icon>
+                                </md-button>
+                                <md-menu-content width="3">
+                                    <md-menu-item>
+                                        <md-button ng-click="showLoginUser(item.email)">
+                                            <div layout="row" flex>
+                                                <p flex>Đăng nhập</p>
+                                                <md-icon class="material-icons">lock_open</md-icon>
+                                            </div>
+                                        </md-button>
+                                    </md-menu-item>
+                                    <md-menu-item ng-show="isEditor==true">
+                                        <md-button ng-click="showDetail(item)">
+                                            <div layout="row" flex>
+                                                <p flex>Thông tin</p>
+                                                <md-icon class="material-icons">edit</md-icon>
+                                            </div>
+                                        </md-button>
+                                    </md-menu-item>
+                                    <md-menu-item ng-show="isAdmin==true && (item.role=='member' || item.role=='agent')">
+                                        <md-button ng-click="showStaffSupport(item)">
+                                            <div layout="row" flex>
+                                                <p flex>Chăm sóc</p>
+                                                <md-icon class="material-icons">supervisor_account</md-icon>
+                                            </div>
+                                        </md-button>
+                                    </md-menu-item>
+                                    <md-menu-item>
+                                        <md-button ng-click="showSendNotifyUser(item.id)">
+                                            <div layout="row" flex>
+                                                <p flex>Gửi thông báo</p>
+                                                <md-icon class="material-icons">add_alert</md-icon>
+                                            </div>
+                                        </md-button>
+                                    </md-menu-item>
+                                    <md-menu-item ng-show="isAdmin==true">
+                                        <md-button ng-click="delete(item)">
+                                            <div layout="row" flex>
+                                                <p flex>Xóa</p>
+                                                <md-icon class="material-icons">delete</md-icon>
+                                            </div>
+                                        </md-button>
+                                    </md-menu-item>
+                                </md-menu-content>
+                            </md-menu>
+                            <md-button aria-label="Open group" class="btn-note md-icon-button" ng-click="showAddNote(item)">
+                                <md-icon class="material-icons">edit</md-icon>
+                            </md-button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <span ng-show="total>0"><strong ng-bind="total"></strong> thành viên</span>
+            <ul style="margin-top:0px;float:right" ng-show="total>query.limit" uib-pagination total-items="total" ng-model="query.page" items-per-page="query.limit" class="pagination" ng-change="pageChanged()"></ul>
+        </section>      
+    </div>
+</div>

@@ -1,0 +1,26 @@
+﻿<!DOCTYPE html>
+<html ng-app="punnelApp">
+<head>
+    <meta charset="utf-8">
+    <title update-title></title>
+    <meta http-equiv="Cache-control" content="no-cache">
+    <meta http-equiv="Expires" content="-1">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width">
+    <link rel="shortcut icon" type="image/ico" href="favicon.ico">
+    <meta name="google-signin-client_id" content="480758365207-u9675gvbf31uk63gm5q9b0263oje19fq.apps.googleusercontent.com">
+    <link href="https://fonts.googleapis.com/css?family=Arima+Madurai|Roboto:300,400,700|Athiti|Baloo+Bhaina|Bungee|Chonburi|Cormorant+Upright|Open+Sans:400,600,700|Pattaya|Prata|Quicksand|Roboto+Slab|Tinos:400,700|Itim|Lobster|Montserrat|Source+Sans+Pro|Taviraj|Trirong|Varela+Round|Mali|KoHo|Montserrat+Alternates|Cormorant+Unicase:300,400,600,700&amp;subset=latin-ext,vietnamese" rel="stylesheet" lazyload>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" lazyload>
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.8/angular-material.min.css">
+    @*@Styles.Render("~/contents/styles/css")*@
+    <link async rel='stylesheet' href='@Styles.Url("~/contents/styles/css")'>
+    <script async src="https://www.google.com/jsapi?key=AIzaSyBlJhrDidQSfeteJtKTlSJWMGn_zkd4mp0"></script>
+    <script async src="https://apis.google.com/js/client.js"></script>
+    <script async src="https://maps.googleapis.com/maps/api/js?libraries=places&key=AIzaSyBlJhrDidQSfeteJtKTlSJWMGn_zkd4mp0"></script>
+    <script async src="https://apis.google.com/js/client:platform.js"></script>
+</head>
+<body>
+    @RenderBody()
+    @RenderSection("scripts", required: false)
+</body>
+</html>

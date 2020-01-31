@@ -1,0 +1,79 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>ImageResizer.Plugins.TinyCache</name>
+    </assembly>
+    <members>
+        <member name="F:ImageResizer.Plugins.TinyCache.CacheEntry.cost_ms">
+            <summary>
+            Time it took to generate the content
+            </summary>
+        </member>
+        <member name="F:ImageResizer.Plugins.TinyCache.CacheEntry.recreated_count">
+            <summary>
+            How many times the data has been recreated (not accurate, but very useful for cache sorting)
+            </summary>
+        </member>
+        <member name="F:ImageResizer.Plugins.TinyCache.CacheEntry.read_count">
+            <summary>
+            How many times the data has been read
+            </summary>
+        </member>
+        <member name="F:ImageResizer.Plugins.TinyCache.CacheEntry.recent_reads">
+            <summary>
+            (utc) last 8 accesses
+            </summary>
+        </member>
+        <member name="F:ImageResizer.Plugins.TinyCache.CacheEntry.written">
+            <summary>
+            (utc) When the entry was first added to the cache, ever
+            </summary>
+        </member>
+        <member name="F:ImageResizer.Plugins.TinyCache.CacheEntry.loaded">
+            <summary>
+            (utc) when the cache was last loaded from disk
+            </summary>
+        </member>
+        <member name="F:ImageResizer.Plugins.TinyCache.CacheEntry.sizeInBytes">
+            <summary>
+            Size of 'data' in bytes, even when null
+            </summary>
+        </member>
+        <member name="M:ImageResizer.Plugins.TinyCache.CacheEntry.GetPreservationPriority">
+            <summary>
+            Returns a number between 0 and 1, where 1 is the highest preservation reccomendation
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:ImageResizer.Plugins.TinyCache.TinyCachePlugin.VirtualCacheFile">
+            <summary>
+            Sets the location of the cache file
+            </summary>
+        </member>
+        <member name="P:ImageResizer.Plugins.TinyCache.TinyCachePlugin.PhysicalCacheFile">
+            <summary>
+            Returns the physical path of the cache directory specified in VirtualCacheFile.
+            </summary>
+        </member>
+        <member name="P:ImageResizer.Plugins.TinyCache.TinyCachePlugin.MaxBytes">
+            <summary>
+            30MB is the maxmimum size of the cache. Writing more than that to disk during an image request would cause a timeout for sure.
+            </summary>
+        </member>
+        <member name="P:ImageResizer.Plugins.TinyCache.TinyCachePlugin.MaxItems">
+            <summary>
+            (De)Serializing more than 1024 items to disk during a request is risky. Sorting more than that can be slow as well.
+            </summary>
+        </member>
+        <member name="P:ImageResizer.Plugins.TinyCache.TinyCachePlugin.ChangeThreshold">
+            <summary>
+            We try to perform cleanup every 50 changes. We also flush to disk afterwards, but not more than once per 30s.
+            </summary>
+        </member>
+        <member name="P:ImageResizer.Plugins.TinyCache.TinyCachePlugin.MillisecondsBetweenFlushes">
+            <summary>
+            Flushing to disk more than once every 30 seconds is bad.
+            </summary>
+        </member>
+    </members>
+</doc>

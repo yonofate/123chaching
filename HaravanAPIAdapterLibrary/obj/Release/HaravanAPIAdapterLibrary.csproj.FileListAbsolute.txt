@@ -1,0 +1,12 @@
+C:\Source\yonofate\punnel\src\HaravanAPIAdapterLibrary\bin\Release\HaravanAPIAdapterLibrary.dll
+C:\Source\yonofate\punnel\src\HaravanAPIAdapterLibrary\bin\Release\HaravanAPIAdapterLibrary.pdb
+C:\Source\yonofate\punnel\src\HaravanAPIAdapterLibrary\bin\Release\Newtonsoft.Json.dll
+C:\Source\yonofate\punnel\src\HaravanAPIAdapterLibrary\bin\Release\RestSharp.dll
+C:\Source\yonofate\punnel\src\HaravanAPIAdapterLibrary\bin\Release\System.ValueTuple.dll
+C:\Source\yonofate\punnel\src\HaravanAPIAdapterLibrary\bin\Release\Newtonsoft.Json.xml
+C:\Source\yonofate\punnel\src\HaravanAPIAdapterLibrary\bin\Release\System.ValueTuple.xml
+C:\Source\yonofate\punnel\src\HaravanAPIAdapterLibrary\obj\Release\HaravanAPIAdapterLibrary.csprojAssemblyReference.cache
+C:\Source\yonofate\punnel\src\HaravanAPIAdapterLibrary\obj\Release\HaravanAPIAdapterLibrary.csproj.CoreCompileInputs.cache
+C:\Source\yonofate\punnel\src\HaravanAPIAdapterLibrary\obj\Release\HaravanAPIAdapterLibrary.csproj.CopyComplete
+C:\Source\yonofate\punnel\src\HaravanAPIAdapterLibrary\obj\Release\HaravanAPIAdapterLibrary.dll
+C:\Source\yonofate\punnel\src\HaravanAPIAdapterLibrary\obj\Release\HaravanAPIAdapterLibrary.pdb

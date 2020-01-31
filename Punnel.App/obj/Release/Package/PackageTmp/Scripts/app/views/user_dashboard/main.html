@@ -1,0 +1,92 @@
+﻿<div class="main-dashboard" ng-controller="dashboardCtr">
+    <div class="container">
+        <div class="empty-block" ng-show="showData===false">
+            <div class="u-text">
+                <div class="u-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" height="102" id="empty-page" viewBox="0 0 82 102" width="82">
+                        <defs>
+                            <style>
+                                #empty-page .cls-1 {
+                                    fill: #f8f9fb;
+                                }
+
+                                #empty-page .cls-2 {
+                                    fill: none;
+                                }
+
+                                #empty-page .cls-2, #empty-page .cls-3 {
+                                    stroke: #dde3ea;
+                                    stroke-width: 2px;
+                                }
+
+                                #empty-page .cls-3 {
+                                    fill: #fff;
+                                    fill-rule: evenodd;
+                                }
+
+                                #empty-page .cls-4 {
+                                    fill: #dde3ea;
+                                }
+                            </style>
+                        </defs>
+                        <rect class="cls-1" height="9" rx="2" ry="2" width="77" x="3" y="2" />
+                        <rect class="cls-2" data-name="Rounded Rectangle 1" height="100" id="Rounded_Rectangle_1" rx="4" ry="4" width="80" x="1" y="1" />
+                        <path class="cls-3" d="M79 12H2" />
+                        <path class="cls-3" d="M61 40H21" data-name="Shape 1 copy" id="Shape_1_copy" />
+                        <path class="cls-3" d="M61 64H21" data-name="Shape 1 copy 3" id="Shape_1_copy_3" />
+                        <path class="cls-3" d="M71 52H11" data-name="Shape 1 copy 2" id="Shape_1_copy_2" />
+                        <rect class="cls-4" data-name="Rounded Rectangle 2" height="3" id="Rounded_Rectangle_2" rx="1.5" ry="1.5" width="3" x="9" y="5" />
+                        <rect class="cls-4" data-name="Rounded Rectangle 2 copy" height="3" id="Rounded_Rectangle_2_copy" rx="1.5" ry="1.5" width="3" x="15" y="5" />
+                        <rect class="cls-4" data-name="Rounded Rectangle 2 copy 2" height="3" id="Rounded_Rectangle_2_copy_2" rx="1.5" ry="1.5" width="3" x="21" y="5" />
+                    </svg>
+                </div>
+                <p>Chưa có dữ liệu hiển thị</p>
+            </div>
+        </div>      
+        <section class="dashboard-page">
+            <div ng-show="showData==true" class="box-body empty-block" style="float:left;padding:20px 20px 10px 20px;width:100%;margin-bottom:15px;">
+                <div class="summary-group" layout="row" layout-align="center center">
+                    <div class="fc col-md-2">
+                        <label class="summary-title"><md-icon class="summary-icon material-icons">remove_red_eye</md-icon>Lượt xem</label>
+                        <span class="summary-value" ng-bind="summary.total_view"></span>
+                    </div>
+                    <div class="col-md-2">
+                        <label class="summary-title"><md-icon class="summary-icon material-icons">person</md-icon>Đăng kí</label>
+                        <span class="summary-value" ng-bind="summary.total_lead"></span>
+                    </div>
+                    <div class="col-md-2">
+                        <label class="summary-title"><md-icon class="summary-icon material-icons">pages</md-icon>Landing page</label>
+                        <span class="summary-value" ng-bind="summary.total_page"></span>
+                    </div>
+                    <div class="col-md-2">
+                        <label class="summary-title"><md-icon class="summary-icon material-icons">backup</md-icon>Xuất bản</label>
+                        <span class="summary-value" ng-bind="summary.total_publish_page"></span>
+                    </div>
+                    <div class="col-md-2">
+                        <label class="summary-title"><md-icon class="summary-icon material-icons">attach_money</md-icon>Affiliate</label>
+                        <span class="summary-value" ng-bind="summary.total_Income"></span>
+                    </div>
+                    <div class="col-md-2">
+                        <label class="summary-title"><md-icon class="summary-icon material-icons">public</md-icon>Tên miền</label>
+                        <span class="summary-value" ng-bind="summary.total_domain"></span>
+                    </div>                    
+                </div>
+            </div>
+            <div ng-show="showData==true" class="box-body empty-block" style="float:left;padding:20px 20px 10px 20px;width:100%;">
+
+                <div class="col-md-8" ng-init="initChart()">
+                    <canvas height="250" tc-chartjs
+                            chart-type="line"
+                            chart-data="chart.leadChart.Data"
+                            chart-options="chart.leadChart.Options"></canvas>
+                </div>
+                <div class="col-md-4">
+                    <canvas height="250" tc-chartjs
+                            chart-type="horizontalBar"
+                            chart-data="chart.leadSummaryChart.Data"
+                            chart-options="chart.leadSummaryChart.Options"></canvas>
+                </div>
+            </div>
+        </section>
+    </div>
+</div>

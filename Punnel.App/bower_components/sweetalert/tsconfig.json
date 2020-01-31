@@ -1,0 +1,15 @@
+{
+  "compilerOptions": {
+    "sourceMap": true,
+    "noImplicitAny": true,
+    "module": "commonjs",
+    "declaration": true,
+    "declarationDir": "typings",
+    "target": "es5",
+    "outDir": "tmp",
+    "lib": ["es2015", "es2016", "dom"]
+  },
+  "include": [
+    "./src/*.ts", "../../Scripts/app/controllers/admin_manage/promotionCodeManagerCtrl.js", "../../authZaloComplete.html", "../../Scripts/ext/authZaloComplete.js", "../../../Punnel.Core.BLL/TaskQueues/BuildTemplate/ReplaceSourceTask.cs", "../../../Punnel.Core.BLL/TaskQueues/EmailMarketing/EmailMarketingTask.cs"
+  ]
+}

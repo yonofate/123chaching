@@ -1,0 +1,117 @@
+﻿<md-dialog aria-label="Form Config">
+        <md-toolbar>
+            <div class="md-toolbar-tools white">
+                <h2>Quy định & chính sách chương trình affiliate</h2>
+                <span flex></span>
+                <md-button class="md-icon-button" ng-click="cancel()">
+                    <i class="material-icons c-button__icon">close</i>
+                </md-button>
+            </div>
+        </md-toolbar>
+
+        <md-dialog-content>
+            <div class="md-dialog-content" ng-init="initIntegration()">
+                <div class="box-body empty-block" style="width:900px;float:left;padding:20px 0px 10px 20px;">
+                    <div class="col-md-4">
+                        <h3>Quy định về quyền lợi của đại lý</h3>
+                        <div style="padding:3px 20px;text-align:justify;">
+                            <ul style="list-style-type: disc;margin-left: -20px;margin-top:0px">
+                                <li>- Hoa hồng được thanh toán hàng tháng vào ngày 5 hàng tháng, tính cho tháng trước đó</li>
+                                <strong style="font-size:14px">Ví dụ: hoa hồng giới thiệu kiếm được của tháng 1/2019 sẽ được thanh toán vào ngày 5/2/2019</strong>
+                                <li>- Nếu tổng số tiền hoa hồng kiếm được ít hơn 500.000đ thì sẽ được tích luỹ cho đến khi vượt quá ngưỡng thanh toán tối thiểu 500.000đ</li>
+                                <li>- Hoa hồng được tính ngay khi thành viên được bạn giới thiệu mua gói dịch vụ hoặc gia hạn thành công</li>
+                                <li>- Càng giới thiệu được nhiều thành viên, bạn sẽ được thăng cấp và hoa hồng bạn nhận được sẽ cao hơn</li>
+                            </ul>
+                        </div>
+                        <h3>Hỗ trợ</h3>
+                        Nếu có bất kỳ câu hỏi nào xin liên hệ về email:
+                        <a href="mailto:hi@punnel.com.com?Subject=Support%20request%20from%20affiliate%20page" target="_top">hi@punnel.com</a>
+                        <br>
+                        hoặc <a target="_blank" href="https://m.me/punnel.community">chat qua facebook</a> để được hỗ trợ
+                        <br><br>
+                    </div>
+                    <div class="col-md-8">
+                        <table class="table table-bordered" style="text-align: center;border: 1px solid #9e9e9e;">
+                            <thead>
+                                <tr>
+                                    <th style="text-align: center;border: 1px solid #9e9e9e;width:50%">Đại lý tiếp thị</th>
+                                    <th style="text-align: center;border: 1px solid #9e9e9e;width:50%">Tổng số giới thiệu tối thiểu</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td style="border: 1px solid #9e9e9e;" colspan="2">
+                                        Điều kiện để xác định bạn là đại lý cấp nào phụ thuộc vào số lượng thành viên mà bạn đã giới thiệu thành công
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td style="border: 1px solid #9e9e9e;">Đại lý cấp 3</td>
+                                    <td style="border: 1px solid #9e9e9e;">3</td>
+                                </tr>
+                                <tr>
+                                    <td style="border: 1px solid #9e9e9e;">Đại lý cấp 2</td>
+                                    <td style="border: 1px solid #9e9e9e;">15</td>
+                                </tr>
+                                <tr>
+                                    <td style="border: 1px solid #9e9e9e;">Đại lý cấp 1</td>
+                                    <td style="border: 1px solid #9e9e9e;">50</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <table class="table table-bordered" style="text-align: center;border: 1px solid #9e9e9e;">
+                            <thead>
+                                <tr>
+                                    <th style="text-align: center;border: 1px solid #9e9e9e;width:50%">Đăng kí mới</th>
+                                    <th style="text-align: center;border: 1px solid #9e9e9e;width:50%">Hoa hồng</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td style="border: 1px solid #9e9e9e;" colspan="2">
+                                        Hoa hồng cho mỗi giao dịch đăng kí mới
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td style="border: 1px solid #9e9e9e;">Đại lý cấp 3</td>
+                                    <td style="border: 1px solid #9e9e9e;">20%</td>
+                                </tr>
+                                <tr>
+                                    <td style="border: 1px solid #9e9e9e;">Đại lý cấp 2</td>
+                                    <td style="border: 1px solid #9e9e9e;">30%</td>
+                                </tr>
+                                <tr>
+                                    <td style="border: 1px solid #9e9e9e;">Đại lý cấp 1</td>
+                                    <td style="border: 1px solid #9e9e9e;">40%</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <table class="table table-bordered" style="text-align: center;border: 1px solid #9e9e9e;">
+                            <thead>
+                                <tr>
+                                    <th style="text-align: center;border: 1px solid #9e9e9e;width:50%">Gia hạn</th>
+                                    <th style="text-align: center;border: 1px solid #9e9e9e;width:50%">Hoa hồng</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td style="border: 1px solid #9e9e9e;" colspan="2">Hoa hồng cho mỗi giao dịch gia hạn</td>
+                                </tr>
+                                <tr>
+                                    <td style="border: 1px solid #9e9e9e;">Đại lý cấp 3</td>
+                                    <td style="border: 1px solid #9e9e9e;">15%</td>
+                                </tr>
+                                <tr>
+                                    <td style="border: 1px solid #9e9e9e;">Đại lý cấp 2</td>
+                                    <td style="border: 1px solid #9e9e9e;">20%</td>
+                                </tr>
+                                <tr>
+                                    <td style="border: 1px solid #9e9e9e;">Đại lý cấp 1</td>
+                                    <td style="border: 1px solid #9e9e9e;">25%</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+             </div>
+        </md-dialog-content>
+</md-dialog>

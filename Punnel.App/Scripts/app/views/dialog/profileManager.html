@@ -1,0 +1,93 @@
+﻿<md-dialog aria-label="Thông tin cá nhân">
+    <md-toolbar>
+        <div class="md-toolbar-tools white">
+            <h2>Thông tin cá nhân</h2>
+            <span flex></span>
+            <md-button class="md-icon-button" ng-click="cancel()">
+                <i class="material-icons">close</i>
+            </md-button>
+        </div>
+    </md-toolbar>
+    <form name="submitForm" ng-submit="updateProfile()">
+        <md-dialog-content>
+            <div class="md-dialog-content" style="width:600px;">
+                <div layout="row" layout-xs="column">
+                    <div flex>
+                        <section layout="row" layout-sm="column" layout-align="center center" layout-wrap style="width:240px;">
+                            <i ng-show="profile.hasAvatar==false" style="font-size:180px" class="material-icons dp48">account_circle</i>
+                            <img ng-cloak ng-show="profile.hasAvatar==true" style="width:180px;height:180px;box-shadow: 0 2px 5px 0 rgba(0,0,0,.26);border-radius: 50%;" ng-if="profile.hasAvatar==true" ng-src="{{profile.avatar}}" />
+                            <md-button type="button" class="md-primary" layout-align="end center" type="file" id="fileUploadPage" name="fileUpload" ngf-select="uploadFiles($files)" ng-model="files" ngf-pattern="'.jpg,image/*,.jpeg,.png'" ngf-accept="'image/*'">Thay đổi</md-button>
+                        </section>
+                    </div>
+                    <div flex>
+                        <div flex>
+                            <div layout="row" style="padding-bottom:10px;">
+                                <span class="tag-primary color-{{level.i}}" ng-bind="level.n"></span>
+                            </div>
+                            <md-input-container class="md-block">
+                                <label>Email</label>
+                                <input ng-disabled="profile.isVerifyEmail" ng-model="profile.email" ng-change="validateEmail()">
+                                <md-icon title="Đã xác thực email" ng-show="profile.isVerifyEmail" class="pn-verify-icon material-icons">check_circle</md-icon>
+                                <div ng-messages="submitForm.email.$error">
+                                    <div ng-message="required">Vui lòng nhập email</div>
+                                    <div ng-message="pattern">Vui lòng nhập email hợp lệ</div>
+                                </div>
+                                <a ng-show="profile.isVerifyEmail==false" class="link-change-profile" ng-click="sendVerifyEmail()">Xác thực email</a>
+                            </md-input-container>
+                            <md-input-container class="md-block">
+                                <label>Số điện thoại</label>
+                                <input ng-disabled="profile.isVerifyMobile" name="mobile" type="text" required ng-pattern="/^(03|05|07|08|09)[0-9]{8}$/" ng-model="profile.mobile" ng-change="validateMobile()" />
+                                <md-icon title="Đã xác thực số điện thoại" ng-show="profile.isVerifyMobile" class="pn-verify-icon material-icons">check_circle</md-icon>
+                                <div ng-messages="submitForm.mobile.$error">
+                                    <div ng-message="required">Vui lòng nhập số điện thoại</div>
+                                    <div ng-message="pattern">Vui lòng nhập số điện thoại hợp lệ</div>
+                                </div>
+                                <a ng-show="profile.isVerifyMobile==false" class="link-change-profile" ng-click="sendVerifyMobile()">Xác thực số điện thoại</a>
+                            </md-input-container>
+                            <md-input-container class="md-block">
+                                <label>Họ & tên</label>
+                                <input name="full_name" ng-model="profile.full_name" required maxlength="80" minlength="5">
+                                <div ng-messages="submitForm.full_name.$error">
+                                    <div ng-message="required">Vui lòng nhập Họ tên</div>
+                                    <div ng-message-exp="['minlength', 'maxlength']">Họ tên độ dài từ 5 đến 80 kí tự</div>
+                                </div>
+                            </md-input-container>
+                        </div>
+                    </div>
+                </div>
+                <div layout="row" layout-xs="column">
+                    <div flex>
+                        <md-switch ng-model="profile.isOffAlert" aria-label="Tắt thông báo lead qua email" class="md-primary">
+                            Tắt thông báo lead qua email
+                        </md-switch>
+                    </div>
+                </div>
+                <div layout="row" layout-xs="column">
+                    <div flex>
+                        <md-switch ng-model="isChangePass" aria-label="Đổi mật khẩu" ng-true-value="'1'" ng-false-value="'0'" class="md-primary">
+                            Đổi mật khẩu
+                        </md-switch>
+                    </div>
+                    <div flex>
+                        <div flex ng-if="isChangePass === '1'">
+                            <md-input-container class="md-block">
+                                <label>Mật khẩu mới</label>
+                                <input name="pass" type="password" ng-model="acc.pass" required min="6">
+                            </md-input-container>
+                            <md-input-container class="md-block">
+                                <label>Nhập lại mật khẩu mới</label>
+                                <input name="repass" type="password" ng-model="acc.repass" required min="6">
+                            </md-input-container>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </md-dialog-content>
+        <md-dialog-actions layout="row">
+            <span flex></span>
+            <md-button id="btn-sm" type="submit" class="md-raised md-primary">
+                Lưu
+            </md-button>
+        </md-dialog-actions>
+    </form>
+</md-dialog>

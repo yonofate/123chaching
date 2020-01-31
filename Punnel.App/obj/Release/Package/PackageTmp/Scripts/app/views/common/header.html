@@ -1,0 +1,112 @@
+﻿<header class="header-menu-page">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-2 col-xs-12">
+                <div class="logo" ui-sref="dashboard.main"> 
+                    <a href="/"><img src="images/logo-full-color.svg" alt="punnel.com"></a> 
+                </div>
+            </div>
+            <div class="col-sm-10 col-xs-12 user-setting notification-container">
+                <div class="expired-alert" ng-if="user_level==0 && endday<=7">
+                    <span ng-show="endday>0">Bạn còn <strong ng-bind="endday"></strong> ngày để dùng thử.</span>
+                    <span ng-show="endday<=0">Tài khoản của bạn đã hết hạn dùng thử.</span>
+                    <span ng-show="endday>7">Bạn đang dùng gói trải nghiệm miễn phí</span>
+                    <md-button ng-click="goUpgrade()" class="md-raised md-warn">Nâng cấp</md-button>
+                </div>
+                <div class="expired-alert" ng-if="user_level>0 && endday<=7">
+                    <span ng-show="endday>0">Bạn còn <strong ng-bind="endday"></strong> ngày nữa hết hạn gói dịch vụ.</span>
+                    <span ng-show="endday<=0">Tài khoản của bạn đã hết hạn sử dụng gói dịch vụ.</span>
+                    <md-button ng-click="goRenewal(user_level)" class="md-raised md-warn">Gia hạn</md-button>
+                </div>
+                <div class="expired-alert" ng-show="user_profile.isVerifyEmail==false && endday>7">
+                    <span>Hãy <a ng-click="sendVerifyEmail()" href="javascript:void(0)">xác thực</a> email <span ng-bind="user_profile.email"></span> để nhận thông báo</span>
+                </div>
+                <div class="expired-alert" ng-show="user_profile.isVerifyMobile==false && user_profile.isVerifyEmail==true && endday>7">
+                    <span>Hãy <a ng-click="sendVerifyMobile()" href="javascript:void(0)">xác thực</a> số điện thoại <span ng-bind="user_profile.mobile"></span> để nhận thông báo</span>
+                </div>
+                <ul class="list-menu pull-right">
+                    <li><button type="button" class="btn btn-add pull-right" ng-click="showCreatePageOption()"> <i class="material-icons dp48">add_circle_outline</i> &nbsp;Tạo Landing Page </button></li>
+                    <li class="dropdown" ng-controller="notificationCtr" ng-init="notify.init()">
+                        <a ng-click="notify.resetCount()" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="true">
+                            <i class="material-icons notification-icon">notifications</i>
+                            <span class="label-count" ng-show="notify.unViewTotal>0" ng-bind="notify.unViewTotal"></span>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li class="header">Thông báo</li>
+                            <li class="body">
+                                <div class="scroll-body" slimscroll="{{notify.options}}">
+                                    <div style="border:none;box-shadow:none;" class="empty-block" ng-if="notify.items.length==0">
+                                        <div class="u-text">
+                                            <div class="u-icon">
+                                                <svg height="70" viewBox="0 0 80 70" width="80" xmlns="http://www.w3.org/2000/svg"><g fill="none" fill-rule="evenodd"><path d="M70.4 37.93c0 1.855-1.44 3.375-3.2 3.375h-40l-9.6 10.127V41.305h-4.8c-1.76 0-3.2-1.52-3.2-3.376V13.45c0-1.857 1.44-3.376 3.2-3.376h54.4c1.76 0 3.2 1.52 3.2 3.376v24.48zM3.2 0C1.44 0 0 1.52 0 3.376V53.12c0 1.857 1.44 3.376 3.2 3.376H8V70l12.8-13.504h56c1.76 0 3.2-1.52 3.2-3.376V3.376C80 1.52 78.56 0 76.8 0H3.2z" fill="#F0F3F5"></path><path d="M29 21c-2.208 0-4 1.792-4 4s1.792 4 4 4 4-1.792 4-4-1.792-4-4-4m0 1.6c1.323 0 2.4 1.077 2.4 2.4s-1.077 2.4-2.4 2.4-2.4-1.077-2.4-2.4 1.077-2.4 2.4-2.4M40 21c-2.208 0-4 1.792-4 4s1.792 4 4 4 4-1.792 4-4-1.792-4-4-4m0 1.6c1.323 0 2.4 1.077 2.4 2.4s-1.077 2.4-2.4 2.4-2.4-1.077-2.4-2.4 1.077-2.4 2.4-2.4M51 21c-2.208 0-4 1.792-4 4s1.792 4 4 4 4-1.792 4-4-1.792-4-4-4m0 1.6c1.323 0 2.4 1.077 2.4 2.4s-1.077 2.4-2.4 2.4-2.4-1.077-2.4-2.4 1.077-2.4 2.4-2.4" fill="#BCCED6"></path><path d="M12.8 41.305c-1.76 0-3.2-1.52-3.2-3.376V13.45c0-1.857 1.44-3.376 3.2-3.376h54.4c1.76 0 3.2 1.52 3.2 3.376v24.48c0 1.855-1.44 3.375-3.2 3.375h-40l-9.6 10.127V41.305h-4.8zM76.8 0H3.2C1.44 0 0 1.52 0 3.376V53.12c0 1.857 1.44 3.376 3.2 3.376H8V70l12.8-13.504h56c1.76 0 3.2-1.52 3.2-3.376V3.376C80 1.52 78.56 0 76.8 0zm-64 42.993H16v12.514l2.73-2.88 9.132-9.634H67.2c2.646 0 4.8-2.272 4.8-5.064V13.45c0-2.792-2.154-5.064-4.8-5.064H12.8c-2.646 0-4.8 2.27-4.8 5.063v24.48c0 2.79 2.154 5.062 4.8 5.062zm64-41.305c.882 0 1.6.757 1.6 1.688V53.12c0 .93-.718 1.688-1.6 1.688H20.138l-.47.495L9.6 65.925V54.808H3.2c-.882 0-1.6-.757-1.6-1.688V3.376c0-.93.718-1.688 1.6-1.688h73.6z" fill="#BCCED6"></path></g></svg>
+                                            </div>
+                                            <p style="font-size:14px;">Chưa có thông báo nào!</p>
+                                        </div>
+                                    </div>
+                                    <ul class="menu">
+                                        <li ng-repeat="item in notify.items" ng-class="{'unread':item.v==false}">
+                                            <a ng-if="item.t==1" href="javascript:void(0)" class="waves-effect waves-block" ng-click="notify.gotoDetail(item);$event.stopPropagation();">
+                                                <md-button style="float:left;" class="md-fab md-mini md-primary" aria-label="notify icon">
+                                                    <md-icon ng-show="item.t==1" class="material-icons">person_add</md-icon>
+                                                    <md-icon ng-show="item.t==2" class="material-icons">language</md-icon>
+                                                    <md-icon ng-show="item.t==3" class="material-icons">info</md-icon>
+                                                </md-button>
+                                                <div class="menu-info">
+                                                    <strong ng-bind="item.h"></strong><br />
+                                                    <span ng-bind="item.b"></span>
+                                                    <p>
+                                                        <i class="material-icons">access_time</i> <span am-time-ago="item.d"></span>
+                                                    </p>
+                                                </div>
+                                            </a>
+                                            <a ng-if="item.t!=1" href="{{item.l}}" target="_blank" class="waves-effect waves-block">
+                                                <md-button style="float:left;" class="md-fab md-mini md-primary" aria-label="notify icon">
+                                                    <md-icon ng-show="item.t==1" class="material-icons">person_add</md-icon>
+                                                    <md-icon ng-show="item.t==2" class="material-icons">language</md-icon>
+                                                    <md-icon ng-show="item.t==3" class="material-icons">info</md-icon>
+                                                </md-button>
+                                                <div class="menu-info">
+                                                    <strong ng-bind="item.h"></strong><br />
+                                                    <span ng-bind="item.b"></span>
+                                                    <p>
+                                                        <i class="material-icons">access_time</i> <span am-time-ago="item.d"></span>
+                                                    </p>
+                                                </div>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </li>
+                            <li class="footer" ng-show="notify.total>notify.items.length">
+                                <a ng-click="notify.getNext();$event.stopPropagation();" class="">Cũ hơn</a>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <li class="account" ng-controller="profileCtrl" ng-init="loadProfile()">
+                        <md-menu>
+                            <md-button aria-label="{{profile.full_name}}" class="md-icon-button" ng-click="$mdMenu.open($event)">
+                                <img ng-cloak ng-src="{{profile.avatar || defaultAvatar}}" />
+                            </md-button>
+                            <md-menu-content>
+                                <md-menu-item>
+                                    <md-button ng-click="showProfileManager(profile)">
+                                        <md-icon class="material-icons">assignment_ind</md-icon>
+                                        <span>Thông tin cá nhân</span>
+                                    </md-button>
+                                </md-menu-item>
+                                <md-menu-divider></md-menu-divider>
+                                <md-menu-item>
+                                    <md-button ng-click="logout()">
+                                        <md-icon class="material-icons">power_settings_new</md-icon>
+                                        <span>Thoát</span>
+                                    </md-button>
+                                </md-menu-item>
+                            </md-menu-content>
+                        </md-menu>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</header>

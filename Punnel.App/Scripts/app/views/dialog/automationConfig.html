@@ -1,0 +1,146 @@
+﻿<md-dialog aria-label="automation">
+    <md-toolbar>
+        <div class="md-toolbar-tools white">
+            <h2>Cấu hình Auto Responder</h2>
+            <span flex></span>
+            <md-button class="md-icon-button" ng-click="cancel()">
+                <i class="material-icons">close</i>
+            </md-button>
+        </div>
+    </md-toolbar>
+    <md-dialog-content>
+        <div class="md-dialog-content" style="min-width:780px; max-width:800px;max-height:810px;">
+            <md-progress-linear class="cloading" md-mode="indeterminate"></md-progress-linear>
+            <md-content ng-init="automation.init()">
+                <div ng-show="automation.list.length>0">
+                    <table class="table table-striped nohead">
+                        <tbody>
+                            <tr ng-repeat="item in automation.list" ng-dblclick="gotoDetail(item.id, item.type)">
+                                <td><md-icon ng-if="item.type==1" class="material-icons">mail</md-icon><md-icon ng-if="item.type==2" class="material-icons">sms</md-icon><span style="margin-left:10px;" ng-bind="item.templateName || '---'"></span></td>
+                                <td><md-icon class="material-icons">update</md-icon><span class="note-text" am-time-ago="item.updatedDate"></span></td>
+                                <!--<td>
+                                    <span ng-show="item.delayHour >0 || item.delayMin >0">gửi sau <span ng-show="item.delayHour >0" ng-bind="item.delayHour"></span> <span ng-show="item.delayHour >0"> giờ</span> <span ng-show="item.delayMin >0" ng-bind="item.delayMin"></span><span ng-show="item.delayMin >0"> phút</span></span>
+                                    <span ng-show="item.delayHour ==0 && item.delayMin ==0">gửi ngay</span>
+                                </td>-->
+                                <td class="action">
+                                    <div layout="row">
+                                        <md-switch flex="70" class="md-primary" ng-model="item.isEnable" aria-label="Switch auto" ng-change="automation.changeStatus(item)" style="height:8px;">
+                                            Sử dụng
+                                        </md-switch>
+                                        <md-button flex="30" class="md-raised md-warn btn-sm" ng-click="automation.delete(item.id,$index)" style="min-width:20px;height:26px;padding:0px;font-size:90%;width:20px;">
+                                            Xóa
+                                        </md-button>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div ng-show="automation.list.length==0 && automation.isAdd==0 && automation.loaded==1">
+                    <div class="empty-block" style="margin-bottom:0px;">
+                        <div class="u-text">
+                            <div class="u-icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" height="102" id="empty-page" viewBox="0 0 82 102" width="82">
+                                    <defs>
+                                        <style>
+                                            #empty-page .cls-1 {
+                                                fill: #f8f9fb;
+                                            }
+
+                                            #empty-page .cls-2 {
+                                                fill: none;
+                                            }
+
+                                            #empty-page .cls-2, #empty-page .cls-3 {
+                                                stroke: #dde3ea;
+                                                stroke-width: 2px;
+                                            }
+
+                                            #empty-page .cls-3 {
+                                                fill: #fff;
+                                                fill-rule: evenodd;
+                                            }
+
+                                            #empty-page .cls-4 {
+                                                fill: #dde3ea;
+                                            }
+                                        </style>
+                                    </defs>
+                                    <rect class="cls-1" height="9" rx="2" ry="2" width="77" x="3" y="2" />
+                                    <rect class="cls-2" data-name="Rounded Rectangle 1" height="100" id="Rounded_Rectangle_1" rx="4" ry="4" width="80" x="1" y="1" />
+                                    <path class="cls-3" d="M79 12H2" />
+                                    <path class="cls-3" d="M61 40H21" data-name="Shape 1 copy" id="Shape_1_copy" />
+                                    <path class="cls-3" d="M61 64H21" data-name="Shape 1 copy 3" id="Shape_1_copy_3" />
+                                    <path class="cls-3" d="M71 52H11" data-name="Shape 1 copy 2" id="Shape_1_copy_2" />
+                                    <rect class="cls-4" data-name="Rounded Rectangle 2" height="3" id="Rounded_Rectangle_2" rx="1.5" ry="1.5" width="3" x="9" y="5" />
+                                    <rect class="cls-4" data-name="Rounded Rectangle 2 copy" height="3" id="Rounded_Rectangle_2_copy" rx="1.5" ry="1.5" width="3" x="15" y="5" />
+                                    <rect class="cls-4" data-name="Rounded Rectangle 2 copy 2" height="3" id="Rounded_Rectangle_2_copy_2" rx="1.5" ry="1.5" width="3" x="21" y="5" />
+                                </svg>
+                            </div>
+                            <h4>Chưa có cấu hình auto responder nào!</h4>
+                            <!--<h5>Xem <a href="https://support.punnel.com/article/25-tich-hop-email-responder" target="_blank">hướng dẫn sử dụng Email Responder</a> để bắt đầu!</h5>-->
+                        </div>
+                    </div>
+                </div>
+                <div ng-show="automation.isAdd==1">
+                    <form class="cd-form floating-labels" name="frmAutomation" novalidate ng-submit="automation.add()">
+                        <div layout="row">
+                            <div flex="25">
+                                <md-input-container flex="100" style="width:100%;">
+                                    <label>Loại</label>
+                                    <md-select ng-model="automation.new.type" flex="100" ng-change="automation.changeType()" required>
+                                        <md-option ng-value="1">Email</md-option>
+                                        <md-option ng-value="2">Sms</md-option>
+                                    </md-select>
+                                </md-input-container>
+                            </div>
+                            <div flex="55">
+                                <md-input-container flex="100" style="width:100%;">
+                                    <label>Chọn mẫu responder</label>
+                                    <md-select ng-model="automation.new.templateId" flex="100" required>
+                                        <md-option ng-value="item.id" ng-repeat="item in automation.templates">{{item.name}}</md-option>
+                                    </md-select>
+                                </md-input-container>
+                            </div>
+                            <div flex="15" style="display:none;">
+                                <md-input-container flex="100">
+                                    <label>Gửi sau (giờ)</label>
+                                    <input name="delayHour" ng-model="automation.new.delayHour" placeholder="0" type="number">
+                                </md-input-container>
+                            </div>
+                            <div flex="10" style="display:none;">
+                                <md-input-container flex="100">
+                                    <label>phút</label>
+                                    <input name="delayMin" ng-model="automation.new.delayMin" placeholder="0" type="number">
+                                </md-input-container>
+                            </div>
+                            <div flex>
+                                <div layout="row">
+                                    <md-button flex="60" class="md-raised md-primary btn-sm" type="submit" ng-disabled="frmAutomation.$valid==false" style="min-width:30px;">
+                                        Thêm
+                                    </md-button>
+                                    <md-button flex="40" class="md-raised md-default" type="submit" ng-click="automation.hideAdd()" style="min-width:30px;">
+                                        Hủy
+                                    </md-button>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </md-content>
+        </div>
+    </md-dialog-content>
+    <md-dialog-actions layout="row">
+        <a ui-sref="dashboard.autoResponder">Tạo mẫu auto Responder</a>
+        <span flex></span>
+        <md-button ng-show="automation.isAdd==0 && automation.data.length ==0" class="md-raised md-primary" ui-sref="dashboard.autoResponder">
+            <md-icon class="material-icons">add</md-icon> Tạo mẫu auto Responder
+        </md-button>
+        <md-button ng-show="automation.isAdd==0 && automation.data.length >0" class="md-raised md-primary" ng-click="automation.showAdd()">
+            <md-icon class="material-icons">add</md-icon> Thêm
+        </md-button>
+        <md-button class="md-raised md-default" ng-click="cancel()">
+            Đóng
+        </md-button>
+    </md-dialog-actions>
+</md-dialog>

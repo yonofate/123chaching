@@ -1,0 +1,28 @@
+﻿<md-dialog aria-label="popup config" ng-init="init()">
+    <md-toolbar>
+        <div class="md-toolbar-tools white">
+            <h2>Cấu hình Affiliate</h2>
+            <span flex></span>
+            <md-button class="md-icon-button" ng-click="cancel()">
+                <i class="material-icons">close</i>
+            </md-button>
+        </div>
+    </md-toolbar>
+    <form name="myForm" ng-submit="submit()">
+        <md-dialog-content style="width:500px; max-height:810px;">
+            <md-content class="md-padding">
+                <md-switch class="md-primary" ng-disabled="requireAffiliate==true" ng-model="pageInfo.showAffiliateBadge" aria-label="Switch 1">
+                    Hiển thị liên kết affiliate trên landing page
+                </md-switch>
+                <div layout="row" ng-if="requireAffiliate==true">
+                    <i>Nâng cấp tài khoản để có tùy ý tắt/mở thuộc tính này</i>
+                </div>
+            </md-content>
+        </md-dialog-content>
+        <md-dialog-actions layout="row">           
+            <md-button id="btn-sm" type="submit" class="md-raised md-primary">
+                Ok
+            </md-button>
+        </md-dialog-actions>
+    </form>
+</md-dialog>

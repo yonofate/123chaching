@@ -1,0 +1,49 @@
+﻿<md-dialog aria-label="Chuyển nhóm">
+    <md-toolbar>
+        <div class="md-toolbar-tools white">
+            <h2>Gắn nhãn</h2>
+            <span flex></span>
+            <md-button class="md-icon-button" ng-click="cancel()">
+                <i class="material-icons">close</i>
+            </md-button>
+        </div>
+    </md-toolbar>
+
+    <md-dialog-content style="min-width:400px;">
+        <div class="md-dialog-content">
+            <div layout="row" flex>
+                <md-input-container flex>
+                    <label>Chọn nhãn</label>
+                    <md-select flex ng-model="leadTag.tag.id" ng-init="init()">
+                        <md-option ng-repeat="item in tags" ng-value="item.id">
+                            {{item.name}}
+                        </md-option>
+                    </md-select>
+                </md-input-container>
+                <md-input-container class="md-block">
+                    <md-button layout-align="end center" class="md-raised md-primary" ng-click="submit()">
+                        Ok
+                    </md-button>
+                </md-input-container>
+            </div>
+            <div layout="row" flex>
+                <md-switch class="md-primary" md-no-ink aria-label="tạo nhãn mới" ng-model="new">
+                    Hoặc tạo nhãn mới
+                </md-switch>
+            </div>
+            <form ng-if="new==true" ng-submit="createTag()">
+                <div layout="row" flex>
+                    <md-input-container flex class="md-block">
+                        <label>Tên nhãn</label>
+                        <input ng-model="newTag.name" autocomplete="off" required md-autofocus>
+                    </md-input-container>
+                    <md-input-container class="md-block">
+                        <md-button layout-align="end center" type="submit" class="md-raised md-primary">
+                            Tạo
+                        </md-button>
+                    </md-input-container>
+                </div>
+            </form>
+        </div>
+</md-dialog-content>
+</md-dialog>

@@ -1,0 +1,87 @@
+﻿@{
+    ViewBag.Title = "About";
+    Layout = "../Shared/_Layout1.cshtml";
+}
+<h2>@ViewBag.Title.</h2>
+<h3>@ViewBag.Message</h3>
+
+<p>Use this area to provide additional information.</p>
+
+<div data-ng-app="AngularAuthApp">
+    <div class="navbar navbar-inverse navbar-fixed-top" role="navigation" data-ng-controller="indexController">
+        <div class="container">
+            <div class="navbar-header">
+                <button class="btn btn-success navbar-toggle" data-ng-click="navbarExpanded = !navbarExpanded">
+                    <span class="glyphicon glyphicon-chevron-down"></span>
+                </button>
+                <a class="navbar-brand" href="#/">Home</a>
+            </div>
+            <div class="collapse navbar-collapse" data-collapse="!navbarExpanded">
+                <ul class="nav navbar-nav navbar-right">
+                    <li data-ng-hide="!authentication.isAuth"><a href="#">Welcome {{authentication.userName}}</a></li>
+                    <li data-ng-hide="!authentication.isAuth"><a href="#/orders">My Orders</a></li>
+                    <li data-ng-hide="!authentication.isAuth"><a href="#/refresh">Refresh Token</a></li>
+                    <li data-ng-hide="!authentication.isAuth"><a href="" data-ng-click="logOut()">Logout</a></li>
+                    <li data-ng-hide="authentication.isAuth"> <a href="#/login">Login</a></li>
+                    <li data-ng-hide="authentication.isAuth"> <a href="#/signup">Sign Up</a></li>
+                </ul>
+            </div>
+        </div>
+        <div>
+            <button type="button" ng-click="login()">Login</button>
+        </div>
+    </div>
+</div>
+@*<script src="~/Scripts/vendor.e75d6062.js"></script>
+<script src="~/Scripts/scripts.23cba366.js"></script>*@
+<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.16/angular.min.js"></script>
+<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.16/angular-route.min.js"></script>
+<script src="~/Scripts/app/aaa/angular-local-storage.min.js"></script>
+<script src="~/Scripts/app/aaa/authComplete.js"></script>
+<script src="~/Scripts/app/aaa/loading-bar.min.js"></script>
+<!-- Load app main script -->
+<!-- Load services -->
+<script src="~/Scripts/app/aaa/app/app.js"></script>
+<script src="~/Scripts/app/aaa/app/services/authInterceptorService.js?v=2"></script>
+<script src="~/Scripts/app/aaa/app/services/authService.js?v=2"></script>
+<script src="~/Scripts/app/aaa/app/services/ordersService.js?v=2"></script>
+<script src="~/Scripts/app/aaa/app/services/tokensManagerService.js?v=2"></script>
+<!-- Load controllers -->
+<script src="~/Scripts/app/aaa/app/controllers/indexController.js?v=2"></script>
+<script src="~/Scripts/app/aaa/app/controllers/homeController.js?v=2"></script>
+<script src="~/Scripts/app/aaa/app/controllers/loginController.js?v=2"></script>
+<script src="~/Scripts/app/aaa/app/controllers/signupController.js?v=2"></script>
+<script src="~/Scripts/app/aaa/app/controllers/ordersController.js?v=2"></script>
+<script src="~/Scripts/app/aaa/app/controllers/refreshController.js?v=2"></script>
+<script src="~/Scripts/app/aaa/app/controllers/tokensManagerController.js?v=2"></script>
+<script src="~/Scripts/app/aaa/app/controllers/associateController.js?v=2"></script>
+
+@*<script>
+    function doit() {
+        var settings = {
+            "async": true,
+            "crossDomain": true,
+            "url": "http://localhost:2171/token",
+            "method": "POST",
+            "headers": {
+                "content-type": "application/x-www-form-urlencoded",
+                "cache-control": "no-cache",
+                "postman-token": "55ca6c78-d8d6-cdf2-476e-25d93d0dfbe2"
+            },
+            "data": {
+                "username": "lamktvn@gmail.com",
+                "password": "Admin@123",
+                "grant_type": "password"
+            }
+        }
+
+        $.ajax(settings).done(function (response) {
+            console.log(response);
+        });
+    }
+    $(document).ready(function () {
+        doit();
+    });
+</script>*@
+
+

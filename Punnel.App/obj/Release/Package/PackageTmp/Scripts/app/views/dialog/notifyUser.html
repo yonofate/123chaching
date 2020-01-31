@@ -1,0 +1,37 @@
+﻿<md-dialog aria-label="notify User">
+    <md-toolbar>
+        <div class="md-toolbar-tools white">
+            <h2>Gửi thông báo</h2>
+            <span flex></span>
+            <md-button class="md-icon-button" ng-click="cancel()">
+                <i class="material-icons">close</i>
+            </md-button>
+        </div>
+    </md-toolbar>
+    <form name="myForm" ng-submit="submit()">
+        <md-dialog-content>
+            <div class="md-dialog-content" style="min-width:400px;">
+                <div flex>
+                    <md-input-container class="md-block">
+                        <label>Tiêu đề</label>
+                        <input ng-model="data.title" autocomplete="off" md-maxlength="128" md-autofocus required />
+                    </md-input-container>
+                    <md-input-container class="md-block">
+                        <label>Nội dung</label>
+                        <textarea ng-model="data.content" autocomplete="off" md-maxlength="256" rows="2" required></textarea>
+                    </md-input-container>
+                    <md-input-container class="md-block">
+                        <label>Url</label>
+                        <input ng-model="data.url" autocomplete="off" md-maxlength="160" />
+                    </md-input-container>
+                </div>
+            </div>
+        </md-dialog-content>
+        <md-dialog-actions layout="row">
+            <span flex></span>
+            <md-button id="btn-sm" ng-disabled="myForm.$valid==false" type="submit" class="md-raised md-primary">
+                Gửi
+            </md-button>
+        </md-dialog-actions>
+    </form>
+</md-dialog>

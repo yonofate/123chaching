@@ -1,0 +1,36 @@
+﻿<div id="wrapper" class="wrapper signup-page">
+    <div id="content" class="container signup forgot-password clearfix">
+        <div class="form-user clearfix" id="signin-popup">
+            <div class="modal-login modal-signup clearfix">
+                <div class="form-action">
+                    <div class="form-login form-signup">
+                        <div class="logo clearfix"> <img src="images/logo-full-color.png" alt="punnel.com"> </div>
+                        <div ng-controller="profileCtrl" ng-init="loadProfile()">
+                            <form class="floating-labels" name="submitForm" ng-submit="sendVerifyEmail()" novalidate>
+                                <div style="margin:20px;">
+                                    <p>Email này sẽ được dùng để đăng nhập tài khoản & nhận thông báo</p>
+                                </div>
+                                <div layout="row">
+                                    <md-input-container flex="100">
+                                        <label>Email</label>
+                                        <input type="email" required name="email" ng-model="profile.email" autocomplete="off" ng-change="validateEmail()">
+                                        <div ng-messages="submitForm.email.$error">
+                                            <div ng-message="required">Vui lòng nhập email</div>
+                                            <div ng-message="pattern">Vui lòng nhập email hợp lệ</div>
+                                        </div>
+                                    </md-input-container>
+                                </div>
+                                <div layout="row">
+                                    <md-button ng-disabled="!submitForm.$valid" id="btn-sm" type="submit" flex="100" class="md-raised md-primary">Cập nhật email mới</md-button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="bottomlinks clearfix">
+                <div class="link"> <span class="getStarted text-center"><a ui-sref="dashboard.main">Quay lại</a></span> </div>
+            </div>
+        </div>
+    </div>
+</div>

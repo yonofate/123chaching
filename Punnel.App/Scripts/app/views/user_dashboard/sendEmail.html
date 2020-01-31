@@ -1,0 +1,74 @@
+﻿<div class="main-dashboard" id="lead-dashboard" ng-controller="sendMailCtrl">
+    <div class="container">
+        <section class="dashboard-page" ng-init="initData()">
+            <md-content layout-padding>
+                <div>
+                    <form name="myForm" ng-submit="submit()" novalidate>
+                        <md-input-container class="md-block">
+                            <label>Chọn mẫu Email</label>
+                            <md-select aria-label="loại" ng-model="template.id" ng-change="template.change()" required md-auto-focus>
+                                <md-option ng-repeat="item in templates" ng-value="item.id">
+                                    {{item.name}}
+                                </md-option>
+                            </md-select>
+                       
+                        </md-input-container>
+                        <div ng-show="template.id!=null">
+                            <div layout-gt-sm="row">
+                                <md-input-container class="md-block" flex="50">
+                                    <label>Người gửi</label>
+                                    <input name="sendName" type="text" ng-model="detail.sendName" required readonly>
+                                </md-input-container>
+
+                                <md-input-container class="md-block" flex="50">
+                                    <label>Email</label>
+                                    <input name="replyTo" type="email" ng-model="detail.replyTo" required readonly>
+                                </md-input-container>
+                            </div>
+                            <div layout-gt-sm="row">
+                                <md-input-container class="md-block" flex="50">
+                                    <label>Người nhận</label>
+                                    <input name="receiveName" type="text" ng-model="detail.receiveName" required readonly>
+                                </md-input-container>
+
+                                <md-input-container class="md-block" flex="50">
+                                    <label>Email</label>
+                                    <input name="replyTo" type="email" ng-model="detail.sendTo" required readonly>
+                                </md-input-container>
+                            </div>
+                            <md-input-container class="md-block">
+                                <label>Tiêu đề</label>
+                                <input name="title" type="text" ng-model="detail.title" placeholder="Xác nhận đăng kí" required readonly>
+                            </md-input-container>
+
+
+                            <div layout="row">
+                                <div flex="70">
+                                    <div ng-bind-html="detail.bodyHtml"></div>
+                                </div>
+                                <div flex="30" layout-padding>
+                                    <div layout-gt-sm="row" ng-repeat="item in variants">
+                                        <md-input-container class="md-block" flex-gt-sm>
+                                            <label>Tên biến {{$index + 1}}</label>
+                                            <input ng-model="item.n" readonly>
+                                        </md-input-container>
+
+                                        <md-input-container class="md-block" flex-gt-sm>
+                                            <label>Giá trị</label>
+                                            <input ng-model="item.v" readonly>
+                                        </md-input-container>
+                                    </div>
+                                </div>
+                            </div>
+                            <div layout="row">
+                                <md-button type="button" class="md-raised md-default" ng-click="goBack()">Quay lại</md-button>
+                                <md-button target="_blank" ui-sref="dashboard.emailTemplateDetail({id:template.id})" type="button" class="md-raised md-default">Sửa mẫu Email</md-button>
+                                <md-button type="submit" class="md-raised md-primary">Gửi</md-button>
+                            </div>
+                        </div>
+                    </form>
+                    </div>
+                </md-content>
+</section>
+    </div>
+</div>

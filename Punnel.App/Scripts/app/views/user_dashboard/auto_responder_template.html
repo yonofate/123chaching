@@ -1,0 +1,115 @@
+﻿
+<div class="main-dashboard" id="lead-dashboard" ng-controller="emailTemplateCtrl">
+    <div class="container">
+        <section class="dashboard-page" ng-init="search()">
+            <div class="row">
+                <div class="col-md-8">
+                    <a href="https://support.punnel.com/article/25-tich-hop-email-responder" target="_blank">Hướng dẫn sử dụng Email Responder</a>
+                </div>
+                <div class="col-md-4 col-right">
+                    <md-menu md-position-mode="target-right target">
+                        <md-button style="float:right;" class="md-raised md-primary" aria-label="Open group" ng-click="$mdMenu.open($event)">
+                            <md-icon class="material-icons">add</md-icon> Tạo mẫu Responder
+                        </md-button>
+                        <md-menu-content width="3">
+                            <md-menu-item>
+                                <md-button ng-click="gotoDetail(0,1)">
+                                    <div layout="row" flex>
+                                        <p flex>Email mẫu</p>
+                                    </div>
+                                </md-button>
+                            </md-menu-item>
+                            <md-menu-item>
+                                <md-button ng-click="gotoDetail(0,2)">
+                                    <div layout="row" flex>
+                                        <p flex>Sms mẫu</p>
+                                    </div>
+                                </md-button>
+                            </md-menu-item>
+                        </md-menu-content>
+                    </md-menu>
+                    <!--<md-button style="float:right;" class="md-raised md-primary" ng-click="gotoDetail(0)">Tạo mẫu Responder</md-button>-->
+                </div>
+            </div>
+            <table class="table table-striped nohead">
+                <tbody>
+                    <tr ng-repeat="item in templates" ng-dblclick="gotoDetail(item.id, item.type)">
+                        <td><md-icon ng-if="item.type==1" class="material-icons">mail</md-icon><md-icon ng-if="item.type==2" class="material-icons">sms</md-icon><span style="margin-left:10px;" ng-bind="item.name || '---'"></span></td>
+                        <td><span ng-bind="item.updatedDate | date:'dd/MM/yyyy HH:mm'"></span></td>
+                        <td class="action">
+                            <md-menu md-position-mode="target-right target">
+                                <md-button aria-label="Open group" class="md-icon-button" ng-click="$mdMenu.open($event)">
+                                    <md-icon class="material-icons">more_horiz</md-icon>
+                                </md-button>
+                                <md-menu-content width="3">
+                                    <md-menu-item>
+                                        <md-button ng-click="gotoDetail(item.id, item.type)">
+                                            <div layout="row" flex>
+                                                <p flex>Sửa</p>
+                                                <md-icon class="material-icons">details</md-icon>
+                                            </div>
+                                        </md-button>
+                                    </md-menu-item>
+                                    <md-menu-item>
+                                        <md-button ng-click="delete(item.id, $index)">
+                                            <div layout="row" flex>
+                                                <p flex>Xóa</p>
+                                                <md-icon class="material-icons">delete</md-icon>
+                                            </div>
+                                        </md-button>
+                                    </md-menu-item>
+                                </md-menu-content>
+                            </md-menu>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+            <div class="empty-block" ng-show="templates.length == 0">
+                <div class="u-text">
+                    <div class="u-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" height="102" id="empty-page" viewBox="0 0 82 102" width="82">
+                            <defs>
+                                <style>
+                                    #empty-page .cls-1 {
+                                        fill: #f8f9fb;
+                                    }
+
+                                    #empty-page .cls-2 {
+                                        fill: none;
+                                    }
+
+                                    #empty-page .cls-2, #empty-page .cls-3 {
+                                        stroke: #dde3ea;
+                                        stroke-width: 2px;
+                                    }
+
+                                    #empty-page .cls-3 {
+                                        fill: #fff;
+                                        fill-rule: evenodd;
+                                    }
+
+                                    #empty-page .cls-4 {
+                                        fill: #dde3ea;
+                                    }
+                                </style>
+                            </defs>
+                            <rect class="cls-1" height="9" rx="2" ry="2" width="77" x="3" y="2" />
+                            <rect class="cls-2" data-name="Rounded Rectangle 1" height="100" id="Rounded_Rectangle_1" rx="4" ry="4" width="80" x="1" y="1" />
+                            <path class="cls-3" d="M79 12H2" />
+                            <path class="cls-3" d="M61 40H21" data-name="Shape 1 copy" id="Shape_1_copy" />
+                            <path class="cls-3" d="M61 64H21" data-name="Shape 1 copy 3" id="Shape_1_copy_3" />
+                            <path class="cls-3" d="M71 52H11" data-name="Shape 1 copy 2" id="Shape_1_copy_2" />
+                            <rect class="cls-4" data-name="Rounded Rectangle 2" height="3" id="Rounded_Rectangle_2" rx="1.5" ry="1.5" width="3" x="9" y="5" />
+                            <rect class="cls-4" data-name="Rounded Rectangle 2 copy" height="3" id="Rounded_Rectangle_2_copy" rx="1.5" ry="1.5" width="3" x="15" y="5" />
+                            <rect class="cls-4" data-name="Rounded Rectangle 2 copy 2" height="3" id="Rounded_Rectangle_2_copy_2" rx="1.5" ry="1.5" width="3" x="21" y="5" />
+                        </svg>
+                    </div>
+                    <h4>Chưa có mẫu Auto Responder nào trong mục này</h4>
+                    <h5>Xem <a href="https://support.punnel.com/article/25-tich-hop-email-responder" target="_blank">hướng dẫn sử dụng Email Responder</a> để bắt đầu!</h5>
+                </div>
+            </div>
+        
+        
+    </div>
+</div>

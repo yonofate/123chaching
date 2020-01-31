@@ -1,0 +1,17 @@
+﻿<div id="content" class="container clearfix" ng-controller="StaticalAffInvoiceCtrl">
+    <div class="aff-form clearfix">
+        <div class="aff-group clearfix">
+            <div class="title">Theo Ref</div>
+            <div class="form-group"> <input type="text" placeholder="Nhập mã Ref" ng-model="codeRef"> </div>
+            <div class="form-group clearfix"> <button ng-click="repostAff()">Xuất file</button> <a ng-if="exelDT == \'1\' && linkExelDT && linkExelDT != \'\'" href="{{linkExelDT}}" target="_blank">Tải về</a> </div>
+        </div>
+        <div class="aff-group clearfix">
+            <div class="heading-title"> Truy vấn doanh thu </div>
+            <div class="title">Theo thời gian</div>
+            <div class="form-group clearfix"> <label for="">Từ</label> <input type="date" placeholder="" ng-model="dateFrom"> </div>
+            <div class="form-group clearfix"> <label for="">Đến</label> <input type="date" placeholder="" ng-model="dateTo"> </div>
+            <div class="form-group clearfix"> <label for="">Chọn kiểu</label> <select ng-model="status"> <option value="1">Ngày hết hạn</option> <option value="2">Ngày Đăng ký</option> <option value="3">Ngày chỉnh sửa cuối</option> </select> </div>
+            <div class="form-group clearfix"> <button ng-click="searchData()">Xuất file</button> <a ng-if="exelDT == \'0\' && linkExelDT && linkExelDT != \'\'" href="{{linkExelDT}}" target="_blank">Tải về</a> </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,94 @@
+﻿<md-dialog aria-label="popup config" ng-init="init()">
+    <md-toolbar>
+        <div class="md-toolbar-tools white">
+            <h2>Cấu hình hiệu ứng mua hàng</h2>
+            <span flex></span>
+            <md-button class="md-icon-button" ng-click="cancel()">
+                <i class="material-icons">close</i>
+            </md-button>
+        </div>
+    </md-toolbar>
+    <form name="myForm" ng-submit="submit()">
+        <md-dialog-content style="width:620px; max-height:810px;">
+            <md-content class="md-padding">
+                <md-switch class="md-primary" ng-model="notify.useNotify" aria-label="Switch 1">
+                    Cho phép hiển thị ở vị trí
+                </md-switch>
+
+                <md-radio-group ng-model="notify.position" class="buttons">
+                    <div flex layout='row' style="padding:2px;" layout-padding layout-align="start center">
+                        <md-radio-button flex="50" value="topleft" class="md-primary rditem">Trên cùng trái</md-radio-button>
+                        <md-radio-button flex value="topright" class="md-primary rditem">Trên cùng phải</md-radio-button>
+                    </div>
+                    <div flex layout='row'  style="padding:2px;" layout-padding layout-align="start center">
+                        <md-radio-button flex="50" value="bottomleft" class="md-primary rditem">Dưới cùng trái</md-radio-button>
+                        <md-radio-button flex="50" value="bottomright" class="md-primary rditem">Dưới cùng phải</md-radio-button>
+                    </div>
+                </md-radio-group>
+
+                <md-switch class="md-primary" ng-model="notify.useCustom" aria-label="Switch 2">
+                    Sử dụng dữ liệu cá nhân
+                </md-switch>
+
+                <div ng-show="notify.useCustom">
+                    <md-input-container class="md-block">
+                        <label>Google SheetID</label>
+                        <input md-maxlength="200" ng-model="notify.sheetId">
+                    </md-input-container>
+                    <p class="text-info">Ví dụ: https://docs.google.com/spreadsheets/d/abc1234567/edit#gid=0 <br />thì SheetID là: "abc1234567".</p>
+                    <a target="_blank" href="https://support.punnel.com/article/65-huong-dan-tao-hieu-ung-nguoi-mua-hang">Xem hướng dẫn</a>
+                </div>
+            </md-content>
+        </md-dialog-content>
+        <md-dialog-actions layout="row">
+            <md-button id="btn-sm" type="submit" class="md-raised md-primary">
+                Ok
+            </md-button>
+        </md-dialog-actions>
+    </form>
+
+    <style>
+        .buttons {
+            cursor: pointer;
+        }
+
+        svg#icn {
+            fill: #CEDDEC !important;
+        }
+
+        .buttons .rditem {
+            display: inline-block;
+            margin-top: 4px;
+            margin-left: 8px;
+            width: 80px;
+            height: 48px;
+            border: 2px solid #f1f4f8;
+            border-radius: 6px;
+            font-size: 14px;
+            line-height: 26px;
+            color: #000;
+            font-weight: 500;
+            text-align: center;
+            text-decoration: none;
+        }
+
+        .position-btns .rditem {
+            width: 70px;
+        }
+
+            .buttons .rditem.md-checked {
+                border: 2px solid #CEDDEC !important;
+                background: rgba(42,121,255,1) !important;
+                color:#fff;
+                font-weight:600;
+            }
+
+        .buttons .md-ink-ripple {
+            display: none;
+        }
+
+        .buttons .md-label {
+            margin-left: 0px;
+        }
+    </style>
+</md-dialog>

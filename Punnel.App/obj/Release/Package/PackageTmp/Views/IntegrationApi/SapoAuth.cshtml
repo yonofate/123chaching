@@ -1,0 +1,34 @@
+﻿<input type="hidden" name="access_token" id="access_token" value="@ViewBag.AccessToken" />
+<input type="hidden" name="shop_url" id="shop_url" value="@ViewBag.ShopUrl" />
+@*<input type="hidden" name="hmac" id="hmac" value="@ViewBag.Fr" />*@
+<script>
+window.common = (function () {
+    var common = {};
+    common.getFragment = function getFragment() {
+        var data = {};
+        data['access_token'] = document.getElementById("access_token").value;
+        data['shop_url'] = document.getElementById("shop_url").value;
+        return data;
+    };
+    return common;
+    })();
+    if (window.opener!=null) {
+        var fragment = common.getFragment();
+        window.location.hash = fragment.state || '';
+        if (fragment.access_token == '') window.location = 'https://punnel.co/welcome-to-sapo-landing-page/';
+        else {
+            try {
+                window.opener.$windowScope.authCompletedSapo(fragment);
+                window.close();
+            }
+            catch(err) {
+                window.location = 'https://punnel.co/welcome-to-sapo-landing-page/';
+            }           
+        }
+    } else {
+
+        window.location = 'https://punnel.co/welcome-to-sapo-landing-page/';
+    }
+</script>
+
+

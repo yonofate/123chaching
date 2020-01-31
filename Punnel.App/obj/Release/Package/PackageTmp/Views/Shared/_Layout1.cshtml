@@ -1,0 +1,24 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>@ViewBag.Title - Punnel.com</title>
+    <meta http-equiv="Cache-control" content="no-cache">
+    <meta http-equiv="Expires" content="-1">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width">
+    <link rel="shortcut icon" type="image/ico" href="favicon.ico">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" lazyload>
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.8/angular-material.min.css">
+    <link async rel='stylesheet' href='@Styles.Url("~/contents/styles/css")'>
+    @*<link href="~/Scripts/app/aaa/css/bootstrap.min.css" rel="stylesheet" />
+        <link href="~/Scripts/app/aaa/css/font-awesome.min.css" rel="stylesheet" />
+        <link href="~/Scripts/app/aaa/css/loading-bar.css" rel="stylesheet" />
+        <link href="~/Scripts/app/aaa/css/site.css" rel="stylesheet" />
+        <link href="~/Scripts/app/aaa/css/social-buttons.css" rel="stylesheet" />*@
+</head>
+<body>
+    @RenderBody()
+    @RenderSection("scripts", required: false)
+</body>
+</html>

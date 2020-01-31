@@ -1,0 +1,36 @@
+﻿<section class="dashboard-page" ng-controller="managerUserCtr">
+    <div class="container">
+        <div class="box-title clearfix">
+            <div class="pull-left clearfix title"> Landing Pages </div>
+            <div class="pull-right">
+                <div class="form-search"> <input type="search" name="" value="" placeholder="Tìm kiếm theo email" ng-model="searchName"> <input type="text" name="" value="" placeholder="Tìm kiếm theo mã giới thiệu" ng-model="searchNamePart"> <button class="pull-right btn btn-primary" type="button" ng-click="searchNameUser()">Tìm kiếm</button> </div>
+            </div>
+        </div>
+        <div class="list-page">
+            <!--  -->
+            <div class="type-user">
+                <div class="user-date-form"> <label>Từ ngày: </label> <input type="datetime-local" min="2016-01-01" ng-model="dateFrom" ng-change="getUser()"> </div>
+                <div class="user-date-to"> <label>Đến ngày: </label> <input type="datetime-local" min="2016-01-01" ng-model="dateTo" ng-change="getUser()"> </div>
+                <div class="user-type"> <label>Loại tài khoản: </label> <select name="typeTK" id="typeTK" ng-model="typeTK" ng-change="getUser()"> <option value="0">Miễn phí</option> <option value="1">Trải nghiệm</option> <option value="2">Nâng cao</option> <option value="3">Chuyên sâu</option> </select> </div>
+            </div>
+            <div class="title-site clearfix"> Tổng số: {{count}} tài khoản </div>
+            <div class="title-site clearfix">
+                <div class="title-stt">STT</div>
+                <div class="title-image">Họ và Tên</div>
+                <div class="title-name">Email</div>
+                <div class="title-image">Số điện thoại</div>
+                <div class="title-image">Mã giới thiệu</div>
+            </div>
+            <div class="status-col clearfix"> </div>
+            <!--------------list data-------------->
+            <div class="site-element clearfix" ng-repeat="item in dataUser">
+                <div class="title-stt"> <span class="edit-title">{{$index}}</span> </div>
+                <div class="title-image"> <span class="edit-title">{{item.full_name}} </span> </div>
+                <div class="title-name"> <span class="edit-title">{{item.email}} </span> </div>
+                <div class="title-image"> <span class="edit-title">{{item.phone}}</span> </div>
+                <div class="title-image"> <span class="edit-title">{{item.partner}}</span> </div>
+            </div>
+            <div class="upload-img col-md-12 col-xs-12" ng-if="checkLoad == true"> <button class="btn btn-primary" ng-click="loadMore()" style="position: fixed;bottom: 0">Xem thêm</button> </div>
+        </div>
+    </div>
+</section>

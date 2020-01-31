@@ -1,0 +1,312 @@
+﻿<style>
+    .lead-date-range .md-errors-spacer{
+        display:none;
+    }
+    tooltip._multiline {
+        display:inline-block !important;
+    }
+</style>
+<div class="main-dashboard" id="lead-dashboard" ng-controller="leadCtrl">
+    <div class="container">
+        <div ng-init="leadFilter.get()">
+            <section class="lead-filter-group" layout="row" layout-sm="column" layout-align="left center" layout-wrap>
+                <div ng-repeat="item in leadFilter.filters">
+                    <md-button ng-click="leadFilter.choose(item)" class="md-raised" ng-class="{'md-primary': item.id==leadFilter.selected.id}">{{item.name}}</md-button>
+                    <a title="xóa" href="javascript:void(0)" ng-click="leadFilter.delete(item.id,$index)"><md-icon class="material-icons remove-filter">close</md-icon></a>
+                </div>
+                <div ng-repeat="item in tagOptions">
+                    <md-button ng-click="tagFilter.choose(item)" class="md-raised" ng-class="{'md-primary': item.id==tagFilter.selected.id}">{{item.name}}</md-button>
+                    <a ng-if="item.isSystem==false" title="xóa" href="javascript:void(0)" ng-click="tagFilter.delete(item.id,$index)"><md-icon class="material-icons remove-filter">close</md-icon></a>
+                </div>
+            </section>
+        </div>
+
+        <section class="dashboard-page">
+            <div class="select-status clearfix" ng-enter="search()">
+                <md-input-container class="lead-date-range" style="width:120px;">
+                    <label>Khoảng thời gian</label>
+                    <input date-range-picker options="options" class="date-picker" type="text" ng-model="wdate.dateRange" max="maxDate" />
+                </md-input-container>
+                <md-input-container style="min-width:150px;">
+                    <label>Landing Page</label>
+                    <md-select aria-label="pages" ng-model="query.landingpageid" ng-init="getPages()" ng-change="condition.changed()">
+                        <md-option ng-repeat="item in pageOptions" ng-value="item.id">
+                            {{item.name}}
+                        </md-option>
+                    </md-select>
+                </md-input-container>
+                <md-input-container style="width:140px;">
+                    <label>Triển vọng</label>
+                    <md-select ng-change="condition.changed()" aria-label="loại" ng-model="query.status">
+                        <md-option ng-repeat="item in condition.statusOptions" ng-value="item.i">
+                            {{item.n}}
+                        </md-option>
+                    </md-select>
+                </md-input-container>
+                <!--<md-input-container style="width:140px;">
+        <label>Nhãn</label>
+        <md-select ng-change="condition.changed()" aria-label="loại" ng-model="query.tagid" ng-init="getTags()">
+            <md-option ng-repeat="item in tagOptions" ng-value="item.id">
+                {{item.name}}
+            </md-option>
+        </md-select>
+    </md-input-container>-->
+                <md-input-container style="min-width:100px;">
+                    <label>Khu vực</label>
+                    <md-select ng-change="condition.changed()" aria-label="loại" ng-model="query.region" ng-init="getRegions()">
+                        <md-option ng-repeat="item in regions" ng-value="item.i">
+                            {{item.n}}
+                        </md-option>
+                    </md-select>
+                </md-input-container>
+                <md-input-container style="min-width:80px;">
+                    <label>Thiết bị</label>
+                    <md-select ng-change="condition.changed()" aria-label="loại" ng-model="query.ismobile">
+                        <md-option ng-repeat="item in condition.deviceOptions" ng-value="item.i">
+                            {{item.n}}
+                        </md-option>
+                    </md-select>
+                </md-input-container>
+                <md-input-container style="min-width:130px;">
+                    <label>Liên hệ</label>
+                    <md-select ng-change="condition.changed()" aria-label="loại" ng-model="query.contact">
+                        <md-option ng-repeat="item in condition.contactOptions" ng-value="item.i">
+                            {{item.n}}
+                        </md-option>
+                    </md-select>
+                </md-input-container>
+                <md-input-container class="txt-search" style="min-width:200px;">
+                    <label>Tìm kiếm</label>
+                    <input type="search" name="keyword" autocomplete="off" ng-model="query.keyword" placeholder="Tìm theo họ tên, email, sđt">
+                </md-input-container>
+                <button type="button" class="btn btn-primary btn-search" ng-click="condition.changed()"><i class="material-icons dp48">search</i></button>
+                <!--<button ng-disabled="leads.length==0" tooltips tooltip-template="Export CSV" type="button" class="btn btn-default btn-export" ng-csv="getExportData()" lazy-load="true" csv-header="['Date','Full Name','Email', 'Phone', 'Region','LandingPage']" charset="utf-8" filename="lead.csv"><i class="material-icons dp48">save</i></button>-->
+                <!--<button ng-show="isDirty==true" tooltips tooltip-template="Lưu lại danh sách với điều kiện tìm kiếm này" type="button" class="btn btn-default btn-export" ng-click="leadFilter.save()"><i class="material-icons dp48">save</i></button>-->
+                <!--<button ng-show="leadFilter.filters.length==0" tooltips tooltip-template="Tạo danh sách với điều kiện tìm kiếm này" type="button" class="btn btn-default btn-export" ng-click="leadFilter.showAdd()">Tạo danh sách</button>-->
+
+                <md-menu md-position-mode="target-right target">
+                    <button tooltips tooltip-template="Thao tác trên kết quả tìm kiếm" type="button" class="btn btn-default btn-export" ng-click="$mdMenu.open($event)"><i class="material-icons dp48">save</i></button>
+                    <md-menu-content width="3">
+                        <md-menu-item>
+                            <md-button ng-click="leadFilter.showAdd()">
+                                <div layout="row" flex>
+                                    <p flex>Tạo danh sách</p>
+                                </div>
+                            </md-button>
+                        </md-menu-item>
+                        <md-menu-item>
+                            <md-button ng-csv="getExportData()" lazy-load="true" csv-header="['Date','Full Name','Email', 'Phone', 'Region','LandingPage']" charset="utf-8" filename="lead.csv">
+                                <div layout="row" flex>
+                                    <p flex>Export CSV</p>
+                                </div>
+                            </md-button>
+                        </md-menu-item>
+                    </md-menu-content>
+                </md-menu>
+                <button ng-show="action.allowSelect==false" tooltips tooltip-template="Chọn dòng để thao tác" type="button" class="btn btn-default btn-export" ng-click="action.select()"><i class="material-icons dp48">filter_list</i></button>
+                <md-menu ng-show="action.canAction()==true" md-position-mode="target-right target">
+                    <!--<md-button aria-label="Open group" class="md-icon-button" ng-click="$mdMenu.open($event)">
+            <md-icon class="material-icons">more_horiz</md-icon>
+        </md-button>-->
+                    <button tooltips tooltip-template="Thao tác trên dòng chọn" type="button" class="btn btn-default btn-export" ng-click="$mdMenu.open($event)"><i class="material-icons dp48">list</i></button>
+                    <md-menu-content width="3">
+                        <md-menu-item>
+                            <md-button ng-click="showAddTag()">
+                                <div layout="row" flex>
+                                    <p flex>Gắn nhãn</p>
+                                </div>
+                            </md-button>
+                        </md-menu-item>
+                        <md-menu-item>
+                            <md-button ng-click="showRemoveTag()">
+                                <div layout="row" flex>
+                                    <p flex>Gỡ nhãn</p>
+                                </div>
+                            </md-button>
+                        </md-menu-item>
+                        <md-menu-item>
+                            <md-button ng-click="showSendmail()">
+                                <div layout="row" flex>
+                                    <p flex>Gửi email</p>
+                                </div>
+                            </md-button>
+                        </md-menu-item>
+                        <md-menu-item>
+                            <md-button ng-click="deleteList()">
+                                <div layout="row" flex>
+                                    <p flex>Xóa</p>
+                                </div>
+                            </md-button>
+                        </md-menu-item>
+                    </md-menu-content>
+                </md-menu>
+            </div>
+
+            <table class="table table-striped nohead">
+                <thead>
+                    <tr>
+                        <td><md-checkbox ng-model="action.isAll" ng-click="action.toggleAll()" aria-label="check all" ng-if="action.allowSelect" class="md-primary"></md-checkbox> Họ tên</td>
+                        <td>Email</td>
+                        <td>Điện thoại</td>
+                        <td>Khu vực</td>
+                        <td>Ngày</td>
+                        <td>Ghi chú/nhãn</td>
+                        <td></td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="item in leads" ng-dblclick="showDetail(item)">
+                        <td>
+                            <md-checkbox aria-label="check item" ng-if="action.allowSelect" ng-checked="action.exists(item.id)" ng-click="action.toggle(item.id)" class="md-primary"></md-checkbox>
+                            
+                            <md-menu md-position-mode="target-right target">
+                                <i class="material-icons icon-status-{{item.status}} icon-publish"  ng-click="$mdMenu.open($event)">brightness_1</i>
+                                <md-menu-content width="3">
+                                    <md-menu-item>
+                                        <md-button ng-click="changeStatus(item,1)" ng-class="{'md-raised md-primary': item.status==1}">
+                                            <div layout="row" flex>
+                                                <p flex><i class="material-icons icon-status-1 icon-publish">brightness_1</i> Hot</p>
+                                            </div>
+                                        </md-button>
+                                    </md-menu-item>
+                                    <md-menu-item>
+                                        <md-button ng-click="changeStatus(item,2)" ng-class="{'md-raised md-primary': item.status==2}">
+                                            <div layout="row" flex>
+                                                <p flex><i class="material-icons icon-status-2 icon-publish">brightness_1</i> Warm</p>
+                                            </div>
+                                        </md-button>
+                                    </md-menu-item>
+                                    <md-menu-item>
+                                        <md-button ng-click="changeStatus(item,3)" ng-class="{'md-raised md-primary': item.status==3}">
+                                            <div layout="row" flex>
+                                                <p flex><i class="material-icons icon-status-3 icon-publish">brightness_1</i> Cold</p>
+                                            </div>
+                                        </md-button>
+                                    </md-menu-item>
+                                </md-menu-content>
+                            </md-menu>
+
+                            <md-icon ng-if="item.isMobile ==false" style="font-size:14px;line-height:22px;" class="material-icons">desktop_mac</md-icon>
+                            <md-icon ng-if="item.isMobile ==true" style="font-size:14px;line-height:22px;" class="material-icons">smartphone</md-icon>
+                            <span ng-bind="item.fullName || '---'"></span>
+                        </td>
+                        <td><span ng-bind="item.email || '---'"></span></td>
+                        <td><span ng-bind="item.phone || '---'"></span></td>
+                        <td><span ng-bind="item.regionName || '---'"></span></td>
+
+                        <td>
+                            <span am-time-ago="item.submitDate"></span>
+                            <!--<span ng-bind="item.submitDate | date:'dd/MM'"></span>-->
+                        </td>
+                        <!--<td><span class="highlight-note" ng-bind="item.tags"></span></td>-->
+                        <td><span class="highlight-note" ng-bind="item.notes || item.tags"></span></td>
+                        <td class="action">
+                            <span tooltips tooltip-template="Liên hệ lần {{item.submitCount}}"><md-icon style="color:lightsalmon;font-size:20px;" ng-show="item.submitCount>1" class="material-icons">highlight</md-icon></span>
+                            <a ng-if="item.isSendMail==true && item.isReadMail==false" tooltips tooltip-template="Chưa mở email">
+                                <md-button aria-label="Open mail" class="md-icon-button">
+                                    <md-icon class="material-icons">mail_outline</md-icon>
+                                </md-button>
+                            </a>
+                            <a ng-if="item.isReadMail ==true" tooltips tooltip-template="Đã mở email">
+                                <md-button aria-label="Open mail" class="md-icon-button" ng-click="showSendMailTracking(item.id);$event.stopPropagation();">
+                                    <md-icon class="material-icons">mail</md-icon>
+                                </md-button>
+                            </a>
+                            <md-menu md-position-mode="target-right target">
+                                <md-button aria-label="Open group" class="md-icon-button" ng-click="$mdMenu.open($event)">
+                                    <md-icon class="material-icons">more_horiz</md-icon>
+                                </md-button>
+                                <md-menu-content width="3">
+                                    <md-menu-item>
+                                        <md-button ng-click="showDetail(item)">
+                                            <div layout="row" flex>
+                                                <p flex>Chi tiết</p>
+                                                <md-icon class="material-icons">details</md-icon>
+                                            </div>
+                                        </md-button>
+                                    </md-menu-item>
+                                    <md-menu-item>
+                                        <md-button ng-click="showHistory(item)">
+                                            <div layout="row" flex>
+                                                <p flex>Lịch sử đăng kí</p>
+                                                <md-icon class="material-icons">history</md-icon>
+                                            </div>
+                                        </md-button>
+                                    </md-menu-item>
+                                    <md-menu-item>
+                                        <md-button ng-click="sendEmail(item.id)">
+                                            <div layout="row" flex>
+                                                <p flex>Gửi Email</p>
+                                                <md-icon class="material-icons">details</md-icon>
+                                            </div>
+                                        </md-button>
+                                    </md-menu-item>
+                                    <md-menu-item>
+                                        <md-button ng-click="delete(item)">
+                                            <div layout="row" flex>
+                                                <p flex>Xóa</p>
+                                                <md-icon class="material-icons">delete</md-icon>
+                                            </div>
+                                        </md-button>
+                                    </md-menu-item>
+                                </md-menu-content>
+                            </md-menu>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <span ng-show="totalItem>0"><strong ng-bind="totalItem"></strong> lead</span>
+            <ul style="margin-top:0px;float:right" ng-show="totalItem>query.limit" uib-pagination total-items="totalItem" ng-model="query.page" items-per-page="query.limit" class="pagination" ng-change="pageChanged()"></ul>
+        </section>
+        <div class="empty-block" ng-show="leads.length == 0">
+            <div class="u-text">
+                <div class="u-icon">
+                    <svg height="100" viewBox="0 0 100 100" width="100" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M95.41 21.88a12.6 12.6 0 0 1-1.83 1.224 12.26 12.26 0 0 1-11.66 0 12.6 12.6 0 0
+    1-1.83-1.224 12.306 12.306 0 0 1-2.49-2.708L46.82 36.738a25.437 25.437 0 0 1 2.05 21.92 9.53 9.53 0
+    0 1-.37.934c-.12.32-.26.622-.4.933a22.863 22.863 0 0 1-1.16 2.187l16.79 8.97a17.577 17.577 0 0 1
+    1.29-2.117c.19-.282.39-.552.6-.813s.43-.532.65-.793a19.272 19.272 0 1 1 26.51 27.78 16.412 16.412 0
+    0 1-1.8 1.29 19.163 19.163 0 0 1-20.46 0 16.412 16.412 0 0 1-1.8-1.295 19.32 19.32 0 0
+    1-5.84-22.233l-16.78-8.97-.25-.13a25.4 25.4 0 0 1-4.86 5.187 25.208 25.208 0 0 1-31.53 0A25.27 25.27
+    0 1 1 45.7 35.06l30.92-17.637a12.247 12.247 0 1 1 18.79 4.454zM80.75 97.986a17.072 17.072 0 0 0
+    9.76-3.05c-1.45-4.685-5.28-8.035-9.76-8.035s-8.31 3.35-9.76 8.04a17.072 17.072 0 0 0 9.76
+    3.05zm-11.43-4.364c1.87-5.126 6.28-8.728 11.43-8.728s9.56 3.6 11.43 8.728a17.268 17.268 0 1
+    0-24.08-24.69c-.24.25-.46.512-.68.783s-.42.532-.62.8a18.2 18.2 0 0 0-1.31
+    2.107c-.15.29-.3.592-.44.9s-.27.612-.39.933a17.287 17.287 0 0 0 4.66
+    19.167zm-57.34-24.64c.09.06.18.13.27.19a22.65 22.65 0 0 0 4.17
+    2.24c.28.12.55.22.83.32s.57.2.85.29c.24.08.48.16.73.22a15.844 15.844 0 0 0
+    1.56.382c.26.06.51.11.77.15.17.03.35.06.53.08.26.05.53.082.79.11q.45.062.9.092c.61.05 1.22.07
+    1.84.07s1.23-.02
+    1.84-.07q.45-.03.9-.09c.27-.03.53-.06.8-.11.18-.02.35-.05.53-.08.25-.04.49-.09.74-.14s.51-.112.75-.172c.2-.04.38-.09.57-.14.09-.03.18-.05.27-.08.25-.06.49-.142.73-.22.28-.092.57-.182.85-.292s.55-.2.83-.32a22.65
+    22.65 0 0 0 4.17-2.24c.09-.06.18-.13.27-.19s.18-.13.27-.2C36.84 62 31.43 57.355 25.22 57.355S13.61
+    62 11.71 68.782c.09.07.18.13.27.2zm33.09-31.24c-.17-.292-.35-.562-.54-.843s-.38-.567-.58-.838a23.247
+    23.247 0 1 0-33.92 31.382c2.3-7.063 8.24-12.1 15.19-12.1s12.9 5.037 15.2 12.1a23.136 23.136 0 0 0
+    4.5-5.257v-.01c.06-.15.12-.31.17-.46l.09.05a22.658 22.658 0 0 0
+    1.15-2.19q.21-.466.39-.932c.14-.313.26-.634.37-.945a23.374 23.374 0 0 0-2.02-19.963zM84.06
+    21.88a10.184 10.184 0 0 0 7.38 0 9.765 9.765 0 0 0 1.65-.822 5.533 5.533 0 0 0-10.68 0 9.765 9.765 0
+    0 0 1.65.822zm3.69-19.874a10.286 10.286 0 0 0-9.38 14.426c.13.3.28.6.44.894a9.5 9.5 0 0 0 .55.842
+    10.046 10.046 0 0 0 1.42 1.636 7.44 7.44 0 0 1 13.94 0 10.273 10.273 0 0 0-6.97-17.798zm0
+    11.457A3.762 3.762 0 1 1 91.5 9.7a3.757 3.757 0 0 1-3.75 3.763zm0-5.518A1.756 1.756 0 1 0 89.5
+    9.7a1.75 1.75 0 0 0-1.75-1.755zm-62.78 44.3a7.75 7.75 0 1 1 7.73-7.755 7.74 7.74 0 0 1-7.73
+    7.758zm0-13.493a5.744 5.744 0 1 0 5.73 5.738 5.74 5.74 0 0 0-5.73-5.735zm50.48 35.254a5.128 5.128 0
+    0 1 .53-.863 5.84 5.84 0 0 1 4.77-2.448 5.914 5.914 0 1 1-5.9 5.91 5.662 5.662 0 0 1 .24-1.656 5.1
+    5.1 0 0 1 .36-.94zm5.3 6.51a3.908 3.908 0 1 0-2.99-6.42 3.972 3.972 0 0 0-.54.853v.01a3.5 3.5 0 0
+    0-.31.96 3.852 3.852 0 0 0-.06.68 3.912 3.912 0 0 0 3.9 3.916z" fill="#bcced6"></path>
+                        <path d="M91.44 21.88a10.184 10.184 0 0 1-7.38 0 9.765 9.765 0 0 1-1.65-.822 5.533 5.533 0 0 1 10.68 0
+    9.765 9.765 0 0 1-1.65.822zm-3.69-10.424A1.756 1.756 0 1 1 89.5 9.7a1.748 1.748 0 0 1-1.75
+    1.756zm-3.1 65.15a3.9 3.9 0 1 1-7.8 0 3.852 3.852 0 0 1 .06-.68 3.5 3.5 0 0 1 .31-.964v-.01a3.972
+    3.972 0 0 1 .54-.853 3.9 3.9 0 0 1 6.89 2.503zm5.86 18.33a17.146 17.146 0 0 1-19.52 0c1.45-4.685
+    5.28-8.035 9.76-8.035s8.31 3.35 9.76 8.04zM38.2 69.174a22.65 22.65 0 0 1-4.17
+    2.238c-.28.12-.55.22-.83.322s-.57.2-.85.29c-.24.08-.48.15-.73.22-.09.03-.18.05-.27.08-.19.052-.37.1-.57.142-.24.06-.5.12-.75.17s-.49.1-.74.14c-.18.03-.35.06-.53.08-.27.05-.53.082-.8.11q-.45.062-.9.092c-.61.05-1.22.07-1.84.07s-1.23-.02-1.84-.07q-.45-.03-.9-.09c-.26-.03-.53-.06-.79-.11-.18-.02-.36-.05-.53-.08-.26-.04-.51-.09-.77-.152a15.844
+    15.844 0 0 1-1.56-.38c-.25-.07-.49-.142-.73-.22-.28-.092-.57-.182-.85-.292s-.55-.2-.83-.32a22.65
+    22.65 0 0 1-4.17-2.24c-.09-.06-.18-.13-.27-.19s-.18-.13-.27-.2c1.9-6.782 7.31-11.427
+    13.51-11.427S36.84 62 38.74 68.782c-.09.07-.18.13-.27.2s-.18.13-.27.19zm-13.23-18.93a5.744 5.744 0 1
+    1 5.73-5.75 5.743 5.743 0 0 1-5.73 5.75z" fill="#f0f4f6"></path>
+                    </svg>
+                </div>
+                <h4>Hiện tại bạn chưa có lead (đăng kí) nào!</h4>
+                <h5>Bạn nên tìm & tải app <strong>"Punnel" trên điện thoại</strong>  để nhận thông báo tức thì khi có lead mới</h5>
+            </div>
+        </div>
+    </div>
+</div>

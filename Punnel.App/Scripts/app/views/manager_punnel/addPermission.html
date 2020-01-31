@@ -1,0 +1,41 @@
+﻿<div class="dialog modal alternative with-footer info setting-permission active" ng-controller="addPermissionCtr as addPermission">
+    <div class="header">
+        <div class="text">Chia sẻ page</div> <i class="material-icons right-modal" ng-click="close()">close</i>
+    </div>
+    <div class="content">
+        <div class="row fourth columns">
+            <div class="one-fourth column">
+                <form name="formSubmit"> <input type="text" name="page-title" placeholder="Email" style="width: 100%" ng-model="email" required> </form>
+            </div>
+            <div class="three-fourth column">
+                <a class="ui button right floated" ng-click="setPermission()">THÊM</a>
+                <div class="right floated"> <select ng-model="permisstion" ng-change="setTypePermission(permisstion)"> <option value="0">Chỉ xem và comment</option> <option value="50">Được chỉnh sửa</option> </select> </div>
+            </div>
+        </div>
+        <div class="row fourth columns">
+            <div class="three-fourth column">
+                <div class="title">Tài khoản đã được chia sẻ:</div>
+            </div>
+        </div>
+        <div class="row fourth columns">
+            <div class="one-fourth column">
+                <div class="title">{{perMissRoot}}</div>
+            </div>
+            <div class="three-fourth column">
+                <div class="title right floated">Chủ sở hữu</div>
+            </div>
+        </div>
+        <div ng-repeat="item in arrPermission" ng-if="item.permission != 99">
+            <div class="line"></div>
+            <div class="row fourth columns">
+                <div class="one-fourth column">
+                    <div class="title">{{item.email}}</div>
+                </div>
+                <div class="three-fourth column">
+                    <i class="material-icons right floated" ng-click="removePermis(item.email)">clear</i>
+                    <div class="right floated select-style"> <select ng-model="item.permission" ng-change="setTypePermissionItem(item.permission, $index)"> <option value="0">Chỉ xem và comment</option> <option value="50">Được chỉnh sửa</option> </select> </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

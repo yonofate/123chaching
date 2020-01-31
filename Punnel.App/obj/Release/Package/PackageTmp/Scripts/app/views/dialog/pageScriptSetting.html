@@ -1,0 +1,28 @@
+﻿<md-dialog aria-label="popup config">
+    <md-toolbar>
+        <div class="md-toolbar-tools white">
+            <h2>Chèn JavaScript vào trang</h2>
+            <span flex></span>
+            <md-button class="md-icon-button" ng-click="cancel()">
+                <i class="material-icons">close</i>
+            </md-button>
+        </div>
+    </md-toolbar>
+    <form name="myForm" ng-submit="submit()">
+        <md-dialog-content style="width:720px; max-height:810px;">
+                <div class="ace-block">
+                    <label>HEAD</label>
+                    <div ui-ace="aceOption" ng-model="pageInfo.head"></div>
+                </div>
+                <div class="ace-block">
+                    <label>BODY</label>
+                    <div ui-ace="aceOption" ng-model="pageInfo.body"></div>
+                </div>
+        </md-dialog-content>
+        <md-dialog-actions layout="row">           
+            <md-button type="submit" class="md-raised md-primary">
+                Ok
+            </md-button>
+        </md-dialog-actions>
+    </form>
+</md-dialog>

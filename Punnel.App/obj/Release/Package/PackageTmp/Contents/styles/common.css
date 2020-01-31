@@ -1,0 +1,80 @@
+/*--------------------------------------------------------------
+Preloader
+--------------------------------------------------------------*/
+.preloader {
+    background: none repeat scroll 0 0 #fff;
+    height: 100%;
+    opacity: 1;
+    position: fixed;
+    text-align: center;
+    transition: all 0.2s ease 0s;
+    width: 100%;
+    z-index: 9999;
+}
+
+    .preloader .spinner {
+        height: 30px;
+        left: 50%;
+        margin-left: -15px;
+        margin-top: -15px;
+        position: relative;
+        top: 50%;
+        width: 30px;
+    }
+
+    .preloader .pre-bounce1,
+    .preloader .pre-bounce2 {
+        -webkit-animation: 2s ease 0s normal none infinite bounce;
+        animation: 2s ease 0s normal none infinite bounce;
+        background-color: #de4939;
+        border-radius: 50%;
+        height: 100%;
+        left: 0;
+        opacity: 0.6;
+        position: absolute;
+        top: 0;
+        width: 100%;
+    }
+
+    .preloader .pre-bounce2 {
+        -webkit-animation-delay: -0.5s;
+        animation-delay: -0.5s;
+    }
+
+@-webkit-keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+        -webkit-transform: translateY(0);
+        transform: translateY(0);
+    }
+
+    40% {
+        -webkit-transform: translateY(-30px);
+        transform: translateY(-30px);
+    }
+
+    60% {
+        -webkit-transform: translateY(-15px);
+        transform: translateY(-15px);
+    }
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+        -webkit-transform: translateY(0);
+        -ms-transform: translateY(0);
+        transform: translateY(0);
+    }
+
+    40% {
+        -webkit-transform: translateY(-30px);
+        -ms-transform: translateY(-30px);
+        transform: translateY(-30px);
+    }
+
+    60% {
+        -webkit-transform: translateY(-15px);
+        -ms-transform: translateY(-15px);
+        transform: translateY(-15px);
+    }
+}
+/*--------------------------------------------------------------

@@ -1,0 +1,21 @@
+﻿<input type="hidden" name="code" id="code" value="@ViewBag.Code" />
+<script>
+window.common = (function () {
+    var common = {};
+
+    common.getFragment = function getFragment() {
+        var data = {};
+        data['code'] = document.getElementById("code").value;
+        return data;
+    };
+
+    return common;
+})();
+
+var fragment = common.getFragment();
+
+window.location.hash = fragment.state || '';
+window.opener.$windowScope.authCompletedInfusionSoft(fragment);
+window.close();
+</script>
+

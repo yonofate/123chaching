@@ -1,0 +1,137 @@
+﻿<style>
+    .lead-detail md-input-container {
+        margin: 5px 0;
+    }
+    .md-datepicker-button.md-icon-button.md-button.md-ink-ripple{
+        display:none;
+    }
+    .md-icon-button + .md-datepicker-input-container{
+        margin-left:unset;
+    }
+</style>
+<md-dialog aria-label="lead">
+    <md-toolbar>
+        <div class="md-toolbar-tools white">
+            <h2>Thông tin thành viên</h2>
+            <span flex></span>
+            <md-button class="md-icon-button" ng-click="cancel()">
+                <i class="material-icons">close</i>
+            </md-button>
+        </div>
+    </md-toolbar>
+    <form name="myForm" ng-submit="submit()">
+        <md-dialog-content ng-init="initPages()">
+            <div class="md-dialog-content" style="min-width:750px;max-height:800px;padding-top:0px;">
+                <md-tabs md-dynamic-height md-border-bottom>
+                    <md-tab class="md-primary" label="Thông tin" ng-click="changeTab(0)">
+                        <md-content class="md-padding">
+                            <div layout="row">
+                                <md-input-container flex="60">
+                                    <label>Họ tên</label>
+                                    <input aria-label="fullName" required name="fullName" ng-model="data.fullName">
+                                </md-input-container>
+                                <md-input-container flex="40">
+                                    <label style="right:unset;width:100%;">Ngày hết hạn</label>
+                                    <md-datepicker ng-model="data.expiredDate" md-placeholder="MM/dd/yyyy"></md-datepicker>
+                                    <!--<input type="date" aria-label="expiredDate" required name="expiredDate" ng-model="data.expiredDate">-->
+                                </md-input-container>
+                            </div>
+                            <div layout="row">
+                                <md-input-container flex="60">
+                                    <label>Email</label>
+                                    <input aria-label="email" name="email" ng-model="data.email" disabled>
+                                </md-input-container>
+
+                                <md-input-container flex="40">
+                                    <label>Điện thoại</label>
+                                    <input ng-disabled="" aria-label="mobile" name="mobile" ng-model="data.mobile">
+                                </md-input-container>
+                            </div>
+                            <div layout="row">
+                                <md-input-container flex="50">
+                                    <label>Vai trò</label>
+                                    <md-select ng-disabled="isAdmin!=true" aria-label="Role" ng-model="data.role">
+                                        <md-option ng-repeat="item in roleOptions" ng-value="item.i">
+                                            {{item.n}}
+                                        </md-option>
+                                    </md-select>
+                                </md-input-container>
+                                <md-input-container flex="50">
+                                    <label>Gói thành viên</label>
+                                    <md-select ng-disabled="isAdmin!=true" aria-label="level" ng-model="data.level">
+                                        <md-option ng-repeat="item in levelOptions" ng-value="item.i">
+                                            {{item.n}}
+                                        </md-option>
+                                    </md-select>
+                                </md-input-container>
+                            </div>
+                            <div layout="row">
+                                <div flex="50">
+                                    <md-checkbox class="md-primary" ng-checked="data.isVerifyEmail" ng-model="data.isVerifyEmail">
+                                        Đã xác thực email
+                                    </md-checkbox>
+                                </div>
+                                <div flex="50">
+                                    <md-checkbox class="md-primary" ng-checked="data.isVerifyMobile" ng-model="data.isVerifyMobile">
+                                        Đã xác thực sđt
+                                    </md-checkbox>
+                                </div>
+                            </div>
+                        </md-content>
+                    </md-tab>
+                    <md-tab class="md-primary" label="Landing Page" ng-click="changeTab(1)">
+                        <md-content class="md-padding">
+                            <table class="table table-striped nohead">
+                                <tbody>
+                                    <tr ng-repeat="item in pages">
+                                        <td>
+                                            <i ng-class="{'icon-type-publish': item.publish,'icon-type-not-publish': !item.publish }" class="material-icons icon-publish">brightness_1</i>
+                                            <span ng-bind="item.name"></span>
+                                        </td>
+                                        <td>
+                                            <span class="link-page" ng-if="item.publish"> <a ng-href="{{makeUrl(item.domain)}}" class="icon-type-publish" target="_blank"><md-icon class="material-icons" style="font-size:20px;">link</md-icon>{{item.domain}}</a> </span>
+                                            <span class="link-page" ng-if="!item.publish"> <a target="_blank" ui-sref="preview({id: item.id})" class="icon-type-not-publish"><md-icon class="material-icons" style="font-size:20px;">link</md-icon>Xem trước</a> </span>
+                                        </td>
+                                        <td>
+                                            <span ng-bind="item.updatedDate | date:'dd/MM'"></span>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <div>
+                                <span>Tổng cộng: <span ng-bind="totalPages"></span> trang</span>
+                            </div>
+                        </md-content>
+                    </md-tab>
+                    <md-tab class="md-primary" label="Tương tác & ghi chú" ng-click="changeTab(2)">
+                        <md-content class="md-padding">
+                            <div layout="row">
+                                <md-input-container flex="50">
+                                    <label>Triển vọng</label>
+                                    <md-select aria-label="level" ng-model="data.systemStatus">
+                                        <md-option ng-repeat="item in statusOptions" ng-value="item.i">
+                                            {{item.n}}
+                                        </md-option>
+                                    </md-select>
+                                </md-input-container>
+                            </div>
+                            <div layout="row">
+                                <md-input-container flex="100">
+                                    <label>Ghi chú</label>
+                                    <textarea ng-model="data.systemNote" md-maxlength="150" rows="5" md-select-on-focus></textarea>
+                                </md-input-container>
+                                </div>
+                        </md-content>
+                    </md-tab>
+                </md-tabs>
+            </div>
+        </md-dialog-content>
+
+        <md-dialog-actions layout="row">
+            <span flex></span>
+            <md-button id="btn-sm" type="submit" class="md-raised md-primary">
+                Cập nhật
+            </md-button>
+        </md-dialog-actions>
+        </form>
+</md-dialog>

@@ -1,0 +1,64 @@
+﻿<md-dialog aria-label="popup config">
+    <md-toolbar>
+        <div class="md-toolbar-tools white">
+            <h2>Cấu hình SEO</h2>
+            <span flex></span>
+            <md-button class="md-icon-button" ng-click="cancel()">
+                <i class="material-icons">close</i>
+            </md-button>
+        </div>
+    </md-toolbar>
+    <form name="myForm" ng-submit="submit()">
+        <md-dialog-content style="width:500px; max-height:810px;">
+            <md-content class="md-padding">
+                <md-input-container class="md-block">
+                    <label>Tiêu đề</label>
+                    <input md-maxlength="70" ng-model="pageInfo.title">
+                </md-input-container>
+                <md-input-container class="md-block">
+                    <label>Từ khóa</label>
+                    <input md-maxlength="250" ng-model="pageInfo.keyword">
+                </md-input-container>
+                <md-input-container class="md-block">
+                    <label>Mô tả</label>
+                    <textarea ng-model="pageInfo.desc" md-maxlength="320" rows="4" md-select-on-focus></textarea>
+                </md-input-container>
+                <md-input-container class="md-block">
+                    <label>Canonical Url</label>
+                    <input type="url" ng-model="pageInfo.canonicalUrl">
+                </md-input-container>
+                <md-switch ng-model="pageInfo.allowIndex" aria-label="Switch 1">
+                    Cho phép tìm kiếm trên Google
+                </md-switch>
+                <div layout="row">
+                    <label style="width:100px;color: rgba(0,0,0,0.38);line-height:60px;font-size:90%;">Favicon</label>
+                    <div style="width:150px; height:64px;float:left;margin-right:15px;">
+                        <md-icon ng-show="{{pageInfo.imageFavicon.length==0}}" class="material-icons" style="font-size:64px;">photo_camera</md-icon>
+                        <img ng-cloak ng-show="{{pageInfo.imageFavicon.length>0}}" ng-src="{{pageInfo.imageFavicon}}" alt="favicon" style="width:64px; height:64px;" />
+                    </div>
+                    <md-button style="height:28px;" class="md-raised md-default" ng-click="showImage('favicon')">
+                        Upload
+                    </md-button>
+                    <span flex></span>
+                </div>
+
+                <div layout="row" style="margin-top:20px;">
+                    <label style="width:100px;color: rgba(0,0,0,0.38);line-height:60px;font-size:90%;">Hình đại diện</label>
+                    <div style="width:150px; height:80px;float:left;margin-right:15px;">
+                        <md-icon ng-show="{{pageInfo.imagePage.length==0}}" class="material-icons" style="font-size:64px;">photo_camera</md-icon>
+                        <img ng-cloak ng-show="{{pageInfo.imagePage.length>0}}" ng-src="{{pageInfo.imagePage}}" alt="imagePage" style="width:120px;" />
+                    </div>
+                    <md-button style="height:28px;" class="md-raised md-default" ng-click="showImage('image-share')">
+                        Upload
+                    </md-button>
+                    <span flex></span>
+                </div>
+            </md-content>
+        </md-dialog-content>
+        <md-dialog-actions layout="row">           
+            <md-button id="btn-sm" type="submit" class="md-raised md-primary">
+                Ok
+            </md-button>
+        </md-dialog-actions>
+    </form>
+</md-dialog>

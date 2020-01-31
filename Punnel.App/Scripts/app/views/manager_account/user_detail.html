@@ -1,0 +1,55 @@
+﻿<div class="dialog with-footer with-sidebar alternative modal info user-detail active fadeIn animated" ng-controller="userDetailCtr as userDetail">
+    <div class="header">
+        <div class="text">{{CUSTOM_USER_DETAIL.TITLE_SETTING|translate}}</div> <i class="material-icons right-modal" ng-click="closePage()">close</i>
+    </div>
+    <div class="row no-margin">
+        <div class="sidebar text-center">
+            <div class="hover-to-change-image">
+                <img ng-src="{{avatar}}" alt="{{name}}">
+                <div class="action">
+                    <div class="ui upload button"> <span>{{GENERAL_DIALOG_FORM.CHANGE|translate}}</span> <input id="fileUploadAvatar" name="fileUpload" class="upload" type="file" onchange="angular.element(this).scope().uploadAvatar()"> </div>
+                </div>
+            </div>
+        </div>
+        <div class="content">
+            <div class="row two columns no-margin">
+                <div class="column">
+                    <div class="title">{{CUSTOM_USER_DETAIL.LABEL_INFORMATION|translate}}</div>
+                    <div class="group">
+                        <form name="formSubmit">
+                            <div class="row"> <label>{{GUEST_FORM.LOGIN_FORM_USERNAME|translate}}</label> <input type="text" placeholder="{{GUEST_FORM.LOGIN_FORM_USERNAME|translate}}" ng-model="email" disabled> </div>
+                            <div class="row"> <label>{{GUEST_FORM.USER_NAME|translate}}</label> <input type="text" placeholder="{{GUEST_FORM.USER_NAME|translate}}" ng-model="user_name" autofocus> </div>
+                            <div class="row"> <label>{{GUEST_FORM.FULL_NAME|translate}}</label> <input type="text" placeholder="{{GUEST_FORM.FULL_NAME|translate}}" ng-model="name"> </div>
+                            <div class="row"> <label>{{GUEST_FORM.LABEL_PHONE|translate}}</label> <input type="tel" placeholder="{{GUEST_FORM.LABEL_PHONE|translate}}" ng-model="phone"> </div>
+                            <div class="row text-right" ng-click="updateName()"> <a class="ui button">{{GENERAL_DIALOG_FORM.SAVE|translate}}</a> </div>
+                        </form>
+                    </div> <br>
+                </div>
+                <div class="column">
+                    <div class="title">{{CUSTOM_USER_DETAIL.LABEL_CHANGE_PASS|translate}}</div>
+                    <!-- Display only if want to change password -->
+                    <div class="group">
+                        <div class="row"> <label>{{CUSTOM_USER_DETAIL.LABEL_NEW_PASS|translate}}</label> <input type="password" placeholder="{{CUSTOM_USER_DETAIL.LABEL_NEW_PASS|translate}}" ng-model="newPass"> </div>
+                        <div class="row"> <label>{{CUSTOM_USER_DETAIL.LABEL_CONFIRM_PASS|translate}}</label> <input type="password" placeholder="{{CUSTOM_USER_DETAIL.LABEL_CONFIRM_PASS| translate}}" ng-model="confirmPass"> </div>
+                        <div class="row text-right" ng-click="updatePass()"> <a class="ui button">{{CUSTOM_USER_DETAIL.LABEL_CHANGE_PASS|translate}}</a> </div>
+                    </div>
+                    <!--div class="title">Nạp Tiền vào tài khoản</div>\n                    <!-- bank-->
+                    <div class="group">
+                        <div class="row">
+                            <label>Chọn gói</label>
+                            <div class="select-style"> <select ng-model="salePackSel" ng-change="selectPackSale(salePackSel)"> <option value="0" selected>1000 sale</option> <option value="1">2000 sale</option> <option value="2">4000 sale</option> </select> </div>
+                        </div>
+                        <div class="row">
+                            <label>Thời gian</label>
+                            <div class="select-style"> <select ng-model="timePack" ng-change="selectTime(timePack)"> <option value="0" selected>1 tháng</option> <option value="1">6 tháng</option> <option value="2">1 năm</option> </select> </div>
+                        </div>
+                        <div class="row text-right" ng-click="updateBank()"> <a class="ui button">Nâng cấp tài khoản</a> </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="footer">
+        <div class="right-modal" ng-click="cancelChange()"> <a class="ui button action">{{GENERAL_DIALOG_FORM.DONE|translate}}</a> </div>
+    </div>
+</div>

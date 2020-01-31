@@ -1,0 +1,32 @@
+﻿<div class="dialog small modal publish-options active fadeIn animated" ng-controller="publishLadipageCtr as publishLadipage">
+    <div class="header">
+        <div class="text" translate="CUSTOM_PUBLISH_LADIPAGE.INTRO"></div>
+        <!--i class="material-icons right floated" ng-click="close()">close</i-->
+    </div>
+    <div class="content text-center scrollbox">
+        <!--div class="row four columns big-list icon-30" ng-if="noticePay != \'\' || expired != \'\'">\n            <h4>{{noticePay}}</h4>\n            <h4>{{expired}}</h4>\n        </div-->
+        <div class="row four columns big-list icon-30">
+            <div class="column">
+                <div class="box" ng-click="viewLaipage()"> <a href=""> <i class="icon8 size-32 website" title="View website"></i> <div class="text" translate="CUSTOM_PUBLISH_LADIPAGE.LABEL_VIEW_ONLINE"></div> </a> </div>
+            </div>
+            <div class="column">
+                <a href="" ng-click="showDownload()">
+                    <div class="box">
+                        <i class="icon8 size-32 download" title="Download"></i>
+                        <div class="text" translate="CUSTOM_PUBLISH_LADIPAGE.LABEL_DOWNLOAD"></div>
+                    </div>
+                </a>
+            </div>
+            <!--div class="column">\n                <div class="box" ng-click="showUpdateSubdomain()">\n                    <a href="">\n                        <i class="icon8 size-32 sub-domain" title="Sub Domain Setting"></i>\n                        <div class="text" translate="CUSTOM_PUBLISH_LADIPAGE.LABEL_UPDATE_SUB_DOMAIN"></div>\n                    </a>\n                </div>\n            </div-->
+            <div class="column" ng-if="typeLanding != 20">
+                <div class="box" ng-click="showUpdatedomain()"> <a href=""> <i class="icon8 size-32 domain" title="Domain Setting"></i> <div class="text" translate="CUSTOM_PUBLISH_LADIPAGE.LABEL_UPDATE_DOMAIN"></div> </a> </div>
+            </div>
+            <!--div class="column" ng-if="typeLanding != 20">\n                <div class="box" ng-click="showUpgrade()">\n                    <a href="">\n                        <i class="icon8 size-32 domain" title="Domain Setting"></i>\n                        <div class="text" translate="CUSTOM_PUBLISH_LADIPAGE.LABEL_UPDATE_UPGRADE"></div>\n                    </a>\n                </div>\n            </div-->
+        </div>
+    </div>
+    <div class="footer text-center"> <a class="ui button action" ng-click="close()" translate="CUSTOM_PUBLISH_LADIPAGE.LABEL_CLOSE_PUBLISH"></a> </div>
+    <script>
+        var scroll = new OptionWiget();
+        scroll.scrollBox();
+    </script>
+</div>

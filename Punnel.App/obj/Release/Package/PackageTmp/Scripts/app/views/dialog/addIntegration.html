@@ -1,0 +1,41 @@
+﻿<md-dialog aria-label="Tích hợp {{site.name}}">
+    <md-toolbar>
+        <div class="md-toolbar-tools white">
+            <h2 ng-bind="site.name"></h2>
+            <span flex></span>
+            <md-button class="md-icon-button" ng-click="cancel()">
+                <i class="material-icons">close</i>
+            </md-button>
+        </div>
+    </md-toolbar>
+    <form name="myForm" ng-submit="submit()">
+        <md-dialog-content>
+            <div class="md-dialog-content" style="min-width:400px;">
+                <div flex>
+                    <md-input-container class="md-block">
+                        <label>{{title}}</label>
+                        <input ng-model="apiKey" autocomplete="off" md-autofocus required>
+                    </md-input-container>
+                    <md-input-container class="md-block" ng-show="hasUrl==true">
+                        <label>Url</label>
+                        <input type="url" ng-model="apiUrl" autocomplete="off">
+                    </md-input-container>
+                    <md-input-container class="md-block" ng-show="isFtp==true">
+                        <label>User</label>
+                        <input type="text" ng-model="accId" autocomplete="off">
+                    </md-input-container>
+                    <md-input-container class="md-block" ng-show="isFtp==true">
+                        <label>Password</label>
+                        <input type="password" ng-model="email" autocomplete="off">
+                    </md-input-container>
+                </div>
+            </div>
+        </md-dialog-content>
+        <md-dialog-actions layout="row">
+            <span flex></span>
+            <md-button id="btn-sm" ng-disabled="myForm.$valid==false" type="submit" class="md-raised md-primary">
+                Kết nối
+            </md-button>
+        </md-dialog-actions>
+    </form>
+</md-dialog>

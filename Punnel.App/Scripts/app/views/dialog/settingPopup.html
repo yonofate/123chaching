@@ -1,0 +1,70 @@
+﻿<md-dialog aria-label="popup config">
+    <md-toolbar>
+        <div class="md-toolbar-tools white">
+            <h2>Cấu hình PopUp</h2>
+            <span flex></span>
+            <md-button class="md-icon-button" ng-click="cancel()">
+                <i class="material-icons">close</i>
+            </md-button>
+        </div>
+    </md-toolbar>
+    <form name="myForm" ng-submit="saveSettingPopup()">
+        <md-dialog-content style="width:400px; max-height:810px;" ng-init="loadSetting()">
+            <md-tabs class="md-primary" md-dynamic-height md-border-bottom>
+                <md-tab label="Hiển thị">
+                    <md-content class="md-padding">
+                        <div layout="row">
+                            <md-switch ng-model="options.isOnOpen" aria-label="on open" flex-gt-sm>
+                                Mở khi vào trang
+                            </md-switch>
+
+                            <md-input-container class="md-block" flex-gt-sm ng-show="options.isOnOpen==true">
+                                <label>sau {{options.delay}} giây</label>
+                                <input name="delay" ng-model="options.delay" 
+                                       ng-pattern="/^[0-9]/" md-maxlength="5">
+                            </md-input-container>
+                        </div>
+                        <div layout="row">
+                            <md-switch ng-model="options.isOnExit" aria-label="on exit">
+                                Mở khi thoát trang
+                            </md-switch>
+                        </div>
+                        <div layout="row">
+                            <md-input-container class="md-block" flex-gt-sm" style="width:100%">
+                                <label>Mở khi xem đến đoạn trong trang</label>
+                                <md-select placeholder="Mở khi xem đến đoạn trong trang" ng-model="options.onSection" flex="100" flex-gt-sm ng-change="selectSection()">
+                                    <md-option ng-value="item.id" ng-repeat="item in sections">{{item.id}}</md-option>
+                                </md-select>
+                            </md-input-container>
+                        </div>
+                    </md-content>
+                </md-tab>
+
+                <<md-tab label="Tracking khi hiển thị">
+                    <md-content class="md-padding">
+                        <div layout="column" layout-align="center start">
+                            <md-input-container flex="100" style="width:100%;">
+                                <label>Sự kiện mẫu</label>
+                                <md-select placeholder="Chọn sự kiện mẫu" ng-model="options.tracking" flex="100">
+                                    <md-option ng-value="item.value" ng-repeat="item in headerTrackingCodes" ng-click="addTrackingHeader(item.value)">{{item.name}}</md-option>
+                                </md-select>
+                            </md-input-container>
+
+                            <div class="ace-block" style="width:100%">
+                                <div ui-ace="aceOption" ng-model="options.trackingHeader"></div>
+                            </div>
+                        </div>
+                        <div class="hidden" layout="row">
+                            <strong flex>URL theo dõi sự kiện: <span ng-bind="options.urlPop"></span></strong>
+                        </div>
+                    </md-content>
+                </md-tab>
+            </md-tabs>
+        </md-dialog-content>
+        <md-dialog-actions layout="row">           
+            <md-button type="submit" class="md-raised md-primary">
+                Ok
+            </md-button>
+        </md-dialog-actions>
+    </form>
+</md-dialog>

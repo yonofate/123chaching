@@ -1,0 +1,128 @@
+﻿
+<div class="dashboard">
+    <div id="wrapper" class="wrapper" ng-controller="menuCtr">
+        <div ng-include="'scripts/app/views/common/header.html'"></div>
+        <menu class="side-bar-menu">
+            <ul>
+                <li ui-sref="dashboard.main" ng-class="getClass('dashboard.main')">
+                    <a title="Dashboard"><md-icon class="material-icons dp48">dashboard</md-icon>Dashboard</a>
+                </li>
+                <li ui-sref="dashboard.landingpage" ng-class="getClass('dashboard.landingpage')">
+                    <a title="Landing pages"><md-icon class="material-icons dp48">pages</md-icon>Landing pages</a>
+                </li>
+                <li ui-sref="dashboard.analytics" ng-class="getClass('dashboard.analytics')">
+                    <a title="Analytics"><md-icon class="material-icons dp48">timeline</md-icon>Thống kê</a>
+                </li>
+                <li ui-sref="dashboard.lead" ng-class="getClass('dashboard.lead')">
+                    <a title="Leads"><md-icon class="material-icons dp48">people</md-icon>Leads</a>
+                </li>
+                <li ui-sref="dashboard.template" ng-class="getClass('dashboard.template')">
+                    <a title="Template"><md-icon class="material-icons dp48">wallpaper</md-icon>Mẫu giao diện</a>
+                </li>
+                <li ui-sref="dashboard.integration" ng-class="getClass('dashboard.integration')">
+                    <a title="Kết nối dịch vụ"><md-icon class="material-icons dp48">apps</md-icon>Ứng dụng</a>
+                </li>
+                <li ui-sref="dashboard.domain" ng-class="getClass('dashboard.domain')">
+                    <a title="Quản lý tên miền"><md-icon class="material-icons dp48">public</md-icon>Tên miền</a>
+                </li>
+
+                <li ui-sref="dashboard.autoResponder" ng-class="getClass('dashboard.emailTemplate')">
+                    <a title="Auto Responder"><md-icon class="material-icons dp48">description</md-icon>Mẫu Responder</a>
+                </li>
+                <li ui-sref="dashboard.affiliate" ng-class="getClass('dashboard.affiliate')">
+                    <a title="affiliate"><md-icon class="material-icons dp48">local_florist</md-icon>Affiliate</a>
+                </li>
+                <li ui-sref="dashboard.usermanager" ng-show="is_editor==true" ng-class="getClass('dashboard.usermanager')">
+                    <a title="Template"><md-icon class="material-icons dp48">supervised_user_circle</md-icon>Thành viên</a>
+                </li>
+                <li ui-sref="dashboard.invoicemanager" ng-show="is_admin==true" ng-class="getClass('dashboard.invoicemanager')">
+                    <a title="Invoice"><md-icon class="material-icons dp48">payment</md-icon>Hóa đơn</a>
+                </li>
+                <li ui-sref="dashboard.promotionmanager" ng-show="is_admin==true" ng-class="getClass('dashboard.promotionmanager')">
+                    <a title="Invoice"><md-icon class="material-icons dp48">card_giftcard</md-icon>Khuyến mãi</a>
+                </li>
+                <li ui-sref="dashboard.ticketmanager" ng-show="is_editor==true" ng-class="getClass('dashboard.ticketmanager')">
+                    <a title="Template"><md-icon class="material-icons dp48">help</md-icon>Tickets</a>
+                </li>
+                <li ui-sref="dashboard.servermanager" ng-show="is_owner==true" ng-class="getClass('dashboard.servermanager')">
+                    <a title="Template"><md-icon class="material-icons dp48">cloud</md-icon>Servers</a>
+                </li>
+            </ul>
+
+            <!--Support Facebook-->
+            <div class="left-menu col-md-12 col-sm-6">
+                <div class="box box-info">
+                    <div class="box-body" style="font-size: 14px;padding: 15px;">
+                        <p class="card-text" style="color: #565656;margin-top: -5px;margin-bottom: 10px;">
+                            <span><md-icon class="material-icons">help</md-icon> Bạn cần hỗ trợ</span>
+                        </p>
+                        <p>
+                            <a target="_blank" href="https://support.punnel.com/article/44-bai-2-tao-section-dau-tien-voi-punnel"><i class="glyphicon glyphicon-play-circle"></i> Video hướng dẫn từng bước A->Z</a>
+                        </p>
+                        <p>
+                            <a target="_blank" href="//m.me/punnel.community"><i class="glyphicon glyphicon-comment"></i> Chat Facebook</a>
+                        </p>
+                        <a target="_blank" href="//zalo.me/3605366824087211623"><i class="glyphicon glyphicon-comment"></i> Chat Zalo</a>
+                        <div style="margin-top:7px;">
+                            <md-button style="font-size:85%;" ng-controller="menuCtr" class="md-raised md-warn" ng-click="showSupport()"><md-icon class="material-icons">send</md-icon> Gửi ticket</md-button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!--User đang sử dụng gói thử nghiệm & tạo ít hơn 3 trang-->
+            <!--<div class="left-menu col-md-12 col-sm-6" ng-if="user_level ==1">
+                <div class="box box-info">
+                    <div class="box-body" style="font-size: 14px;padding: 15px;">
+                        <p class="card-text" style="color: #565656;margin-top: -5px;margin-bottom: 10px;">
+                            <span>Bạn chưa biết bắt đầu từ đâu?</span>
+                        </p>
+                        <a target="_blank" href="https://support.punnel.com/article/30-huong-dan-tao-landing-page"><i class="glyphicon glyphicon-play-circle"></i> Video hướng dẫn</a>
+                    </div>
+                </div>
+            </div>-->
+            <!--User đang sử dụng gói Standard or Advance-->
+            <!--<div class="left-menu col-md-12 col-sm-6" ng-if="user_level ==1 || user_level ==2">
+                <div class="box box-info" style="border-top-color: #f39c12;" ng-controller="profileCtrl">
+                    <div class="box-body" style="font-size: 14px;padding: 15px;">
+                        <p class="card-text" style="color: #565656;margin-top: -5px;margin-bottom: 10px;">
+                            <span><strong ng-click="goRenewal(3)">Nâng cấp VIP</strong> để được tham gia các khóa học đặc biệt, giúp bạn tối ưu landing page</span>
+                        </p>
+                        <a href="https://support.punnel.com/collection/22-vip">Tìm hiểu thêm</a>
+                    </div>
+                </div>
+            </div>-->
+            <!--<div>
+        <button type="button" ng-click="reLogin()">Login</button>
+    </div>-->
+        </menu>
+
+        <div class="main-container">
+            <ui-view>
+            </ui-view>
+            <div class="dbPageLoading">
+                <div class="loading">
+                    <md-progress-circular md-mode="indeterminate"></md-progress-circular>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    $(document).click(function (ev) {
+        $('.dropdown .submenu').hide();
+        $('.dropdown-input .submenu').hide();
+        if ($(ev.target).hasClass('modal-backdrop')) {
+            $('.modal').modal('hide');
+        }
+    });
+    $('.dropdown').unbind('click').click(function (ev) {
+        ev.stopPropagation();
+        if ($(this).find('.submenu').eq(0).css('display') != 'none') {
+            $('.dropdown .submenu').hide();
+        } else {
+            $('.dropdown .submenu').hide();
+            $(this).find('.submenu').eq(0).css({'display': 'block'});
+        }
+    });
+</script>

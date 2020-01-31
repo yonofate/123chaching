@@ -1,0 +1,71 @@
+﻿<md-dialog aria-label="Mango (Fruit)">
+        <md-toolbar>
+            <div class="md-toolbar-tools white">
+                <h2><img height="16" width="16" style="margin-right:5px;" src="//www.google.com/s2/favicons?domain=mailchimp.com">Tích hợp Mailchimp</h2>
+                <span flex></span>
+                <md-button class="md-icon-button" ng-click="cancel()">
+                    <i class="material-icons c-button__icon">close</i>
+                </md-button>
+            </div>
+        </md-toolbar>
+
+        <md-dialog-content>
+            <div class="md-dialog-content">
+                <div style="min-width:600px;">
+                    <div ng-show="mailchimp.type == 'listAccount'">
+                        <div class="list-ac">
+                            <div>
+                                <form name="submitForm" ng-submit="submitForm.$valid && mailchimp.connect()" novalidate>
+                                    <div layout-gt-sm="row" class="layout-gt-sm-row">
+                                        <md-input-container class="md-block" flex="85">
+                                            <label>Mailchim API Key</label>
+                                            <input name="apiKey" ng-model="mailchimp.apiKey" md-maxlength="30" required md-no-asterisk>
+                                            <div ng-messages="submitForm.apiKey.$error">
+                                                <div ng-message="required">Vui lòng nhập ApiKey</div>
+                                                <div ng-message="md-maxlength">Chiều dài phải nhỏ hơn 50 kí tự</div>
+                                            </div>
+                                        </md-input-container>
+                                        <md-button ng-disabled="!submitForm.$valid" type="submit" md-no-ink class="md-primary">Thêm</md-button>
+                                    </div>
+                                </form>
+                            </div>
+
+                            <div>
+                                <md-radio-group class="md-primary">
+                                    <md-radio-button ng-repeat="option in mailchimp.accounts track by $index"
+                                                     ng-value="option.accId"
+                                                     ng-model="mailchimp.selectedAcc.accId">
+                                        {{option.email}}
+                                    </md-radio-button>
+                                </md-radio-group>
+                            </div>
+                        </div>
+                    </div>
+                    <div ng-show="mailchimp.type == 'listCampain'">
+                        <div class="list-ac-mail">
+                            <md-radio-group class="md-primary">
+                                <md-radio-button ng-repeat="option in mailchimp.campains track by $index"
+                                                 ng-value="option.id"
+                                                 ng-model="mailchimp.selectedCampain.id">
+                                    {{option.name}}
+                                </md-radio-button>
+                            </md-radio-group>
+                        </div>
+                    </div>
+                </div>
+                </div>
+        </md-dialog-content>
+
+        <md-dialog-actions layout="row">
+            <md-button href="http://en.wikipedia.org/wiki/Mango" target="_blank" md-autofocus>
+                More on Wikipedia
+            </md-button>
+            <span flex></span>
+            <md-button ng-click="answer('not useful')">
+                Not Useful
+            </md-button>
+            <md-button ng-click="answer('useful')" class="md-primary">
+                Useful
+            </md-button>
+        </md-dialog-actions>
+</md-dialog>

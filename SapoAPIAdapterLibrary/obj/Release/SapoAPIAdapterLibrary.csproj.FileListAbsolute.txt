@@ -1,0 +1,12 @@
+C:\Source\yonofate\punnel\src\SapoAPIAdapterLibrary\bin\Release\SapoAPIAdapterLibrary.dll
+C:\Source\yonofate\punnel\src\SapoAPIAdapterLibrary\bin\Release\SapoAPIAdapterLibrary.pdb
+C:\Source\yonofate\punnel\src\SapoAPIAdapterLibrary\bin\Release\Newtonsoft.Json.dll
+C:\Source\yonofate\punnel\src\SapoAPIAdapterLibrary\bin\Release\RestSharp.dll
+C:\Source\yonofate\punnel\src\SapoAPIAdapterLibrary\bin\Release\System.ValueTuple.dll
+C:\Source\yonofate\punnel\src\SapoAPIAdapterLibrary\bin\Release\Newtonsoft.Json.xml
+C:\Source\yonofate\punnel\src\SapoAPIAdapterLibrary\bin\Release\System.ValueTuple.xml
+C:\Source\yonofate\punnel\src\SapoAPIAdapterLibrary\obj\Release\SapoAPIAdapterLibrary.csprojAssemblyReference.cache
+C:\Source\yonofate\punnel\src\SapoAPIAdapterLibrary\obj\Release\SapoAPIAdapterLibrary.csproj.CoreCompileInputs.cache
+C:\Source\yonofate\punnel\src\SapoAPIAdapterLibrary\obj\Release\SapoAPIAdapterLibrary.csproj.CopyComplete
+C:\Source\yonofate\punnel\src\SapoAPIAdapterLibrary\obj\Release\SapoAPIAdapterLibrary.dll
+C:\Source\yonofate\punnel\src\SapoAPIAdapterLibrary\obj\Release\SapoAPIAdapterLibrary.pdb

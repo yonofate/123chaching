@@ -1,0 +1,190 @@
+﻿<div class="dashboard" ng-controller="landingPageManagerCtrl">
+    <div id="wrapper" class="wrapper">
+        <section class="dashboard-page page-group">
+            <div class="container">
+                <div class="list-page">
+                    <div class="select-status clearfix">
+                        <div class="box-search">
+                            <div class="form-search" ng-init="init()" ng-enter="search()">
+                                <input type="text" name="keyword" autocomplete="off" value="" ng-keydown="checkKeySearch($event)" placeholder="Tên Landing Page, Tên miền, ..." ng-model="query.keyword">
+                                <button type="button" class="btn btn-primary btn-search" ng-click="search()"><i class="material-icons dp48">search</i></button>
+                            </div>
+                            <button type="button" class="btn  btn-add pull-right" ng-click="showCreatePageOption()"> <i class="material-icons dp48">add_circle_outline</i> &nbsp;Tạo Landing Page </button>
+                            <button type="button" class="btn btn-add pull-right" ng-click="showCreateGroup()"><i class="material-icons dp48">add_circle_outline</i> &nbsp;Tạo nhóm </button>
+                        </div>
+                        <div style="float:right;">
+                            <md-input-container style="min-width:160px;">
+                                <label>Lọc theo trạng thái</label>
+                                <md-select aria-label="trạng thái" ng-model="query.is_publish">
+                                    <md-option ng-repeat="item in publishOptions" ng-value="item.i">
+                                        {{item.n}}
+                                    </md-option>
+                                </md-select>
+                            </md-input-container>
+                        </div>
+                    </div>
+                    <div class="group-null" ng-show="noItem == true">
+                        <div class="icon-page">
+                            <svg id="empty-dashboard" xmlns="http://www.w3.org/2000/svg" width="80" height="100" viewbox="0 0 80 100">
+                                <defs>
+                                    <style>
+                                        #empty-dashboard .cls-1 {
+                                            fill: #f8fafb;
+                                        }
+
+                                        nn #empty-dashboard .cls-1, #empty-dashboard .cls-2 {
+                                            fill-rule: evenodd;
+                                        }
+
+                                        nn #empty-dashboard .cls-2 {
+                                            fill: #dde4ea;
+                                        }
+                                    </style>
+                                </defs>
+                                <path id="Rectangle_656_copy" data-name="Rectangle 656 copy" class="cls-1" d="M2 10V2a1 1 0 0 1 1-1h75a1 1 0 0 1 1 1v8H2zm71 27H7V19h66v18zm-6 43H47v-5h20v5z"></path>
+                                <path class="cls-2" d="M76 100H4a4.012 4.012 0 0 1-4-4V4a4.012 4.012 0 0 1 4-4h72a4.012 4.012 0 0 1 4 4v92a4.012 4.012 0 0 1-4 4zm2-96a2.006 2.006 0 0 0-2-2H4a2.006 2.006 0 0 0-2 2v5h76V4zm0 7H2v85a2.006 2.006 0 0 0 2 2h72a2.006 2.006 0 0 0 2-2V11zM40 47h34v42H40V47zm2 40h30V49H42v38zm23-6H49a4 4 0 0 1 0-8h16a4 4 0 0 1 0 8zm0-6H49a2 2 0 0 0 0 4h16a2 2 0 0 0 0-4zM45 62h24v8H45v-8zm2 6h20v-4H47v4zm-2-16h24v8H45v-8zm2 6h20v-4H47v4zM6 18h68v20H6V18zm2 18h64V20H8v16zm51-7H21a1 1 0 0 1 0-2h38a1 1 0 0 1 0 2zM7 47h27a1 1 0 0 1 0 2H7a1 1 0 0 1 0-2zm0 10h27a1 1 0 0 1 0 2H7a1 1 0 0 1 0-2zm-.29 10h27.58a1.06 1.06 0 0 1 0 2H6.71a1.06 1.06 0 0 1 0-2zM7 77h27a1 1 0 0 1 0 2H7a1 1 0 0 1 0-2zm0 10h17a1 1 0 0 1 0 2H7a1 1 0 0 1 0-2zm4.5-83A1.5 1.5 0 1 1 10 5.5 1.5 1.5 0 0 1 11.5 4zm5 0A1.5 1.5 0 1 1 15 5.5 1.5 1.5 0 0 1 16.5 4zm5 0A1.5 1.5 0 1 1 20 5.5 1.5 1.5 0 0 1 21.5 4z"></path>
+                            </svg>
+                        </div>
+                        <h4>Chưa có Landing Page nào trong mục này</h4>
+                        <h5>Sử dụng " Tạo mới Landing Page" hoặc "Tạo nhóm Landing Page" để bắt đầu !</h5>
+                    </div>
+
+                    <div class="list-group" ng-show="noItem == false">
+                        <div class="item-group item-page clearfix item-header">
+                            <div class="icon-back">&nbsp;</div>
+                            <div class="title-group clearfix">
+                                Landing Page
+                            </div>
+                            <div class="page-group clearfix status">
+                                Trạng Thái
+                            </div>
+                            <div class="date-modify clearfix">
+                                Share Code
+                            </div>
+                            <div class="comment-group clearfix">
+                            </div>
+                        </div>
+
+                            <!--list group----------->
+                            <div ng-class="{'item-group': itemG.id!=null}" class="clearfix item-page" ng-repeat="itemG in listGroup">
+                                <div ng-if="itemG.id!=null" class="row-info-group">
+                                    <div class="icon-back"> <md-icon class="material-icons dp48">folder_open</md-icon> </div>
+                                    <div class="title-group"> <a pn-n-ch="itemL.id">{{itemG.name}}</a> </div>
+                                    <div class="page-group">&nbsp;</div>
+                                    <div class="date-modify clearfix">&nbsp;</div>
+                                    <div class="comment-group clearfix">
+                                        <md-menu md-position-mode="target-right target">
+                                            <md-button aria-label="Open group" class="md-icon-button" ng-click="$mdMenu.open($event)">
+                                                <md-icon class="material-icons">more_horiz</md-icon>
+                                            </md-button>
+                                            <md-menu-content width="3">
+                                                <md-menu-item>
+                                                    <md-button ng-click="showChangeName(itemG.id, itemG.name,'group',$index)">
+                                                        <div layout="row" flex>
+                                                            <p flex>Sửa tên</p>
+                                                            <md-icon class="material-icons">edit</md-icon>
+                                                        </div>
+                                                    </md-button>
+                                                </md-menu-item>
+                                                <md-menu-item>
+                                                    <md-button ng-click="removeGroup(itemG)">
+                                                        <div layout="row" flex>
+                                                            <p flex>Xóa</p>
+                                                            <md-icon class="material-icons">delete</md-icon>
+                                                        </div>
+                                                    </md-button>
+                                                </md-menu-item>
+                                            </md-menu-content>
+                                        </md-menu>
+                                    </div>
+                                </div>
+                                <div class="group-items">
+                                    <div ng-class="{'level1': itemG.id!=null}" class="item-group item-page clearfix" ng-repeat="itemL in listLadi | filter:{coid:itemG.id,is_publish:query.is_publish==null?undefined:query.is_publish}">
+                                        <div class="icon-back-child"><i ng-class="{'icon-type-publish': itemL.is_publish,'icon-type-not-publish': !itemL.is_publish }" class="material-icons icon-publish">brightness_1</i></div>
+                                        <div class="title-group title-lp clearfix">
+                                            <span><a pn-n-ch="itemL.id" title="Chỉnh sửa" ui-sref="editor({type:'p',id: itemL.id})">{{itemL.name}}</a></span>
+                                            <span class="link-page" ng-if="itemL.is_publish"> <a ng-href="{{makeUrl(itemL.domain)}}" class="icon-type-publish" target="_blank"><md-icon class="material-icons" style="font-size:20px;">link</md-icon>{{itemL.domain}}</a> </span>
+                                            <span class="link-page" ng-if="!itemL.is_publish"> <a ui-sref="preview({id: itemL.id})" class="icon-type-not-publish"><md-icon class="material-icons" style="font-size:20px;">link</md-icon>Xem trước</a> </span>
+                                        </div>
+                                        <div class="page-group row-info" ng-if="itemL.is_publish"> <i class="material-icons icon-type-publish icon-publish">brightness_1</i> Đã xuất bản </div>
+                                        <div class="page-group row-info" ng-if="!itemL.is_publish"> <i class="material-icons icon-type-not-publish icon-publish">brightness_1</i> Chưa xuất bản </div>
+                                        <div class="date-modify row-info">
+                                            <span class="copied" data-toggle="tooltip" data-placement="bottom" title="Mã code để chia sẽ mã nguồn page này cho người khác" ng-bind="itemL.code || '---'"></span>
+                                        </div>
+                                        <div class="comment-group clearfix">
+                                            <md-icon data-toggle="tooltip" data-placement="bottom" title="Xem thống kê" class="material-icons" ng-if="itemL.is_publish" ng-click="goAnalytic(itemL.id)">timeline</md-icon>
+                                            <md-menu class="row-info" md-position-mode="target-right target">
+                                                <md-button aria-label="Open page" class="md-icon-button" ng-click="$mdMenu.open($event)">
+                                                    <md-icon class="material-icons">more_horiz</md-icon>
+                                                </md-button>
+                                                <md-menu-content width="3">
+                                                    <md-menu-item>
+                                                        <md-button ng-click="showChangeName(itemL.id, itemL.name,'ladi',$index)">
+                                                            <div layout="row" flex>
+                                                                <p flex>Sửa tên</p>
+                                                                <md-icon class="material-icons">edit</md-icon>
+                                                            </div>
+                                                        </md-button>
+                                                    </md-menu-item>
+                                                    <md-menu-item>
+                                                        <md-button ng-click="duplicatePage(itemL.code, itemL.name,$index)">
+                                                            <div layout="row" flex>
+                                                                <p flex>Nhân bản</p>
+                                                                <md-icon class="material-icons">control_point_duplicate</md-icon>
+                                                            </div>
+                                                        </md-button>
+                                                    </md-menu-item>
+                                                    <md-menu-item ng-if="itemL.is_publish">
+                                                        <md-button ng-click="stopPage(itemL)">
+                                                            <div layout="row" flex>
+                                                                <p flex>Tạm ngưng</p>
+                                                                <md-icon class="material-icons">money_off</md-icon>
+                                                            </div>
+                                                        </md-button>
+                                                    </md-menu-item>
+                                                    <md-menu-item>
+                                                        <md-button ng-click="showMovePage(itemL.id, itemL.coid)">
+                                                            <div layout="row" flex>
+                                                                <p flex>Chuyển nhóm</p>
+                                                                <md-icon class="material-icons">import_export</md-icon>
+                                                            </div>
+                                                        </md-button>
+                                                    </md-menu-item>
+                                                    <md-menu-item ng-show="isEditor && itemL.isTemplate===false">
+                                                        <md-button ng-click="applyTemplate(itemL)">
+                                                            <div layout="row" flex>
+                                                                <p flex>Gửi duyệt mẫu</p>
+                                                                <md-icon class="material-icons">send</md-icon>
+                                                            </div>
+                                                        </md-button>
+                                                    </md-menu-item>
+                                                    <md-menu-item>
+                                                        <md-button ng-click="removePage(itemL)">
+                                                            <div layout="row" flex>
+                                                                <p flex>Xóa</p>
+                                                                <md-icon class="material-icons">delete</md-icon>
+                                                            </div>
+                                                        </md-button>
+                                                    </md-menu-item>
+                                                </md-menu-content>
+                                            </md-menu>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--end list group---->
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+</div>
+
+<script type="text/javascript">
+    $(document).ready(function(){
+        $(document).on('click','.list-group .icon-back,.list-group .title-group', function(){
+            $(this).siblings('.group-items').slideToggle();
+        });
+        $('[data-toggle="tooltip"]').tooltip();
+    });
+</script>

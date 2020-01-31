@@ -1,0 +1,21 @@
+﻿<md-dialog aria-label="Fill Form">
+        <md-toolbar>
+            <div class="md-toolbar-tools">
+                <span flex>Các tùy chọn cho Form</span>
+                <md-button class="md-icon-button" ng-click="cancel()">
+                    <i class="material-icons c-button__icon">close</i>
+                </md-button>
+            </div>
+        </md-toolbar>
+    <md-dialog-content>
+        <div class="md-dialog-content" style="min-width:400px;max-height:800px;margin-top:-40px;">
+            <md-list>     
+                <md-list-item ng-repeat="item in itemForm">
+                    <p> {{ item.label }} </p>
+                    <md-icon class="material-icons" ng-show="item.using != 'true'" ng-click="removeItemForm(item.name)">check_box</md-icon>
+                    <md-icon class="material-icons" ng-show="item.using == 'true'" ng-click="addItemForm(item.name)">check_box_outline_blank</md-icon>
+                </md-list-item>
+            </md-list>
+        </div>
+    </md-dialog-content>
+</md-dialog>

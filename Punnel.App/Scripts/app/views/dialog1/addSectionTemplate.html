@@ -1,0 +1,32 @@
+﻿<div class="container modal-section" id="modal-add-section" ng-init="init(20)">
+    <div class="modal-header">
+        <button type="button" class="close" ng-click="close()">&times;</button>
+        <h4 class="modal-title">Thêm section</h4>
+    </div>
+    <div class="modal-body clearfix">
+        <div class="tab-inner">
+            <ul class="nav nav-pills" role="tablist" id="myTab">
+                <li class="active" role="presentation" ng-click="getByCate(null)" ng-class="{active: activeCate == null}"><a>Tất cả</a></li>
+                <li class="" role="presentation" ng-repeat="item in templateCates | orderBy:'No'" ng-click="getByCate(item.id)" ng-class="{active: activeCate == item.id}"><a>{{item.name}}</a> </li>
+            </ul>
+            <div class="tab-content">
+                <div role="tabpanel" class="tab-pane fade in active" id="intro">
+                    <div class="tab-inner clearfix">
+                        <div class="container-image clearfix">
+                            <div class="item">
+                                <img ng-src="/images/noimage.png" alt="section trắng">
+                                <div class="action-group clearfix"> <button class="btn btn-primary" ng-click="sectionTemplate.addBlank()">Sử dụng đoạn trắng </button> </div>
+                            </div>
+                            <div class="item" ng-repeat="item in templates">
+                                <img ng-src="{{item.thumbnail}}" alt="{{item.name}}">
+                                <div class="action-group clearfix">
+                                    <button class="btn btn-primary" ng-click="sectionTemplate.addSource(item.id)"> Sử dụng </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

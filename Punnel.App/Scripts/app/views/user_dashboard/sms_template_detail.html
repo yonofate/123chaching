@@ -1,0 +1,59 @@
+﻿
+<div class="main-dashboard" id="lead-dashboard" ng-controller="emailTemplateCtrl">
+    <div class="container">
+        <section class="dashboard-page" ng-init="initDetail(2)">
+            <md-content layout-padding>
+                <div>
+                    <form name="myForm" ng-submit="submitDetail()" novalidate>
+                        <md-radio-group class="email-type" ng-model="detail.sendFromType">
+                            <md-radio-button value="0" class="otp-first md-primary">Sử dụng sms hệ thống</md-radio-button>
+                            <md-radio-button ng-show="usersms.integration_sms.length>0" value="1" class="md-primary"> Sử dụng sms cá nhân</md-radio-button>
+                        </md-radio-group>
+
+                        <div layout="row" layout-wrap flex ng-show="detail.sendFromType==1">
+                            <div flex="30" ng-repeat="item in usersms.integration_sms">
+                                <md-checkbox class="md-primary" ng-checked="usersms.exists(item.id, usersms.selected)" ng-click="usersms.toggle(item.id, usersms.selected)">
+                                    {{ item.name }} <!--<span ng-if="usersms.exists(item.id, usersms.selected)">selected</span>-->
+                                </md-checkbox>
+                                <!--<md-input-container class="md-block">
+                                    <label>Tên người gửi</label>
+                                    <input name="sendName" type="text" ng-model="item.name" required>
+                                </md-input-container>-->
+                            </div>
+                        </div>
+
+                        <md-input-container class="md-block">
+                            <label>Tên template</label>
+                            <input tname="name" ype="text" ng-model="detail.name" placeholder="Mẫu Auto Sms 1" required>
+                        </md-input-container>
+                        <div layout="row">
+                            <div flex="70">
+                                <md-input-container class="md-block">
+                                    <label>Nội dung (dùng kí tự không dấu)</label>
+                                    <textarea ng-model="detail.bodyHtml" md-maxlength="160" rows="5" md-select-on-focus></textarea>
+                                </md-input-container>
+                            </div>
+                            <div flex="30" layout-padding>
+                                <div layout-gt-sm="row" ng-repeat="item in variants">
+                                    <md-input-container class="md-block" flex-gt-sm>
+                                        <label>Tên biến {{$index + 1}}</label>
+                                        <input ng-model="item.n" readonly>
+                                    </md-input-container>
+
+                                    <md-input-container class="md-block" flex-gt-sm>
+                                        <label>Giá trị</label>
+                                        <input ng-model="item.v" readonly>
+                                    </md-input-container>
+                                </div>
+                            </div>
+                        </div>
+                        <div layout="row">
+                            <md-button type="button" class="md-raised md-default" ui-sref="dashboard.autoResponder">Quay lại</md-button>
+                            <md-button type="submit" class="md-raised md-primary">Lưu</md-button>
+                        </div>
+                    </form>
+                    </div>
+                </md-content>
+</section>
+    </div>
+</div>

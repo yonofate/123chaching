@@ -1,0 +1,40 @@
+﻿<div class="dialog with-footer with-sidebar alternative modal templates active select-template fadeIn animated" ng-controller="managerTemplateCtr as managerTemplate">
+    <div class="header">
+        <div class="text" data-variation="inverted">{{NEW_LANGUAGE.SELECT_TEMPLATE|translate}}</div> <i class="material-icons right-modal" ng-click="closePage()">close</i>
+    </div>
+    <div class="row">
+        <div class="sidebar">
+            <h3>{{MORE_SHAPE_SETTING.LABEL_CATEGORIES|translate}}</h3>
+            <ul class="list category scrollbox col-250">
+                <li class="icon8-bg all-items" ng-click="loadAllTemplate($event);addClassActive($event)"><i class="material-icons left floated">chevron_right</i> <span>{{MORE_SHAPE_SETTING.LABEL_ALL_ITEM|translate}}</span> </li>
+                <li class="icon8-bg folder" ng-repeat="itemCate in itemsCategory" ng-click="loadTemplateByCate(itemCate.guid, $event);addClassActive($event)">{{itemCate.name}} </li>
+            </ul>
+        </div>
+        <div class="content">
+            <div class="control">
+                {{CUSTOM_TEMPLATE_MANAGE.INTRO|translate}}
+                <div class="right floated"> <input class="search-form" type="text" placeholder="Search..." ng-model="nameSearch" ng-change="searchTmp()"> </div>
+            </div>
+            <div class="list col-250 scrollbox listitemscroll" ng-mouseover="loadMoreItemLadipage()">
+                <div class="column" pn-add-active="blank" ng-click="setItemSelect(blank)" ng-dblclick="usingTemplate()">
+                    <div class="select"></div>
+                    <div class="overlay"></div> <img src="https://hstatic.punnel.com/default/thumbnail_ladipage_default.jpg" alt="template blank">
+                    <div class="detail"> <span class="name">{{CUSTOM_SECTION_WIDGET.LABEL_BLANK|translate}}</span> </div>
+                </div>
+                <div class="column searchladi" ng-repeat="item in itemsTemplate" pn-add-active="{{item.guid}}" ng-click="setItemSelect(item.guid)" ng-dblclick="usingTemplate()" pn-search-ladi="{{item.name}}">
+                    <div class="select"></div>
+                    <div class="overlay"></div> <img ng-src="{{item.thumbnail}}" alt="{{item.name}}">
+                    <div class="detail"> <span class="name">{{item.name}}</span> <span class="right floated more"><a href="{{urlStatic}}/{{item.path_html}}" target="_blank"><i class="material-icons right floated" title="Preview">visibility</i></a></span> </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="footer">
+        <!--a class="ui grey button" ng-click="closePage()">{{GENERAL_DIALOG_FORM.CANCEL|translate}}</a-->
+        <div class="right-modal"> <a class="ui button action" ng-click="usingTemplate()">{{GENERAL_DIALOG_FORM.CONTINUE|translate}}</a> </div>
+    </div>
+    <script>
+        var scroll = new OptionWiget();
+        scroll.scrollBox();
+    </script>
+</div>

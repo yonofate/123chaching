@@ -1,0 +1,29 @@
+﻿<md-dialog aria-label="alert mobile">
+    <md-toolbar>
+        <div class="md-toolbar-tools white">
+            <h2>Thông báo!</h2>
+            <span flex></span>
+            <md-button class="md-icon-button" ng-click="cancel()">
+                <i class="material-icons">close</i>
+            </md-button>
+        </div>
+    </md-toolbar>
+    <md-dialog-content>
+        <div class="md-dialog-content" style="min-width:400px;">
+            <div flex>
+                <p>Có vẻ giao diện moblie cho landing page của bạn vừa cập nhật một vài thay đổi.</p>
+                <p>Hãy xem lại một lần nữa trước khi xuất bản nhé!</p>
+                <p><a ng-click="showEditMobile()">Xem lại giao diện mobile của tôi</a></p>
+            </div>
+        </div>
+    </md-dialog-content>
+    <md-dialog-actions layout="row">
+        <span flex></span>
+        <md-button ng-click="showEditMobile()" class="md-raised md-primary">
+            Xem lại giao diện mobile của tôi
+        </md-button>
+        <md-button ng-click="continuePublish()" class="md-raised md-primary">
+            Tiếp tục
+        </md-button>
+    </md-dialog-actions>
+</md-dialog>

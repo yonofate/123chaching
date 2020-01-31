@@ -1,0 +1,29 @@
+﻿<md-dialog aria-label="popup config">
+    <md-toolbar>
+        <div class="md-toolbar-tools white">
+            <h2>Bản sao lưu</h2>
+            <span flex></span>
+            <md-button class="md-icon-button" ng-click="cancel()">
+                <i class="material-icons">close</i>
+            </md-button>
+        </div>
+    </md-toolbar>
+        <md-dialog-content style="width:500px; max-height:810px;" ng-init="init()">
+            <md-content class="md-padding">
+                <div style="margin-bottom:10px;" layout="row" ng-repeat="item in histories">
+                    <div flex="50" style="padding-top:10px;">
+                        <span>Bản {{$index + 1}}</span>: <b ng-bind="item.id"></b>
+                        <p style="font-size:11px;margin: -2px 0px 5px 0px;color: #aaa;"><md-icon style="font-size: 13px;color: #aaa;line-height: 22px;margin-right: -10px;" class="material-icons">access_time</md-icon> <span am-time-ago="item.savedDate"></span></p>
+                    </div>
+                    <div flex="50" layout-align="center center" layout-wrap>
+                        <md-button class="md-primary" ng-click="preview(item.id)">Xem</md-button>
+                        <md-button class="md-primary md-raised" ng-click="apply(item.id)">Sử dụng</md-button>
+                        <md-button class="md-warn md-raised" ng-click="remove(item.id)">Xóa</md-button>
+                    </div>
+                </div>
+                <div style="margin-top:10px;" layout="row">
+                    <p>Lưu ý: Mỗi Landing page chỉ cho phép lưu trữ lịch sử tối đa 5 thời điểm, nếu vượt thời điểm cũ nhất sẽ bị xóa</p>
+                </div>
+            </md-content>
+        </md-dialog-content>
+</md-dialog>

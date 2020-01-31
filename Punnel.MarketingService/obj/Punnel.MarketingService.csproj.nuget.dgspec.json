@@ -1,0 +1,386 @@
+{
+  "format": 1,
+  "restore": {
+    "C:\\Source\\yonofate\\punnel\\src\\Punnel.MarketingService\\Punnel.MarketingService.csproj": {}
+  },
+  "projects": {
+    "C:\\Source\\yonofate\\punnel\\src\\HaravanAPIAdapterLibrary\\HaravanAPIAdapterLibrary.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Source\\yonofate\\punnel\\src\\HaravanAPIAdapterLibrary\\HaravanAPIAdapterLibrary.csproj",
+        "projectName": "HaravanAPIAdapterLibrary",
+        "projectPath": "C:\\Source\\yonofate\\punnel\\src\\HaravanAPIAdapterLibrary\\HaravanAPIAdapterLibrary.csproj"
+      },
+      "frameworks": {
+        "net472": {}
+      }
+    },
+    "C:\\Source\\yonofate\\punnel\\src\\Integration\\Punnel.IntegrationServices.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Source\\yonofate\\punnel\\src\\Integration\\Punnel.IntegrationServices.csproj",
+        "projectName": "Punnel.IntegrationServices",
+        "projectPath": "C:\\Source\\yonofate\\punnel\\src\\Integration\\Punnel.IntegrationServices.csproj",
+        "frameworks": {
+          "net472": {
+            "projectReferences": {
+              "C:\\Source\\yonofate\\punnel\\src\\Punnel.Core.Entities\\Punnel.Core.Entities.csproj": {
+                "projectPath": "C:\\Source\\yonofate\\punnel\\src\\Punnel.Core.Entities\\Punnel.Core.Entities.csproj"
+              },
+              "C:\\Source\\yonofate\\punnel\\src\\Punnel.Core.Utils\\Punnel.Core.Utils.csproj": {
+                "projectPath": "C:\\Source\\yonofate\\punnel\\src\\Punnel.Core.Utils\\Punnel.Core.Utils.csproj"
+              }
+            }
+          }
+        }
+      },
+      "frameworks": {
+        "net472": {}
+      }
+    },
+    "C:\\Source\\yonofate\\punnel\\src\\Punnel.Core.BLL\\Punnel.Core.BLL.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Source\\yonofate\\punnel\\src\\Punnel.Core.BLL\\Punnel.Core.BLL.csproj",
+        "projectName": "Punnel.Core.BLL",
+        "projectPath": "C:\\Source\\yonofate\\punnel\\src\\Punnel.Core.BLL\\Punnel.Core.BLL.csproj",
+        "frameworks": {
+          "net472": {
+            "projectReferences": {
+              "C:\\Source\\yonofate\\punnel\\src\\Integration\\Punnel.IntegrationServices.csproj": {
+                "projectPath": "C:\\Source\\yonofate\\punnel\\src\\Integration\\Punnel.IntegrationServices.csproj"
+              },
+              "C:\\Source\\yonofate\\punnel\\src\\Punnel.Core.Entities\\Punnel.Core.Entities.csproj": {
+                "projectPath": "C:\\Source\\yonofate\\punnel\\src\\Punnel.Core.Entities\\Punnel.Core.Entities.csproj"
+              },
+              "C:\\Source\\yonofate\\punnel\\src\\Punnel.Core.IIS\\Punnel.Core.IIS.csproj": {
+                "projectPath": "C:\\Source\\yonofate\\punnel\\src\\Punnel.Core.IIS\\Punnel.Core.IIS.csproj"
+              },
+              "C:\\Source\\yonofate\\punnel\\src\\Punnel.Core.Model\\Punnel.Core.Model.csproj": {
+                "projectPath": "C:\\Source\\yonofate\\punnel\\src\\Punnel.Core.Model\\Punnel.Core.Model.csproj"
+              },
+              "C:\\Source\\yonofate\\punnel\\src\\Punnel.Core.Utils\\Punnel.Core.Utils.csproj": {
+                "projectPath": "C:\\Source\\yonofate\\punnel\\src\\Punnel.Core.Utils\\Punnel.Core.Utils.csproj"
+              },
+              "C:\\Source\\yonofate\\punnel\\src\\Punnel.CrawlData\\Punnel.CrawlData.csproj": {
+                "projectPath": "C:\\Source\\yonofate\\punnel\\src\\Punnel.CrawlData\\Punnel.CrawlData.csproj"
+              },
+              "C:\\Source\\yonofate\\punnel\\src\\Punnel.EmailServices\\Punnel.EmailServices.csproj": {
+                "projectPath": "C:\\Source\\yonofate\\punnel\\src\\Punnel.EmailServices\\Punnel.EmailServices.csproj"
+              },
+              "C:\\Source\\yonofate\\punnel\\src\\Punnel.FileServiceProxy\\Punnel.FileServiceProxy.csproj": {
+                "projectPath": "C:\\Source\\yonofate\\punnel\\src\\Punnel.FileServiceProxy\\Punnel.FileServiceProxy.csproj"
+              },
+              "C:\\Source\\yonofate\\punnel\\src\\Punnel.Haravan\\Punnel.HaravanService.csproj": {
+                "projectPath": "C:\\Source\\yonofate\\punnel\\src\\Punnel.Haravan\\Punnel.HaravanService.csproj"
+              },
+              "C:\\Source\\yonofate\\punnel\\src\\Punnel.SapoService\\Punnel.SapoService.csproj": {
+                "projectPath": "C:\\Source\\yonofate\\punnel\\src\\Punnel.SapoService\\Punnel.SapoService.csproj"
+              },
+              "C:\\Source\\yonofate\\punnel\\src\\Punnel.ShopifyService\\Punnel.ShopifyService.csproj": {
+                "projectPath": "C:\\Source\\yonofate\\punnel\\src\\Punnel.ShopifyService\\Punnel.ShopifyService.csproj"
+              }
+            }
+          }
+        }
+      },
+      "frameworks": {
+        "net472": {}
+      }
+    },
+    "C:\\Source\\yonofate\\punnel\\src\\Punnel.Core.Entities\\Punnel.Core.Entities.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Source\\yonofate\\punnel\\src\\Punnel.Core.Entities\\Punnel.Core.Entities.csproj",
+        "projectName": "Punnel.Core.Entities",
+        "projectPath": "C:\\Source\\yonofate\\punnel\\src\\Punnel.Core.Entities\\Punnel.Core.Entities.csproj",
+        "frameworks": {
+          "net472": {
+            "projectReferences": {
+              "C:\\Source\\yonofate\\punnel\\src\\Punnel.Core.Utils\\Punnel.Core.Utils.csproj": {
+                "projectPath": "C:\\Source\\yonofate\\punnel\\src\\Punnel.Core.Utils\\Punnel.Core.Utils.csproj"
+              }
+            }
+          }
+        }
+      },
+      "frameworks": {
+        "net472": {}
+      }
+    },
+    "C:\\Source\\yonofate\\punnel\\src\\Punnel.Core.IIS\\Punnel.Core.IIS.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Source\\yonofate\\punnel\\src\\Punnel.Core.IIS\\Punnel.Core.IIS.csproj",
+        "projectName": "Punnel.Core.IIS",
+        "projectPath": "C:\\Source\\yonofate\\punnel\\src\\Punnel.Core.IIS\\Punnel.Core.IIS.csproj",
+        "frameworks": {
+          "net472": {
+            "projectReferences": {
+              "C:\\Source\\yonofate\\punnel\\src\\Punnel.Core.Entities\\Punnel.Core.Entities.csproj": {
+                "projectPath": "C:\\Source\\yonofate\\punnel\\src\\Punnel.Core.Entities\\Punnel.Core.Entities.csproj"
+              },
+              "C:\\Source\\yonofate\\punnel\\src\\Punnel.Core.Utils\\Punnel.Core.Utils.csproj": {
+                "projectPath": "C:\\Source\\yonofate\\punnel\\src\\Punnel.Core.Utils\\Punnel.Core.Utils.csproj"
+              }
+            }
+          }
+        }
+      },
+      "frameworks": {
+        "net472": {}
+      }
+    },
+    "C:\\Source\\yonofate\\punnel\\src\\Punnel.Core.Model\\Punnel.Core.Model.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Source\\yonofate\\punnel\\src\\Punnel.Core.Model\\Punnel.Core.Model.csproj",
+        "projectName": "Punnel.Core.Model",
+        "projectPath": "C:\\Source\\yonofate\\punnel\\src\\Punnel.Core.Model\\Punnel.Core.Model.csproj",
+        "frameworks": {
+          "net472": {
+            "projectReferences": {
+              "C:\\Source\\yonofate\\punnel\\src\\Punnel.Core.Entities\\Punnel.Core.Entities.csproj": {
+                "projectPath": "C:\\Source\\yonofate\\punnel\\src\\Punnel.Core.Entities\\Punnel.Core.Entities.csproj"
+              }
+            }
+          }
+        }
+      },
+      "frameworks": {
+        "net472": {}
+      }
+    },
+    "C:\\Source\\yonofate\\punnel\\src\\Punnel.Core.Utils\\Punnel.Core.Utils.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Source\\yonofate\\punnel\\src\\Punnel.Core.Utils\\Punnel.Core.Utils.csproj",
+        "projectName": "Punnel.Core.Utils",
+        "projectPath": "C:\\Source\\yonofate\\punnel\\src\\Punnel.Core.Utils\\Punnel.Core.Utils.csproj"
+      },
+      "frameworks": {
+        "net472": {}
+      }
+    },
+    "C:\\Source\\yonofate\\punnel\\src\\Punnel.CrawlData\\Punnel.CrawlData.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Source\\yonofate\\punnel\\src\\Punnel.CrawlData\\Punnel.CrawlData.csproj",
+        "projectName": "Punnel.CrawlData",
+        "projectPath": "C:\\Source\\yonofate\\punnel\\src\\Punnel.CrawlData\\Punnel.CrawlData.csproj",
+        "frameworks": {
+          "net472": {
+            "projectReferences": {
+              "C:\\Source\\yonofate\\punnel\\src\\Punnel.Core.Entities\\Punnel.Core.Entities.csproj": {
+                "projectPath": "C:\\Source\\yonofate\\punnel\\src\\Punnel.Core.Entities\\Punnel.Core.Entities.csproj"
+              }
+            }
+          }
+        }
+      },
+      "frameworks": {
+        "net472": {}
+      }
+    },
+    "C:\\Source\\yonofate\\punnel\\src\\Punnel.EmailServices\\Punnel.EmailServices.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Source\\yonofate\\punnel\\src\\Punnel.EmailServices\\Punnel.EmailServices.csproj",
+        "projectName": "Punnel.EmailServices",
+        "projectPath": "C:\\Source\\yonofate\\punnel\\src\\Punnel.EmailServices\\Punnel.EmailServices.csproj",
+        "frameworks": {
+          "net472": {
+            "projectReferences": {
+              "C:\\Source\\yonofate\\punnel\\src\\Punnel.Core.Entities\\Punnel.Core.Entities.csproj": {
+                "projectPath": "C:\\Source\\yonofate\\punnel\\src\\Punnel.Core.Entities\\Punnel.Core.Entities.csproj"
+              }
+            }
+          }
+        }
+      },
+      "frameworks": {
+        "net472": {}
+      }
+    },
+    "C:\\Source\\yonofate\\punnel\\src\\Punnel.FileServiceProxy\\Punnel.FileServiceProxy.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Source\\yonofate\\punnel\\src\\Punnel.FileServiceProxy\\Punnel.FileServiceProxy.csproj",
+        "projectName": "Punnel.FileServiceProxy",
+        "projectPath": "C:\\Source\\yonofate\\punnel\\src\\Punnel.FileServiceProxy\\Punnel.FileServiceProxy.csproj",
+        "frameworks": {
+          "net472": {
+            "projectReferences": {
+              "C:\\Source\\yonofate\\punnel\\src\\Punnel.Core.Entities\\Punnel.Core.Entities.csproj": {
+                "projectPath": "C:\\Source\\yonofate\\punnel\\src\\Punnel.Core.Entities\\Punnel.Core.Entities.csproj"
+              },
+              "C:\\Source\\yonofate\\punnel\\src\\Punnel.Core.Utils\\Punnel.Core.Utils.csproj": {
+                "projectPath": "C:\\Source\\yonofate\\punnel\\src\\Punnel.Core.Utils\\Punnel.Core.Utils.csproj"
+              }
+            }
+          }
+        }
+      },
+      "frameworks": {
+        "net472": {}
+      }
+    },
+    "C:\\Source\\yonofate\\punnel\\src\\Punnel.Haravan\\Punnel.HaravanService.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Source\\yonofate\\punnel\\src\\Punnel.Haravan\\Punnel.HaravanService.csproj",
+        "projectName": "Punnel.HaravanService",
+        "projectPath": "C:\\Source\\yonofate\\punnel\\src\\Punnel.Haravan\\Punnel.HaravanService.csproj",
+        "frameworks": {
+          "net472": {
+            "projectReferences": {
+              "C:\\Source\\yonofate\\punnel\\src\\HaravanAPIAdapterLibrary\\HaravanAPIAdapterLibrary.csproj": {
+                "projectPath": "C:\\Source\\yonofate\\punnel\\src\\HaravanAPIAdapterLibrary\\HaravanAPIAdapterLibrary.csproj"
+              },
+              "C:\\Source\\yonofate\\punnel\\src\\Punnel.Core.Entities\\Punnel.Core.Entities.csproj": {
+                "projectPath": "C:\\Source\\yonofate\\punnel\\src\\Punnel.Core.Entities\\Punnel.Core.Entities.csproj"
+              }
+            }
+          }
+        }
+      },
+      "frameworks": {
+        "net472": {}
+      }
+    },
+    "C:\\Source\\yonofate\\punnel\\src\\Punnel.MarketingService\\Punnel.MarketingService.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Source\\yonofate\\punnel\\src\\Punnel.MarketingService\\Punnel.MarketingService.csproj",
+        "projectName": "Punnel.MarketingService",
+        "projectPath": "C:\\Source\\yonofate\\punnel\\src\\Punnel.MarketingService\\Punnel.MarketingService.csproj",
+        "packagesPath": "C:\\Users\\lam\\.nuget\\packages\\",
+        "outputPath": "C:\\Source\\yonofate\\punnel\\src\\Punnel.MarketingService\\obj\\",
+        "projectStyle": "PackageReference",
+        "skipContentFileWrite": true,
+        "configFilePaths": [
+          "C:\\Users\\lam\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net472"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net472": {
+            "projectReferences": {
+              "C:\\Source\\yonofate\\punnel\\src\\Punnel.Core.BLL\\Punnel.Core.BLL.csproj": {
+                "projectPath": "C:\\Source\\yonofate\\punnel\\src\\Punnel.Core.BLL\\Punnel.Core.BLL.csproj"
+              },
+              "C:\\Source\\yonofate\\punnel\\src\\Punnel.Core.Entities\\Punnel.Core.Entities.csproj": {
+                "projectPath": "C:\\Source\\yonofate\\punnel\\src\\Punnel.Core.Entities\\Punnel.Core.Entities.csproj"
+              }
+            }
+          }
+        }
+      },
+      "frameworks": {
+        "net472": {
+          "dependencies": {
+            "CommonServiceLocator": {
+              "target": "Package",
+              "version": "[1.3.0, )"
+            },
+            "EntityFramework": {
+              "target": "Package",
+              "version": "[6.0.0, )"
+            },
+            "HtmlAgilityPack": {
+              "target": "Package",
+              "version": "[1.6.10, )"
+            },
+            "Newtonsoft.Json": {
+              "target": "Package",
+              "version": "[10.0.1, )"
+            },
+            "RestSharp": {
+              "target": "Package",
+              "version": "[106.2.1, )"
+            },
+            "StructureMap": {
+              "target": "Package",
+              "version": "[4.5.0, )"
+            },
+            "log4net.ElasticSearch": {
+              "target": "Package",
+              "version": "[2.3.7, )"
+            }
+          }
+        }
+      },
+      "runtimes": {
+        "win": {
+          "#import": []
+        },
+        "win-x64": {
+          "#import": []
+        },
+        "win-x86": {
+          "#import": []
+        }
+      }
+    },
+    "C:\\Source\\yonofate\\punnel\\src\\Punnel.SapoService\\Punnel.SapoService.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Source\\yonofate\\punnel\\src\\Punnel.SapoService\\Punnel.SapoService.csproj",
+        "projectName": "Punnel.SapoService",
+        "projectPath": "C:\\Source\\yonofate\\punnel\\src\\Punnel.SapoService\\Punnel.SapoService.csproj",
+        "frameworks": {
+          "net472": {
+            "projectReferences": {
+              "C:\\Source\\yonofate\\punnel\\src\\Punnel.Core.Entities\\Punnel.Core.Entities.csproj": {
+                "projectPath": "C:\\Source\\yonofate\\punnel\\src\\Punnel.Core.Entities\\Punnel.Core.Entities.csproj"
+              },
+              "C:\\Source\\yonofate\\punnel\\src\\SapoAPIAdapterLibrary\\SapoAPIAdapterLibrary.csproj": {
+                "projectPath": "C:\\Source\\yonofate\\punnel\\src\\SapoAPIAdapterLibrary\\SapoAPIAdapterLibrary.csproj"
+              }
+            }
+          }
+        }
+      },
+      "frameworks": {
+        "net472": {}
+      }
+    },
+    "C:\\Source\\yonofate\\punnel\\src\\Punnel.ShopifyService\\Punnel.ShopifyService.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Source\\yonofate\\punnel\\src\\Punnel.ShopifyService\\Punnel.ShopifyService.csproj",
+        "projectName": "Punnel.ShopifyService",
+        "projectPath": "C:\\Source\\yonofate\\punnel\\src\\Punnel.ShopifyService\\Punnel.ShopifyService.csproj",
+        "frameworks": {
+          "net472": {
+            "projectReferences": {
+              "C:\\Source\\yonofate\\punnel\\src\\Punnel.Core.Entities\\Punnel.Core.Entities.csproj": {
+                "projectPath": "C:\\Source\\yonofate\\punnel\\src\\Punnel.Core.Entities\\Punnel.Core.Entities.csproj"
+              }
+            }
+          }
+        }
+      },
+      "frameworks": {
+        "net472": {}
+      }
+    },
+    "C:\\Source\\yonofate\\punnel\\src\\SapoAPIAdapterLibrary\\SapoAPIAdapterLibrary.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Source\\yonofate\\punnel\\src\\SapoAPIAdapterLibrary\\SapoAPIAdapterLibrary.csproj",
+        "projectName": "SapoAPIAdapterLibrary",
+        "projectPath": "C:\\Source\\yonofate\\punnel\\src\\SapoAPIAdapterLibrary\\SapoAPIAdapterLibrary.csproj"
+      },
+      "frameworks": {
+        "net472": {}
+      }
+    }
+  }
+}

@@ -1,0 +1,32 @@
+﻿<md-dialog aria-label="Change Url">
+    <md-toolbar>
+        <div class="md-toolbar-tools white">
+            <h2>Thay đổi Url xuất bản</h2>
+            <span flex></span>
+            <md-button class="md-icon-button" ng-click="cancel()">
+                <i class="material-icons">close</i>
+            </md-button>
+        </div>
+    </md-toolbar>
+    <form name="myForm" ng-submit="submit()">
+        <md-dialog-content>
+            <div class="md-dialog-content" style="min-width:400px;">
+                <div flex>
+                    <label ng-bind="baseUrl"></label>
+                    <md-input-container class="md-block">
+                        <input ng-model="url" autocomplete="off" md-autofocus required>
+                    </md-input-container>
+                </div>
+            </div>
+            <div style="padding:0px 25px 30px 25px;color:#666">
+                <span ng-bind="info">Lưu ý: URL chỉ cho phép kí tự a->z, 0->9 và dấu -</span>
+            </div>
+        </md-dialog-content>
+        <md-dialog-actions layout="row">
+            <span flex></span>
+            <md-button id="btn-sm" type="submit" class="md-raised md-primary">
+                Cập nhật
+            </md-button>
+        </md-dialog-actions>
+    </form>
+</md-dialog>

@@ -1,0 +1,38 @@
+﻿@model PagedList.IPagedList<Punnel.Core.Entities.ViewModel.TemplateListViewModel>
+@using PagedList.Mvc;
+
+<div class="theme-collection">
+    <div class="container">
+        @{ Html.RenderPartial("_SEO");}
+        <div class="row themes-list">
+            @foreach (var item in Model)
+            {
+                <div class="theme-item col-lg-4 col-md-4 col-sm-6 col-xs-12 product-loop-mb fixheight" style="height:278px;">
+                    <div class="image">
+                        <a class="loop-img" href="/mau-giao-dien/@item.Id" title="Mẫu landing page @item.Name">
+                            <img src="@item.Thumbnail" title="Mẫu landing page @item.Name" alt="@item.Name" class="img-responsive">
+                        </a>
+                    </div>
+                    <div class="details">
+                        <a href="/mau-giao-dien/@item.Id" class="clearfix">
+                            <h3 class="title">@item.Name</h3> 
+                        </a>
+                        <div class="actions">
+                            <a class=" btn-proloop view-demo" name="add" href="/mau-giao-dien/@item.Id" target="_blank">XEM THỰC TẾ</a>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+        <div class="clearfix"></div>
+        @if (Model.PageCount > 1)
+        {
+        <div class="pagination-themes text-center center-block">
+            <div class="pager">
+                @Html.PagedListPager(Model, page => Url.Action("Index", new { page = page }), PagedListRenderOptions.OnlyShowFivePagesAtATime)
+            </div>
+        </div>
+        }
+    </div>
+</div>
+

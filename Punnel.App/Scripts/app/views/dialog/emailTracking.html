@@ -1,0 +1,31 @@
+﻿<md-dialog aria-label="lead">
+    <md-toolbar>
+        <div class="md-toolbar-tools white">
+            <h2>Lịch sử gửi email</h2>
+            <span flex></span>
+            <md-button class="md-icon-button" ng-click="cancel()">
+                <i class="material-icons">close</i>
+            </md-button>
+        </div>
+    </md-toolbar>
+    <md-dialog-content ng-init="init()">
+        <div class="md-dialog-content" style="min-width:560px;max-height:600px;">
+            <table class="table table-striped nohead">
+                <thead>
+                    <tr>
+                        <td>Ngày gửi</td>
+                        <td>Ngày xem</td>
+                        <td>Mẫu email</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="item in tracks">
+                        <td><span am-time-ago="item.sendDate"></span></td>
+                        <td><span am-time-ago="item.readDate"></span></td>
+                        <td><span ng-bind="item.emailTemplateName"></span></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </md-dialog-content>
+</md-dialog>

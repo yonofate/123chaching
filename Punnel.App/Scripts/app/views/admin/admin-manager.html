@@ -1,0 +1,63 @@
+﻿<div id="wrapper" class="wrapper dashboard page-partner" ng-controller="managerUserCtr">
+    <header>
+        <div class="container">
+            <div class="user-setting">
+                <ul class="list-menu pull-left">
+                    <li class="dropdown" ng-class="{active: typeDropdown == '0'}" ng-if="roleAdmin == 'kinhdoanh' || roleAdmin == 'admin'" ng-mouseover="setActiveDrop('0')">
+                        <a>Kinh doanh</a>
+                        <ul class="submenu" ng-show="typeDropdown=='0'">
+                            <li ng-class="{active: type == 'xuat-file'}" ng-click="setActive('xuat-file', $event)"><a>Xuất file User</a></li>
+                            <li ng-class="{active: type == 'active-upgrade'}" ng-click="setActive('active-upgrade', $event)"><a>Nâng cấp tài khoản</a></li>
+                            <li ng-class="{active: type == 'ladiFillter'}" ng-click="setActive('ladiFillter', $event)"><a>Ladi Fillter</a></li>
+                        </ul>
+                    </li>
+                    <li class="dropdown" ng-class="{active: typeDropdown == '1'}" ng-if="roleAdmin == 'aff' || roleAdmin == 'admin'" ng-mouseover="setActiveDrop('1')">
+                        <a>Affiliate</a>
+                        <ul class="submenu" ng-show="typeDropdown=='1'">
+                            <li ng-class="{active: type == 'active-partner'}" ng-click="setActive('active-partner', $event)"><a>Active Affiliate</a></li>
+                            <li ng-class="{active: type == 'affInvoice'}" ng-click="setActive('affInvoice', $event)"><a>Affiliate Invoice</a></li>
+                            <li ng-class="{active: type == 'reportAff'}" ng-click="setActive('reportAff', $event)"><a>Báo cáo Affiliate</a></li>
+                        </ul>
+                    </li>
+                    <li class="dropdown" ng-class="{active: typeDropdown == '2'}" ng-if="roleAdmin == 'support' || roleAdmin == 'admin'" ng-mouseover="setActiveDrop('2')">
+                        <a>Chăm sóc</a>
+                        <ul class="submenu" ng-show="typeDropdown =='2'">
+                            <li ng-class="{active: type == 'change-email'}" ng-click="setActive('change-email', $event)"><a>Đổi Email</a></li>
+                            <li ng-class="{active: type == 'move-punnel'}" ng-click="setActive('move-punnel', $event)"><a>Di Chuyển Landing Page</a></li>
+                            <li ng-class="{active: type == 'khoiphuc'}" ng-click="setActive('khoiphuc', $event)"><a>Khôi phục Landing Page</a></li>
+                            <li ng-class="{active: type == 'deleteDomain'}" ng-click="setActive('deleteDomain', $event)"><a>Xóa domain</a></li>
+                        </ul>
+                    </li>
+                    <li class="dropdown" ng-class="{active: typeDropdown == '3'}" ng-mouseover="setActiveDrop('3')">
+                        <a>All</a>
+                        <ul class="submenu" ng-show=" typeDropdown= ='3'">
+                            <li ng-click="loginUser()"><a>Lấy password</a></li>
+                            <li ng-click="showGetInforByDomain()"><a>Lấy thông tin theo domain</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+            <h3>{{namePage}}</h3>
+        </div>
+    </header>
+    <div ui-view></div>
+    <!--start get infor by domain-->
+    <div class="modal fade container Custom-modal" id="elGetInforByDomain" role="dialog">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Lấy thông tin</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="tab-content">
+                        <form name="reFormLogIn">
+                            <div class="form-group clearfix"> <span class="your-main"> <label for="">Domain</label> <input type="text" name="" value="" placeholder="Nhập domain" ng-model="domainSearch" required> </span> </div>
+                            <div class="form-submit text-center"> <input class="btn-dang-nhap" type="submit" name="" value="Lấy thông tin" class="text-center clearfix" ng-click="getInforByDomain()"> </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

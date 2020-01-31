@@ -1,0 +1,66 @@
+﻿<div class="dialog with-footer alternative modal info payments-custom active fadeIn animated" ng-controller="paymentsCtr as payments">
+    <div class="header">
+        <div class="text">{{TOOLS.PAGE_SETTING|translate}}</div> <i class="material-icons right-modal" ng-click="close()">close</i>
+    </div>
+    <div class="content scrollbox">
+        <div class="row fourth columns">
+            <div class="one-fourth column">
+                <div class="title">Khuyến mại</div>
+            </div>
+            <div class="three-fourth column">
+                <div class="column">
+                    <!--div class="row" ng-repeat="itemPack in package">\n
+                           <input name="checkPack"  pn-name="{{itemPack.guid}}" type="radio" ng-click="selectPack($index)">\n                        <label>{{itemPack.name}}</label>\n                        <span>{{itemPack.price | currency::0}} VND</span>\n                    </div-->
+                    <div class="row"> <label>Nhập mã coupon (Nếu có)</label> <input type="text" placeholder="Mã khuyến mại" ng-model="coup"> <a class="ui button" ng-click="checkcoup()">Check</a> </div>
+                </div>
+            </div>
+        </div>
+        <div class="line"></div>
+        <div class="row fourth columns">
+            <div class="one-fourth column">
+                <div class="title">Tổng tiền</div>
+            </div>
+            <div class="three-fourth column">
+                <div class="row"> <label>{{totalPrice | currency::0}} VND</label> </div>
+            </div>
+        </div>
+        <!--Thanh toán-->
+        <div class="line"></div>
+        <div class="row two columns no-margin">
+            <div class="column">
+                <div class="title">Hình thức thanh toán</div>
+                <div class="group">
+                    <div class="row">
+                        <div class="ui inline input"> <input name="checkmethod" type="radio" ng-model="method" value="TK" ng-click="setMethod(TK)"> <label>Thanh toán bằng tiền trong tài khoản hệ thống</label> </div>
+                    </div>
+                    <div class="row">
+                        <div class="ui inline input"> <input name="checkmethod" type="radio" ng-model="method" value="ND" ng-click="setMethod(ND)"> <label>Thanh toán bằng thẻ ATM</label> </div>
+                        <div class="ui inline input"> <img src="../editor/css/img/bankND.png"></div>
+                    </div>
+                    <div class="row">
+                        <div class="ui inline input"> <input name="checkmethod" type="radio" ng-model="method" value="QT" ng-click="setMethod(QT)"> <label>Thanh toán bằng thẻ tín dụng</label> </div>
+                        <div class="ui inline input"> <img src="../editor/css/img/bankQT.png"></div>
+                    </div>
+                    <div class="row">
+                        <div class="ui inline input"> <input name="checkmethod" type="radio" ng-model="method" value="PAY" ng-click="setMethod(PAY)"> <label>Thanh toán bằng PayPal</label> </div>
+                        <div class="ui inline input"> <img src="../editor/css/img/bankpaypal.gif"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="column">
+                <div class="title">Bạn đọc kỹ các điều khoản thanh toán sau:</div>
+                <!-- Display only if want to change password -->
+                <div class="group">
+                    <div class="row"> <iframe src="views/manager_punnel/dieu_khoan_thanh_toan.html" frameborder="0" style="width: 100%; height: 150px"></iframe> </div>
+                    <div class="row">
+                        <div class="ui inline input"> <input type="checkbox" name="checkdoc" ng-click="setCheckdk(check,$event)"> <label>Tôi đã đọc và đồng ý với các điều khoản trên</label> </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="footer">
+        <!--a class="ui grey button" ng-click="close()">Hủy thanh toán</a-->
+        <div class="right-modal"> <a class="ui button action" ng-click="update()">Thanh toán</a> </div>
+    </div>
+</div>

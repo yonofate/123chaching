@@ -1,0 +1,31 @@
+﻿<div class="main-dashboard" id="integration-dashboard" ng-controller="integrationDashboardCtr"  ng-init="getAll()">
+    <div class="container">
+        <div ng-repeat="site in integrationSites.sites" class="table-punner">
+            <div class="row-header-integration row">
+                <div class="col-md-8 col-left">
+                    <img height="30" width="30" style="" ng-src="https://hstatic.punnel.com/img/icon/icon-{{site.name}}.png">
+                    <div class="site-name">
+                        <h3 ng-bind="site.name"></h3>
+                        <p><span ng-bind-html="site.notes"></span></p>
+                    </div>
+                </div>
+                <div class="col-md-4 col-right">
+                    <md-button class="md-raised md-primary" ng-click="showApiConnect(site,$index)">Thêm mới</md-button>
+                </div>
+            </div>
+            <div class="wrap-child  row-integration row" ng-repeat="item in integrationSites.accs | filter:{domain:site.domain}">
+                <div class="col-md-7 col-left">
+                    <img height="16" width="16"src="//www.google.com/s2/favicons?domain={{item.domain}}">
+                    <span class="item-connected"><span ng-bind="item.email"></span><span ng-bind="item.data"></span></span>
+                </div>
+                <div class="col-md-5 col-right">
+                    <span style="display:inline-block" ng-show="item.isExpired==true" tooltips tooltip-template="kết nối đã hết hạn"><md-icon style="color:#d9534f" class="material-icons">warning</md-icon></span>
+                    <md-button id="btn-{{item.integrationId}}" class="md-raised" ng-show="item.connected" ng-click="refresh(item)"><md-icon class="material-icons">refresh</md-icon></md-button>
+                    <md-button class="md-raised" ng-click="disconnect(item,$index)">Hủy</md-button>
+                    <md-button class="md-raised md-primary" ng-show="!item.connected" ng-click="showApiConnect(item,$index)">Kết nối</md-button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

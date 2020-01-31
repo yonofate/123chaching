@@ -1,0 +1,69 @@
+﻿<div id="wrapper" class="wrapper signup-page" ng-controller="completeregisterCtrl">
+    <div id="content" class="container signup clearfix complete-register">
+        <div class="form-user clearfix">           
+            <div class="modal-login modal-signup clearfix">
+                <div class="form-action">
+                    <div class="form-login form-signup">
+                        <div class="logo clearfix"> <img src="images/logo-full-color.png" alt="image1"> </div>
+                        <h3 class="title-login"> Hoàn tất đăng ký </h3>
+                        <form class="cd-form floating-labels" name="frmSignup" ng-submit="updateRegister()" novalidate>
+                            <div layout="row" style="margin-top:35px;">
+                                <md-input-container flex="100">
+                                    <label>Email</label>
+                                    <input type="email" required name="email" ng-model="user.Email" ng-disabled="disableEmail">
+                                    <div ng-messages="frmSignup.email.$error">
+                                        <div ng-message="required">Vui lòng nhập email</div>
+                                        <div ng-message="pattern">Vui lòng nhập email hợp lệ</div>
+                                    </div>
+                                </md-input-container>
+                            </div>
+
+                            <div layout="row">
+                                <md-input-container flex="100">
+                                    <label>Họ tên</label>
+                                    <input required md-no-asterisk type="text" maxlength="50" minlength="6" name="fullName" ng-model="user.FullName" autocomplete="off">
+                                    <div ng-messages="frmSignup.fullName.$error">
+                                        <div ng-message="required">Vui lòng nhập họ tên</div>
+                                        <div ng-message-exp="['minlength', 'maxlength']">Họ tên có độ dài từ 6 đến 50 kí tự</div>
+                                    </div>
+                                </md-input-container>
+                            </div>
+
+                            <div layout="row">
+                                <md-input-container flex="100">
+                                    <label>Số điện thoại</label>
+                                    <input required type="text" ng-pattern="/^(03|05|07|08|09)[0-9]{8}$/" name="mobile" ng-model="user.Mobile" autocomplete="off">
+                                    <div ng-messages="frmSignup.mobile.$error">
+                                        <div ng-message="required">Vui lòng nhập số điện thoại</div>
+                                        <div ng-message="pattern">Vui lòng nhập số điện thoại hợp lệ</div>
+                                    </div>
+                                </md-input-container>
+                            </div>
+
+                            <div layout="row">
+                                <md-input-container flex="100">
+                                    <label>Mật khẩu</label>
+                                    <input required type="password" maxlength="30" minlength="6" name="password" ng-model="user.Password" autocomplete="new-password">
+                                    <div ng-messages="frmSignup.password.$error">
+                                        <div ng-message="required">Vui lòng nhập mật khẩu</div>
+                                        <div ng-message-exp="['minlength', 'maxlength']">Mật khẩu có độ dài từ 6 đến 30 kí tự</div>
+                                    </div>
+                                </md-input-container>
+                            </div>
+                            <div layout="row">
+                                <md-input-container class="md-block">
+                                    <md-checkbox class="md-primary" name="allowCallback" ng-model="user.allowCallback">
+                                        Gọi tư vấn cho tôi
+                                    </md-checkbox>
+                                </md-input-container>
+                                </div>
+                                <div layout="row">
+                                    <md-button id="btn-sm" ng-disabled="frmSignup.$valid==false" type="submit" flex="100" class="md-raised md-primary">Đăng kí</md-button>
+                                </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

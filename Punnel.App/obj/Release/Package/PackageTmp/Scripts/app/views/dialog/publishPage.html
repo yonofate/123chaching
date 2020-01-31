@@ -1,0 +1,133 @@
+﻿<md-dialog aria-label="Xuất bản">
+    <md-dialog-content style="min-width:750px; max-width:800px;max-height:810px;">
+        <md-tabs md-dynamic-height md-border-bottom md-selected="tabIndex">
+            <md-tab label="Landing page xuất bản">
+                <md-content class="md-padding">
+                    <div flex layout="row" layout-align="center center">
+                        <h3>Xuất bản Landing Page thành công!</h3>
+                    </div>
+                    <div flex layout="row" layout-align="center center" style="border:dotted 1px #ccc;margin:30px;">
+                        <md-button layout-align="center center" class="md-primary" ng-href="{{domainPreview}}" target="_blank"><md-icon class="material-icons">link</md-icon>{{domainPreview}}</md-button>
+                    </div>
+                </md-content>
+            </md-tab>
+
+            <md-tab label="Cấu hình tên miền" ng-init="initDomains()">
+                <md-content class="md-padding">
+                    <div>
+                        <p>Xuất bản Landing Page với tên miền riêng. <a target="_blank" ui-sref="dashboard.domain">Thêm tên miền mới</a></p>
+                    </div>
+                    <div ng-if="domains.length>0">
+                        <form name="myForm1" ng-submit="choose()">
+                            <div layout="row" flex>
+                                <md-input-container flex>
+                                    <label>Chọn tên miền</label>
+                                    <md-select aria-label="loại" ng-model="data.domainid" md-auto-focus required>
+                                        <md-option ng-repeat="item in domains" ng-value="item.id">
+                                            {{item.dns}}
+                                        </md-option>
+                                    </md-select>
+                                </md-input-container>
+                                <md-input-container flex class="md-block">
+                                    <label>Đường dẫn (để trống nếu không cần)</label>
+                                    <input placeholder="khuyen-mai" ng-model="data.urlcode">
+                                </md-input-container>
+                                <md-input-container class="md-block">
+                                    <md-button id="btn-sm" ng-disabled="myForm1.$valid==false" type="submit" layout-align="end center" class="md-raised md-primary">
+                                        Ok
+                                    </md-button>
+                                </md-input-container>
+                            </div>
+                            </form>
+                    </div>
+                    <div ng-if="opt.add==true">
+                        <form name="myForm2" ng-submit="add()">
+                            <div flex layout-align="center center" style="width:100%;">
+                                <p class="your-main"> Lưu ý: </p>
+                                <p class="your-main"> 1. Trỏ <b>A</b> của tên miền về địa chỉ Ip: <b>103.92.28.60</b> ( <a class="link" target="_blank" href="https://support.punnel.com/article/29-huong-dan-cau-hinh-subdomain-cho-landing-page">Xem hướng dẫn</a> ) </p>
+                                <p>
+                                    <span class="your-main"> 2. Tên miền chính (ví dụ: abc.com) </span> hoặc <span class="your-main"> tên miền phụ (subdomain) (ví dụ: khuyenmai.abc.com) </span>
+                                </p>
+                            </div>
+                            <div flex layout="row" layout-align="center center" style="width:100%;padding-top:30px;border-top:dotted 1px #ccc;">
+
+                                <md-input-container flex class="md-block">
+                                    <label>Tên miền (Domain)</label>
+                                    <input required pattern="[a-z0-9.-]+\.[a-z]{2,}$" ng-model="data.domainNew">
+                                </md-input-container>
+                                <md-button id="btn-sm" ng-disabled="myForm2.$valid==false" layout-align="center end" class="md-raised md-primary">Cập nhật</md-button>
+                            </div>
+                        </form>
+                    </div>
+                </md-content>
+            </md-tab>
+            <md-tab label="Xuất bản ứng dụng khác">
+                <md-content class="md-padding">
+                    <div>
+                        <p>Xuất bản Landing Page lên website Wordpress, Shopify, Haravan, Sapo. <a target="_blank" ui-sref="dashboard.integration">Thêm cấu hình website mới</a></p>
+                    </div>
+                    <div ng-if="pages3rd.length>0">
+                        <form name="myForm" ng-submit="publish3rd()">
+                            <div layout="row" flex>
+                                <md-input-container flex>
+                                    <label>Chọn website của bên thứ 3</label>
+                                    <md-select aria-label="domain" ng-model="data3rd.integrationId" required>
+                                        <md-option ng-repeat="item in pages3rd" ng-value="item.id">
+                                            [{{item.siteName}}] {{item.accId}}
+                                        </md-option>
+                                    </md-select>
+                                </md-input-container>
+                                </div>
+                                <div layout="row" flex>
+                                    <md-input-container flex class="md-block">
+                                        <label>Đường dẫn</label>
+                                        <input pattern="^[A-z0-9-]*(-)*$" ng-model="data3rd.pathUrl" placeholder="ex: san-pham-a" required>
+                                    </md-input-container>
+                                    <md-input-container class="md-block">
+                                        <md-button type="submit" id="btn-sm" ng-disabled="myForm.$valid==false" layout-align="end center" class="md-raised md-primary">
+                                            Ok
+                                        </md-button>
+                                    </md-input-container>
+                                </div>
+                        </form>
+                    </div>
+                </md-content>
+            </md-tab>
+
+            <md-tab label="Campaign URL Builder">
+                <md-content class="md-padding">
+                    <div layout="row">
+                        <md-input-container class="md-block" flex="33">
+                            <label>Campaign Source</label>
+                            <input required ng-model="utm.source" ng-change="createUtm()">
+                        </md-input-container>
+                        <md-input-container class="md-block" flex="33">
+                            <label>Campaign Medium</label>
+                            <input ng-model="utm.medium" ng-change="createUtm()">
+                        </md-input-container>
+                        <md-input-container class="md-block" flex="33">
+                            <label>Campaign Campain</label>
+                            <input ng-model="utm.campain" ng-change="createUtm()">
+                        </md-input-container>
+                    </div>
+                    <div layout="row">
+                        <md-input-container class="md-block" flex="50">
+                            <label>Campaign Term</label>
+                            <input ng-model="utm.term" ng-change="createUtm()">
+                        </md-input-container>
+
+                        <md-input-container class="md-block" flex="50">
+                            <label>Campaign Content</label>
+                            <input ng-model="utm.content" ng-change="createUtm()">
+                        </md-input-container>
+                    </div>
+                    <md-input-container class="md-block" style="margin-bottom:-5px;">
+                        <label>Link tracking =></label>
+                        <textarea id="utm_link" select-on-click readonly aria-label="link tracking" ng-model="utm.link" rows="2"></textarea>
+                    </md-input-container>
+                    <button ng-if="utm.link.length>0" ngclipboard data-clipboard-target="#utm_link" class="btn btn-primary" ng-click="copyLink()">Copy link</button>
+                </md-content>
+            </md-tab>
+        </md-tabs>
+    </md-dialog-content>
+</md-dialog>

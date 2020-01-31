@@ -1,0 +1,10 @@
+﻿<div id="content" class="container clearfix" ng-controller="khoiphucCtrl">
+    <div class="search-title">
+        <div class="group clearfix">
+            <div class="box-group"> <span>Email</span> <input type="text" ng-model="emailForm"> </div>
+            <div class="box-group"> <span>ID Landing Page</span> <input type="text" ng-model="IDLadi"> </div>
+            <div class="box-group"> <button ng-click="applyDone()">Khôi phục Landing Page</button> </div>
+            <div class="box-group" style="width: 100%; height: 300px"> <span>Source</span> <textarea ng-keyup="changeSource($event)" ng-mouseup="changeSource($event)" style="width:100%; height: 100%">{{source}}</textarea> </div>
+        </div>
+    </div>
+</div>

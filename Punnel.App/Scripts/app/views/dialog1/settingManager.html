@@ -1,0 +1,74 @@
+﻿<div class="container modal-w-60-percent" id="settingPage">
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" ng-click="close()">&times;</button>
+        <h4 class="modal-title">Cài đặt trang</h4>
+    </div>
+    <div class="modal-body">
+        <ul class="nav nav-pills" role="tablist" class="myTab" id="tabSettingPage">
+            <li class="active" role="presentation" ng-class="{active: typeSt=='setting-page'}"><a ng-click="setActive('setting-page')">Cấu hình SEO</a> </li>
+            <!--<li role="presentation" ng-class="{active: typeSt == 'setting-css'}"><a ng-click="setActive('setting-css')">Thêm mã vào đầu trang</a></li>-->
+            <li role="presentation" ng-class="{active: typeSt == 'setting-messenger'}"><a ng-click="setActive('setting-messenger')">Cấu hình Facebook messenger</a>
+            <li role="presentation" ng-class="{active: typeSt == 'setting-tracking'}"><a ng-click="setActive('setting-tracking')">Tracking trang</a> </li>
+
+        </ul>
+        <div class="tab-content">
+            <div role="tabpanel" class="tab-pane fade in active" id="setting-page" ng-class="{active: typeSt == 'setting-page'}">
+                <div class="form-group clearfix"> <label>Tiêu đề trang</label> <span class="your-main"> <input type="text" name="" value="" placeholder="Đặt tiêu đề trang" ng-model="title"> </span> </div>
+                <div class="form-group clearfix"> <label>Mô tả trang</label> <span class="your-main"> <textarea rows="5" placeholder="Miêu tả trang" ng-model="pageDesc">{{pageDesc}}</textarea> </span> </div>
+                <div class="form-group clearfix"> <label>Từ khóa về trang</label> <span class="your-main"> <input type="text" name="" value="" placeholder="Từ khóa về trang" ng-model="keyword"> </span> </div>
+                <div class="form-group clearfix"> <label>Hình ảnh khi chia sẻ</label> <span> <img ng-src="{{imagePage || 'images/noimage.png'}}" alt="image1" class="image-page"> <a ng-click="showimage('image-share')"> Thay Đổi</a> </span> </div>
+                <div class="form-group clearfix group-image"> <label>Hình ảnh favicon</label> <span class="box-image"> <img ng-src="{{imagefavicon || 'images/noimage.png'}}" alt="image1" class="image-favicon"> <a ng-click="showimage('favicon')"> Thay Đổi</a> </span> </div>
+            </div>
+            <div role="tabpanel" class="tab-pane" id="setting-tracking" ng-class="{active: typeSt == 'setting-tracking'}">
+                <div class="form-group clearfix">
+                    <label>Google Tag ID</label>
+                    <div class="your-main"> <input type="text" ng-model="idgoogletag"> </div>
+                </div>
+                <div class="form-group clearfix">
+                    <label>Facebook Pixel ID</label>
+                    <div class="your-main"> <input type="text" ng-model="idpixel"> </div>
+                </div>
+                <div class="form-group clearfix">
+                    <label>Google Analytics ID</label>
+                    <div class="your-main"> <input type="text" ng-model="idanalytics"> </div>
+                </div>
+                <div class="form-group clearfix">
+                    <p>Chèn script vào thẻ &lt;&frasl;HEADER&gt;</p>
+                    <div class="boder-style width-250 dropdown-option-code">
+                        <ul class="choose-border list-menu opition-fonts box-border clearfix">
+                            <li class="dropdown">
+                                <div>Gợi ý mã theo dõi sự kiện mẫu</div> <i class="ion-arrow-down-b"></i>
+                                <ul class="submenu value-border">
+                                    <li ng-repeat="itemTrPa in itemTracksPage" ng-click="addTrackingPage($index)"><a>{{itemTrPa.name}}</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="your-main">
+                        <div id="editor-custom-header"> <textarea></textarea> </div>
+                    </div>
+                </div>
+            </div>
+
+            <div role="tabpanel" class="tab-pane" id="setting-page" ng-class="{active: typeSt == 'setting-messenger'}">
+                <select data-placeholder-text-single="'Chọn trang cấu hình'" chosen
+                        search-contains="true"
+                        ng-model="fanPageId"
+                        name="crPage"
+                        ng-model-options="{ getterSetter: true }"
+                        ng-required="true"
+                        no_results_text="'Chọn trang cấu hình'"
+                        ng-change="chooseFanPage()"
+                        ng-options="item.id as item.name for item in fanpages" style="width:250px;">
+                    <option></option>
+                </select>
+                <div class="form-group clearfix">
+                    <div class="your-main">
+                        <div id="editor-custom-body"> <textarea></textarea> </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal-footer"> <button type="button" class="btn btn-primary" ng-click="updatePage()">Sử dụng</button> </div>
+</div>

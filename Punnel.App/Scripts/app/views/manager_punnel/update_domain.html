@@ -1,0 +1,14 @@
+﻿<div class="dialog small modal info page-title-setting active fadeIn animated" ng-controller="updatedomainCtr as updatedomain">
+    <div class="header">
+        <div class="text" translate="CUSTOM_DOMAIN.TITLE_SETTING"></div> <i class="material-icons right-modal" ng-click="closeNew()">close</i>
+    </div>
+    <div class="content">
+        <p id="ngdialog3-aria-describedby" translate="CUSTOM_SUBDOMAIN.INTRO"></p>
+        <div class="row">
+            <div class="ui inline input"> <input type="text" name="page-title" placeholder="{{CUSTOM_SUBDOMAIN.PLACOHLDER|translate}}" style="width: 100%" ng-model="domain"> </div>
+        </div>
+    </div>
+    <div class="footer">
+        <div class="right-modal"> <a class="ui button action" ng-click="updatedomain()" translate="GENERAL_DIALOG_FORM.DONE"></a> </div>
+    </div>
+</div>

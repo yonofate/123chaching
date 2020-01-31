@@ -1,0 +1,41 @@
+﻿<md-dialog aria-label="Chuyển nhóm">
+    <md-toolbar>
+        <div class="md-toolbar-tools white">
+            <h2>Phân quyền chăm sóc khách hàng</h2>
+            <span flex></span>
+            <md-button class="md-icon-button" ng-click="cancel()">
+                <i class="material-icons">close</i>
+            </md-button>
+        </div>
+    </md-toolbar>
+    <form name="myForm" ng-submit="submit()">
+        <md-dialog-content style="min-width:400px;">
+            <div class="md-dialog-content">
+                <div flex>
+                    <md-input-container flex="100" style="width:100%;">
+                        <label>Khách hàng</label>
+                        <input ng-model="customer.email" autocomplete="off" disabled>
+                    </md-input-container>
+
+                    <fieldset class="standard filter-template">
+                        <label>Người chăm sóc</label>
+                        <div class="filters" layout-wrap flex style="width:400px;" ng-init="init()">
+                            <label ng-repeat="item in staff.options" class="checkbox" style="width:200px;">
+                                <input type="checkbox" checklist-model="staff.selecteds" checklist-value="item.id">
+                                <i class="c-mark__icon c-mark__icon--checkbox material-icons" style="margin-right:5px;">check</i>
+                                <span ng-bind="item.fullName"></span>
+                            </label>
+                        </div>
+                    </fieldset>
+                </div>
+            </div>
+
+        </md-dialog-content>
+        <md-dialog-actions layout="row">
+            <span flex></span>
+            <md-button id="btn-sm" ng-disabled="myForm.$valid==false" type="submit" class="md-raised md-primary">
+                Cập nhật
+            </md-button>
+        </md-dialog-actions>
+    </form>
+</md-dialog>

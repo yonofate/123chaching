@@ -1,0 +1,11 @@
+C:\Source\yonofate\punnel\src\Punnel.Core.Utils\bin\Release\Punnel.Core.Utils.dll
+C:\Source\yonofate\punnel\src\Punnel.Core.Utils\bin\Release\Punnel.Core.Utils.pdb
+C:\Source\yonofate\punnel\src\Punnel.Core.Utils\bin\Release\log4net.dll
+C:\Source\yonofate\punnel\src\Punnel.Core.Utils\bin\Release\log4net.ElasticSearch.dll
+C:\Source\yonofate\punnel\src\Punnel.Core.Utils\bin\Release\log4net.xml
+C:\Source\yonofate\punnel\src\Punnel.Core.Utils\bin\Release\log4net.ElasticSearch.pdb
+C:\Source\yonofate\punnel\src\Punnel.Core.Utils\obj\Release\Punnel.Core.Utils.csprojAssemblyReference.cache
+C:\Source\yonofate\punnel\src\Punnel.Core.Utils\obj\Release\Punnel.Core.Utils.csproj.CoreCompileInputs.cache
+C:\Source\yonofate\punnel\src\Punnel.Core.Utils\obj\Release\Punnel.Core.Utils.csproj.CopyComplete
+C:\Source\yonofate\punnel\src\Punnel.Core.Utils\obj\Release\Punnel.Core.Utils.dll
+C:\Source\yonofate\punnel\src\Punnel.Core.Utils\obj\Release\Punnel.Core.Utils.pdb

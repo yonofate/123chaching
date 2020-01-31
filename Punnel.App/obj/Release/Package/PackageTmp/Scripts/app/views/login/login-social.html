@@ -1,0 +1,53 @@
+﻿<div id="wrapper" class="wrapper signup-page" ng-controller="loginSocialCtrl">
+    <div id="content" class="container signup clearfix">
+        <div class="form-user clearfix">
+            <div class="modal-login modal-signup clearfix">
+                <div class="form-action">
+                    <div class="form-login form-signup">
+                        <div class="logo clearfix"> <img src="images/logo-full-color.png" alt="punnel"> </div>
+                        <div class="login-fb clearfix">
+                            <md-button class="social-btn md-raised md-primary md-hue-2" ng-click="registerFacebook()">
+                                <md-icon md-svg-icon="../../../../Contents/img/btn_facebook_icon.svg" aria-label="facebook"></md-icon> Đăng nhập với Facebook
+                            </md-button>
+                            <md-button class="social-btn md-raised" ng-click="registerGoogle()">
+                                <md-icon md-svg-icon="../../../../Contents/img/btn_google_icon.svg" aria-label="google"></md-icon> Đăng nhập với Google
+                            </md-button>
+                            <md-button class="social-btn md-raised md-primary md-hue-6" ng-click="registerZalo()">
+                                <md-icon md-svg-icon="../../../../Contents/img/btn_zalo_icon.svg" aria-label="zalo"></md-icon> Đăng nhập với Zalo
+                            </md-button>
+                        </div>
+                        <form class="cd-form floating-labels" name="FormLogIn" novalidate ng-submit="submit()">
+                            <div layout="row" style="margin-top:35px;">
+                                <md-input-container flex="100">
+                                    <label>Email/Số điện thoại</label>
+                                    <input type="text" required name="userName" ng-model="account.userName">
+                                    <div ng-messages="FormLogIn.userName.$error">
+                                        <div ng-message="required">Vui lòng nhập email hoặc số điện thoại</div>
+                                    </div>
+                                </md-input-container>
+                            </div>
+                            <div layout="row">
+                                <md-input-container flex="100">
+                                    <label>Mật khẩu</label>
+                                    <input required type="password" name="password" ng-model="account.password">
+                                    <div ng-messages="FormLogIn.password.$error">
+                                        <div ng-message="required">Vui lòng nhập mật khẩu</div>
+                                    </div>
+                                </md-input-container>
+                            </div>
+                            <div layout="row">
+                                <md-button id="btn-sm" type="submit" flex="100" class="btn-login md-raised md-primary">Đăng nhập</md-button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="bottomlinks clearfix">
+                <div class="link">
+                    <p><a ui-sref="auth.forgotpass" class="forgotPassword text-center">Quên mật khẩu?</a></p>
+                    <p>Chưa có tài khoản ? <md-button type="button" ng-click="goRegister()"  class="btn-login md-primary">Đăng kí ngay!</md-button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

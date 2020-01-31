@@ -1,0 +1,37 @@
+﻿<div id="preview_punnel" ng-controller="previewTemplateCtrl" class="ng-scope">
+    <header>
+        <div class="close">
+            <a ng-click="goBack()"><md-icon class="material-icons">close</md-icon></a>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-3">
+                    <div class="logo"><a ng-click="goBack()"><img src="images/logo-white-color.svg" alt="logo-punnel"></a></div>
+                </div>
+                <div class="col-sm-9 user-setting user-view">
+                    <ul class="list-menu pull-right">
+                        <li ng-if="isTemplate==true"><label class="template-status template-status-{{status}}" ng-bind="statusName"></label></li>
+                        <li ng-click="previewDesktop()"><a><i class="material-icons">desktop_mac</i> &nbsp; <span></span></a></li>
+                        <li ng-click="previewMobile()"><a><i class="material-icons">phone_iphone</i> &nbsp <span></span></a></li>
+                        <li ng-if="cando.apply==true" ng-click="applyTemplate(data)"><a class="button">Sử dụng theme</a></li>
+                        <li ng-if="cando.edit==true"><a ui-sref="editor({type:'t',id: data.origin_template})" class="button">Chỉnh sửa</a></li>
+                        <li ng-if="cando.submit==true" ng-click="submitTemplate()"><a class="button">Gửi duyệt</a></li>
+                        <li ng-if="cando.approve==true" ng-click="approveTemplate()"><a class="button">Duyệt</a></li>
+                        <li ng-if="cando.cancel==true" ng-click="cancelTemplate()"><a class="button">Hủy Duyệt</a></li>
+                        <li ng-if="cando.reject==true" ng-click="rejectTemplate()"><a class="button">Từ chối</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="row" ng-if="cando.showNote==true">
+                <div class="col-sm-12 template-status-note">
+                    <span>Lý do từ chối: </span> <span class="msg-note" ng-bind="data.note"></span>
+                </div>
+            </div>
+        </div>
+    </header>
+    <div id="preview_container" ng-init="initTemplatePage()">
+        <div id="punnel-editor">
+        </div>
+    </div>
+</div>
+

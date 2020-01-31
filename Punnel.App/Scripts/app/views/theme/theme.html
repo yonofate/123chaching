@@ -1,0 +1,37 @@
+﻿<section class="new-landipage" ng-controller="themesLadipageCtr">
+    <div class="container">
+        <div class="row">
+            <div class="tab-content">
+                <nav class="navbar navbar-default" role="navigation">
+                    <div class="container-fluid">
+                        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1" ng-show="role == 'editor'">
+                            <ul>
+                                <li class="active" ng-click="getTemplateByCategory('all');allCategories = true" ng-class="(classCategoryActive === '') ? 'active' : ''"> <a href="">Tất cả</a> </li>
+                                <li ng-click="getTemplateByCategory(c.id)" ng-repeat="c in categories | orderBy:'No'" ng-class="(classCategoryActive === c.id) ? 'active' : ''"> <a href="">{{c.name}} <span class="count" ng-if="c.count != '0'">{{c.count}}</span> </a> </li>
+                            </ul>
+                        </div>
+                        <!-- /.navbar-collapse -->
+                    </div>
+                    <!-- /.container-fluid -->
+                </nav>
+            </div>
+            <div class="tab-content-inner">
+                <div class="content-inner clearfix">
+                    <div class="col-sm-4 col-md-4 col-xs-6" ng-repeat="t in templates">
+                        <div class="box-inner clearfix">
+                            <div class="box-image">
+                                <img ng-src="{{t.thumbnail || 'images/noimage.png'}}" alt="{{t.name}}">
+                                <div class="action-group clearfix">
+                                    <button class="btn btn-primary" ng-click="createProject(t.id)">Sử dụng</button>
+                                    <div class="btn btn-primary" data-href="{{urlPreview + t.id}}" ng-click="preview(urlPreview + t.id, t.id,t.domain)">Xem trước </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="title-landi"> {{t.name}} </div>
+                    </div>
+                    <div class="upload-img col-md-12 col-xs-12" ng-if="checkLoad == true"> <button class="btn btn-primary" ng-click="loadmore()">Xem thêm</button> </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

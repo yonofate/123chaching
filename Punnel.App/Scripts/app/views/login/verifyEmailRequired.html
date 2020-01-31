@@ -1,0 +1,22 @@
+﻿<div id="wrapper" class="wrapper signup-page" ng-controller="menuCtr" ng-init="checkVerifyEmail()">
+    <div id="content" class="container signup clearfix complete-register">
+        <div class="form-user clearfix">           
+            <div class="modal-login modal-signup clearfix">
+                <div class="form-action">
+                    <div class="form-login form-signup">
+                        <div class="logo clearfix"> <img src="images/logo-full-color.png" alt="image1"> </div>
+                        <h3 class="title-login"> Xác thực tài khoản </h3>
+                        <div style="width:100%;text-align:center;margin-top:30px;">
+                            <p>Punnel đã gửi cho bạn email xác thực vào email <strong ng-bind="user_profile.email"></strong></p>
+                            Bạn hãy vào Hộp thư (Inbox) mở email làm theo hướng dẫn để xác thực tài khoản.
+                        </div>
+                        <div style="display:block;margin-top:30px;font-size:90%;">
+                            Nếu chưa nhận được email xác thực? <br /> <a href="javascript:void(0);" ng-click="sendVerifyEmail()">Gửi lại email xác thực tài khoản</a>
+                            <p><a href="javascript:void(0);" ng-click="logOut()">Đăng nhập tài khoản khác</a></p> 
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

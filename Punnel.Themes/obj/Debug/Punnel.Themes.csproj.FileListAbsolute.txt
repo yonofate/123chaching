@@ -1,0 +1,2 @@
+C:\Source\yonofate\punnel\src\Punnel.Themes\obj\Debug\Punnel.Themes.csprojAssemblyReference.cache
+C:\Source\yonofate\punnel\src\Punnel.Themes\obj\Debug\Punnel.Themes.csproj.CoreCompileInputs.cache

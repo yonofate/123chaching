@@ -1,0 +1,29 @@
+﻿<md-dialog aria-label="popup config" ng-init="init()">
+    <md-toolbar>
+        <div class="md-toolbar-tools white">
+            <h2>Cấu hình dữ liệu động từ GoogleSheet</h2>
+            <span flex></span>
+            <md-button class="md-icon-button" ng-click="cancel()">
+                <i class="material-icons">close</i>
+            </md-button>
+        </div>
+    </md-toolbar>
+    <form name="myForm" ng-submit="submit()">
+        <md-dialog-content style="width:620px; max-height:810px;">
+            <md-content class="md-padding">
+                <div>
+                    <md-input-container class="md-block">
+                        <label>Google SheetID</label>
+                        <input md-maxlength="200" ng-model="databind.sheetId">
+                    </md-input-container>
+                    <p class="text-info">Ví dụ: https://docs.google.com/spreadsheets/d/abc1234567/edit#gid=0 <br />thì SheetID là: "abc1234567".</p>
+                </div>
+            </md-content>
+        </md-dialog-content>
+        <md-dialog-actions layout="row">           
+            <md-button id="btn-sm" type="submit" class="md-raised md-primary">
+                Ok
+            </md-button>
+        </md-dialog-actions>
+    </form>
+</md-dialog>

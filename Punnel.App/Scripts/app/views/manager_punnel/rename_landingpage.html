@@ -1,0 +1,12 @@
+﻿<div class="dialog small modal info page-title-setting active fadeIn animated" ng-controller="rename_ladiCtr as rename_ladi">
+    <div class="header">
+        <div class="text">{{TOPBAR.RENAME_LADIPAGE|translate}}</div> <i class="material-icons right-modal" ng-click="closeNew()">close</i>
+    </div>
+    <div class="content">
+        <p id="ngdialog3-aria-describedby">{{CUSTOM_NEW_LADIPAGE.INTRO|translate}}</p>
+        <div class="row">
+            <div class="ui inline input"> <input type="text" name="page-title" placeholder="{{CUSTOM_NEW_LADIPAGE.PLACOHLDER|translate}}" style="width: 100%" ng-model="name_new"> </div>
+        </div>
+    </div>
+    <div class="footer text-center"> <a class="ui button action" ng-click="changeNameLadi()" translate="GENERAL_DIALOG_FORM.DONE"></a> </div>
+</div>

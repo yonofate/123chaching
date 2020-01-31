@@ -1,0 +1,44 @@
+﻿<div id="wrapper" class="wrapper signup-page" ng-controller="registerCtrl as register">
+    <div id="content" class="container signup clearfix">
+        <div class="form-user clearfix">
+            <div class="logo clearfix"> <img src="images/logo-full-color.png" alt="image1"> </div>
+            <div class="modal-login modal-signup clearfix">
+                <div class="form-action">
+                    <div class="form-login form-signup">
+                        <h3 class="title-login"> Đăng Ký </h3>
+                        <form class="cd-form floating-labels" name="formSubmit">
+                            <div class="form-group"> <span class="your-email"> <label>Email</label> <input class="email error" type="email" required placeholder="Email" ng-model="user_email" ng-keydown="submitForm($event)" autofocus> </span> </div>
+                            <div class="icon form-group">
+                                <span class="your-email icon">
+                                    <label>Mật khẩu</label> <input class="user" type="password" placeholder="***********" required ng-model="user_pass" ng-keydown="submitForm($event)"> <span class="bar"></span>
+                                    <div class="alert alert-error alert-password"> Oops! Password is required. </div>
+                                </span>
+                            </div>
+                            <div class="form-group"> <span class="your-email"> <label>Họ và tên</label> <input class="email error" type="text" required placeholder="Họ và tên" ng-model="user_name" ng-keydown="submitForm($event)"> </span> </div>
+                            <div class="form-group"> <span class="your-email"> <label>Số điện thoại</label> <input class="email error" type="text" required placeholder="Số điện thoại" maxlength="11" minlength="10" name="cd-phone" id="cd-phone" ng-model="user_phone" ng-keydown="submitForm($event)"> </span> </div>
+                            <!--<div class="form-group">-->
+                            <!--<span class="your-email ">-->
+                            <!--<label >Mã giới thiệu</label>-->
+                            <!--<input class="email error" type="password" placeholder="Nhập mã giới thiệu (nếu có)" name="cd-phone" id="cd-referral" ng-model="user_referral" ng-keydown="submitForm($event)">-->
+                            <!--</span>-->
+                            <!--</div>-->
+                            <div class="icon form-group">
+                                <span class="your-email icon">
+                                    <input class="user" type="checkbox" required checked style="width:15px; height: 15px"> <span class="bar"> Tôi đồng ý với <a href="https://docs.punnel.com/di%E1%BB%81u-kho%E1%BA%A3n-va-chinh-sach/di%E1%BB%81u-kho%E1%BA%A3n-s%E1%BB%AD-d%E1%BB%A5ng-d%E1%BB%8Bch-v%E1%BB%A5" target="_blank" style="background: rgba(0,0,0,0); color: #009FE3; margin: 5px 0;padding: 0"> Quy định sử dụng </a> & <a href="https://docs.punnel.com/di%E1%BB%81u-kho%E1%BA%A3n-va-chinh-sach/chinh-sach-b%E1%BA%A3o-m%E1%BA%ADt" target="_blank" style="background: rgba(0,0,0,0); color: #009FE3; margin: 5px 0;padding: 0"> Chính sách bảo mật </a> của LadiPage Việt Nam </span>
+                                    <div class="alert alert-error alert-password"> Oops! Password is required. </div>
+                                </span>
+                            </div>
+                            <div class="form-group clearfix"> <span class="your-email"> <!--<img ng-if="loading == \'true\'" src="images/loading-data.86a5c0c5.svg" alt="logo" class="logo" style="width: 30px;height: 30px;position: relative;left: 10px;display: block;">--> <input type="submit" class="form-control btn-register" name="" value="Đăng ký" ng-click="user_register()"> </span> </div>
+                        </form>
+                        <div class="bottomlinks clearfix">
+                            <div class="link">
+                                <p>Bạn đã có tài khoản?<a ui-sref="auth.login" class="forgotPassword text-center"> Quay lại trang đăng nhập!</a> </p>
+                                <p class="code-ref" ng-if="showReferral == 'true'">Mã giới thiệu: {{user_referral}}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,41 @@
+﻿<md-dialog aria-label="Tích hợp điện thoại">
+    <md-toolbar>
+        <div class="md-toolbar-tools white">
+            <h2 ng-bind="site.name"></h2>
+            <span flex></span>
+            <md-button class="md-icon-button" ng-click="cancel()">
+                <i class="material-icons">close</i>
+            </md-button>
+        </div>
+    </md-toolbar>
+    <form name="myForm" ng-submit="submit()">
+        <md-dialog-content>
+            <div class="md-dialog-content" style="min-width:400px;">
+                <div flex>
+                    <md-input-container class="md-block">
+                        <label>Tên điện thoại</label>
+                        <input ng-model="device.name" autocomplete="off" md-autofocus required>
+                    </md-input-container>
+                    <md-input-container class="md-block">
+                        <label>SĐT Sim 1</label>
+                        <input type="text" ng-model="device.sim1" autocomplete="off" required>
+                    </md-input-container>
+                    <md-input-container class="md-block">
+                        <label>SĐT Sim 2</label>
+                        <input type="text" ng-model="device.sim2" autocomplete="off">
+                    </md-input-container>
+                    <md-input-container class="md-block">
+                        <label>Mã bảo mật(sử dụng khi login app)</label>
+                        <input required type="text" ng-model="device.pin" autocomplete="off" maxlength="8">
+                    </md-input-container>
+                </div>
+            </div>
+        </md-dialog-content>
+        <md-dialog-actions layout="row">
+            <span flex></span>
+            <md-button id="btn-sm" ng-disabled="myForm.$valid==false" type="submit" class="md-raised md-primary">
+                Kết nối
+            </md-button>
+        </md-dialog-actions>
+    </form>
+</md-dialog>

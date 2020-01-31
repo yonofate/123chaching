@@ -1,0 +1,29 @@
+﻿<div class="dialog with-footer modal pages page-management active fadeIn animated" ng-controller="restoreLadipageCtr as managerLadipage">
+    <div class="header">
+        <div class="text" translate="RESTORE_LADIPAGE.INTRO"></div> <i class="material-icons right-modal" ng-click="closeManage()">close</i>
+    </div>
+    <div class="content">
+        <div class="control">
+            <a class="ui button" ng-click="retorePage($event)"><i class="material-icons">history</i><span translate="RESTORE_LADIPAGE.LABEL_RESTORE"></span></a>
+            <div class="right floated">
+                <input class="search-form" type="text" placeholder="Search..." ng-model="search_name" ng-change="searchLadi()">
+                <div class="select-style" ng-if="role != 0"> <select ng-model="typeLoad" ng-change="changeTypeLoad(typeLoad)"> <option value="0" selected>Landing Page</option> <option value="10">Template</option> <option value="20">Section</option> </select> </div>
+            </div>
+        </div>
+        <div class="list col-250 scrollbox">
+            <div class="column searchladi" ng-repeat="item in itemsLadipage" pn-search-ladi="{{item.name}}" ng-click="selectItemLadipage($index,item.guid)" pn-guid="{{item.guid}}">
+                <div class="select"></div>
+                <div class="overlay"></div> <img ng-src="{{item.thumbnail}}" alt="{{item.name}}">
+                <div class="detail"> <span class="name" ng-model="item.name" value="item.name" ng-blur="changeName(item.name, item.guid, $index,$event)" contenteditable="true">{{item.name}}</span> <span class="right floated more"> <a ng-if="item.path_html != \'\' && item.path_html != undefined && item.path_html != null" href="{{item.path_html}}" target="_blank" ng-mousedown="viewLadipage(item.guid, $index)"><i class="material-icons right floated">visibility</i></a> <a ng-if="item.path_html == \'\' || item.path_html == undefined || item.path_html == null" ng-mousedown="viewLadipage(item.guid, $index)"><i class="material-icons right floated">visibility</i></a> </span> </div>
+            </div>
+        </div>
+    </div>
+    <div class="footer">
+        <!--a class="ui grey button" ng-click="closeManage()" translate="GENERAL_DIALOG_FORM.CANCEL"></a-->
+        <div class="right-modal"> <a class="ui button action" ng-click="retorePage($event)" translate="RESTORE_LADIPAGE.LABEL_RESTORE"></a> </div>
+    </div>
+    <script>
+        var scroll = new OptionWiget();
+        scroll.scrollBox();
+    </script>
+</div>

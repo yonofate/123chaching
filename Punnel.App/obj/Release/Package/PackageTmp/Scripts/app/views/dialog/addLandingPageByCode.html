@@ -1,0 +1,33 @@
+﻿<md-dialog aria-label="Tạo LandingPage">
+    <md-toolbar>
+        <div class="md-toolbar-tools white">
+            <h2>Tạo Landing Page từ Share Code</h2>
+            <span flex></span>
+            <md-button class="md-icon-button" ng-click="cancel()">
+                <i class="material-icons">close</i>
+            </md-button>
+        </div>
+    </md-toolbar>
+    <form name="myForm" ng-submit="createPageByCode()">
+        <md-dialog-content>
+            <div class="md-dialog-content">
+                <div flex>
+                    <md-input-container class="md-block">
+                        <label>Mã Code</label>
+                        <input ng-model="shareCode" autocomplete="off" md-autofocus required>
+                    </md-input-container>
+                    <md-input-container class="md-block">
+                        <label>Tên Landing Page</label>
+                        <input ng-model="pageName" required>
+                    </md-input-container>
+                </div>
+            </div>
+        </md-dialog-content>
+        <md-dialog-actions layout="row">
+            <span flex></span>
+            <md-button id="btn-sm" ng-disabled="myForm.$valid==false" type="submit" class="md-raised md-primary">
+                Tạo
+            </md-button>
+        </md-dialog-actions>
+    </form>
+</md-dialog>

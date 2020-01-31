@@ -1,0 +1,45 @@
+﻿<md-dialog aria-label="puhblishWP">
+    <md-toolbar>
+        <div class="md-toolbar-tools white">
+            <h2>Cấu hình xuất bản WordPress</h2>
+            <span flex></span>
+            <md-button class="md-icon-button" ng-click="cancel()">
+                <i class="material-icons">close</i>
+            </md-button>
+        </div>
+    </md-toolbar>
+    <form name="myForm" ng-submit="submit()">
+        <md-dialog-content>
+            <div class="md-dialog-content" style="min-width:400px;">
+                <div flex>
+                    <md-input-container class="md-block">
+                        <label>API Key</label>
+                        <input ng-model="wp.token" autocomplete="off" md-autofocus required>
+                    </md-input-container>
+                </div>
+                <div flex>
+                    <md-input-container class="md-block">
+                        <label>API Url</label>
+                        <input ng-model="wp.domain" autocomplete="off" required>
+                    </md-input-container>
+                </div>
+                <div flex>
+                    <md-input-container class="md-block">
+                        <label>Đường dẫn (ex: khuyen-mai-thang-1)</label>
+                        <input ng-model="wp.pathUrl" autocomplete="off" placeholder="khuyen-mai-thang-1" required>
+                    </md-input-container>
+                </div>
+
+            </div>
+            <div style="padding:0px 25px 30px 25px;color:#666">
+                <a target="_blank" href="https://support.punnel.com/article/31-huong-dan-xuat-ban-landing-page-len-wordpress"><span>Hướng dẫn cấu hình xuất bản wordpress</span></a>
+            </div>
+        </md-dialog-content>
+        <md-dialog-actions layout="row">
+            <span flex></span>
+            <md-button id="btn-sm" ng-disabled="myForm.$valid==false" type="submit" class="md-raised md-primary">
+                OK
+            </md-button>
+        </md-dialog-actions>
+    </form>
+</md-dialog>

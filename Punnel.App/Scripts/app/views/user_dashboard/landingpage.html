@@ -1,0 +1,26 @@
+﻿<section ng-controller="landingpageCtr as landingpage">
+    <div class="container">
+        <div class="box-title clearfix">
+            <div class="pull-left clearfix title"> Landing Page của tôi </div>
+            <div class="pull-right"> <button type="button" class="btn btn-primary" ng-click="createNewLandingpage()"><span class="ion-plus-round"></span> &nbsp;Tạo mới </button> </div>
+            <div class="loading-data" ng-show="loadingData === false"> <img src="../../images/loading-data.86a5c0c5.svg" alt=""> </div>
+        </div>
+        <div class="content-inner">
+            <div class="row">
+                <div class="col-sm-4 col-md-4 col-xs-6" ng-repeat="item in data">
+                    <div class="box-inner clearfix">
+                        <div class="box-image"> <img alt="{{item.name}}" ng-src="{{item.thumbnail || 'images/noimage.png'}}" ui-sref="editor({type:'p',id: item.id})"> </div>
+                        <div class="action-group clearfix">
+                            <div class="title-inner pull-left">
+                                <h3 class="pull-left title-image"> {{item.name}} </h3> <i class="ion-edit" ng-click="showInputchange($event, item.name)"></i> <input type="text" placeholder="change title" class="title-project-change" ng-keydown="changeNameProject(item.id, $event, $index)">
+                            </div>
+                            <div class="pull-right"> <span><a data-toggle="tooltip" data-placement="bottom" title="Nhân bản" ng-click="clone(item.id)"><i class="ion-ios-browsers-outline"></i></a></span> <span><a data-toggle="tooltip" data-placement="bottom" title="Xóa" ng-click="remove(item.id, item.name)"><i class="ion-ios-trash-outline"></i></a></span> </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="upload-img col-md-12 col-xs-12" ng-if="checkLoad == true"> <button class="btn btn-primary" ng-click="loadMore()">Xem thêm</button> </div>
+                <div class="loading"> <img src="images/loading-data.86a5c0c5.svg" alt="logo" class="logo"> </div>
+            </div>
+        </div>
+    </div>
+</section>

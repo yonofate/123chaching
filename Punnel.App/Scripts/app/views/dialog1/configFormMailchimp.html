@@ -1,0 +1,76 @@
+﻿<div class="modal fade container modal-form" id="configFormMailchimp" role="dialog">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title"><img height="16" width="16" style="margin-right:5px;" src="//www.google.com/s2/favicons?domain=mailchimp.com">Cài đặt lưu dữ liệu với Mailchimp</h4>
+            </div>
+            <div class="modal-body">
+                <!--<ul class="nav nav-pills" role="tablist" id="myTab">
+                    <li class="active" role="presentation"> <img class="icon-save-data-form" src="images/get-response-icon.png"> <a class="title-save-data-form" role="tab" data-toggle="tab">GetResponse</a></li>
+                    <a class="hepn-btn" title="Hướng dẫn kết nối" target="_blank" href="https://docs.punnel.com/article/77-huong-dan-ket-noi-du-lieu-voi-get-response"> ? </a>
+                </ul>-->
+                <div class="tab-content">
+                    <div ng-show="mailchimp.type == 'listAccount'">
+                        <div class="list-ac">
+                            <div class="creat-new-mailC">
+                                <form name="submitForm" ng-submit="submitForm.$valid && mailchimp.connect()" novalidate>
+                                    <!--<input type="text" placeholder="Nhập API Key" ng-model="mailchimp.apiKey" required maxlength="50" oninvalid="this.setCustomValidity(PN_PAGE.messages.ApiKey_Require)" oninput="setCustomValidity('')">-->
+                                    <div layout-gt-sm="row" class="layout-gt-sm-row">
+                                        <md-input-container class="md-block" flex="80">
+                                            <label>Nhập API Key</label>
+                                            <input name="apiKey" ng-model="mailchimp.apiKey" md-maxlength="30" required md-no-asterisk>
+                                            <div ng-messages="submitForm.apiKey.$error">
+                                                <div ng-message="required">Vui lòng nhập ApiKey</div>
+                                                <div ng-message="md-maxlength">Chiều dài phải nhỏ hơn 50</div>
+                                            </div>
+                                        </md-input-container>
+                                        <md-button type="submit" md-no-ink class="md-primary">Thêm</md-button>
+                                    </div>
+                                </form>
+                            </div>
+                            
+                            <div class="list-ac-mail">
+                                <md-radio-group class="md-primary">
+                                    <md-radio-button ng-repeat="option in mailchimp.accounts track by $index"
+                                                     ng-value="option.accId"
+                                                     ng-model="mailchimp.selectedAcc.accId">
+                                        {{option.email}}
+                                    </md-radio-button>
+                                </md-radio-group>
+
+                                <!--<div ng-repeat="option in mailchimp.accounts track by $index">
+                                    <div class="input">
+                                        <input type="radio" name="accounts" ng-value="option.accId" ng-model="mailchimp.selectedAcc.accId" />
+                                        <label>{{ option.email }}</label>
+                                    </div>
+                                </div>-->
+                            </div>
+                        </div>
+                    </div>
+                    <div ng-show="mailchimp.type == 'listCampain'">
+                        <div class="list-ac-mail">
+                            <md-radio-group class="md-primary">
+                                <md-radio-button ng-repeat="option in mailchimp.campains track by $index"
+                                                 ng-value="option.id"
+                                                 ng-model="mailchimp.selectedCampain.id">
+                                    {{option.name}}
+                                </md-radio-button>
+                            </md-radio-group>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <div class="submit-form pull-right clearfix">
+
+                    <button type="button" class="btn btn-primary pull-left" ng-click="mailchimp.step0()" ng-show="mailchimp.type == 'listAccount'">Trở lại</button>
+                    <button type="button" class="btn btn-primary" ng-click="mailchimp.selectAccount()" ng-show="mailchimp.type == 'listAccount' && mailchimp.selectedAcc">Tiếp tục</button>
+                    <button type="button" class="btn btn-primary pull-left" ng-click="mailchimp.step1()" ng-show="mailchimp.type == 'listCampain'">Trở lại</button>
+                    <button type="button" class="btn btn-primary" ng-click="mailchimp.selectCampain()" ng-show="mailchimp.type == 'listCampain' && mailchimp.selectedCampain">Tiếp tục</button>
+                    <button type="button" class="btn btn-primary pull-left" ng-click="mailchimp.disconnect()" ng-show="mailchimp.configured">Hủy kết nối</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

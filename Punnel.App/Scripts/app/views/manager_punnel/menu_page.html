@@ -1,0 +1,35 @@
+﻿<header id="header" class="clearfix" ng-controller="menu_pageCtr as menuPage">
+    <div class="logo" ui-sref="dashboard">
+        <a href=""> <img src="images/logo.png" alt="Landing page"> </a>
+        <div class="title" ng-click="showPageSetting()"> <a href="">Landing page title</a> </div>
+    </div>
+    <div class="action-screen clearfix">
+        <ul>
+            <li class="active" data-toggle="tooltip" data-placement="bottom" title="Đã lưu {{timeUpdate | date: \'hh:mm:ss\'}}"> <a href=""> <i class="ion-android-checkmark-circle" ng-click="saveLandingpage()" ng-show="isRequestSaveAuto"></i> <img src="./images/loading-data.86a5c0c5.svg" ng-show="!isRequestSaveAuto" alt="Landing page"> </a> </li>
+            <li class="active" data-toggle="tooltip" data-placement="bottom" title="Desktop" ng-click="editDesktop();setActiveDrive(\'desktop\')" pn-active="drive" pn-menu-active="desktop"> <a href=""><i class="ion-android-desktop"></i></a> </li>
+            <li data-toggle="tooltip" data-placement="bottom" title="Mobile" ng-click="editMobile();setActiveDrive(\'mobile\')" pn-active="drive" pn-menu-active="mobile"> <a href=""><i class="ion-android-phone-portrait"></i></a> </li>
+        </ul>
+    </div>
+    <div class="action-setting clearfix">
+        <ul>
+            <li class="active edit-element-page" data-toggle="tooltip" data-placement="bottom" title="Chỉnh sửa" ng-click="setActiveMtab(\'edit-element-page\');backEdit($event)"> <a href=""><i class="ion-settings"></i></a> </li>
+            <li class="preview-element-page" data-toggle="tooltip" data-placement="bottom" title="Xem trước" ng-click="setActiveMtab(\'preview-element-page\');previewLadipage($event)"> <a href=""><i class="ion-eye"></i></a> </li>
+        </ul>
+    </div>
+    <div class="user-setting clearfix">
+        <ul class="list-menu">
+            <li data-toggle="tooltip" data-placement="bottom" title="Undo" class="hidden-xs" ng-click="editUndo()"> <a href=""><i class="ion-ios-undo-outline"></i></a> </li>
+            <li data-toggle="tooltip" data-placement="bottom" title="Undo" class="hidden-xs" ng-click="editRedo()"> <a href=""><i class="ion-ios-redo-outline"></i></a> </li>
+            <li data-toggle="tooltip" data-placement="bottom" title="Xuất bản" ng-click="showActionPage()"> <a href="" data-toggle="modal" data-target="#myModal1"><i class="ion-ios-cloud-download-outline"></i></a> </li>
+            <li data-toggle="tooltip" data-placement="bottom" title="Giúp đỡ"> <a href="https://www.facebook.com/groups/congdongpunnel/?__mref=message_bubble"><i class="ion-ios-hepn-outline"></i></a> </li>
+            <li class="dropdown">
+                <a href=""><img class="image-avatar-user" src="images/avatar_user_default.3d793d4c.png" alt="{{name}}"></a>
+                <ul class="submenu">
+                    <li ng-click="showAccountSetting()"><a href="">Thông tin</a></li>
+                    <li ui-sref="dashboard.project"><a href="">Quản lý Landing page</a></li>
+                    <li ui-sref="logout"><a href="">Thoát</a></li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+</header>

@@ -1,0 +1,79 @@
+﻿<style>
+    .drange .md-errors-spacer {
+        display: none;
+    }
+    .td-number{
+        text-align:right !important;
+    }
+    .ispaid {
+        color: #4177F6;
+    }
+    .row-action{
+        margin-bottom:30px;
+    }
+</style>
+<div class="main-dashboard" id="lead-dashboard" ng-controller="promotionCodeManagerCtrl">
+    <div class="container">
+        <section class="dashboard-page" ng-init="search()">
+            <div class="row row-action">
+                <div class="col-md-8">
+                </div>
+                <div class="col-md-4 col-right">
+                    <md-button style="float:right;" class="md-raised md-primary" ng-click="detail()">Thêm mã code</md-button>
+                </div>
+            </div>
+            
+
+            <table class="table table-striped nohead user-manager">
+                <thead>
+                    <tr>
+                        <td>Code</td>
+                        <td>Chiến dịch</td>
+                        <td>Tổng số</td>
+                        <td>Đã dùng</td>
+                        <td>Bắt đầu</td>
+                        <td>Hết hạn</td>
+                        <td class="td-number">Cập nhật bởi</td>
+                        <td style="width:120px;text-align:right;"></td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="item in list">
+                        <td><span ng-bind="item.code || '---'"></span></td>
+                        <td><span ng-bind="item.name || '---'"></span></td>
+                        <td><span ng-bind="item.total || 0"></span></td>
+                        <td><span ng-bind="item.totalUsed || 0"></span></td>
+                        <td>
+                            <span ng-bind="item.activeDate | date:'dd/MM/yyyy'"></span>
+                        </td>
+                        <td>
+                            <span ng-bind="item.expiredDate | date:'dd/MM/yyyy'"></span>
+                        </td>
+                        <td class="td-number">
+                            <span ng-bind="item.updatedBy"></span>
+                        </td>
+                        <td style="text-align:right;">
+                            <md-menu md-position-mode="target-right target">
+                                <md-button aria-label="Open group" class="md-icon-button" ng-click="$mdMenu.open($event)">
+                                    <md-icon class="material-icons">more_horiz</md-icon>
+                                </md-button>
+                                <md-menu-content width="3">
+                                    <md-menu-item>
+                                        <md-button ng-click="detail(item)">
+                                            <div layout="row" flex>
+                                                <p flex>Chi tiết</p>
+                                                <md-icon class="material-icons">details</md-icon>
+                                            </div>
+                                        </md-button>
+                                    </md-menu-item>
+                                </md-menu-content>
+                            </md-menu>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <span ng-show="totalItem>0"><strong ng-bind="total"></strong> mã code khuyến mãi</span>
+            <ul style="margin-top:0px;float:right" ng-show="total>query.limit" uib-pagination total-items="total" ng-model="query.page" items-per-page="query.limit" class="pagination" ng-change="pageChanged()"></ul>
+        </section>      
+    </div>
+</div>

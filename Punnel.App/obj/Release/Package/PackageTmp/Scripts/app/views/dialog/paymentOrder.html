@@ -1,0 +1,115 @@
+﻿<md-dialog aria-label="{{title}}">
+    <md-toolbar>
+        <div class="md-toolbar-tools white">
+            <h2 ng-bind="title"></h2>
+            <span flex></span>
+            <md-button class="md-icon-button" ng-click="cancel()">
+                <i class="material-icons">close</i>
+            </md-button>
+        </div>
+    </md-toolbar>
+    <form name="myForm" ng-submit="submit()">
+        <md-dialog-content>
+            <md-dialog-content>
+                <div class="md-dialog-content" style="width:750px;">
+                    <div flex class="col-md-6 upgrade-page" style="padding:0px;padding-right:30px;">
+                        <div class="box box-advance" ng-if="data.serviceId===1">
+                            <div class="box-header">
+                                <h3 class="box-title p-title">Economy</h3>
+                                <div>
+                                    <span>Gói tiết kiệm</span>
+                                </div>
+                            </div>
+                            <div class="box-body">
+                                <div class="box-price">
+                                    <span class="price">99K</span><span class="sub-price">/tháng</span>
+                                </div>
+                                <div class="desc">
+                                    <ol class="widget-content"><li>Được tạo tối đa 3 landing page.<br></li><li>Không giới hạn bằng thông truy cập</li><li>Không giới hạn email responder</li><li>Miễn phí mobile app</li><li>Miễn phí SSL</li></ol>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="box box-advance" ng-if="data.serviceId===2">
+                            <div class="box-header">
+                                <h3 class="box-title p-title">Business</h3>
+                                <div>
+                                    <span>Gói nâng cao</span>
+                                </div>
+                            </div>
+                            <div class="box-body">
+                                <div class="box-price">
+                                    <span class="price">199K</span><span class="sub-price">/tháng</span>
+                                </div>
+                                <div class="desc">
+                                    <ol class="widget-content"> <li>Không giới hạn số lượng landing page.<br></li><li>Không giới hạn bằng thông truy cập</li><li>Không giới hạn email responder</li><li>Miễn phí SSL</li><li>Miễn phí mobile app<br></li></ol>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="box box-advance" ng-if="data.serviceId===3">
+                            <div class="box-header">
+                                <h3 class="box-title p-title">VIP</h3>
+                                <div>
+                                    <span>Gói VIP</span>
+                                </div>
+                            </div>
+                            <div class="box-body">
+                                <div class="box-price">
+                                    <span class="price">299K</span><span class="sub-price">/tháng</span>
+                                </div>
+                                <div class="desc">
+                                    <ol class="widget-content"> <li>Không giới hạn số lượng landing page.<br></li><li>Không giới hạn bằng thông truy cập</li><li>Không giới hạn email responder</li><li>Miễn phí SSL</li><li>Miễn phí mobile app</li><li>Hỗ trợ tư vấn 24/7 Hotline, livechat</li></ol>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div flex class="col-md-6" style="padding-right:0px;">
+                        <md-input-container flex="100" style="width:100%">
+                            <label>Gói dịch vụ</label>
+                            <md-select ng-change="calc()" flex ng-model="data.serviceId" md-autofocus ng-init="initServices()" required>
+                                <md-option ng-repeat="item in serviceOptions" ng-value="item.i">
+                                    {{item.n}}
+                                </md-option>
+                            </md-select>
+                        </md-input-container>
+                        <md-input-container flex="100" style="width:100%">
+                            <label>Thời gian</label>
+                            <md-select ng-change="calc()" flex ng-model="data.timeId" ng-init="initTime()" required>
+                                <md-option ng-repeat="item in timeOptions" ng-value="item.i">
+                                    {{item.n}}
+                                </md-option>
+                            </md-select>
+                        </md-input-container>
+                        <md-input-container class="no-err" ng-show="data.amountbf>data.amount" flex="100" style="width:100%;">
+                            <input style="text-align:right;text-decoration:line-through;" ng-model="data.amountbf | number:0" autocomplete="off" readonly>
+                        </md-input-container>
+                        <md-input-container class="no-err" flex="100" style="width:100%;">
+                            <label>Thành tiền(vnđ)</label>
+                            <input style="text-align:right;" ng-model="data.amount | number:0" autocomplete="off" readonly>
+                        </md-input-container>
+                        <md-input-container class="no-err" flex style="width:235px;">
+                            <label>Mã giảm giá</label>
+                            <input style="text-transform: uppercase;" ng-model="data.promotionCode" autocomplete="off">
+                        </md-input-container>
+                        <md-button style="margin:0px; font-size: 12px;line-height:28px;min-height: 22px;" ng-disabled="data.promotionCode.length<3 || myForm.$valid==false" class="md-raised md-primary" ng-click="validatePromotionCode()">
+                            Sử dụng
+                        </md-button>
+                        <md-input-container flex="100" style="width:100%;" ng-show="data.discountAmount>0">
+                            <label>Giảm giá(vnđ)</label>
+                            <input style="text-align:right;" ng-model="data.discountAmount * -1 | number:0" autocomplete="off" readonly>
+                        </md-input-container>
+                        <md-input-container flex="100" style="width:100%;">
+                            <label>Tổng tiền(vnđ)</label>
+                            <input style="text-align:right;font-weight:700;font-size:16px;" ng-model="data.totalAmount | number:0" autocomplete="off" readonly>
+                        </md-input-container>
+                    </div>
+                    </div>
+</md-dialog-content>
+        </md-dialog-content>
+        <md-dialog-actions layout="row">
+            <span flex></span>
+            <md-button ng-disabled="myForm.$valid==false" type="submit" class="md-raised md-primary">
+                Tiếp tục
+            </md-button>
+        </md-dialog-actions>
+    </form>
+</md-dialog>

@@ -1,0 +1,15 @@
+﻿<div class="dialog small modal info page-title-setting active fadeIn animated" ng-controller="newLadipageCtr as newLadipage">
+    <div class="header">
+        <div class="text">New Page</div> <i class="material-icons right-modal" ng-click="closeNew()">close</i>
+    </div>
+    <div class="content">
+        <p id="ngdialog3-aria-describedby">{{CUSTOM_NEW_LADIPAGE.INTRO|translate}}</p>
+        <div class="row">
+            <div class="ui inline input"> <input type="text" name="page-title" placeholder="{{CUSTOM_NEW_LADIPAGE.PLACOHLDER|translate}}" style="width: 100%" ng-model="name_new" ng-keyup="checknewLadipage($event)"> </div>
+        </div>
+        <div class="row" ng-if="addNew != 0">
+            <div class="select-style"> <select ng-model="guidCate" ng-change="setCategory(guidCate)"> <option value="" translate="CUSTOM_NEW_LADIPAGE.SELECT_DEFAULT"></option> <option ng-repeat="item in itemsCategory" value="{{item.guid}}">{{item.name}}</option> </select> </div>
+        </div>
+    </div>
+    <div class="footer text-center"> <a class="ui button action" ng-click="newladipage()" translate="GENERAL_DIALOG_FORM.DONE"></a> </div>
+</div>

@@ -1,0 +1,145 @@
+﻿<div class="main-dashboard" id="lead-dashboard" ng-controller="templateCtr" ng-init="search()">
+    <div class="container">
+        <section class="dashboard-page">
+            <div class="row">
+                <div class="col-md-8">
+                    <md-input-container style="width:130px;">
+                        <label>Lọc theo loại</label>
+                        <md-select ng-change="search()" aria-label="loại" ng-model="query.type">
+                            <md-option ng-repeat="item in typeOptions" ng-value="item.i">
+                                {{item.n}}
+                            </md-option>
+                        </md-select>
+                    </md-input-container>
+                    <md-input-container style="width:180px;">
+                        <label>Lọc theo trạng thái</label>
+                        <md-select ng-change="search()" aria-label="trạng thái" ng-model="query.status">
+                            <md-option ng-repeat="item in statusOptions" ng-value="item.i">
+                                {{item.n}}
+                            </md-option>
+                        </md-select>
+                    </md-input-container>
+                </div>
+                <div class="col-md-4 col-right">
+                    <md-button style="float:right;" class="md-raised md-primary" ng-click="showAddTemplate()">Thêm mới</md-button>
+                </div>
+            </div>
+            <div class="content-inner template-list" ng-show="data.length > 0">
+                <div class="row new-landipage ">
+                    <div class="col-sm-4 col-md-4 col-xs-6" ng-repeat="item in data">
+                        <div class="box-inner clearfix">
+                            <div class="box-image">
+                                <img alt="{{item.name}}" ng-src="{{item.thumbnail || 'images/noimage.png'}}">
+                                <div class="action-group clearfix">
+                                    <a class="btn btn-primary" ui-sref="preview-template({type:'t', id: item.id})" target="_blank">Xem</a>
+                                    <a class="btn btn-success" ui-sref="editor({type:'t',id: item.id})" target="_blank">Sửa</a>
+                                </div>
+                            </div>
+                            <div>
+                                <label class="template-item-type template-status-{{item.type/10}}" ng-bind="getTemplateTypeName(item.type)"></label>
+                                <label class="template-item-price" ng-if="item.price>0" ng-bind="item.price|number:0"></label>
+                                <label ng-if="isEditor == true" class="template-item-status template-status-{{item.status}}" ng-bind="getStatusName(item.status)"></label>
+                            </div>
+                            <div class="action-group clearfix">
+                                <div class="title-inner pull-left">
+                                    <h3 class="pull-left title-image"> {{item.name}} </h3>
+                                    <i data-toggle="tooltip" data-placement="bottom" title="Sửa tên" class="material-icons dp48" ng-click="showChangeName(item.id, item.name)">create</i>
+                                </div>
+                                <div class="pull-right btns">
+                                    <md-menu md-position-mode="target-right target">
+                                        <md-button aria-label="Open group" class="md-icon-button" ng-click="$mdMenu.open($event)">
+                                            <md-icon class="material-icons">more_horiz</md-icon>
+                                        </md-button>
+                                        <md-menu-content width="3">
+                                            <md-menu-item>
+                                                <md-button ng-click="showEdit(item)">
+                                                    <div layout="row" flex>
+                                                        <p flex>Thông tin</p>
+                                                        <md-icon class="material-icons">create</md-icon>
+                                                    </div>
+                                                </md-button>
+                                            </md-menu-item>
+                                            <md-menu-item>
+                                                <md-button ng-click="createTemplate(item)">
+                                                    <div layout="row" flex>
+                                                        <p flex>Nhân bản</p>
+                                                        <md-icon class="material-icons">control_point_duplicate</md-icon>
+                                                    </div>
+                                                </md-button>
+                                            </md-menu-item>
+                                            <md-menu-item>
+                                                <md-button ng-click="showUploadImg(item)">
+                                                    <div layout="row" flex>
+                                                        <p flex>Hình đại diện</p>
+                                                        <md-icon class="material-icons">add_a_photo</md-icon>
+                                                    </div>
+                                                </md-button>
+                                            </md-menu-item>
+                                            <md-menu-item>
+                                                <md-button ng-click="remove(item.id)">
+                                                    <div layout="row" flex>
+                                                        <p flex>Xóa</p>
+                                                        <md-icon class="material-icons">delete</md-icon>
+                                                    </div>
+                                                </md-button>
+                                            </md-menu-item>
+                                        </md-menu-content>
+                                    </md-menu>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="upload-img col-md-12 col-xs-12" ng-if="checkLoad == true"> <button class="btn btn-primary" ng-click="loadMore()">Xem thêm</button> </div>
+                    <div class="loading"> <img src="images/loading-data.86a5c0c5.svg" alt="logo" class="logo"> </div>
+                </div>
+            </div>
+
+            <div class="empty-block" ng-show="data.length == 0">
+                <div class="u-text">
+                    <div class="u-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" height="102" id="empty-page" viewBox="0 0 82 102" width="82">
+                            <defs>
+                                <style>
+                                    #empty-page .cls-1 {
+                                        fill: #f8f9fb;
+                                    }
+
+                                    #empty-page .cls-2 {
+                                        fill: none;
+                                    }
+
+                                    #empty-page .cls-2, #empty-page .cls-3 {
+                                        stroke: #dde3ea;
+                                        stroke-width: 2px;
+                                    }
+
+                                    #empty-page .cls-3 {
+                                        fill: #fff;
+                                        fill-rule: evenodd;
+                                    }
+
+                                    #empty-page .cls-4 {
+                                        fill: #dde3ea;
+                                    }
+                                </style>
+                            </defs>
+                            <rect class="cls-1" height="9" rx="2" ry="2" width="77" x="3" y="2" />
+                            <rect class="cls-2" data-name="Rounded Rectangle 1" height="100" id="Rounded_Rectangle_1" rx="4" ry="4" width="80" x="1" y="1" />
+                            <path class="cls-3" d="M79 12H2" />
+                            <path class="cls-3" d="M61 40H21" data-name="Shape 1 copy" id="Shape_1_copy" />
+                            <path class="cls-3" d="M61 64H21" data-name="Shape 1 copy 3" id="Shape_1_copy_3" />
+                            <path class="cls-3" d="M71 52H11" data-name="Shape 1 copy 2" id="Shape_1_copy_2" />
+                            <rect class="cls-4" data-name="Rounded Rectangle 2" height="3" id="Rounded_Rectangle_2" rx="1.5" ry="1.5" width="3" x="9" y="5" />
+                            <rect class="cls-4" data-name="Rounded Rectangle 2 copy" height="3" id="Rounded_Rectangle_2_copy" rx="1.5" ry="1.5" width="3" x="15" y="5" />
+                            <rect class="cls-4" data-name="Rounded Rectangle 2 copy 2" height="3" id="Rounded_Rectangle_2_copy_2" rx="1.5" ry="1.5" width="3" x="21" y="5" />
+                        </svg>
+                    </div>
+                    <h4>Bạn chưa tạo giao diện mẫu nào. </h4>
+                    <h5>Sử dụng "Thêm mới" để bắt đầu!</h5>
+                    <h5><i>Lưu ý: Đây là giao diện mẫu của riêng bạn. Bạn có thể xem <a href="/#!/landingpage-templates">kho giao diện mẫu của punnel</a></i></h5>
+                </div>
+            </div>
+        </section>
+    </div>
+</div>
+

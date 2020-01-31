@@ -1,0 +1,178 @@
+﻿<md-dialog aria-label="Form Config">
+        <md-toolbar>
+            <div class="md-toolbar-tools">
+                <span flex>Cấu hình form</span>
+                <md-button class="md-icon-button" ng-click="cancel()">
+                    <i class="material-icons c-button__icon">close</i>
+                </md-button>
+            </div>
+        </md-toolbar>
+        <md-dialog-content style="min-width:780px; max-width:800px;max-height:810px;">
+            <md-tabs md-dynamic-height md-border-bottom>
+                <md-tab label="Lưu thông tin" ng-init="loadConfigForm()">
+                    <md-content class="md-padding integarion-config">
+                        <md-list-item ng-repeat="item in sites" class="noright">
+                            <img alt="{{ item.domain }}" ng-src="https://hstatic.punnel.com/img/icon/icon-{{item.name || 'none'}}.png" class="md-avatar" />
+                            <p>
+                                {{ item.domain }}
+                                <span ng-show="item.connected"><md-icon class="material-icons">keyboard_arrow_right</md-icon>{{item.email}}</span>
+                                <span ng-show="item.configured"><md-icon class="material-icons">keyboard_arrow_right</md-icon>{{item.listName}}</span>
+                            </p>
+                            <md-button class="md-raised md-primary" ng-show="item.configured && item.type==1" ng-click="showIntegration(item)">Sửa</md-button>
+                            <md-button id="btn-sm" class="md-raised md-default" ng-show="item.configured" ng-click="disconnect(item)">Hủy</md-button>
+                            <md-button class="md-raised md-primary" ng-show="!item.connected" ng-click="showIntegration(item)">Kết nối</md-button>
+                            <md-button class="md-raised md-primary" ng-show="!item.configured && item.connected" ng-click="showIntegration(item)">Cấu hình</md-button>
+                        </md-list-item>
+                    </md-content>
+                </md-tab>
+
+                <md-tab label="Chuyển tiếp">
+                    <md-content class="md-padding">
+                        <md-input-container style="width:100%">
+                            <label>Sau khi đăng kí thành công</label>
+                            <md-select ng-model="redirect.type" ng-init="redirect.init()" ng-change="redirect.changed()">
+                                <md-option ng-repeat="item in redirect.options" ng-value="item.i">
+                                    {{item.n}}
+                                </md-option>
+                            </md-select>
+                        </md-input-container>
+
+                        <div>
+                            <md-input-container style="width:100%" ng-if="redirect.type==0">
+                                <label>Lời nhắn cảm ơn</label>
+                                <input name="message" ng-model="redirect.message" placeholder="Cảm ơn bạn đã quan tâm">
+                            </md-input-container>
+                            <md-input-container style="width:100%" ng-if="redirect.type==1">
+                                <label>Chuyển đến URL</label>
+                                <input name="url" ng-model="redirect.url" placeholder="ví dụ: http://abc.com/cam-on">
+                            </md-input-container>
+                            <md-input-container style="width:100%" ng-if="redirect.type.length>1">
+                                <md-button md-no-ink class="md-primary" ng-click="redirect.viewPopup()">Chỉnh sửa popup</md-button>
+                            </md-input-container>
+                        </div>
+                    </md-content>
+                </md-tab>
+                <md-tab label="Auto Responder">
+                    <md-content class="md-padding" ng-init="automation.init()">
+                        <md-button class="md-raised md-primary" ng-click="automation.showAdd()">
+                            <md-icon class="material-icons">add</md-icon> Thêm 
+                        </md-button>
+                        <!--<form class="cd-form floating-labels" id="frmAutoReply" name="frmAutoReply" novalidate ng-submit="submitAutoReply()">
+                            <md-switch class="md-primary" ng-model="emailAuto.isAuto" aria-label="Switch auto" ng-change="emailAuto.changeAuto()">
+                                Cấu hình email trả lời tự động khi có đăng kí
+                            </md-switch>
+                            <div ng-if="emailAuto.isAuto==true && emailAuto.templates.length>0">
+                                <md-input-container flex="100" style="width:100%;">
+                                    <label>Chọn mẫu email đã tạo sẵn</label>
+                                    <md-select ng-model="emailAuto.id" flex="100" ng-change="emailAuto.change()" required>
+                                        <md-option ng-value="item.id" ng-repeat="item in emailAuto.templates">{{item.name}}</md-option>
+                                    </md-select>
+                                </md-input-container>
+                                <label>Thời gian chờ gửi đi sau: </label>
+                                <md-input-container flex="20">
+                                    <label>Giờ</label>
+                                    <input name="delayHour" ng-model="emailAuto.delayHour" placeholder="0" type="number"
+                                           ng-pattern="/^[0-9]$/">
+                                </md-input-container>
+                                <md-input-container flex="20">
+                                    <label>Phút</label>
+                                    <input name="delayMin" ng-model="emailAuto.delayHour" placeholder="0" type="number"
+                                           ng-pattern="/^[0-9]$/">
+                                </md-input-container>
+
+                                <div layout="row" ng-if="emailAuto.templates.length==0">
+                                    <b>Hiện tại bạn chưa có email mẫu nào!</b>
+                                    <a style="margin:0px 5px 0px 5px;font-weight:600" target="_blank" ui-sref="dashboard.emailTemplateDetail({id:0})">Tạo email mẫu </a> để sử dụng tính năng này.
+                                </div>
+                            </div>
+                        </form>-->
+                    <div style="margin-top:15px;">
+                        <table class="table table-striped nohead">
+                            <tbody>
+                                <tr ng-repeat="item in automation.list" ng-dblclick="gotoDetail(item.id, item.type)">
+                                    <td><md-icon ng-if="item.type==1" class="material-icons">mail</md-icon><md-icon ng-if="item.type==2" class="material-icons">sms</md-icon><span style="margin-left:10px;" ng-bind="item.templateName || '---'"></span></td>
+                                    <td>
+                                        <span ng-show="item.delayHour >0 || item.delayMin >0">gửi sau <span ng-show="item.delayHour >0" ng-bind="item.delayHour"></span> <span ng-show="item.delayHour >0"> giờ</span> <span ng-show="item.delayMin >0"  ng-bind="item.delayMin"></span><span ng-show="item.delayMin >0"> phút</span></span>
+                                        <span ng-show="item.delayHour ==0 && item.delayMin ==0">gửi ngay</span>
+                                    </td>
+                                    <td><span am-time-ago="item.updatedDate"></span></td>
+                                    <td class="action">
+                                        <div layout="row">
+                                        <md-switch flex="70" class="md-primary" ng-model="item.isEnable" aria-label="Switch auto" ng-change="automation.changeStatus(item)" style="height:8px;">
+                                            Sử dụng
+                                        </md-switch>
+                                        <md-button flex="30" class="md-raised md-warn btn-sm" ng-click="automation.delete(item.id,$index)" style="min-width:20px;height:26px;padding:0px;font-size:90%;width:20px;">
+                                            Xóa
+                                        </md-button>
+                                    </div>                                      
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div ng-show="automation.isAdd==1">
+                        <form class="cd-form floating-labels" name="frmAutomation" novalidate ng-submit="automation.add()">
+                            <div layout="row">
+                                <div flex="20">
+                                    <md-input-container flex="100" style="width:100%;">
+                                        <label>Loại</label>
+                                        <md-select ng-model="automation.new.type" flex="100" ng-change="automation.changeType()" required>
+                                            <md-option ng-value="1">Email</md-option>
+                                            <md-option ng-value="2">Sms</md-option>
+                                        </md-select>
+                                    </md-input-container>
+                                </div>
+                                <div flex="40">
+                                    <md-input-container flex="100" style="width:100%;">
+                                        <label>Chọn mẫu nội dung trả lời</label>
+                                        <md-select ng-model="automation.new.templateId" flex="100" required>
+                                            <md-option ng-value="item.id" ng-repeat="item in automation.templates">{{item.name}}</md-option>
+                                        </md-select>
+                                    </md-input-container>
+                                </div>
+                                <div flex="20">
+                                    <md-input-container flex="100">
+                                        <label>Gửi sau (giờ)</label>
+                                        <input name="delayHour" ng-model="automation.new.delayHour" placeholder="0" type="number">
+                                    </md-input-container>
+                                </div>
+                                <div flex="10">
+                                    <md-input-container flex="100">
+                                        <label>phút</label>
+                                        <input name="delayMin" ng-model="automation.new.delayMin" placeholder="0" type="number">
+                                    </md-input-container>
+                                </div>
+                                <div flex="10">
+                                    <md-button class="md-raised md-primary btn-sm" type="submit" ng-disabled="frmAutomation.$valid==false">
+                                        Thêm
+                                    </md-button>
+                                </div>
+                            </div>
+                            </form>
+                    </div>
+                    </md-content>
+                </md-tab>
+                <md-tab label="Tracking">
+                    <md-content class="md-padding" ng-init="tracking.init()">
+                        <md-input-container flex="100" style="width:100%;">
+                            <label>Chọn mã sự kiện</label>
+                            <md-select placeholder="Lựa chọn mã theo dõi sự kiện mẫu" ng-model="tracking.type" flex="100">
+                                <md-option ng-value="item.value" ng-repeat="item in tracking.options" ng-click="tracking.add($index)">{{item.name}}</md-option>
+                            </md-select>
+                        </md-input-container>
+                        <div class="ace-block">
+                            <div ui-ace ng-model="tracking.code"></div>
+                        </div>
+                    </md-content>
+                </md-tab>
+            </md-tabs>
+        </md-dialog-content>
+
+        <md-dialog-actions layout="row">
+            <!--<a ui-sref="dashboard.integration">Kết nối tài khoản khác</a>-->
+            <span flex></span>
+            <md-button class="md-raised md-primary" ng-click="hide()">
+                OK
+            </md-button>
+        </md-dialog-actions>
+</md-dialog>

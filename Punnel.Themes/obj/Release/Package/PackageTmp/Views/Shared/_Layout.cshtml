@@ -1,0 +1,22 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>@ViewBag.SEO_Title</title>
+    <meta http-equiv="Cache-control" content="no-cache">
+    <meta http-equiv="Expires" content="-1">
+    <meta name="description" content="@ViewBag.SEO_Desc">
+    <meta name="keywords" content="mẫu landing page, giao diện landing page, landing page templates,landing page template, landing page bán hàng, landing page themes">
+    <meta name="viewport" content="width=device-width">
+    <link rel="shortcut icon" type="image/ico" href="favicon.ico">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" async>
+    @Styles.Render("~/Content/css")
+</head>
+<body class="homepage">
+    @RenderBody()
+
+    @Scripts.Render("~/bundles/jquery")
+    @*<script async src='@Scripts.Url("~/bundles/jquery")' type="text/javascript"></script>*@
+    @RenderSection("scripts", required: false)
+</body>
+</html>
